@@ -1,0 +1,99 @@
+@CHARSET "UTF-8";
+
+body{font-family:微软雅黑;padding:0;margin:0;}
+row{padding:0;margin:0;}
+
+
+/*导航栏*/
+.navbar-default{background-color:#383838 ;}
+.navbar-brand {padding: 0;margin-right:50px;}
+.navbar-default {background-color: #383838 ;border-color: #383838 ;}
+.navbar-default .navbar-nav > li > a {color: #fff;}
+.navbar{padding-left:40px;}
+/* .navbar-default .navbar-nav > li > a:link{color:#fff;}
+.navbar-default .navbar-nav > li > a:visited
+{color:#F26868;;} */
+.navbar-default .navbar-nav > li>a:hover,
+.navbar-default .navbar-nav > li>a:focus
+{color:#F26868 ;background-color: #ccc;}
+.denglu a{font-size:18px;}
+
+
+
+/*景点推荐部分*/
+.picture1 img:hover{-moz-transform:scale(2,2); 
+-webkit-transform:scale(2,2); 
+-o-transform:scale(2,2); 
+width:400px;
+height:300px;
+}
+#picture .col-md-6 img{height:250px;border-shadow:1px 1px #000 0.5;}
+#picture .col-md-6 p{margin:20px 0;color:#000;font-size:14px;width:350px;font-weight:bold;}
+#picture .col-md-6 col-md-12{text-align: center;}
+#picture1:hover{transform:scale(1.2); 
+-webkit-transition:all 0.8s ease-in-out 0s; 
+transition:all 0.8s ease-in-out 0s ;}
+#pictureall{width:380px;height:250px;overflow:hidden;}
+#pictureall1{width:110px;height:110px;}
+
+#student .col-md-4 img:hover{}
+#student .col-md-4 {margin:30px 0;}
+
+.player1-1{height:100px;width:100px;border-radius:100px;}
+
+
+
+
+/*  底部*/
+.list-group-item {
+  background-color:#383838  ;
+  border: none;
+}
+
+a.list-group-item:hover,
+button.list-group-item:hover,
+a.list-group-item:focus,
+button.list-group-item:focus {
+  background-color: #333;
+}
+
+a.list-group-item,
+button.list-group-item {
+  color: #fff;
+}
+.foot1{border-top: solid #ccc 1px;margin-top:100px;background-color: #383838 ;padding:0;margin:50px 0 0 0;}
+
+
+/*team界面*/
+#img-circle{
+  height:150px;width:150px;border-radius:150px;
+  margin:20px;
+  margin-right:0;
+  padding-right:0;
+}
+
+/*简介界面*/
+.articles p{
+  font-size:16px;
+}
+.articles img{
+  width:50%;
+  height:50%;
+}
+
+/*ziyuan界面*/
+.liebiao{background:#fff;margin-top:20px;}
+.pinlun1{margin-top:30px;}
+.pinlun1 span{opacity:0.9;margin-left:10px;margin-top:3px;}
+.pinlun1 h4{color:red;}
+.pinlun1 .shuzi{color:#F4C600;}
+.pinlun1 img{height:70px;width:70px;margin-left:-10px;}
+
+.pinlun2 h4{color:#333;}
+.pinlun2 .fenye{width:80%;margin:0 auto;}
+
+.liebiao a.list-group-item{background-color: #fff;color:#000;border:1px #ccc solid;}
+.liebiao a.list-group-item:hover{color:#000;}
+
+.liebiao1 a.list-group-item{background-color: #fff;color:#000;}
+.liebiao a.list-group-item img{margin-left:20px;}

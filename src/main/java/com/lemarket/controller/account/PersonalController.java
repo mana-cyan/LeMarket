@@ -1,0 +1,67 @@
+package com.lemarket.controller.account;
+
+import com.lemarket.data.model.Orderinfo;
+import com.lemarket.data.model.Users;
+import com.lemarket.data.reponseObject.Status;
+import com.lemarket.service.account.OrderService;
+import com.lemarket.service.account.UserEditService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
+@Controller
+public class PersonalController {
+    @Autowired
+    private OrderService orderService;
+
+    @Autowired
+    private UserEditService userEditService;
+
+    @RequestMapping(value = "unpaid", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Orderinfo> getOrderOfUnpaid(HttpServletRequest request) {
+        String token = request.getHeader("Token");
+        return orderService.getOrderByStatus(token, "待付款");
+    }
+
+
+    @RequestMapping(value = "unreceiving", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Orderinfo> getOrderOfUnreceiving(HttpServletRequest request) {
+        String token = request.getHeader("Token");
+        return orderService.getOrderByStatus(token, "待收获");
+    }
+
+    @RequestMapping(value = "uncomment", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Orderinfo> getOrderOfUncomment(HttpServletRequest request) {
+        String token = request.getHeader("Token");
+        return orderService.getOrderByStatus(token, "待收获");
+    }
+
+    @RequestMapping(value = "orderList", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Orderinfo> getOrderOfAll(HttpServletRequest request) {
+        String token = request.getHeader("Token");
+        return orderService.getAllOrderById(token);
+    }
+
+    @RequestMapping(value = "getAddress", method = RequestMethod.GET)
+    @ResponseBody
+    public Users getAddress(HttpServletRequest request){
+        String token = request.getHeader("Token");
+        return userEditService.getAddressByToken(token);
+    }
+
+    @RequestMapping(value = "setUserInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public Status setUserInfo(@RequestBody Users users, HttpServletRequest request){
+        return new Status(userEditService.setUserInfo(users, request.getHeader("Token")));
+    }
+}

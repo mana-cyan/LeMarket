@@ -15,8 +15,8 @@ public interface ShopMapper {
 
     Shop selectByOwner(int owner);
 
-    int updateName(String name, String id);
-    int updateDescription(String description, String id);
-    int updatePhone(String phone, String id);
-    int updateIcon(String icon, String id);
+    int updateName(String name, int id);
+    int updateDescription(String description, int id);
+    int updatePhone(String phone, int id);
+    int updateIcon(int icon, int id);
 }

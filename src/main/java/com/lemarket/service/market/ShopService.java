@@ -60,8 +60,15 @@ public class ShopService {
     public String updateShopInformation(Shop shop, String tokenString){
         try {
             Token token = tokenMapper.selectByToken(tokenString);
-
-
+            int id = token.getId();
+            if(shop.getName() != null)
+                shopMapper.updateName(shop.getName(), id);
+            if(shop.getDescription() != null)
+                shopMapper.updateDescription(shop.getDescription(), id);
+            if(shop.getPhonenumber() != null)
+                shopMapper.updatePhone(shop.getPhonenumber(), id);
+            if(shop.getIcon() != null)
+                shopMapper.updateIcon(shop.getIcon(), id);
         }catch (Exception e){
             e.printStackTrace();
             return "ERROR";

@@ -56,7 +56,7 @@ public class AccountController {
      */
     @RequestMapping(value = "/checkUsername", method = RequestMethod.GET)
     @ResponseBody
-    public UsernameCheckStatus checkUsername(@RequestBody String username){
+    public UsernameCheckStatus checkUsername(String username){
         UsernameCheckStatus usernameCheckStatus = null;
         if(username != null && !"".equals(username.trim())){
             usernameCheckStatus = usernameChecker.checkUsernameStatus(username.trim());

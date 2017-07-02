@@ -63,6 +63,8 @@ def dbcpVersion = "2.1.1"
 def log4jVersion = "2.8.2"
 def gsonVersion = "2.8.1"
 def jjwtVersion = "0.7.0"
+def fileupload = "1.3.1"
+def commonsIo = "2.4"
 
 repositories {
     mavenCentral()
@@ -90,4 +92,6 @@ dependencies {
     compile "org.apache.logging.log4j:log4j-core:$log4jVersion"
     compile "com.google.code.gson:gson:$gsonVersion"
     compile "io.jsonwebtoken:jjwt:$jjwtVersion"
+    compile "commons-io:commons-io:$commonsIo"
+    compile "commons-fileupload:commons-fileupload:$fileupload"
 }

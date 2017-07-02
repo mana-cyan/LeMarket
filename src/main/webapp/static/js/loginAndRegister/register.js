@@ -3,32 +3,31 @@ var Register = Register || {};
 Register.checkPasswordRepeat = function () {
     var passwordInput = $('#password');
     var passwordRepeat = $('#repeatPassword');
-    var message = $('#passwordRepeatError');
+    var message = $('#passwordRepeatStatus');
     if (passwordInput.val() === passwordRepeat.val()) {
-        message.html('');
+        showMessage(message,true,'通过');
         requestSalt();
         console.log('success');
     }
     else {
-        message.html('密码确认失败!');
+        showMessage(message,false,'密码确认失败');
         console.log('fail');
     }
 
 };
 
 Register.checkUsername = function () {
-    checkUsername(userNameCheckCallback);
+    checkUsername($('#username').val(),userNameCheckCallback);
 };
 
 Register.checkEmail = function () {
-    checkEmail(emailCheckCallback);
+    checkEmail($('#email').val(),emailCheckCallback);
 };
 
 Register.Do = function () {
     var usernameDiv = $('#username');
     var passwordDiv = $('#password');
     var emailDiv = $('#email');
-    var validateDiv = $('#validateCode');
     $.ajax(
         {
             type: 'post',
@@ -36,8 +35,7 @@ Register.Do = function () {
             data: {
                 'username': usernameDiv.val(),
                 'password': encryptWithSalt(passwordDiv.val(),Cookie.getSalt()),
-                'email': emailDiv.val(),
-                'validateCode': validateDiv.val()
+                'email': emailDiv.val()
             },
             success: function (response) {
                 onRegisterFinish(response);
@@ -50,46 +48,39 @@ Register.Do = function () {
 };
 
 function userNameCheckCallback(response) {
-    var userNameMessage = $('#userExistMessage');
+    var userNameMessage = $('#usernameStatus');
     if (response.status === 'SUCCESS') {
-        userNameMessage.html('');
+        showMessage(userNameMessage,false,'用户名已存在');
     }
     else {
-        userNameMessage.html('用户名已存在')
+        showMessage(userNameMessage,true,'通过');
+
     }
 }
 
 function emailCheckCallback(response) {
-    var emailMessage = $('#emailExistMessage');
+    var emailMessage = $('#emailStatus');
     if (response.status === 'SUCCESS') {
-        emailMessage.html('');
+        showMessage(emailMessage,false,'邮箱已存在');
     }
     else {
-        emailMessage.html('邮箱已存在');
+        showMessage(emailMessage,true,'通过');
     }
 
 }
 
-function requestSalt() {
-    $.ajax({
-        type: 'get',
-        url: 'getSalt',
-        success: function (response) {
-            Cookie.setSalt(response.salt);
-        }
-    })
-}
+
 
 function onRegisterFinish(response) {
     var messageDiv = $('#registerFailMessage');
     if (response.token === '') {
-        messageDiv.html('注册失败!');
+        showMessage(messageDiv,false,'注册失败');
     }
     else {
-        document.cookie = "token=" + token;
+        Cookie.setToken(response.token);
         $.ajax({
                 type: 'get',
-                url: 'index'
+                url: '/redirectIndex'
             }
         );
     }

@@ -143,25 +143,26 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-3">
-                    <form action="" >
                             <div class="form-group">
-                                <input type="text" id="username" name="username" placeholder="请输入昵称" class="form-control"/> <label id="userExistMessage" style="color: red"></label>
+                                <input type="text" id="username" name="username" placeholder="请输入昵称" class="form-control"/> <label id="usernameStatus"
+                                                                                                                                   ></label>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="email" name="stuemail" placeholder="请输入电子邮箱" class="form-control" /> <label id="emailExistMessage" style="color: red"></label>
+                                <input type="text" id="email" name="stuemail" placeholder="请输入电子邮箱" class="form-control" /> <label id="emailStatus"
+                                                                                                                                   ></label>
                             </div>
                             <div class="form-group">
                                 <input type="text" id="password" name="stuemail" placeholder="请输入密码" class="form-control" />
                             </div>
                             <div class="form-group">
-                                <input type="text" id="repeatPassword" name="stuemail" placeholder="请重新输入密码" class="form-control" /> <label id="passwordRepeatError" style="color: red"></label>
+                                <input type="text" id="repeatPassword" name="stuemail" placeholder="请重新输入密码" class="form-control" /> <label id="passwordRepeatStatus"
+                                                                                                                                            ></label>
 
                             </div>
                             <div class="row">
                                 <label id="registerFailMessage" style="color: red"></label>
                             </div>
-                            <button id="submit" type="submit" class="btn btn-default" class="form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;"><a href="../index.jsp">注册新用户</a></button>
-                    </form>
+                            <button id="submit" class="btn btn-default" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">注册新用户</button>
                 </div>
                 <div class="col-md-5">
                 </div>
@@ -218,14 +219,19 @@
     <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
     <!-- Bootstrap framework js -->
     <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
+
     <!-- All js plugins included in this file. -->
     <script src="${pageContext.request.contextPath}/static/js/plugins.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 
-    <script src="${pageContext.request.contextPath}/static/js/request/validate.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/bcrypt.js"></script>
 
-    <script  src="${pageContext.request.contextPath}/static/js/loginAndRegister/login.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
+
+    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/check.js"></script>
+
+    <script src="${pageContext.request.contextPath}/static/js/request/validate.js"></script>
 
     <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/register.js"></script>
 </body>

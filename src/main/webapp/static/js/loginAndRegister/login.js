@@ -1,41 +1,38 @@
-var Cookie = Cookie || {};
+
 var Login=Login ||  {};
 
-Cookie.get = function (name) {
-    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-    if (arr = document.cookie.match(reg))
-        return arr[2];
-    else
-        return null;
-};
 
-Cookie.set = function (name, value) {
-    var Days = 30;
-    var exp = new Date();
-    exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-    document.cookie = name + "=" + value + ";expires=" + exp.toGMTString();
-};
-
-Cookie.getSalt=function () {
-    return Cookie.get('salt');
-};
-
-Cookie.setSalt=function (value) {
-    Cookie.set('salt',value);
-};
 
 Login.checkKey= function() {
     var div = $('#username');
-    if (div.val().contains('@'))
-        checkEmail(onCheckFinish);
+    if (div.val().indexOf('@')>0)
+        checkEmail(div.val(),onCheckFinish);
     else
-        checkUsername(onCheckFinish);
+        checkUsername(div.val(),onCheckFinish);
 };
 
+function checkArgsIsLegal()
+{
+    var usernameDiv = $('#username');
+    var passwordDiv = $('#password');
+    var validateDiv = $('#validateText');
+
+    console.log('legalJudge');
+    if(usernameDiv.val()==='') return false;
+    if(passwordDiv.val()==='') return false;
+    if(validateDiv.val()==='') return false;
+    console.log('success');
+    return true;
+}
+
 Login.Do=function() {
-    encryptWithSaltInCookie();
+    if(checkArgsIsLegal()===false) return;
+    var passwordDiv=$('#password');
+    console.log(Cookie.getSalt());
+    var cryptText=encryptWithSalt(passwordDiv.html(),Cookie.getSalt());
+    passwordDiv.val(cryptText);
     var keyDiv = $('#username');
-    if (keyDiv.val().contains('@'))
+    if (keyDiv.val().indexOf('@')>0)
         loginWithEmail();
     else
         loginWithUsername();
@@ -43,72 +40,33 @@ Login.Do=function() {
 
 
 
-function checkUsername(callback) {
-    $.ajax(
-        {
-            type: 'get',
-            url: '/checkUsername',
-            data: $('#username').val(),
-            success: function (response) {
-                callback(response);
-            },
-            error: function () {
-                console.log("error!");
-            }
-        }
-    )
-}
-
-function checkEmail(callback) {
-    $.ajax(
-        {
-            type: 'get',
-            url: '/checkEmail',
-            data: $('#username').val(),
-            success: function (response) {
-                callback(response);
-            },
-            error: function () {
-                console.log('error!');
-            }
-        }
-    )
-}
-
 function onCheckFinish(val) {
     if (val.status === 'SUCCESS') {
-        setSalt(val);
+        Cookie.setSalt(val.salt);
     }
     else {
 
     }
 }
 
-function encryptWithSalt(password, salt) {
-    return bcrypt.hashSync(password, salt);
-}
 
-function encryptWithSaltInCookie() {
-    var pswDiv = $('#password');
-    pswDiv.val(bcrypt.hashSync(pswDiv.val(), salt));
-}
 
 function loginWithUsername() {
     var usernameDiv = $('#username');
     var passwordDiv = $('#password');
-    var validateDiv = $('#validateCode');
+    var validateDiv = $('#validateText');
     $.ajax(
         {
             type: 'post',
             url: '/login',
+            dataType: 'json',
             data: {
                 'username': usernameDiv.val(),
                 'password': passwordDiv.val(),
                 'validateCode': validateDiv.val()
             },
             success: function (response) {
-                token = response.token;
-                onLoginFinish(token);
+                onLoginFinish(response.token);
             },
             error: function () {
                 console.log('error!');
@@ -121,19 +79,19 @@ function loginWithUsername() {
 function loginWithEmail() {
     var usernameDiv = $('#username');
     var passwordDiv = $('#password');
-    var validateDiv = $('#validateCode');
+    var validateDiv = $('#validateText');
     $.ajax(
         {
             type: 'post',
             url: '/login',
+            dataType: 'json',
             data: {
                 'email': usernameDiv.val(),
                 'password': passwordDiv.val(),
                 'validateCode': validateDiv.val()
             },
             success: function (response) {
-                token = response.token;
-                onLoginFinish(token);
+                onLoginFinish(response.token);
             },
             error: function () {
                 console.log('error!');
@@ -148,10 +106,12 @@ function onLoginFinish(token) {
         messageDiv.html("用户名或密码错误!");
     }
     else {
-        document.cookie = "token=" + token;
+        console.log('LoginSuccess');
+        messageDiv.html("");
+        Cookie.setToken(token);
         $.ajax({
                 type: 'get',
-                url: 'index'
+                url: 'redirectIndex'
             }
         );
     }

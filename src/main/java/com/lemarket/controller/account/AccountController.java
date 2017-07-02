@@ -41,7 +41,7 @@ public class AccountController {
 
     @RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
     @ResponseBody
-    public EmailCheckStatus checkEmail(@RequestBody String email){
+    public EmailCheckStatus checkEmail(String email){
         EmailCheckStatus emailCheckStatus = null;
         if(email !=null && !"".equals(email.trim())) {
             emailCheckStatus = emailChecker.checkEmailStatus(email.trim());
@@ -139,5 +139,6 @@ public class AccountController {
         tokenSetter.newOrGetTokenByUsername("test");
         return "test";
     }
+
 
 }

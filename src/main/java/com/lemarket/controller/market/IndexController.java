@@ -20,5 +20,10 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping(value = "/redirectIndex")
+    public String redirectIndex()
+    {
+        return "redirect:index.jsp";
+    }
 }
 

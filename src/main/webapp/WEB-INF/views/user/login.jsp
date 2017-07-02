@@ -155,23 +155,21 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-3">
-                <form action="${pageContext.request.contextPath}/login">
                     <label id="wrongMessage" style="color: red"></label>
                     <div class="form-group">
-                        <input type="text" name="username" placeholder="请输入姓名" class="form-control"/>
+                        <input id="username" type="text" name="username" placeholder="请输入姓名" class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="password" placeholder="请输入密码" class="form-control"/>
+                        <input id="password" type="text" name="password" placeholder="请输入密码" class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="validateText" class="form-control" style="width:50%;"/>
+                        <input id="validateText" type="text" name="validateText" class="form-control" style="width:50%;"/>
                         <img src="" id="validateCode"/> <label id="refreshValidateCode">换一张</label>
                     </div>
                     <label id="validateStatus" style="color: red"></label>
-                    <button type="submit" class="btn btn-default form-control"
+                    <button id="submit" class="btn btn-default form-control"
                             style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">
-                        <a href="../index.jsp">登录</a></button>
-                </form>
+                        登录</button>
             </div>
             <div class="col-md-5">
             </div>
@@ -230,10 +228,16 @@
 <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
 <!-- Bootstrap framework js -->
 <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/loginAndRegister/bcrypt.min.js"></script>
 <!-- All js plugins included in this file. -->
 <script src="${pageContext.request.contextPath}/static/js/plugins.js"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/loginAndRegister/check.js"></script>
 
 <script src="${pageContext.request.contextPath}/static/js/request/validate.js"></script>
 

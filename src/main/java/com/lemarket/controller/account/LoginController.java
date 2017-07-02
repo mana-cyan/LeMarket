@@ -2,6 +2,7 @@ package com.lemarket.controller.account;
 
 import com.lemarket.data.model.Users;
 import com.lemarket.data.reponseObject.TokenString;
+import com.lemarket.service.account.PasswordChecker;
 import com.lemarket.service.account.TokenSetter;
 import com.lemarket.service.account.UserDataFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,13 @@ public class LoginController {
 
     private final TokenSetter tokenSetter;
 
+    private final PasswordChecker passwordChecker;
+
     @Autowired
-    public LoginController(UserDataFactory userDataFactory, TokenSetter tokenSetter) {
+    public LoginController(UserDataFactory userDataFactory, TokenSetter tokenSetter,PasswordChecker passwordChecker) {
         this.userDataFactory = userDataFactory;
         this.tokenSetter = tokenSetter;
+        this.passwordChecker=passwordChecker;
     }
 
     @RequestMapping(value = "/login")
@@ -38,13 +42,13 @@ public class LoginController {
             return new TokenString();
         if(email == null){
             Users users = userDataFactory.getUserByUsername(username);
-            if(users != null && users.getPassword().equals(password)){
+            if(users != null && users.getPassword().equals(passwordChecker.getSavePasswordPart(password))){
                 return tokenSetter.newOrGetTokenByUsername(username);
             }
         }
         else if(username == null){
             Users users = userDataFactory.getUserByEmail(email);
-            if(users != null && users.getPassword().equals(password)){
+            if(users != null && users.getPassword().equals(passwordChecker.getSavePasswordPart(password))){
                 return tokenSetter.newOrGetTokenByEmail(email);
             }
         }

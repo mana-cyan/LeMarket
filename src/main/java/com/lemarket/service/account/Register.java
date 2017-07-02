@@ -14,10 +14,13 @@ public class Register {
 
     private final TokenSetter tokenSetter;
 
+    private final PasswordChecker passwordChecker;
+
     @Autowired
-    public Register(UsersMapper usersMapper, TokenSetter tokenSetter) {
+    public Register(UsersMapper usersMapper, TokenSetter tokenSetter,PasswordChecker passwordChecker) {
         this.usersMapper = usersMapper;
         this.tokenSetter = tokenSetter;
+        this.passwordChecker=passwordChecker;
     }
 
     /**
@@ -32,8 +35,7 @@ public class Register {
         Users users = new Users();
         users.setEmail(email);
         users.setUsername(username);
-        //bcrypt取32位作为密码
-        users.setPassword(password.substring(0,32));
+        users.setPassword(passwordChecker.getSavePasswordPart(password));
         users.setSalt(salt);
         users.setRole(1);
         usersMapper.insert(users);

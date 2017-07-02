@@ -1,22 +1,45 @@
-var salt;
-var keyCheckAccess;
-var token;
+var Cookie = Cookie || {};
+var Login=Login ||  {};
 
-function getCookie(name) {
-    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-    if(arr=document.cookie.match(reg))
+Cookie.get = function (name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg))
         return arr[2];
     else
         return null;
-}
+};
 
-function smartCheckKey() {
+Cookie.set = function (name, value) {
+    var Days = 30;
+    var exp = new Date();
+    exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+    document.cookie = name + "=" + value + ";expires=" + exp.toGMTString();
+};
+
+Cookie.getSalt=function () {
+    return Cookie.get('salt');
+};
+
+Cookie.setSalt=function (value) {
+    Cookie.set('salt',value);
+};
+
+Login.checkKey= function() {
     var div = $('#username');
     if (div.val().contains('@'))
         checkEmail(onCheckFinish);
     else
         checkUsername(onCheckFinish);
-}
+};
+
+Login.Do=function() {
+    encryptWithSaltInCookie();
+    var keyDiv = $('#username');
+    if (keyDiv.val().contains('@'))
+        loginWithEmail();
+    else
+        loginWithUsername();
+};
 
 function checkUsername(callback) {
     $.ajax(
@@ -51,30 +74,21 @@ function checkEmail(callback) {
 }
 
 function onCheckFinish(val) {
-    if (val.status==='SUCCESS') {
-        document.cookie="salt="+val.salt;
+    if (val.status === 'SUCCESS') {
+        setSalt(val);
     }
     else {
 
     }
 }
 
-function encrypt(password,salt) {
-    return bcrypt.hashSync(password,salt);
+function encryptWithSalt(password, salt) {
+    return bcrypt.hashSync(password, salt);
 }
 
-function encrypt() {
+function encryptWithSaltInCookie() {
     var pswDiv = $('#password');
     pswDiv.val(bcrypt.hashSync(pswDiv.val(), salt));
-}
-
-function login() {
-    encrypt();
-    var keyDiv = $('#username');
-    if (keyDiv.val().contains('@'))
-        loginWithEmail();
-    else
-        loginWithUsername();
 }
 
 function loginWithUsername() {
@@ -141,5 +155,5 @@ function onLoginFinish(token) {
     }
 }
 
-$('#username').on('blur', smartCheckKey);
-$('#submit').on('click', login);
+$('#username').on('blur', Login.checkKey);
+$('#submit').on('click', Login.Do);

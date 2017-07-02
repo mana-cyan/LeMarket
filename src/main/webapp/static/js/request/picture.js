@@ -1,14 +1,16 @@
 function loadPicture(id) {
+    var path;
     $.ajax({
+        async: false,
         type: 'get',
         url: 'image',
         data: { 'id': id },
         success: function (data) {
-            console.log(data.path)
-            return data.path;
+            path = data;
         },
         error: function() {
             console.log("Cannot load picture")
 ;        }
     })
+    return path
 }

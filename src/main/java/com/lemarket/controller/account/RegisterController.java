@@ -38,4 +38,6 @@ public class RegisterController {
         request.getSession().removeAttribute("salt");
         return register.register(email,username,password,salt);
     }
+
+
 }

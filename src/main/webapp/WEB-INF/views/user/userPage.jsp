@@ -86,7 +86,7 @@
                                  <ul class="header-top-style text-capitalize mr-25">
                                     <li><a href="userPage.jsp"><span class="mr-10">个人中心</span><i class="fa fa-angle-down"></i></a>
                                         <ul class="ul-style currency box-shadow white-bg">
-                                            <li><a href="login.html"><i class="fa fa-usd"></i><span>登录</span></a></li>
+                                            <li><a href="login.jsp"><i class="fa fa-usd"></i><span>登录</span></a></li>
                                             <li><a href="register.jsp"><i class="fa fa-euro"></i><span>注册</span></a></li>
                                             <li><a href="userPage.jsp"><i class="fa fa-gbp"></i><span>我的</span></a></li>
                                         </ul>

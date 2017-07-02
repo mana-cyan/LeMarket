@@ -223,6 +223,8 @@
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 
+    <script src="${pageContext.request.contextPath}/static/js/request/validate.js"></script>
+
     <script  src="${pageContext.request.contextPath}/static/js/loginAndRegister/login.js"></script>
 
     <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/register.js"></script>

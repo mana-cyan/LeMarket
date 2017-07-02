@@ -41,6 +41,8 @@ Login.Do=function() {
         loginWithUsername();
 };
 
+
+
 function checkUsername(callback) {
     $.ajax(
         {

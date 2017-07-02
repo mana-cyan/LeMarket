@@ -4,13 +4,13 @@
 function refreshValidateCode() {
     $.ajax({
         type:'post',
-        url:'/market',
+        url:'/validateCode',
         success:function (data) {
-            var img = $("#market");
+            var img = $("#validateCode");
             img.attr("src", "data:image/jpg;base64,"+data);
         },
         error:function () {
-            console.log("market gg !");
+            console.log("validateCode gg !");
         }
     })
 }

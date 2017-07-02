@@ -25,4 +25,6 @@ public interface ShopMapper {
     List<Shop> selectByName(String word);
 
     Shop selectById(int id);
+
+    Shop selectByOwner(int owner);
 }

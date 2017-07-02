@@ -42,5 +42,8 @@
   <select id="selectByName" resultMap="BaseResultMap">
     SELECT * FROM Shop WHERE name LIKE #{word};
   </select>
+  <select id="selectByOwner" resultMap="BaseResultMap">
+    SELECT * FROM Shop WHERE owner = #{owner};
+  </select>
 
 </mapper>

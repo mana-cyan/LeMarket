@@ -1,5 +1,7 @@
 package com.lemarket.controller.shopping;
 
+import com.lemarket.data.model.Commodity;
+import com.lemarket.data.model.Shop;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class ShopController {
+    private final ShopService shopService;
 
     @Autowired
-    private ShopService shopService;
+    public ShopController(ShopService shopService) {
+        this.shopService = shopService;
+    }
+
 
     @RequestMapping(value = "addShop", method = RequestMethod.POST)
     @ResponseBody
@@ -24,5 +31,17 @@ public class ShopController {
             return new Status("SUCCESS");
         else
             return new Status("ERROR");
+    }
+
+    @RequestMapping(value = "shop", method = RequestMethod.GET)
+    @ResponseBody
+    public Shop getShop(int id){
+        return shopService.getShopById(id);
+    }
+
+    @RequestMapping(value = "shopCommodity", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Commodity> getShopCommodity(int id, int page){
+        return shopService.getCommodityByShopId(id, (page-1)*5 + 1, 5);
     }
 }

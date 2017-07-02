@@ -27,11 +27,7 @@ public interface TokenMapper {
 
     int deleteById(int id);
 
-<<<<<<< HEAD
     Token selectByToken(String token);
-=======
     int selectUserById(int id);
 
-
->>>>>>> 30f961079f21efa22c1973dc4df95bf324f684b8
 }

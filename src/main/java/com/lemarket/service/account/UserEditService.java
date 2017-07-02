@@ -9,11 +9,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserEditService {
-    @Autowired
-    private UsersMapper usersMapper;
+    private final UsersMapper usersMapper;
+
+    private final TokenMapper tokenMapper;
 
     @Autowired
-    private TokenMapper tokenMapper;
+    public UserEditService(UsersMapper usersMapper, TokenMapper tokenMapper) {
+        this.usersMapper = usersMapper;
+        this.tokenMapper = tokenMapper;
+    }
 
     public Users getAddressByToken(String tokenString){
         Token token = tokenMapper.selectByToken(tokenString);
@@ -23,22 +27,23 @@ public class UserEditService {
     public String setUserInfo(Users users, String tokenString){
         try{
             Token token = tokenMapper.selectByToken(tokenString);
+            int id = token.getId();
             if(users.getUsername() != null)
-                usersMapper.updateNameById(users.getUsername(), token.getId());
+                usersMapper.updateNameById(users.getUsername(), id);
             if(users.getGender() != null)
-                usersMapper.updateGenderById(users.getGender(), token.getId());
+                usersMapper.updateGenderById(users.getGender(), id);
             if(users.getBirthday() != null)
-                usersMapper.updateBirthdayById(users.getBirthday(), token.getId());
+                usersMapper.updateBirthdayById(users.getBirthday(), id);
             if(users.getAddress() != null)
-                usersMapper.updateAddressById(users.getAddress(), token.getId());
+                usersMapper.updateAddressById(users.getAddress(), id);
             if(users.getPhonenumber() != null)
-                usersMapper.updatePhoneById(users.getPhonenumber(), token.getId());
+                usersMapper.updatePhoneById(users.getPhonenumber(), id);
             if(users.getEmail() != null)
-                usersMapper.updateEmailById(users.getEmail(), token.getId());
-            return "SUCCESS";
+                usersMapper.updateEmailById(users.getEmail(), id);
         }catch (Exception e){
             e.printStackTrace();
             return "ERROR";
         }
+        return "SUCCESS";
     }
 }

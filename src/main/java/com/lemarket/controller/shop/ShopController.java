@@ -45,5 +45,14 @@ public class ShopController {
         return shopService.getCommodityByShopId(id, (page-1)*5 + 1, 5);
     }
 
-
+    @RequestMapping(value = "setshop", method = RequestMethod.GET)
+    @ResponseBody
+    public Status setShop(String name, String description, String phone, HttpServletRequest request){
+        Shop shop = new Shop();
+        shop.setName(name);
+        shop.setDescription(description);
+        shop.setPhonenumber(phone);
+        String resp = shopService.updateShopInformation(shop, request.getHeader("Token"));
+        return new Status(resp);
+    }
 }

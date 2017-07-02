@@ -23,5 +23,5 @@ public interface ReceiveinfoMapper {
      */
     List<Receiveinfo> selectAll();
 
-    int selectLast();
+    int selectLatest();
 }

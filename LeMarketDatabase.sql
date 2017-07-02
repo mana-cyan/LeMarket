@@ -203,4 +203,4 @@ INSERT INTO Picture(`path`) VALUES ('/static/images/banner/5.jpg');
 INSERT INTO Category(`name`, `description`, `picture`) VALUES ('儿童世界', '童装', 5);
 
 INSERT INTO Shop(`owner`, `name`) VALUES (1, 'TestShop');
-INSERT INTO Commodity(`owner`,`categroy`,`shop`,`name`,`storage`,`price`,`image`,`time`) VALUES (1,1,1,'TestCommodity',100,20,1,NOW());
+INSERT INTO Commodity(`owner`,`category`,`shop`,`name`,`storage`,`price`,`image`,`time`) VALUES (1,1,1,'TestCommodity',100,20,1,NOW());

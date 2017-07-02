@@ -63,7 +63,7 @@ public class BuyController {
         receive.setPhonenumber(phoneNumber);
         receive.setPostcode(postCode);
         int insertReceive = receiveinfoMapper.insert(receive);
-        receive.setId(receiveinfoMapper.selectLast());
+        receive.setId(receiveinfoMapper.selectLatest());
 
         details.setOrderinfo(info.getId());
         details.setCommodity(commodity.getId());

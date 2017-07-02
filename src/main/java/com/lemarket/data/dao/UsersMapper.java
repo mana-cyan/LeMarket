@@ -24,4 +24,6 @@ public interface UsersMapper {
     int updateAddressById(String address, int id);
     int updatePhoneById(String phone, int id);
     int updateEmailById(String email, int id);
+
+    int updateRoleById(String role, int id);
 }

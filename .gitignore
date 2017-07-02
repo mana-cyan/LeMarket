@@ -66,3 +66,5 @@ gradle-app.setting
 !/src/main/libs/lucene-queryparser-4.0.0.jar
 !/src/main/libs/trove.jar
 
+!/src/main/java/com/lemarket/service/account/SaltChecker.java
+!/src/main/java/com/lemarket/service/market/ShopService.java

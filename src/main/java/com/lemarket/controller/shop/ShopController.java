@@ -1,4 +1,4 @@
-package com.lemarket.controller.shopping;
+package com.lemarket.controller.shop;
 
 import com.lemarket.data.model.Commodity;
 import com.lemarket.data.model.Shop;
@@ -44,4 +44,6 @@ public class ShopController {
     public List<Commodity> getShopCommodity(int id, int page){
         return shopService.getCommodityByShopId(id, (page-1)*5 + 1, 5);
     }
+
+
 }

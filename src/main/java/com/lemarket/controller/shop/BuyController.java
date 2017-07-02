@@ -1,4 +1,4 @@
-package com.lemarket.controller.shopping;
+package com.lemarket.controller.shop;
 
 import com.lemarket.data.dao.*;
 import com.lemarket.data.model.*;

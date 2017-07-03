@@ -44,14 +44,9 @@ public class TokenSetter {
         if(token == null) {
             return addTokenToTable(username);
         }
-        //若过期，新建
-        Date date = token.getDateCreate();
-        int day = token.getValidity();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.HOUR, day*24);
-        long val = System.currentTimeMillis() - calendar.getTimeInMillis();
-        if(val < 0){
+
+        boolean isExpire=checkTokenIsExpire(token);
+        if(isExpire){
             return addTokenToTable(username);
         }
         return addTokenToTable(username);
@@ -62,6 +57,15 @@ public class TokenSetter {
         Users users = userDataFactory.getUserByEmail(email);
         String username = users.getUsername();
         return newOrGetTokenByUsername(username);
+    }
+
+    public boolean checkTokenIsValid(String token)
+    {
+        Token tokenProperty=tokenMapper.selectByToken(token);
+        if(tokenProperty==null) return false;
+        boolean isExpire=checkTokenIsExpire(tokenProperty);
+        if(isExpire) return  false;
+        return true;
     }
 
     //生成新的Token放入数据库,无视条件
@@ -81,5 +85,16 @@ public class TokenSetter {
         token.setValidity(validity);
         tokenMapper.insert(token);
         return tokenString;
+    }
+
+    private boolean checkTokenIsExpire(Token token)
+    {
+        Date date = token.getDateCreate();
+        int day = token.getValidity();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.HOUR, day*24);
+        long val = System.currentTimeMillis() - calendar.getTimeInMillis();
+        return val>0;
     }
 }

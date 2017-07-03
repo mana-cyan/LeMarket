@@ -109,8 +109,8 @@
                             <form action="" >
                                 <label>
                                     <select id="userSearch">
-                                        <option value="shop">搜店铺</option>
-                                        <option value="commodity">搜商品</option>
+                                        <option value=0>搜店铺</option>
+                                        <option value=1>搜商品</option>
                                     </select>
                                 </label>
                             </form>
@@ -119,7 +119,7 @@
                             <span><input id="searchString" type="text" class="pl-10" placeholder="请输入店铺名、商品" style="border-left:0;color:#fff;"></span>
                         </div>
                         <div class="col-md-2">
-                            <span class="mr-20" ><a id="search_href" onclick="search"><img alt="" src="${pageContext.request.contextPath}/static/images/header/search-icon.png" style="width:20px;height:20px;margin-top:5px;margin-left:-15px;"></a></span>
+                            <span class="mr-20" ><a id="search_href" ><img alt="" src="${pageContext.request.contextPath}/static/images/header/search-icon.png" style="width:20px;height:20px;margin-top:5px;margin-left:-15px;"></a></span>
                         </div>
                     </div>
                 </div>

@@ -111,7 +111,7 @@ function onLoginFinish(token) {
         console.log('LoginSuccess');
         messageDiv.html("");
         Cookie.setToken(token);
-        window.location.href='redirectIndex';
+        window.location.href='redirectIndex?token='+Cookie.getToken();
     }
 }
 

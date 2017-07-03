@@ -1,13 +1,21 @@
 package com.lemarket.controller.market;
 
+import com.lemarket.service.account.TokenSetter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
+
+    private final TokenSetter tokenSetter;
+
+    @Autowired
+    public IndexController(TokenSetter tokenSetter) {
+        this.tokenSetter = tokenSetter;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
@@ -24,7 +32,10 @@ public class IndexController {
     @RequestMapping(value = "/redirectIndex")
     public String redirectIndex(String token)
     {
+        boolean isValid= tokenSetter.checkTokenIsValid(token);
+        if(isValid)
         return "redirect:index";
+        else return "redirect:user/login";
     }
 }
 

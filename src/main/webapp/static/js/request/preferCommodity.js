@@ -1,17 +1,19 @@
 //获取初始推荐商品数据
 function getPreferCommodity() {
+    var prefer = undefined;
     $.ajax({
+        async: false,
         type:'get',
         url:'prefer',
         dataType:'json',
         success:function (data) {
-            console.log(data[0])
-            return data;
+            prefer = data;
         },
         error:function () {
             console.log('get prefer data error');
         }
-    })
+    });
+    return prefer;
 }
 
 //设置初始推荐商品

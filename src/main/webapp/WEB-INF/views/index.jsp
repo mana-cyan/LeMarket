@@ -161,7 +161,7 @@
                     <div class="col-sm-4 cp-style">
                         <div class="banner-inner">
                             <a class="test-popup-link banner-img" href="${pageContext.request.contextPath}/static/images/banner/1.jpg">
-                                <img src="${pageContext.request.contextPath}/static/images/banner/1.jpg" alt="">
+                                <img src="" alt="">
                             </a>
                             <div class="banner-text banner-text-1">
                                 <a href="shop/category.jsp" class="banner-heading text-uppercase text-right" ><!--时尚女装--></a>
@@ -183,7 +183,7 @@
                             <div class="col-sm-4 cp-style">
                                 <div class="banner-inner">
                                     <a class="test-popup-link banner-img" href="${pageContext.request.contextPath}/static/images/banner/3.jpg">
-                                        <img src="${pageContext.request.contextPath}/static/images/banner/3.jpg" alt="">
+                                        <img src="" alt="">
                                     </a>
                                     <div class="banner-text banner-text-3">
                                         <a href="shop/category.jsp" class="banner-heading text-uppercase text-right"><!--时尚女鞋--></a>
@@ -195,7 +195,7 @@
                             <div class="col-sm-4 cp-style">
                                 <div class="banner-inner">
                                     <a class="test-popup-link banner-img" href="${pageContext.request.contextPath}/static/images/banner/4.jpg">
-                                        <img src="${pageContext.request.contextPath}/static/images/banner/4.jpg" alt="">
+                                        <img src="" alt="">
                                     </a>
                                     <div class="banner-text banner-text-4 text-right">
                                         <a href="shop/category.jsp" class="banner-heading text-uppercase text-right" style="margin-bottom:20px;"><!--潮流包包--></a>
@@ -206,7 +206,7 @@
                             <div class="col-sm-8 cp-style">
                                 <div class="banner-inner m-0">
                                     <a class="test-popup-link banner-img" href="${pageContext.request.contextPath}/static/images/banner/5.jpg">
-                                        <img src="${pageContext.request.contextPath}/static/images/banner/5.jpg" alt="" style="width:550px;height:290px;">
+                                        <img src="" alt="" style="width:550px;height:290px;">
                                     </a>
                                     <div class="banner-text banner-text-5 text-center">
                                         <a href="shop/category.jsp" class="banner-heading text-uppercase text-right"><!--儿童世界--></a>
@@ -610,12 +610,14 @@
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 
+<!--Load Search -->
+<script src="${pageContext.request.contextPath}/static/js/request/search.js"></script>
 <!-- Load Picture -->
 <script src="${pageContext.request.contextPath}/static/js/request/picture.js"></script>
 <!-- Load Category -->
-<script src="${pageContext.request.contextPath}/static/js/request/homepage.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/request/category.js"></script>
+<!-- Load Prefer Commodities -->
 <script src="${pageContext.request.contextPath}/static/js/request/preferCommodity.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/request/search.js"></script>
 
 </body>
 

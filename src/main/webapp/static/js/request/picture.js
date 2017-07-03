@@ -1,5 +1,5 @@
 function loadPicture(id) {
-    var path;
+    var path = undefined;
     $.ajax({
         async: false,
         type: 'get',
@@ -11,6 +11,6 @@ function loadPicture(id) {
         error: function() {
             console.log("Cannot load picture")
 ;        }
-    })
+    });
     return path
 }

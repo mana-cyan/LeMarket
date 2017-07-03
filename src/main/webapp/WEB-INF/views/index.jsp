@@ -235,7 +235,7 @@
                 <div class="row rp-style-2">
                     <div class="featured-carousel indicator-style">
                         <div class="product-container cp-style-2">
-                            <div class="product-inner">
+                            <div id="1" class="product-inner">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="" alt="">
@@ -266,7 +266,7 @@
                                     </h6>
                                 </div>
                             </div>
-                            <div class="product-inner mt-35">
+                            <div id="2" class="product-inner mt-35">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/2.jpg" alt="">
@@ -298,7 +298,7 @@
                             </div>
                         </div>
                         <div class="product-container cp-style-2">
-                            <div class="product-inner">
+                            <div id="3" class="product-inner">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/3.jpg" alt="">
@@ -329,7 +329,7 @@
                                     </h6>
                                 </div>
                             </div>
-                            <div class="product-inner mt-35">
+                            <div id="4" class="product-inner mt-35">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/4.jpg" alt="">
@@ -362,7 +362,7 @@
                             </div>
                         </div>
                         <div class="product-container cp-style-2">
-                            <div class="product-inner">
+                            <div id="5" class="product-inner">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/5.jpg" alt="">
@@ -392,7 +392,7 @@
                                     </h6>
                                 </div>
                             </div>
-                            <div class="product-inner mt-35">
+                            <div id="6" class="product-inner mt-35">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/6.jpg" alt="">
@@ -425,7 +425,7 @@
                             </div>
                         </div>
                         <div class="product-container cp-style-2">
-                            <div class="product-inner">
+                            <div id="7" class="product-inner">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/7.jpg" alt="">
@@ -456,7 +456,7 @@
                                     </h6>
                                 </div>
                             </div>
-                            <div class="product-inner mt-35">
+                            <div id="8" class="product-inner mt-35">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/8.jpg" alt="">
@@ -488,7 +488,7 @@
                             </div>
                         </div>
                         <div class="product-container cp-style-2">
-                            <div class="product-inner">
+                            <div id="9" class="product-inner">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/9.jpg" alt="">
@@ -518,7 +518,7 @@
                                     </h6>
                                 </div>
                             </div>
-                            <div class="product-inner mt-35">
+                            <div id="10" class="product-inner mt-35">
                                 <a href="#">
                                     <div class="product-img b-img">
                                         <img src="${pageContext.request.contextPath}/static/images/product/arrival/10.jpg" alt="">

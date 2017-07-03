@@ -4,22 +4,29 @@ import com.lemarket.data.model.Commodity;
 import com.lemarket.data.model.Shop;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.ShopService;
+import com.lemarket.service.utils.ImageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 @Controller
 public class ShopController {
     private final ShopService shopService;
+    private final ImageFactory imageFactory;
 
     @Autowired
-    public ShopController(ShopService shopService) {
+    public ShopController(ShopService shopService, ImageFactory imageFactory) {
         this.shopService = shopService;
+        this.imageFactory = imageFactory;
     }
 
 
@@ -54,5 +61,27 @@ public class ShopController {
         shop.setPhonenumber(phone);
         String resp = shopService.updateShopInformation(shop, request.getHeader("Token"));
         return new Status(resp);
+    }
+
+    @RequestMapping(value = "setShopImage", method = RequestMethod.POST)
+    @ResponseBody
+    public Status setShopImage(MultipartFile multipartFile, HttpServletRequest request,HttpSession session) throws IOException {
+        if(multipartFile.getSize()>0){
+            String fileName = multipartFile.getOriginalFilename();
+            if(fileName.endsWith(".png") || fileName.endsWith(".jpg") || fileName.endsWith(".gif")){
+                String uploadPath = "/static/upload/";
+                String path = session.getServletContext().getRealPath(uploadPath);
+                String[] splits = fileName.split(".");
+                String newFileName = new Date().toString() + "." + splits[splits.length-1];
+                String oldPath = shopService.updateShopIcon(uploadPath+newFileName, request.getHeader("Token"));
+                //删除原图标
+                imageFactory.deleteFile(session.getServletContext().getRealPath("/") + oldPath);
+                //写入新图标
+                imageFactory.saveFile(multipartFile.getInputStream(), path + newFileName);
+            }
+        }else {
+            return new Status("ERROR");
+        }
+        return new Status("SUCCESS");
     }
 }

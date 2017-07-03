@@ -24,5 +24,7 @@ public interface PictureMapper {
     List<Picture> selectAll();
 
     Picture selectById(int id);
+    Picture selectByPath(String path);
 
+    int deleteById(int id);
 }

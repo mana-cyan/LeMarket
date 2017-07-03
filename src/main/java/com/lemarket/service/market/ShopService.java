@@ -1,13 +1,7 @@
 package com.lemarket.service.market;
 
-import com.lemarket.data.dao.CommodityMapper;
-import com.lemarket.data.dao.ShopMapper;
-import com.lemarket.data.dao.TokenMapper;
-import com.lemarket.data.dao.UsersMapper;
-import com.lemarket.data.model.Commodity;
-import com.lemarket.data.model.Shop;
-import com.lemarket.data.model.Token;
-import com.lemarket.data.model.Users;
+import com.lemarket.data.dao.*;
+import com.lemarket.data.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +16,15 @@ public class ShopService {
 
     private final TokenMapper tokenMapper;
     private final UsersMapper usersMapper;
+    private final PictureMapper pictureMapper;
 
     @Autowired
-    public ShopService(ShopMapper shopMapper, CommodityMapper commodityMapper, TokenMapper tokenMapper, UsersMapper usersMapper) {
+    public ShopService(ShopMapper shopMapper, CommodityMapper commodityMapper, TokenMapper tokenMapper, UsersMapper usersMapper, PictureMapper pictureMapper) {
         this.shopMapper = shopMapper;
         this.commodityMapper = commodityMapper;
         this.tokenMapper = tokenMapper;
         this.usersMapper = usersMapper;
+        this.pictureMapper = pictureMapper;
     }
 
     public Shop getShopById(int id){
@@ -74,5 +70,24 @@ public class ShopService {
             return "ERROR";
         }
         return "SUCCESS";
+    }
+
+    //更新图标，返回原图标path
+    public String updateShopIcon(String path, String tokenString){
+            Token token = tokenMapper.selectByToken(tokenString);
+            int userId = token.getId();
+            //删除原有图标
+            Shop shop = shopMapper.selectByOwner(userId);
+            int pictureId = shop.getIcon();
+            Picture oldPicture = pictureMapper.selectById(pictureId);
+            pictureMapper.deleteById(pictureId);
+
+            //插入新图标
+            Picture picture = new Picture();
+            picture.setPath(path);
+            pictureMapper.insert(picture);
+            picture = pictureMapper.selectByPath(path);
+            shopMapper.updateIcon(picture.getId(), userId);
+            return oldPicture.getPath();
     }
 }

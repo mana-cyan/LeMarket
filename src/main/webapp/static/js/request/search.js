@@ -1,7 +1,7 @@
 function search() {
     var form = $("<form method='get' action='/search'></form>");
     form.css("display", "none");
-    var input1 = $("<input type='text' name='type'>");
+    var input1 = $("<input type='text' name='searchType'>");
     var type = $("#userSearch").find("option:selected").attr("value");
     input1.attr("value", type);
     form.append(input1);

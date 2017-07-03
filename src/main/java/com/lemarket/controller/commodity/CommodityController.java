@@ -24,9 +24,9 @@ public class CommodityController {
     }
 
     @RequestMapping(value = "commodityDetails", method = RequestMethod.GET)
-    public Commodity commodityDetails(Integer id) {
+    public String commodityDetails(Integer id) {
         Commodity details = commoditySearch.CommoditySearchId(id);
-        return details;
+        return "shop/commodityDetails";
     }
 
 }

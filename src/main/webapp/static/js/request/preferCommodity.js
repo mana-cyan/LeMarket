@@ -2,7 +2,6 @@
 function getPreferCommodity() {
     var prefer = undefined;
     $.ajax({
-        async: false,
         type:'get',
         url:'prefer',
         dataType:'json',
@@ -28,10 +27,10 @@ function preferSet(viewDiv, preferObject) {
 
 //批量填充推荐商品数据
 function setPreferDetail() {
-    var preferData = $(getPreferCommodity());
+    var preferData = getPreferCommodity();
     var preferDivs = $(".product-inner");
     for(var i=0; i<preferData.length; i++){
-        preferSet(preferDivs[i], preferData[i]);
+        preferSet($(preferDivs[i]), preferData[i]);
     }
 }
 

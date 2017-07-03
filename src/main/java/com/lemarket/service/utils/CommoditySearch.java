@@ -25,7 +25,7 @@ public class CommoditySearch {
      * @param word 关键词
      * @return CommodityIdList 商品id
      */
-    public List<Commodity> CommoditySearchName(String word) {
+    public List<Commodity> commoditySearchName(String word) {
         return commodityMapper.selectByName(word);
     }
 
@@ -34,7 +34,7 @@ public class CommoditySearch {
      * @param id 关键词
      * @return CommodityList 商品信息
      */
-    public Commodity CommoditySearchId(Integer id) {
+    public Commodity commoditySearchId(Integer id) {
         return commodityMapper.selectById(id);
     }
 }

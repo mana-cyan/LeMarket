@@ -22,4 +22,6 @@ public interface OrderdetailsMapper {
      * @mbg.generated
      */
     List<Orderdetails> selectAll();
+
+    List<Orderdetails> selectShopOrderByShopId(int id, int beginRow, int pageSize);
 }

@@ -31,83 +31,69 @@ public class SearchController {
     public String search(int searchType, String input, Model model)throws Exception {
         model.addAttribute("type", searchType);
         if(searchType == 0) {   //搜索商品
-            List<Commodity> commodityList = searchCommodity(input, model);
+            List<Commodity> commodityList = searchCommodity(input);
             model.addAttribute("list", commodityList);
         }
         else {    //搜索店铺
-            List<Shop> shopList = searchShop(input, model);
+            List<Shop> shopList = searchShop(input);
             model.addAttribute("list",shopList);
         }
-        return "";
+        return "shop/shop";
     }
 
-    private List<Commodity> searchCommodity(String input, Model model)throws Exception {
+    private void updateKeyMap(Map<Integer, Integer> map, int id){
+        if(map.containsKey(id)){
+            int curNum = map.get(id);
+            curNum++;
+            map.put(id, curNum);
+        }
+        else map.put(id, 1);
+    }
 
+    private List<Commodity> searchCommodity(String input)throws Exception {
         List<String> wordList = WordSegmentation.getWord(input);
-        Map<Integer,Integer> keyNum = new HashMap<Integer, Integer>();
-        for(int i=0; i<wordList.size(); i++) {
-            String word = "%" + wordList.get(i) + "%";
-            List<Commodity> Commoditys = commoditySearch.CommoditySearchName(word);
-            for(int j=0; j<Commoditys.size(); j++) {
-                Integer CommodityId = Commoditys.get(j).getId();
-                if(keyNum.containsKey(CommodityId)){
-                    int curNum = keyNum.get(CommodityId);
-                    curNum++;
-                    keyNum.put(CommodityId, curNum);
-                }
-                else keyNum.put(CommodityId, 1);
+        Map<Integer,Integer> keyNum = new HashMap<>();
+        for (String aWordList : wordList) {
+            String word = "%" + aWordList + "%";
+            List<Commodity> commodities = commoditySearch.commoditySearchName(word);
+            for (Commodity commodity : commodities) {
+                Integer commodityId = commodity.getId();
+                updateKeyMap(keyNum, commodityId);
             }
         }
 
         //降序排序
-        List<Map.Entry<Integer, Integer>> list = new ArrayList<Map.Entry<Integer, Integer>>(keyNum.entrySet());
-        Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(keyNum.entrySet());
+        list.sort((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
-            @Override
-            public int compare(Entry<Integer, Integer> o1, Entry<Integer, Integer> o2) {
-                return o2.getValue().compareTo(o1.getValue());
-            }
-        });
-
-        List<Commodity> result = new ArrayList<Commodity>();
+        List<Commodity> result = new ArrayList<>();
         for (Map.Entry<Integer, Integer> mapping : list) {
-            Commodity cur = commoditySearch.CommoditySearchId(mapping.getKey());
+            Commodity cur = commoditySearch.commoditySearchId(mapping.getKey());
             result.add(cur);
         }
         return result;
     }
 
-    private List<Shop> searchShop(String input, Model model)throws Exception {
+    private List<Shop> searchShop(String input)throws Exception {
 
         List<String> wordList = WordSegmentation.getWord(input);
-        Map<Integer,Integer> keyNum = new HashMap<Integer, Integer>();
-        for(int i=0; i<wordList.size(); i++) {
-            String word = "%" + wordList.get(i) + "%";
-            List<Shop> Shops = shopSearch.ShopSearchName(word);
-            for(int j=0; j<Shops.size(); j++) {
-                Integer ShopIds = Shops.get(j).getId();
-                if(keyNum.containsKey(ShopIds)){
-                    int curNum = keyNum.get(ShopIds);
-                    curNum++;
-                    keyNum.put(ShopIds, curNum);
-                }
-                else keyNum.put(ShopIds, 1);
+        Map<Integer,Integer> keyNum = new HashMap<>();
+        for (String aWordList : wordList) {
+            String word = "%" + aWordList + "%";
+            List<Shop> Shops = shopSearch.shopSearchName(word);
+            for (com.lemarket.data.model.Shop Shop : Shops) {
+                Integer shopIds = Shop.getId();
+                updateKeyMap(keyNum, shopIds);
             }
         }
 
         //降序排序
-        List<Map.Entry<Integer, Integer>> list = new ArrayList<Map.Entry<Integer, Integer>>(keyNum.entrySet());
-        Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(keyNum.entrySet());
+        list.sort((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
-            @Override
-            public int compare(Entry<Integer, Integer> o1, Entry<Integer, Integer> o2) {
-                return o2.getValue().compareTo(o1.getValue());
-            }
-        });
-
-        List<Shop> result = new ArrayList<Shop>();
+        List<Shop> result = new ArrayList<>();
         for (Map.Entry<Integer, Integer> mapping : list) {
-            Shop cur = shopSearch.ShopSearchId(mapping.getKey());
+            Shop cur = shopSearch.shopSearchId(mapping.getKey());
             result.add(cur);
         }
         return result;

@@ -18,13 +18,16 @@ public class ShopService {
     private final UsersMapper usersMapper;
     private final PictureMapper pictureMapper;
 
+    private final OrderdetailsMapper orderdetailsMapper;
+
     @Autowired
-    public ShopService(ShopMapper shopMapper, CommodityMapper commodityMapper, TokenMapper tokenMapper, UsersMapper usersMapper, PictureMapper pictureMapper) {
+    public ShopService(ShopMapper shopMapper, CommodityMapper commodityMapper, TokenMapper tokenMapper, UsersMapper usersMapper, PictureMapper pictureMapper, OrderdetailsMapper orderdetailsMapper) {
         this.shopMapper = shopMapper;
         this.commodityMapper = commodityMapper;
         this.tokenMapper = tokenMapper;
         this.usersMapper = usersMapper;
         this.pictureMapper = pictureMapper;
+        this.orderdetailsMapper = orderdetailsMapper;
     }
 
     public Shop getShopById(int id){
@@ -89,5 +92,10 @@ public class ShopService {
             picture = pictureMapper.selectByPath(path);
             shopMapper.updateIcon(picture.getId(), userId);
             return oldPicture.getPath();
+    }
+
+    //获取店铺订单
+    public  List<Orderdetails> getShopOrderList(int shopid, int pageRow, int pageSize){
+        return orderdetailsMapper.selectShopOrderByShopId(shopid, pageRow, pageSize);
     }
 }

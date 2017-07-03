@@ -32,4 +32,9 @@
     select id, orderInfo, commodity, receive, commodityType, count, time
     from OrderDetails
   </select>
+    <select id="selectShopOrderByShopId" resultMap="BaseResultMap">
+      SELECT * FROM OrderDetails WHERE commodity IN (
+        select id FROM Commodity WHERE shop = #{id}
+        )ORDER BY id DESC LIMIT #{beginRow}, #{pageSize};
+    </select>
 </mapper>

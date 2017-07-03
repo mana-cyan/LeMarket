@@ -26,7 +26,7 @@ public class ShopSearch {
      * @param word 关键词
      * @return ShopIdList 店铺id
      */
-    public List<Shop> ShopSearchName(String word) {
+    public List<Shop> shopSearchName(String word) {
         return shopMapper.selectByName(word);
     }
 
@@ -35,7 +35,7 @@ public class ShopSearch {
      * @param id 关键词
      * @return ShopIdList 店铺信息
      */
-    public Shop ShopSearchId(Integer id) {
+    public Shop shopSearchId(Integer id) {
         return shopMapper.selectById(id);
     }
 }

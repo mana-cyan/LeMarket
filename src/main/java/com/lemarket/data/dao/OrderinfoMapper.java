@@ -27,4 +27,5 @@ public interface OrderinfoMapper {
 
     List<Orderinfo> selectAllById(int id);
     int selectLast();
+
 }

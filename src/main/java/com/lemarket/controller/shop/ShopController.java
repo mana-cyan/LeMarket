@@ -1,6 +1,8 @@
 package com.lemarket.controller.shop;
 
+import com.lemarket.data.dao.OrderdetailsMapper;
 import com.lemarket.data.model.Commodity;
+import com.lemarket.data.model.Orderdetails;
 import com.lemarket.data.model.Shop;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.ShopService;
@@ -83,5 +85,11 @@ public class ShopController {
             return new Status("ERROR");
         }
         return new Status("SUCCESS");
+    }
+
+    @RequestMapping(value = "getNewOrder", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Orderdetails> getNewOrder(int id, int page){
+        return shopService.getShopOrderList(id, (page-1)*5+1, 5);
     }
 }

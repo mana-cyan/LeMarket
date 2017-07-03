@@ -16,4 +16,3 @@ function search() {
 }
 
 $("#search_href").on("click", search);
-$("searchString").keyup(search);

@@ -6,7 +6,7 @@ function search() {
     input1.attr("value", type);
     form.append(input1);
     var input2 = $("<input type='text' name='input'>");
-    var searchString = $("#searchString").attr("value");
+    var searchString = $("#searchString").val();
     if(searchString.trim() === "")
         return;
     input2.attr("value", searchString);

@@ -39,7 +39,7 @@ $(document).ready(setPreferDetail);
 function detailForward() {
     var id = $(this).attr("id");
     console.log(id);
-    window.location.href = "/commodityDetails?id=" + id
+    window.location.href = "/commodityDetails?id=" + id;
     // $.ajax({
     //     type:"get",
     //     url:"/commodityDetails?id=" + id

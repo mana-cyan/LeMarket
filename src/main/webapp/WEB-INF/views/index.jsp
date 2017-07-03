@@ -109,8 +109,8 @@
                             <form action="" >
                                 <label>
                                     <select id="userSearch">
-                                        <option value="shop">搜店铺</option>
-                                        <option value="commodity">搜商品</option>
+                                        <option value="0">搜店铺</option>
+                                        <option value="1">搜商品</option>
                                     </select>
                                 </label>
                             </form>

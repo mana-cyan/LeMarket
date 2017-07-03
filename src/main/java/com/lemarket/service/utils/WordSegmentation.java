@@ -12,7 +12,8 @@ public class WordSegmentation {
      * @return wordList
      */
     public static List<String> getWord(String sentence)throws Exception{
-        CWSTagger tag = new CWSTagger("./models/seg.m");
+
+        CWSTagger tag = new CWSTagger("/WEB-INF/classes/models/seg.m");
         String s = tag.tag(sentence);
         String words[] = s.split(" ");
         List<String> wordList = new ArrayList<String>();

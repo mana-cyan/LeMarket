@@ -78,7 +78,7 @@
                     <div class="col-sm-5 hidden-xs">
                         <div class="header-top-left">
                             <ul class="header-top-style text-capitalize mr-25">
-                                <li><a href="index.jsp"><span class="mr-10">首页</span></a>
+                                <li><a href="index"><span class="mr-10">首页</span></a>
                                 </li>
                             </ul>
                             <ul class="header-top-style text-capitalize mr-25">
@@ -238,7 +238,7 @@
                             <div class="product-inner">
                                 <a href="commodityDetails">
                                     <div class="product-img b-img">
-                                        <img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" alt="">
+                                        <img src="" alt="">
                                     </div>
                                 </a>
                                 <span class="product-tag text-uppercase orang-bg">-20%</span>
@@ -257,12 +257,12 @@
                                         <li><i class="rated fa fa-star"></i></li>
                                     </ul>
                                     <ul class="pricing list-inline pull-right">
-                                        <li class="text-right c-price">$170</li>
-                                        <li class="text-right p-price">$190</li>
+                                        <li class="text-right c-price"></li>
+                                        <li class="text-right p-price"></li>
                                     </ul>
                                     <div class="clear"></div>
                                     <h6 class="product-name">
-                                        <a href="commodityDetails" title="Eletria ostma">Teletria ostma</a>
+                                        <a href="commodityDetails" title="Eletria ostma"></a>
                                     </h6>
                                 </div>
                             </div>

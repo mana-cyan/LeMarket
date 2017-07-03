@@ -66,6 +66,7 @@ function loginWithUsername() {
                 'validateCode': validateDiv.val()
             },
             success: function (response) {
+                console.log(response);
                 onLoginFinish(response.token);
             },
             error: function () {
@@ -103,17 +104,14 @@ function loginWithEmail() {
 function onLoginFinish(token) {
     var messageDiv = $('#wrongMessage');
     if (token === "") {
+        refreshValidateCode();
         messageDiv.html("用户名或密码错误!");
     }
     else {
         console.log('LoginSuccess');
         messageDiv.html("");
         Cookie.setToken(token);
-        $.ajax({
-                type: 'get',
-                url: 'redirectIndex'
-            }
-        );
+        window.location.href='redirectIndex';
     }
 }
 

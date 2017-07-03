@@ -31,12 +31,15 @@ public class AccountController {
 
     private final UsersMapper usersMapper;
 
+    private final ValidateCodeChecker validateCodeChecker;
+
     @Autowired
-    public AccountController(EmailChecker emailChecker, TokenSetter tokenSetter, UsernameChecker usernameChecker, UsersMapper usersMapper) {
+    public AccountController(EmailChecker emailChecker, TokenSetter tokenSetter, UsernameChecker usernameChecker, UsersMapper usersMapper, ValidateCodeChecker validateCodeChecker) {
         this.emailChecker = emailChecker;
         this.tokenSetter = tokenSetter;
         this.usernameChecker = usernameChecker;
         this.usersMapper = usersMapper;
+        this.validateCodeChecker = validateCodeChecker;
     }
 
     @RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
@@ -103,7 +106,7 @@ public class AccountController {
         //检查验证码是否正确
         String answer = "ERROR";
         if(validateCodeText != null && code != null){
-            if(validateCodeText.toLowerCase().equals(code))
+            if(validateCodeChecker.checkValidate(validateCodeText,code))
                 answer = "SUCCESS";
         }
 

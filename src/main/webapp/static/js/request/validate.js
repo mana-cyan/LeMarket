@@ -35,13 +35,10 @@ function checkValidateCode() {
         success:function (data) {
             var status = data.status;
             $("#validateStatus").html(status);
-            if(status === "ERROR")
-                refreshValidateCode();
             console.log(status);
         },
         error:function (data) {
             console.log("error : " + data);
-            refreshValidateCode();
         }
     })
 }

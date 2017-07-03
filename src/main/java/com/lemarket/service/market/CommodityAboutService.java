@@ -27,6 +27,6 @@ public class CommodityAboutService {
 
     public List<Commodity> getCommodityAbout(int id){
         Commodity commodity = commodityMapper.selectById(id);
-        return commodityMapper.selectPageByKindAndSaled(commodity.getCategroy());
+        return commodityMapper.selectPageByKindAndSaled(commodity.getCategory());
     }
 }

@@ -18,10 +18,11 @@ function getPreferCommodity() {
 
 //设置初始推荐商品
 function preferSet(viewDiv, preferObject) {
-    viewDiv.child("img").attr("src", "/image?id=" + preferObject.id);
-    viewDiv.child(".pricing .list-inline .pull-right").child(".c-price").html("￥" + preferObject.price);
-    viewDiv.child(".pricing .list-inline .pull-right").child(".p-price").html( "￥" + gitparseInt( preferObject.price * 1.2));
-    viewDiv.child("h6").html(preferObject.name);
+    console.log(preferObject.id);
+    viewDiv.find("img").attr("src", "/image?id=" + preferObject.id);
+    viewDiv.children(".pricing .list-inline .pull-right").child(".c-price").html("￥" + preferObject.price);
+    viewDiv.children(".pricing .list-inline .pull-right").child(".p-price").html( "￥" + gitparseInt( preferObject.price * 1.2));
+    viewDiv.find("h6").html(preferObject.name);
     viewDiv.attr("id", preferObject.id);
 }
 

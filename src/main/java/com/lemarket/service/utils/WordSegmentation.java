@@ -2,6 +2,7 @@ package com.lemarket.service.utils;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import edu.fudan.nlp.cn.tag.CWSTagger;
 
@@ -9,7 +10,7 @@ public class WordSegmentation {
 
     /**
      * 分词
-     * @param sentence
+     * @param sentence 句子
      * @return wordList
      */
     public static List<String> getWord(String sentence)throws Exception{
@@ -18,10 +19,8 @@ public class WordSegmentation {
         CWSTagger tag = new CWSTagger(getRoot()+"/WEB-INF/classes/models/seg.m");
         String s = tag.tag(sentence);
         String words[] = s.split(" ");
-        List<String> wordList = new ArrayList<String>();
-        for(int i=0;i<words.length;i++){
-            wordList.add(words[i]);
-        }
+        List<String> wordList = new ArrayList<>();
+        wordList.addAll(Arrays.asList(words));
         return wordList;
     }
 

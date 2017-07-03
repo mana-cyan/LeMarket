@@ -20,7 +20,7 @@ function preferSet(viewDiv, preferObject) {
     });
     viewDiv.find(".c-price").html("￥" + preferObject.price);
     viewDiv.find("h6").html(preferObject.name);
-    viewDiv.attr("id", preferObject.id)
+    viewDiv.find('a').attr('href', '/commodityDetails?id='+preferObject.id)
 }
 
 //批量填充推荐商品数据
@@ -34,12 +34,3 @@ function setPreferDetail() {
 }
 
 $(document).ready(setPreferDetail);
-
-//设置商品详情跳转请求
-function setPreferForward() {
-    var preferDivs = $(".product-inner");
-    for(var i=0; i<preferDivs.length; i++)
-        $(preferDivs[i]).find('a').attr("href","/commodityDetails?id="+$(preferDivs[i]).attr("id"))
-}
-
-setPreferForward();

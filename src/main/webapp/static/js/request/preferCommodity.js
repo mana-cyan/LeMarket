@@ -20,7 +20,7 @@ function preferSet(viewDiv, preferObject) {
     });
     viewDiv.find(".c-price").html("￥" + preferObject.price);
     viewDiv.find("h6").html(preferObject.name);
-    viewDiv.attr("id", preferObject.id);
+    viewDiv.attr("id", preferObject.id)
 }
 
 //批量填充推荐商品数据
@@ -35,25 +35,11 @@ function setPreferDetail() {
 
 $(document).ready(setPreferDetail);
 
-//发送商品详情跳转
-function detailForward() {
-    var id = $(this).attr("id");
-    console.log(id);
-    window.location.href = "/commodityDetails?id=" + id
-    // $.ajax({
-    //     type:"get",
-    //     url:"/commodityDetails?id=" + id
-    // })
-}
-
 //设置商品详情跳转请求
 function setPreferForward() {
     var preferDivs = $(".product-inner");
-    for(var i=0; i<preferDivs.length; i++){
-        //$(preferDivs[i]).on("click", detailForward);
-        console.log($(preferDivs[i]).attr("id"));
-        $(preferDivs[i]).href="/commodityDetails?id="+$(preferDivs[i]).attr("id")
-    }
+    for(var i=0; i<preferDivs.length; i++)
+        $(preferDivs[i]).find('a').attr("href","/commodityDetails?id="+$(preferDivs[i]).attr("id"))
 }
 
 setPreferForward();

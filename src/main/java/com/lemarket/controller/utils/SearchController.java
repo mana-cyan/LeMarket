@@ -29,8 +29,6 @@ public class SearchController {
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(int searchType, String input, Model model)throws Exception {
-        System.out.println(searchType);
-        System.out.println(input);
         model.addAttribute("type", searchType);
         if(searchType == 0) {   //搜索商品
             List<Commodity> commodityList = searchCommodity(input);

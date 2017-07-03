@@ -15,7 +15,6 @@ function getPreferCommodity(callback) {
 
 //设置初始推荐商品
 function preferSet(viewDiv, preferObject) {
-    console.log(preferObject.image);
     loadPicture(preferObject.image, function (id, path) {
         viewDiv.find("img").attr("src", path);
     });
@@ -39,17 +38,21 @@ $(document).ready(setPreferDetail);
 //发送商品详情跳转
 function detailForward() {
     var id = $(this).attr("id");
-    $.ajax({
-        type:"get",
-        url:"/commodity?id=" + id
-    })
+    console.log(id);
+    window.location.href = "/commodityDetails?id=" + id
+    // $.ajax({
+    //     type:"get",
+    //     url:"/commodityDetails?id=" + id
+    // })
 }
 
 //设置商品详情跳转请求
 function setPreferForward() {
     var preferDivs = $(".product-inner");
     for(var i=0; i<preferDivs.length; i++){
-        $(preferDivs[i]).on("click", detailForward);
+        //$(preferDivs[i]).on("click", detailForward);
+        console.log($(preferDivs[i]).attr("id"));
+        $(preferDivs[i]).href="/commodityDetails?id="+$(preferDivs[i]).attr("id")
     }
 }
 

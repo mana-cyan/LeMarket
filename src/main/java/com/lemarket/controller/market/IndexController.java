@@ -24,7 +24,6 @@ public class IndexController {
     @RequestMapping(value = "/redirectIndex")
     public String redirectIndex(String token)
     {
-
         return "redirect:index";
     }
 }

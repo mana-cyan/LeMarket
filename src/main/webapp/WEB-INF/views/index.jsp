@@ -78,7 +78,7 @@
                     <div class="col-sm-5 hidden-xs">
                         <div class="header-top-left">
                             <ul class="header-top-style text-capitalize mr-25">
-                                <li><a href="index.jsp"><span class="mr-10">首页</span></a>
+                                <li><a href="index"><span class="mr-10">首页</span></a>
                                 </li>
                             </ul>
                             <ul class="header-top-style text-capitalize mr-25">

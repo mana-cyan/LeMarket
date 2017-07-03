@@ -16,7 +16,7 @@ public class WordSegmentation {
         CWSTagger tag = new CWSTagger("/WEB-INF/classes/models/seg.m");
         String s = tag.tag(sentence);
         String words[] = s.split(" ");
-        List<String> wordList = new ArrayList<String>();
+        List<String> wordList = new ArrayList<>();
         for(int i=0;i<words.length;i++){
             wordList.add(words[i]);
         }

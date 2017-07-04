@@ -31,10 +31,7 @@
     from Comment
   </select>
     <select id="selectPageById" resultMap="BaseResultMap">
-      SELECT * FROM Comment WHERE 1=1
-      <if test="commodityId != null and commodityId!=''">
-        AND commodity = #{commodityId}
-      </if>
+      SELECT * FROM Comment WHERE commodity = #{commodityId}
       order by id desc limit #{beginRow}, #{pageSize};
     </select>
 </mapper>

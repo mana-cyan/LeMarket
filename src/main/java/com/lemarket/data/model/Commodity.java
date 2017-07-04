@@ -450,4 +450,10 @@ public class Commodity {
                 ", details='" + details + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return o.toString().equals(this.toString());
+    }
+
 }

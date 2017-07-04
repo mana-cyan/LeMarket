@@ -36,10 +36,10 @@
   1. Featured Carousel active
   ------------------------------ */    
     $(".featured-carousel").owlCarousel({
-        autoPlay: false, 
+        autoPlay: false,
         slideSpeed:2000,
         pagination:false,
-        navigation:true,    
+        navigation:true,
         items : 5,
         /* transitionStyle : "fade", */    /* [This code for animation ] */
         navigationText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
@@ -47,7 +47,7 @@
         itemsDesktopSmall : [991,3],
         itemsTablet: [767,2],
         itemsMobile: [479,1]
-    }); 
+    });
 
   /*----------------------------
   2. Main Slider
@@ -61,12 +61,12 @@
       pauseTime: 5000,
       startSlide: 0,
       directionNav: true,
-      controlNavThumbs: true,  
+      controlNavThumbs: true,
       prevText: 'Pr <br /> ev',
       nextText: 'Ne <br /> xt',
       pauseOnHover: true,
       manualAdvance: true
-     }); 
+     });
 
   /*---------------------
   3. Countdown
@@ -82,10 +82,10 @@
   4. Best Saller Carousel Active
   ------------------------------ */    
     $(".best-seller-carousel").owlCarousel({
-      autoPlay: false, 
+      autoPlay: false,
       slideSpeed:2000,
       pagination:false,
-      navigation:true,    
+      navigation:true,
       items : 10,
       /* transitionStyle : "fade", */    /* [This code for animation ] */
       navigationText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
@@ -99,10 +99,10 @@
   5. Blog Carousel Active
   ------------------------------ */    
     $(".blog-carousel").owlCarousel({
-      autoPlay: false, 
+      autoPlay: false,
       slideSpeed:2000,
       pagination:false,
-      navigation:true,    
+      navigation:true,
       items : 2,
       /* transitionStyle : "fade", */    /* [This code for animation ] */
       navigationText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
@@ -116,10 +116,10 @@
   6. Testimonial List Active
   ------------------------------ */    
     $(".testimonial-list").owlCarousel({
-      autoPlay: false, 
+      autoPlay: false,
       slideSpeed:2000,
       pagination:false,
-      navigation:true,    
+      navigation:true,
       items : 1,
       /* transitionStyle : "fade", */    /* [This code for animation ] */
       navigationText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
@@ -127,22 +127,22 @@
       itemsDesktopSmall : [991,1],
       itemsTablet: [767,1],
       itemsMobile: [479,1]
-    }); 
+    });
 
   /*----------------------------
   7. Brand Carousel Active
   ------------------------------ */    
     $(".brand-carousel").owlCarousel({
-      autoPlay: false, 
+      autoPlay: false,
       slideSpeed:2000,
       pagination:false,
-      navigation:false,   
+      navigation:false,
       items : 5,
       itemsDesktop : [1199,4],
       itemsDesktopSmall : [991,4],
       itemsTablet: [767,3],
       itemsMobile: [479,1]
-    }); 
+    });
 
   /*----------------------------
   8. Test Popup Link

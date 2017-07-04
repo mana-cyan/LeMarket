@@ -1,6 +1,7 @@
 package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Commodity;
+import com.lemarket.data.model.CommodityWithShop;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,4 +35,6 @@ public interface CommodityMapper {
     List<Commodity> selectByName(String word);
 
     int selectCountById(int category);
+
+    CommodityWithShop selectCommodityWithShopByCommodityId(int id);
 }

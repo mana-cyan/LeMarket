@@ -21,7 +21,7 @@ public class CommodityAbout {
         this.commodityAboutService = commodityAboutService;
     }
 
-    //分页获取商品
+    //分页获取商品评论
     @RequestMapping(value = "getComment", method = RequestMethod.GET)
     @ResponseBody
     public List<Comment> getComment(int id, int page){
@@ -35,5 +35,11 @@ public class CommodityAbout {
         model.addAttribute("count",commodityAboutService.getCommodityCount(id));
         model.addAttribute("list",commodityAboutService.getCommodityAbout(id, (page-1)*5, 5));
         return "shop/search";
+    }
+
+    @RequestMapping(value = "getCommodityType", method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> getCommodityType(int id){
+        return commodityAboutService.getCommodityTypeById(id);
     }
 }

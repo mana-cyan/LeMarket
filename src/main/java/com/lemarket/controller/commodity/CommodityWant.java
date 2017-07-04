@@ -44,7 +44,7 @@ public class CommodityWant {
     public Status want(Integer id, Integer type, Integer count, Token token) {
         Orderdetails details = new Orderdetails();
         Orderinfo info = new Orderinfo();
-        Commodity commodity = commoditySearch.commoditySearchId(id);
+        Commodity commodity = commoditySearch.commoditySearchById(id);
         int userId = tokenMapper.selectUserById(token.getId());
         Date time = new Date();
 

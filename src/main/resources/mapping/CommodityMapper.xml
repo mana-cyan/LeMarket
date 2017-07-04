@@ -64,4 +64,38 @@
   <select id="selectCountById" resultType="java.lang.Integer">
     SELECT COUNT(*) FROM Commodity WHERE category = #{category};
   </select>
+
+  <!--commodity shop 连表查询-->
+  <resultMap id="CommodityWithShop" type="com.lemarket.data.model.CommodityWithShop">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="category" jdbcType="INTEGER" property="category" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="storage" jdbcType="INTEGER" property="storage" />
+    <result column="saled" jdbcType="INTEGER" property="saled" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="image" jdbcType="INTEGER" property="image" />
+    <result column="visitCount" jdbcType="INTEGER" property="visitcount" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="owner" jdbcType="INTEGER" property="owner" />
+    <result column="details" jdbcType="LONGVARCHAR" property="details" />
+    <association property="shop" javaType="com.lemarket.data.model.Shop">
+      <result column="sid" jdbcType="INTEGER" property="id" />
+      <result column="sowner" jdbcType="INTEGER" property="owner" />
+      <result column="sname" jdbcType="VARCHAR" property="name" />
+      <result column="sicon" jdbcType="INTEGER" property="icon" />
+      <result column="sphoneNumber" jdbcType="VARCHAR" property="phonenumber" />
+      <result column="scustomerService" jdbcType="INTEGER" property="customerservice" />
+      <result column="sservicePhoneNumber" jdbcType="VARCHAR" property="servicephonenumber" />
+      <result column="sdescription" jdbcType="LONGVARCHAR" property="description" />
+    </association>
+  </resultMap>
+
+  <select id="selectCommodityWithShopByCommodityId" resultMap="CommodityWithShop">
+    SELECT c.id, c.category, c.shop, c.name, c.storage, c.saled, c.price, c.image, c.visitCount, c.status, c.time, c.owner, c.details,
+      s.id as sid, s.owner as sowner, s.name as sname,
+      s.icon as sicon, s.phoneNumber as sphoneNumber, s.customerService as scustomerService,
+      s.servicePhoneNumber as sservicePhoneNumber, s.description as sdescription
+    from Commodity c,Shop s WHERE c.id=#{id} AND c.shop = s.id;
+  </select>
 </mapper>

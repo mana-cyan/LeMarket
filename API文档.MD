@@ -756,10 +756,9 @@ image: Base64 Binary
 ```
 {
 	'status': 'SUCCESS'/'ERROR'
-	'id': int
 }
 ```
-
+**与上一个共用一个借口**
 10. 编辑商品图片
 
 |URL|Header|Method|
@@ -779,7 +778,7 @@ image: Base64 Binary
 	'status': 'SUCCESS'/'ERROR'
 }
 ```
-
+**图片上传与上面共用一个接口**
 11. 新增商品
 
 |URL|Header|Method|

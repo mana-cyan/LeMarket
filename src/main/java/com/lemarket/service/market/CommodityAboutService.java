@@ -1,13 +1,7 @@
 package com.lemarket.service.market;
 
-import com.lemarket.data.dao.CommentMapper;
-import com.lemarket.data.dao.CommodityMapper;
-import com.lemarket.data.dao.CommoditytypeMapper;
-import com.lemarket.data.dao.PictureMapper;
-import com.lemarket.data.model.Comment;
-import com.lemarket.data.model.CommentWithUser;
-import com.lemarket.data.model.Commodity;
-import com.lemarket.data.model.Picture;
+import com.lemarket.data.dao.*;
+import com.lemarket.data.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,13 +14,15 @@ public class CommodityAboutService {
     private final CommodityMapper commodityMapper;
     private final CommoditytypeMapper commoditytypeMapper;
     private final PictureMapper pictureMapper;
+    private final ShopMapper shopMapper;
 
     @Autowired
-    public CommodityAboutService(CommentMapper commentMapper, CommodityMapper commodityMapper, CommoditytypeMapper commoditytypeMapper, PictureMapper pictureMapper) {
+    public CommodityAboutService(CommentMapper commentMapper, CommodityMapper commodityMapper, CommoditytypeMapper commoditytypeMapper, PictureMapper pictureMapper, ShopMapper shopMapper) {
         this.commentMapper = commentMapper;
         this.commodityMapper = commodityMapper;
         this.commoditytypeMapper = commoditytypeMapper;
         this.pictureMapper = pictureMapper;
+        this.shopMapper = shopMapper;
     }
 
     //根据商品id获取评论
@@ -60,19 +56,17 @@ public class CommodityAboutService {
 
 
     //更新商品图标,返回原图片路径
-    public String updateCommodityIcon(String path, int commodityId){
-        //删除原有图片
+    public void updateCommodityIcon(String path, int commodityId){
         Commodity commodity = commodityMapper.selectById(commodityId);
         int pictureId = commodity.getImage();
-        Picture oldPicture = pictureMapper.selectById(pictureId);
-        pictureMapper.deleteById(pictureId);
+        pictureMapper.updateImageById(path,pictureId);
+    }
 
-        //插入新图片
-        Picture picture = new Picture();
-        picture.setPath(path);
-        pictureMapper.insert(picture);
-        picture = pictureMapper.selectByPath(path);
-        commodityMapper.updateImage(picture.getId(), commodityId);
-        return oldPicture.getPath();
+    //添加商品
+    public int addCommodity(Commodity commodity){
+        //commodity里无店主id， 获取并设置
+        Shop shop = shopMapper.selectById(commodity.getShop());
+        commodity.setOwner(shop.getOwner());
+        return commodityMapper.insert(commodity);
     }
 }

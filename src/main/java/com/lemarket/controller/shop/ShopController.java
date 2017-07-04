@@ -85,23 +85,12 @@ public class ShopController {
     @RequestMapping(value = "setShopImage", method = RequestMethod.POST)
     @ResponseBody
     public Status setShopImage(MultipartFile multipartFile, HttpServletRequest request,HttpSession session) throws IOException {
-        if(multipartFile.getSize()>0){
-            String fileName = multipartFile.getOriginalFilename();
-            if(fileName.endsWith(".png") || fileName.endsWith(".jpg") || fileName.endsWith(".gif")){
-                String uploadPath = "/static/upload/";
-                String path = session.getServletContext().getRealPath(uploadPath);
-                String[] splits = fileName.split(".");
-                String newFileName = new Date().toString() + "." + splits[splits.length-1];
-                String oldPath = shopService.updateShopIcon(uploadPath+newFileName, request.getHeader("Token"));
-                //删除原图标
-                imageFactory.deleteFile(session.getServletContext().getRealPath("/") + oldPath);
-                //写入新图标
-                imageFactory.saveFile(multipartFile.getInputStream(), path + newFileName);
+            String path = imageFactory.saveFile(multipartFile,session);
+            if(!path.equals("ERROR")) {
+                shopService.updateShopIcon(path, request.getHeader("Token"));
+                return new Status("SUCCESS");
             }
-        }else {
             return new Status("ERROR");
-        }
-        return new Status("SUCCESS");
     }
 
     @RequestMapping(value = "getNewOrder", method = RequestMethod.GET)

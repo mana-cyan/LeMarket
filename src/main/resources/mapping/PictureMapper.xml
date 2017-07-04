@@ -17,6 +17,9 @@
     insert into Picture (id, path)
     values (#{id,jdbcType=INTEGER}, #{path,jdbcType=LONGVARCHAR})
   </insert>
+    <update id="updateImageById">
+      UPDATE Picture SET path = #{path} WHERE id = #{id};
+    </update>
     <delete id="deleteById">
       DELETE FROM Picture WHERE id = #{id};
     </delete>

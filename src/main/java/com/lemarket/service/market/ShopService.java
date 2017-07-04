@@ -81,23 +81,13 @@ public class ShopService {
         return "SUCCESS";
     }
 
-    //更新图标，返回原图标path
-    public String updateShopIcon(String path, String tokenString){
+    //更新图标
+    public void updateShopIcon(String path, String tokenString){
             Token token = tokenMapper.selectByToken(tokenString);
             int userId = token.getId();
-            //删除原有图标
             Shop shop = shopMapper.selectByOwner(userId);
             int pictureId = shop.getIcon();
-            Picture oldPicture = pictureMapper.selectById(pictureId);
-            pictureMapper.deleteById(pictureId);
-
-            //插入新图标
-            Picture picture = new Picture();
-            picture.setPath(path);
-            pictureMapper.insert(picture);
-            picture = pictureMapper.selectByPath(path);
-            shopMapper.updateIcon(picture.getId(), userId);
-            return oldPicture.getPath();
+            pictureMapper.updateImageById(path, pictureId);
     }
 
     //获取店铺订单

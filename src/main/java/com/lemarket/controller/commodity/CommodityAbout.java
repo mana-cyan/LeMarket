@@ -1,6 +1,5 @@
 package com.lemarket.controller.commodity;
 
-import com.lemarket.data.model.Comment;
 import com.lemarket.data.model.CommentWithUser;
 import com.lemarket.data.model.Commodity;
 import com.lemarket.service.market.CommodityAboutService;

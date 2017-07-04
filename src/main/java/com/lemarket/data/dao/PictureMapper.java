@@ -27,4 +27,5 @@ public interface PictureMapper {
     Picture selectByPath(String path);
 
     int deleteById(int id);
+    Picture updateImageById(String path, int id);
 }

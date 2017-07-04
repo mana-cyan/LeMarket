@@ -3,6 +3,7 @@ package com.lemarket.controller.commodity;
 import com.lemarket.data.dao.CommodityMapper;
 import com.lemarket.data.model.Commodity;
 import com.lemarket.data.model.CommodityWithShop;
+import com.lemarket.data.model.Shop;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.CommodityAboutService;
 import com.lemarket.service.utils.CommoditySearch;
@@ -54,22 +55,21 @@ public class CommodityController {
     @RequestMapping(value = "uploadCommodityImage", method = RequestMethod.POST)
     @ResponseBody
     public Status uploadCommodity(MultipartFile multipartFile, int id, HttpSession session) throws IOException {
-        if(multipartFile.getSize()>0){
-            String fileName = multipartFile.getOriginalFilename();
-            if(fileName.endsWith(".png") || fileName.endsWith(".jpg") || fileName.endsWith(".gif")){
-                String uploadPath = "/static/upload/";
-                String path = session.getServletContext().getRealPath(uploadPath);
-                String[] splits = fileName.split(".");
-                String newFileName = new Date().toString() + "." + splits[splits.length-1];
-                String oldPath = commodityAboutService.updateCommodityIcon(uploadPath+newFileName, id);
-                //删除原图标
-                imageFactory.deleteFile(session.getServletContext().getRealPath("/") + oldPath);
-                //写入新图标
-                imageFactory.saveFile(multipartFile.getInputStream(), path + newFileName);
-            }
-        }else {
-            return new Status("ERROR");
+        String path = imageFactory.saveFile(multipartFile,session);
+        if(!path.equals("ERROR")) {
+            commodityAboutService.updateCommodityIcon(path, id);
+            return new Status("SUCCESS");
         }
-        return new Status("SUCCESS");
+        return new Status("ERROR");
+    }
+
+    //添加商品
+    @RequestMapping(value = "addCommodity", method = RequestMethod.POST)
+    @ResponseBody
+    public Status addCommodity(Commodity commodity){
+        int status = commodityAboutService.addCommodity(commodity);
+        if (status>0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
     }
 }

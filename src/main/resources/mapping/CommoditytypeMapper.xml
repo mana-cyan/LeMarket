@@ -29,6 +29,6 @@
     from CommodityType
   </select>
     <select id="selectCommodityTypeById" resultType="java.lang.String">
-      SELECT name FROM CommodityType WHERE id=#{id};
+      SELECT name FROM CommodityType WHERE commodity=#{id};
     </select>
 </mapper>

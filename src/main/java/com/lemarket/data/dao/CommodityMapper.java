@@ -39,4 +39,7 @@ public interface CommodityMapper {
 
     CommodityWithShop selectCommodityWithShopByCommodityId(int id);
 
+    //更新图标
+    int updateImage(int imageId, int commodityId);
+
 }

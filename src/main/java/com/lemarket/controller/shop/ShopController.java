@@ -81,6 +81,7 @@ public class ShopController {
         return new Status(resp);
     }
 
+    //设置店铺图标
     @RequestMapping(value = "setShopImage", method = RequestMethod.POST)
     @ResponseBody
     public Status setShopImage(MultipartFile multipartFile, HttpServletRequest request,HttpSession session) throws IOException {

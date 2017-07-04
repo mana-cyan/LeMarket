@@ -2,6 +2,7 @@ package com.lemarket.controller.shop;
 
 import com.lemarket.data.model.Commodity;
 import com.lemarket.data.model.Orderdetails;
+import com.lemarket.data.model.Orderinfo;
 import com.lemarket.data.model.Shop;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.ShopService;
@@ -57,9 +58,15 @@ public class ShopController {
     }
 
 
-    @RequestMapping(value = "shopCommodity", method = RequestMethod.GET)
+    /**
+     * 获取店铺商品分页
+     * @param id 店铺id
+     * @param page 分页码
+     * @return 商品List
+     */
+    @RequestMapping(value = "getCommodityList", method = RequestMethod.GET)
     @ResponseBody
-    public List<Commodity> getShopCommodity(int id, int page){
+    public List<Commodity> getCommodityList(int id, int page){
         return shopService.getCommodityByShopId(id, (page-1)*5, 5);
     }
 
@@ -122,5 +129,16 @@ public class ShopController {
     @ResponseBody
     public Status deleteOrder(int id){
         return shopService.deleteOrder(id);
+    }
+
+    /**
+     * 获取已发货订单
+     * @param id 商铺id
+     * @return 订单list
+     */
+    @RequestMapping(value = "getSended", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Orderinfo> getSended(int id){
+        return shopService.getShopSendedOrder(id, 0, 10);
     }
 }

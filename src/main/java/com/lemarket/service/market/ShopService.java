@@ -6,6 +6,8 @@ import com.lemarket.data.reponseObject.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -119,5 +121,17 @@ public class ShopService {
         if(m>0 && n>0)
             return new Status("SUCCESS");
         return new Status("ERROR");
+    }
+
+    //获取店铺以发货订单
+    public List<Orderinfo> getShopSendedOrder(int shopid, int beginRow, int pageSize){
+        //待收货
+        List<Orderinfo> listOfSended = orderinfoMapper.selectOrderByShopIdAndStatus(shopid, "待收货", beginRow, pageSize);
+        //以完成
+        List<Orderinfo> listOfFinished = orderinfoMapper.selectOrderByShopIdAndStatus(shopid, "已完成", beginRow, pageSize);
+        List<Orderinfo> list = new ArrayList<>();
+        list.addAll(listOfSended);
+        list.addAll(listOfFinished);
+        return list;
     }
 }

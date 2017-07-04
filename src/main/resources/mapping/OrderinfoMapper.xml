@@ -35,13 +35,20 @@
     select id, user, price, time, status
     from OrderInfo
   </select>
-    <select id="selectByIdAndStatus" resultMap="BaseResultMap">
-      SELECT * FROM OrderInfo WHERE user = #{id} AND status = #{status};
+    <select id="selectByUserIdAndStatus" resultMap="BaseResultMap">
+      SELECT * FROM OrderInfo WHERE user = #{id} AND status = #{status} ORDER BY id LIMIT #{beginRow}, #{pageSize};
     </select>
   <select id="selectAllById" resultMap="BaseResultMap">
     SELECT * FROM OrderInfo WHERE user=#{id};
   </select>
   <select id="selectLast" resultMap="BaseResultMap">
     SELECT LAST_INSERT_ID() FROM OrderInfo
+  </select>
+  <select id="selectOrderByShopIdAndStatus" resultMap="BaseResultMap">
+    SELECT * FROM OrderInfo WHERE status = #{status} AND id in (
+      SELECT orderInfo FROM OrderDetails WHERE commodity IN (
+        select id FROM Commodity WHERE shop = #{shopId}
+      )
+    )ORDER BY id DESC LIMIT #{beginRow}, #{pageSize};
   </select>
 </mapper>

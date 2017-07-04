@@ -23,7 +23,8 @@ public interface OrderinfoMapper {
      */
     List<Orderinfo> selectAll();
 
-    List<Orderinfo> selectByIdAndStatus(int id, String status);
+    //获取用户订单
+    List<Orderinfo> selectByUserIdAndStatus(int id, String status, int beginRow, int pageSize);
 
     List<Orderinfo> selectAllById(int id);
     int selectLast();
@@ -31,4 +32,7 @@ public interface OrderinfoMapper {
     int updateStatusById(String status,int id);
     //删除订单
     int deleteOrderByOrderId(int id);
+
+    //获取店铺订单状态
+    List<Orderinfo> selectOrderByShopIdAndStatus(int shopId, String status, int beginRow, int pageSize);
 }

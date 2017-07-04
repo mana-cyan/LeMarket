@@ -24,4 +24,6 @@ public interface OrderdetailsMapper {
     List<Orderdetails> selectAll();
 
     List<Orderdetails> selectShopOrderByShopId(int id, int beginRow, int pageSize);
+
+    int deleteOrderByOrderId(int id);
 }

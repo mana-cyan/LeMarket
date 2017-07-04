@@ -110,4 +110,14 @@ public class ShopService {
             return new Status("SUCCESS");
         return new Status("ERROR");
     }
+
+    //删除订单
+    public Status deleteOrder(int orderId){
+        int m = orderdetailsMapper.deleteOrderByOrderId(orderId);
+        int n = orderinfoMapper.deleteOrderByOrderId(orderId);
+
+        if(m>0 && n>0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
+    }
 }

@@ -112,4 +112,15 @@ public class ShopController {
     public Status sendCommodity(int id){
         return shopService.sendCommodity(id);
     }
+
+    /**
+     * 删除订单
+     * @param id 订单id
+     * @return 删除状态
+     */
+    @RequestMapping(value = "deleteOrder", method = RequestMethod.GET)
+    @ResponseBody
+    public Status deleteOrder(int id){
+        return shopService.deleteOrder(id);
+    }
 }

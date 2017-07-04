@@ -24,6 +24,9 @@
     values (#{id,jdbcType=INTEGER}, #{orderinfo,jdbcType=INTEGER}, #{commodity,jdbcType=INTEGER}, #{receive, jdbcType=INTEGER},
       #{commodityType,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP})
   </insert>
+  <delete id="deleteOrderByOrderId">
+    DELETE FROM OrderDetails WHERE orderInfo = #{id};
+  </delete>
   <select id="selectAll" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

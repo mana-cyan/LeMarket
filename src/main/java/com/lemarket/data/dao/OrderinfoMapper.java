@@ -29,4 +29,6 @@ public interface OrderinfoMapper {
     int selectLast();
 
     int updateStatusById(String status,int id);
+    //删除订单
+    int deleteOrderByOrderId(int id);
 }

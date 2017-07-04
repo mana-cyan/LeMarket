@@ -559,7 +559,6 @@
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 
 <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
-
 <!-- Load Search -->
 <script src="${pageContext.request.contextPath}/static/js/request/search.js"></script>
 <!-- Load Picture -->

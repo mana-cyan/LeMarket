@@ -61,4 +61,12 @@ public class LoginController {
         return new TokenString();
     }
 
+    @RequestMapping(value = "/checkIsLogin")
+    @ResponseBody
+    public String checkIsLogin(String token)
+    {
+        boolean isValid=tokenSetter.checkTokenIsValid(token);
+        if(isValid) return "SUCCESS";
+        else return "ERROR";
+    }
 }

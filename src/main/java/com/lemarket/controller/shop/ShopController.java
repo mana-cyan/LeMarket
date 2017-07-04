@@ -1,6 +1,5 @@
 package com.lemarket.controller.shop;
 
-import com.lemarket.data.dao.OrderdetailsMapper;
 import com.lemarket.data.model.Commodity;
 import com.lemarket.data.model.Orderdetails;
 import com.lemarket.data.model.Shop;

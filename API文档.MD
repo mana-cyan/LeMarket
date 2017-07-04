@@ -349,7 +349,7 @@ id: int (店铺id)
 
 |URL|Header|Method|
 |---|------|------|
-|shopComodity|无|GET|
+|shopCommodity|无|GET|
 
 **Param Data**
 ```
@@ -707,7 +707,7 @@ id: int (店铺id)
 
 |URL|Header|Method|
 |---|------|------|
-|getComodityList|无|GET|
+|getCommodityList|无|GET|
 
 **Param Data**
 ```
@@ -728,7 +728,7 @@ id: int (店铺id)
 
 |URL|Header|Method|
 |---|------|------|
-|getComodity|无|GET|
+|getCommodity|无|GET|
 
 **Param Data**
 ```
@@ -742,33 +742,11 @@ id: int (商品id)
 }
 ```
 
-9. 编辑商品
+9. 上传商品图片
 
 |URL|Header|Method|
 |---|------|------|
-|editComodity|无|POST|
-
-**Post Data**
-```
-id: int (商品id)
-name: string
-description: string
-type: list
-price: float
-```
-
-**Return Data**
-```
-{
-	'status': 'SUCCESS'/'ERROR'
-}
-```
-
-10. 上传商品图片
-
-|URL|Header|Method|
-|---|------|------|
-|uploadComodyImage|无|POST|
+|uploadCommodityImage|无|POST|
 
 **Post Data**
 ```
@@ -780,14 +758,123 @@ image: Base64 Binary
 ```
 {
 	'status': 'SUCCESS'/'ERROR'
+	'id': int
 }
 ```
 
-3. 删除商品
+10. 编辑商品图片
 
 |URL|Header|Method|
 |---|------|------|
-|deleteComodity|无|POST|
+|editCommodityImage|无|POST|
+
+**Post Data**
+```
+id: int (图片id)
+image: Base64 Binary
+```
+
+**Return Data**
+###删除原有图片
+```
+{
+	'status': 'SUCCESS'/'ERROR'
+}
+```
+
+11. 新增商品
+
+|URL|Header|Method|
+|---|------|------|
+|addCommodity|无|POST|
+
+**Post Data**
+```
+id: int (店铺id)
+pictureId: int(商品id)
+name: string
+details: string
+category: int
+storage: int
+price: float
+image: int
+```
+
+**Return Data**
+```
+{
+	'status': 'SUCCESS'/'ERROR'
+}
+```
+
+12. 新增商品类型
+
+|URL|Header|Method|
+|---|------|------|
+|addCommodityType|无|POST|
+
+**Post Data**
+```
+id: int (商品id)
+type: List<String>
+```
+
+**Return Data**
+```
+{
+	'status': 'SUCCESS'/'ERROR'
+}
+```
+
+13. 编辑商品类型
+|URL|Header|Method|
+|---|------|------|
+|editCommodityType|无|POST|
+
+**Post Data**
+```
+id: int (商品id)
+type: map<int, String>(id, name)
+```
+
+**Return Data**
+```
+{
+	'status': 'SUCCESS'/'ERROR'
+}
+```
+
+14. 编辑商品
+
+|URL|Header|Method|
+|---|------|------|
+|editCommodity|无|POST|
+
+**Post Data**
+```
+id: int (商品id)
+name: string
+details: string
+category: int
+storage: int
+price: float
+image: int
+```
+
+**Return Data**
+```
+{
+	'status': 'SUCCESS'/'ERROR'
+}
+```
+
+15. 删除商品
+
+|URL|Header|Method|
+|---|------|------|
+|deleteCommodity|无|POST|
+
+###删除商品、图片、类型
 
 **Post Data**
 ```
@@ -847,7 +934,7 @@ id: int (用户id)
 
 |URL|Header|Method|
 |---|------|------|
-|getComodityList|无|GET|
+|getCommodityList|无|GET|
 
 **Param Data**
 ```
@@ -886,7 +973,7 @@ name/email: string
 
 |URL|Header|Method|
 |---|------|------|
-|searchComodity|无|GET|
+|searchCommodity|无|GET|
 
 **Param Data**
 ```

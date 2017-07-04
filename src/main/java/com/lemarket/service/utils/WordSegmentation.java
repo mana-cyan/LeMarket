@@ -1,6 +1,5 @@
 package com.lemarket.service.utils;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,8 +14,8 @@ public class WordSegmentation {
      */
     public static List<String> getWord(String sentence)throws Exception{
 
-
-        CWSTagger tag = new CWSTagger(getRoot()+"/WEB-INF/classes/models/seg.m");
+        String seg = new String(getRoot().getBytes("gb2312"), "utf-8") + "/WEB-INF/classes/models/seg.m";
+        CWSTagger tag = new CWSTagger(seg);
         String s = tag.tag(sentence);
         String words[] = s.split(" ");
         List<String> wordList = new ArrayList<>();
@@ -35,7 +34,8 @@ public class WordSegmentation {
         if(result.startsWith("jar")){
             // 当class文件在jar文件中时，返回"jar:file:/F:/ ..."样的路径
             result = result.substring(10);
-        }else if(result.startsWith("file")){
+        }
+        else if(result.startsWith("file")){
             // 当class文件在class文件中时，返回"file:/F:/ ..."样的路径
             result = result.substring(6);
         }

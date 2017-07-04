@@ -431,4 +431,23 @@ public class Commodity {
     public void setDetails(String details) {
         this.details = details == null ? null : details.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Commodity{" +
+                "id=" + id +
+                ", category=" + category +
+                ", shop=" + shop +
+                ", name='" + name + '\'' +
+                ", storage=" + storage +
+                ", saled=" + saled +
+                ", price=" + price +
+                ", image=" + image +
+                ", visitcount=" + visitcount +
+                ", status=" + status +
+                ", time=" + time +
+                ", owner=" + owner +
+                ", details='" + details + '\'' +
+                '}';
+    }
 }

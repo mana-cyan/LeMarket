@@ -177,6 +177,32 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 分页 -->
+                <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination" style="">
+                        <li style="width:30px;">
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;上一页</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">...</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">下一页&raquo;</span>
+                            </a>
+                        </li>
+                        <span style="margin-top:10px;margin-left:20px;">共<span>100</span>页,</span>
+                        <span style="margin-top:10px;">跳转到<input style="width:40px;height:30px;margin:0 5px;" value="1">页<input type="button" value="确定" style="width:40px;height:30px;margin:0 5px;padding:3px;background-color:#eee;"></span>
+                    </ul>
+                </nav>
+                <!-- 分页结束************************************* -->
+
+
             </div>
         </div>
     </div>
@@ -448,8 +474,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="product-container cp-style-2">
                         <div class="product-inner">
                             <a href="commodityDetails.jsp">
@@ -489,69 +513,6 @@
                                 </div>
                             </a>
                             <span class="product-tag text-uppercase orang-bg">-20%</span>
-                            <ul class="quick-veiw text-center">
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                            <div class="product-text">
-                                <ul class="pull-left list-inline ratings">
-                                    <li><i class="rated fa fa-star"></i></li>
-                                    <li><i class="rated fa fa-star"></i></li>
-                                    <li><i class="rated fa fa-star"></i></li>
-                                    <li><i class="rated fa fa-star"></i></li>
-                                    <li><i class="rated fa fa-star"></i></li>
-                                </ul>
-                                <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$160</li>
-                                    <li class="text-right p-price">$180</li>
-                                </ul>
-                                <div class="clear"></div>
-                                <h6 class="product-name">
-                                    <a href="#" title="Eletria ostma">Eletria ostma</a>
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-container cp-style-2">
-                        <div class="product-inner">
-                            <a href="commodityDetails.jsp">
-                                <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/5.jpg" alt="">
-                                </div>
-                            </a>
-                            <ul class="quick-veiw text-center">
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                            <div class="product-text">
-                                <ul class="pull-left list-inline ratings">
-                                    <li><i class="rated fa fa-star"></i></li>
-                                    <li><i class="rated fa fa-star"></i></li>
-                                    <li><i class="rated fa fa-star"></i></li>
-                                    <li><i class="rated fa fa-star"></i></li>
-                                    <li><i class="rated fa fa-star"></i></li>
-                                </ul>
-                                <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$170</li>
-                                    <li class="text-right p-price">$190</li>
-                                </ul>
-                                <div class="clear"></div>
-                                <h6 class="product-name">
-                                    <a href="#" title="Kelletria ostma">Kelletria ostma</a>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="product-inner mt-35">
-                            <a href="commodityDetails.jsp">
-                                <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/6.jpg" alt="">
-                                </div>
-                            </a>
-                            <span class="product-tag text-uppercase black-bg">new</span>
                             <ul class="quick-veiw text-center">
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-eye"></i></a></li>

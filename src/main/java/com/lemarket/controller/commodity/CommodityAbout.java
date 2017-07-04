@@ -25,7 +25,7 @@ public class CommodityAbout {
     @RequestMapping(value = "getComment", method = RequestMethod.GET)
     @ResponseBody
     public List<Comment> getComment(int id, int page){
-        return commodityAboutService.getCommentPageById(id, (page-1)*5 + 1, 5);
+        return commodityAboutService.getCommentPageById(id, (page-1)*5 , 5);
     }
 
     //根据类别获取同类商品

@@ -21,8 +21,6 @@ import java.util.Date;
 @Controller
 public class CommodityWant {
 
-    private final CommodityMapper commodityMapper;
-
     private final CommoditySearch commoditySearch;
 
     private final TokenMapper tokenMapper;
@@ -32,9 +30,8 @@ public class CommodityWant {
     private final OrderdetailsMapper orderdetailsMapper;
 
     @Autowired
-    public CommodityWant(CommodityMapper commodityMapper, CommoditySearch commoditySearch,
+    public CommodityWant(CommoditySearch commoditySearch,
                                TokenMapper tokenMapper, OrderinfoMapper orderinfoMapper, OrderdetailsMapper orderdetailsMapper) {
-        this.commodityMapper = commodityMapper;
         this.commoditySearch = commoditySearch;
         this.tokenMapper = tokenMapper;
         this.orderinfoMapper = orderinfoMapper;

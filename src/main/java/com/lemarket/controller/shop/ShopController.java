@@ -51,7 +51,7 @@ public class ShopController {
     @RequestMapping(value = "shopCommodity", method = RequestMethod.GET)
     @ResponseBody
     public List<Commodity> getShopCommodity(int id, int page){
-        return shopService.getCommodityByShopId(id, (page-1)*5 + 1, 5);
+        return shopService.getCommodityByShopId(id, (page-1)*5, 5);
     }
 
     @RequestMapping(value = "setshop", method = RequestMethod.GET)
@@ -90,6 +90,6 @@ public class ShopController {
     @RequestMapping(value = "getNewOrder", method = RequestMethod.GET)
     @ResponseBody
     public List<Orderdetails> getNewOrder(int id, int page){
-        return shopService.getShopOrderList(id, (page-1)*5+1, 5);
+        return shopService.getShopOrderList(id, (page-1)*5, 5);
     }
 }

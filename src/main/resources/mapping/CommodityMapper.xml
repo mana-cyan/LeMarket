@@ -52,7 +52,7 @@
       SELECT * FROM Commodity WHERE id=#{id};
     </select>
   <select id="selectPageByKindAndSaled" resultMap="BaseResultMap">
-      SELECT * FROM Commodity WHERE category = #{category} ORDER BY saled DESC LIMIT 5;
+      SELECT * FROM Commodity WHERE category = #{category} ORDER BY saled DESC LIMIT #{beginRow}, #{pageSize};
   </select>
   <select id="selectByShopId" resultMap="BaseResultMap">
       SELECT * FROM Commodity WHERE shop = #{shopId} LIMIT #{beginRow}, #{pageSize};
@@ -60,5 +60,8 @@
 
   <select id="selectByName" resultMap="BaseResultMap" >
     SELECT * FROM Commodity WHERE name LIKE #{word}
+  </select>
+  <select id="selectCountById" resultType="java.lang.Integer">
+    SELECT COUNT(*) FROM Commodity WHERE category = #{category};
   </select>
 </mapper>

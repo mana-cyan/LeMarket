@@ -25,8 +25,14 @@ public class CommodityAboutService {
         return  commentMapper.selectPageById(commodityId, pageRow, pageSize);
     }
 
-    public List<Commodity> getCommodityAbout(int id){
+    //按类别获取商品分页
+    public List<Commodity> getCommodityAbout(int id, int pageRow, int pageSize){
         Commodity commodity = commodityMapper.selectById(id);
-        return commodityMapper.selectPageByKindAndSaled(commodity.getCategory());
+        return commodityMapper.selectPageByKindAndSaled(commodity.getCategory(), pageRow, pageSize);
+    }
+
+    //按类别获取商品记录条数
+    public int getCommodityCount(int categoryId){
+        return commodityMapper.selectCountById(categoryId);
     }
 }

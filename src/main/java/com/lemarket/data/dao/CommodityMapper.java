@@ -27,9 +27,11 @@ public interface CommodityMapper {
 
     Commodity selectById(int id);
 
-    List<Commodity> selectPageByKindAndSaled(int category);
+    List<Commodity> selectPageByKindAndSaled(int category, int beginRow, int pageSize);
 
     List<Commodity> selectByShopId(int shopId, int beginRow, int pageSize);
 
     List<Commodity> selectByName(String word);
+
+    int selectCountById(int category);
 }

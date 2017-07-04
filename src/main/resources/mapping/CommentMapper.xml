@@ -59,15 +59,15 @@
     </association>
   </resultMap>
 
-    <select id="selectPageById" resultMap="BaseResultMap">
+    <select id="selectPageById" resultMap="CommentWithUser">
       SELECT c.id, c.commodity, c.time, c.content,
         u.id as uid, u.username as uusername, u.password as upassword,
         u.email as uemail, u.salt as usalt, u.role as urole,
         u.birthday as ubirthday, u.gender as ugender, u.viewCount as uviewCount,
         u.phoneNumber as uphoneNumber, u.identityNumber as uidentityNumber, u.status as ustatus,
         u.description as udescription, u.address as uaddress
-      FROM Comment c, Users u
-      WHERE c.user = u.id and c.commodity = #{commodityId}
+      FROM Comment c LEFT JOIN Users u ON c.user = u.id
+      WHERE c.commodity = #{commodityId}
       ORDER by c.id DESC
       LIMIT #{beginRow}, #{pageSize};
     </select>

@@ -4,6 +4,7 @@ import com.lemarket.data.dao.CommentMapper;
 import com.lemarket.data.dao.CommodityMapper;
 import com.lemarket.data.dao.CommoditytypeMapper;
 import com.lemarket.data.model.Comment;
+import com.lemarket.data.model.CommentWithUser;
 import com.lemarket.data.model.Commodity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class CommodityAboutService {
     }
 
     //根据商品id获取评论
-    public List<Comment> getCommentPageById(int commodityId, int pageRow, int pageSize){
+    public List<CommentWithUser> getCommentPageById(int commodityId, int pageRow, int pageSize){
         return  commentMapper.selectPageById(commodityId, pageRow, pageSize);
     }
 

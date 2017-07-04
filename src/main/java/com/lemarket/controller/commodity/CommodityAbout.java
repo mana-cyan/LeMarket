@@ -1,6 +1,7 @@
 package com.lemarket.controller.commodity;
 
 import com.lemarket.data.model.Comment;
+import com.lemarket.data.model.CommentWithUser;
 import com.lemarket.data.model.Commodity;
 import com.lemarket.service.market.CommodityAboutService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class CommodityAbout {
     //分页获取商品评论
     @RequestMapping(value = "getComment", method = RequestMethod.GET)
     @ResponseBody
-    public List<Comment> getComment(int id, int page){
+    public List<CommentWithUser> getComment(int id, int page){
         return commodityAboutService.getCommentPageById(id, (page-1)*5 , 5);
     }
 
@@ -32,10 +33,6 @@ public class CommodityAbout {
     @RequestMapping(value = "sameCategoryByCommodityId", method = RequestMethod.GET)
     @ResponseBody
     public List<Commodity> getCommodityOfSameCategory(int commodityId, int page){
-//        model.addAttribute("type", 0);
-//        model.addAttribute("count",commodityAboutService.getCommodityCount(id));
-//        model.addAttribute("list",commodityAboutService.getCommodityAbout(id, (page-1)*5, 5));
-//        return "shop/search";
         return commodityAboutService.getCommodityAbout(commodityId, (page-1)*5, 5);
     }
 

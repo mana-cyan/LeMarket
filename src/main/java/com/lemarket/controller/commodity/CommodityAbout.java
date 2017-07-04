@@ -32,8 +32,8 @@ public class CommodityAbout {
     //根据商品id获取同类商品
     @RequestMapping(value = "sameCategoryByCommodityId", method = RequestMethod.GET)
     @ResponseBody
-    public List<Commodity> getCommodityOfSameCategory(int commodityId, int page){
-        return commodityAboutService.getCommodityAbout(commodityId, (page-1)*5, 5);
+    public List<Commodity> getCommodityOfSameCategory(int commodityId){
+        return commodityAboutService.getCommodityAbout(commodityId, 0, 5);
     }
 
     //根据分类获取商品分页

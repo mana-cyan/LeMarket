@@ -2,6 +2,7 @@ package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Commodity;
 import com.lemarket.data.model.CommodityWithShop;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public interface CommodityMapper {
 
     Commodity selectById(int id);
 
-    List<Commodity> selectPageByKindAndSaled(int category, int beginRow, int pageSize);
+    List<Commodity> selectPageByKindAndSaled(@Param("category") int category, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
 
     List<Commodity> selectByShopId(int shopId, int beginRow, int pageSize);
 

@@ -28,4 +28,7 @@
     select id, commodity, name
     from CommodityType
   </select>
+    <select id="selectCommodityTypeById" resultType="java.lang.String">
+      SELECT name FROM CommodityType WHERE id=#{id};
+    </select>
 </mapper>

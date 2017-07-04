@@ -36,4 +36,10 @@ public class CommodityAbout {
         model.addAttribute("list",commodityAboutService.getCommodityAbout(id, (page-1)*5, 5));
         return "shop/search";
     }
+
+    @RequestMapping(value = "getCommodityType", method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> getCommodityType(int id){
+        return commodityAboutService.getCommodityTypeById(id);
+    }
 }

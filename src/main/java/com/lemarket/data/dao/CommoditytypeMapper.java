@@ -22,4 +22,6 @@ public interface CommoditytypeMapper {
      * @mbg.generated
      */
     List<Commoditytype> selectAll();
+
+    List<String> selectCommodityTypeById(int id);
 }

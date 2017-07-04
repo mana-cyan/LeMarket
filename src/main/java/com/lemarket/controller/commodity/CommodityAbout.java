@@ -21,7 +21,7 @@ public class CommodityAbout {
         this.commodityAboutService = commodityAboutService;
     }
 
-    //分页获取商品
+    //分页获取商品评论
     @RequestMapping(value = "getComment", method = RequestMethod.GET)
     @ResponseBody
     public List<Comment> getComment(int id, int page){

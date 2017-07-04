@@ -38,4 +38,8 @@ public class CommoditySearch {
     public CommodityWithShop commodityWithShopById(Integer id) {
         return commodityMapper.selectCommodityWithShopByCommodityId(id);
     }
+
+    public Commodity commoditySearchById(Integer id){
+        return commodityMapper.selectById(id);
+    }
 }

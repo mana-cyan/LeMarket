@@ -37,4 +37,5 @@ public interface CommodityMapper {
     int selectCountById(int category);
 
     CommodityWithShop selectCommodityWithShopByCommodityId(int id);
+
 }

@@ -28,12 +28,23 @@ public class CommodityAbout {
         return commodityAboutService.getCommentPageById(id, (page-1)*5 , 5);
     }
 
-    //根据类别获取同类商品
-    @RequestMapping(value = "sameCategory", method = RequestMethod.GET)
-    public String getCommodityByCategory(int id, int page, Model model){
+    //根据商品id获取同类商品
+    @RequestMapping(value = "sameCategoryByCommodityId", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Commodity> getCommodityOfSameCategory(int commodityId, int page){
+//        model.addAttribute("type", 0);
+//        model.addAttribute("count",commodityAboutService.getCommodityCount(id));
+//        model.addAttribute("list",commodityAboutService.getCommodityAbout(id, (page-1)*5, 5));
+//        return "shop/search";
+        return commodityAboutService.getCommodityAbout(commodityId, (page-1)*5, 5);
+    }
+
+    //根据分类获取商品分页
+    @RequestMapping(value = "getCommodityByCategoryId", method = RequestMethod.GET)
+    public String getCommodityByCategory(int categoryId, int page, Model model){
         model.addAttribute("type", 0);
-        model.addAttribute("count",commodityAboutService.getCommodityCount(id));
-        model.addAttribute("list",commodityAboutService.getCommodityAbout(id, (page-1)*5, 5));
+        model.addAttribute("count", commodityAboutService.getCommodityCount(categoryId));
+        model.addAttribute("list", commodityAboutService.getCommodityByCategoryId(categoryId, (page-1)*5, 5));
         return "shop/search";
     }
 

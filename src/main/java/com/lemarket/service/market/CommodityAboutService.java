@@ -29,10 +29,17 @@ public class CommodityAboutService {
         return  commentMapper.selectPageById(commodityId, pageRow, pageSize);
     }
 
-    //按类别获取商品分页
+    //按商品类别获取相同类别商品分页
     public List<Commodity> getCommodityAbout(int id, int pageRow, int pageSize){
         Commodity commodity = commodityMapper.selectById(id);
-        return commodityMapper.selectPageByKindAndSaled(commodity.getCategory(), pageRow, pageSize);
+        List<Commodity> commodityList = commodityMapper.selectPageByKindAndSaled(commodity.getCategory(), pageRow, pageSize);
+        commodityList.remove(commodity);
+        return commodityList;
+    }
+
+    //根据主分类获取商品分页
+    public List<Commodity> getCommodityByCategoryId(int categoryId, int pageRow, int pageSize){
+        return commodityMapper.selectPageByKindAndSaled(categoryId, pageRow, pageSize);
     }
 
     //按类别获取商品记录条数
@@ -40,8 +47,9 @@ public class CommodityAboutService {
         return commodityMapper.selectCountById(categoryId);
     }
 
-    //通过商品类型id获取商品型号
+    //通过商品id获取商品型号
     public List<String> getCommodityTypeById(Integer id){
         return commoditytypeMapper.selectCommodityTypeById(id);
     }
+
 }

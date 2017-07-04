@@ -1,10 +1,10 @@
-function loadPicture(id, callback) {
+function loadPicture(pictureId, componentId, callback) {
     $.ajax({
         type: 'get',
         url: 'image',
-        data: { 'id': id },
+        data: { 'id': pictureId },
         success: function (data) {
-            callback(id, data)
+            callback(componentId, data)
         },
         error: function() {
             console.log("Cannot load picture")

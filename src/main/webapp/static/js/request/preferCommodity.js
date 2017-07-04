@@ -15,7 +15,7 @@ function getPreferCommodity(callback) {
 
 //设置初始推荐商品
 function preferSet(viewDiv, preferObject) {
-    loadPicture(preferObject.image, function (id, path) {
+    loadPicture(preferObject.image, null, function (id, path) {
         viewDiv.find("img").attr("src", path);
     });
     viewDiv.find(".c-price").html("￥" + preferObject.price);
@@ -30,6 +30,8 @@ function setPreferDetail() {
         for(var i=0; i<data.length; i++){
             preferSet($(preferDivs[i]), data[i]);
         }
+        for (var i = data.length; i < preferDivs.length; i++)
+            $(preferDivs[i]).remove();
     });
 }
 

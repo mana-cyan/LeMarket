@@ -202,7 +202,6 @@
                 </nav>
                 <!-- 分页结束************************************* -->
 
-
             </div>
         </div>
     </div>
@@ -225,10 +224,12 @@
                         <div class="product-inner">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
+                            <!--
                             <span class="product-tag text-uppercase orang-bg">-20%</span>
+                            -->
                             <ul class="quick-veiw text-center">
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-eye"></i></a></li>
@@ -244,19 +245,21 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$170</li>
+                                    <li class="text-right c-price"></li>
+                                    <!--
                                     <li class="text-right p-price">$190</li>
+                                    -->
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
+                                    <a href="commodityDetails.jsp" title="Eletria ostma"></a>
                                 </h6>
                             </div>
                         </div>
                         <div class="product-inner mt-35">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/2.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
                             <ul class="quick-veiw text-center">
@@ -274,12 +277,14 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$160</li>
+                                    <li class="text-right c-price"></li>
+                                    <!--
                                     <li class="text-right p-price">$180</li>
+                                    -->
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="commodityDetails.jsp" title="Eletria ostma">Eletria ostma</a>
+                                    <a href="commodityDetails.jsp" title="Eletria ostma"></a>
                                 </h6>
                             </div>
                         </div>
@@ -288,10 +293,9 @@
                         <div class="product-inner">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/3.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
-                            <span class="product-tag text-uppercase black-bg">new</span>
                             <ul class="quick-veiw text-center">
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-eye"></i></a></li>
@@ -307,22 +311,20 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$170</li>
-                                    <li class="text-right p-price">$190</li>
+                                    <li class="text-right c-price"></li>
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="#" title="Wetria postma">Wetria postma</a>
+                                    <a href="#" title="Wetria postma"></a>
                                 </h6>
                             </div>
                         </div>
                         <div class="product-inner mt-35">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/4.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
-                            <span class="product-tag text-uppercase orang-bg">-20%</span>
                             <ul class="quick-veiw text-center">
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-eye"></i></a></li>
@@ -338,12 +340,11 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$160</li>
-                                    <li class="text-right p-price">$180</li>
+                                    <li class="text-right c-price"></li>
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="#" title="Eletria ostma">Eletria ostma</a>
+                                    <a href="#" title="Eletria ostma"></a>
                                 </h6>
                             </div>
                         </div>
@@ -352,7 +353,7 @@
                         <div class="product-inner">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/5.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
                             <ul class="quick-veiw text-center">
@@ -370,22 +371,20 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$170</li>
-                                    <li class="text-right p-price">$190</li>
+                                    <li class="text-right c-price"></li>
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="#" title="Kelletria ostma">Kelletria ostma</a>
+                                    <a href="#" title="Kelletria ostma"></a>
                                 </h6>
                             </div>
                         </div>
                         <div class="product-inner mt-35">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/6.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
-                            <span class="product-tag text-uppercase black-bg">new</span>
                             <ul class="quick-veiw text-center">
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-eye"></i></a></li>
@@ -401,12 +400,11 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$160</li>
-                                    <li class="text-right p-price">$180</li>
+                                    <li class="text-right c-price"></li>
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="#" title="Eletria ostma">Eletria ostma</a>
+                                    <a href="#" title="Eletria ostma"></a>
                                 </h6>
                             </div>
                         </div>
@@ -415,10 +413,9 @@
                         <div class="product-inner">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/7.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
-                            <span class="product-tag text-uppercase orang-bg">-20%</span>
                             <ul class="quick-veiw text-center">
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-eye"></i></a></li>
@@ -434,19 +431,18 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$170</li>
-                                    <li class="text-right p-price">$190</li>
+                                    <li class="text-right c-price"></li>
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="#" title="Celletria ostma">Celletria ostma</a>
+                                    <a href="#" title="Celletria ostma"></a>
                                 </h6>
                             </div>
                         </div>
                         <div class="product-inner mt-35">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/8.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
                             <ul class="quick-veiw text-center">
@@ -464,12 +460,11 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$160</li>
-                                    <li class="text-right p-price">$180</li>
+                                    <li class="text-right c-price"></li>
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="#" title="Eletria ostma">Eletria ostma</a>
+                                    <a href="#" title="Eletria ostma"></a>
                                 </h6>
                             </div>
                         </div>
@@ -478,10 +473,9 @@
                         <div class="product-inner">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/3.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
-                            <span class="product-tag text-uppercase black-bg">new</span>
                             <ul class="quick-veiw text-center">
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-eye"></i></a></li>
@@ -497,22 +491,20 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$170</li>
-                                    <li class="text-right p-price">$190</li>
+                                    <li class="text-right c-price"></li>
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="#" title="Wetria postma">Wetria postma</a>
+                                    <a href="#" title="Wetria postma"></a>
                                 </h6>
                             </div>
                         </div>
                         <div class="product-inner mt-35">
                             <a href="commodityDetails.jsp">
                                 <div class="product-img b-img">
-                                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/4.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </a>
-                            <span class="product-tag text-uppercase orang-bg">-20%</span>
                             <ul class="quick-veiw text-center">
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-eye"></i></a></li>
@@ -528,12 +520,11 @@
                                     <li><i class="rated fa fa-star"></i></li>
                                 </ul>
                                 <ul class="pricing list-inline pull-right">
-                                    <li class="text-right c-price">$160</li>
-                                    <li class="text-right p-price">$180</li>
+                                    <li class="text-right c-price"></li>
                                 </ul>
                                 <div class="clear"></div>
                                 <h6 class="product-name">
-                                    <a href="#" title="Eletria ostma">Eletria ostma</a>
+                                    <a href="#" title="Eletria ostma"></a>
                                 </h6>
                             </div>
                         </div>

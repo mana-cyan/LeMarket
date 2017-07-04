@@ -31,6 +31,7 @@ public class ShopController {
     }
 
 
+    //添加店铺
     @RequestMapping(value = "addShop", method = RequestMethod.POST)
     @ResponseBody
     public Status addShop(String name, String description, HttpServletRequest request){
@@ -41,11 +42,20 @@ public class ShopController {
             return new Status("ERROR");
     }
 
+    //根据店铺id获取店铺信息
     @RequestMapping(value = "shop", method = RequestMethod.GET)
     @ResponseBody
-    public Shop getShop(int id){
+    public Shop getShopById(int id){
         return shopService.getShopById(id);
     }
+
+    //根据Token获取个人店铺信息
+    @RequestMapping(value = "getShop", method = RequestMethod.GET)
+    @ResponseBody
+    public Shop getShopByToken(HttpServletRequest request){
+        return shopService.getShopByToken(request.getHeader("Token"));
+    }
+
 
     @RequestMapping(value = "shopCommodity", method = RequestMethod.GET)
     @ResponseBody
@@ -90,5 +100,16 @@ public class ShopController {
     @ResponseBody
     public List<Orderdetails> getNewOrder(int id, int page){
         return shopService.getShopOrderList(id, (page-1)*5, 5);
+    }
+
+    /**
+     * 发货
+     * @param id 订单id
+     * @return 发货是否成功
+     */
+    @RequestMapping(value = "send", method = RequestMethod.GET)
+    @ResponseBody
+    public Status sendCommodity(int id){
+        return shopService.sendCommodity(id);
     }
 }

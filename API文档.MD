@@ -613,9 +613,7 @@ description: string (店铺描述)
 id: int（店铺id)
 name: string,
 description: string,
-address: string,
 phone: string,
-email: string
 ```
 
 **Return Data**

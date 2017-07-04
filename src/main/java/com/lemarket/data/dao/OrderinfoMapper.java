@@ -28,4 +28,5 @@ public interface OrderinfoMapper {
     List<Orderinfo> selectAllById(int id);
     int selectLast();
 
+    int updateStatusById(String status,int id);
 }

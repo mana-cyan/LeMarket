@@ -2,6 +2,7 @@ package com.lemarket.service.market;
 
 import com.lemarket.data.dao.*;
 import com.lemarket.data.model.*;
+import com.lemarket.data.reponseObject.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +21,17 @@ public class ShopService {
 
     private final OrderdetailsMapper orderdetailsMapper;
 
+    private final OrderinfoMapper orderinfoMapper;
+
     @Autowired
-    public ShopService(ShopMapper shopMapper, CommodityMapper commodityMapper, TokenMapper tokenMapper, UsersMapper usersMapper, PictureMapper pictureMapper, OrderdetailsMapper orderdetailsMapper) {
+    public ShopService(ShopMapper shopMapper, CommodityMapper commodityMapper, TokenMapper tokenMapper, UsersMapper usersMapper, PictureMapper pictureMapper, OrderdetailsMapper orderdetailsMapper, OrderinfoMapper orderinfoMapper) {
         this.shopMapper = shopMapper;
         this.commodityMapper = commodityMapper;
         this.tokenMapper = tokenMapper;
         this.usersMapper = usersMapper;
         this.pictureMapper = pictureMapper;
         this.orderdetailsMapper = orderdetailsMapper;
+        this.orderinfoMapper = orderinfoMapper;
     }
 
     public Shop getShopById(int id){
@@ -50,7 +54,7 @@ public class ShopService {
     }
 
     //根据用户token获取店铺
-    public Shop getShop(String tokenString){
+    public Shop getShopByToken(String tokenString){
         Token token = tokenMapper.selectByToken(tokenString);
         return shopMapper.selectByOwner(token.getId());
     }
@@ -97,5 +101,13 @@ public class ShopService {
     //获取店铺订单
     public  List<Orderdetails> getShopOrderList(int shopid, int pageRow, int pageSize){
         return orderdetailsMapper.selectShopOrderByShopId(shopid, pageRow, pageSize);
+    }
+
+    //发货
+    public Status sendCommodity(int orderId){
+        int i = orderinfoMapper.updateStatusById("待收货", orderId);
+        if(i>0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
     }
 }

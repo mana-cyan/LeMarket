@@ -68,7 +68,7 @@ public class SearchController {
 
         List<Commodity> result = new ArrayList<>();
         for (Map.Entry<Integer, Integer> mapping : list) {
-            Commodity cur = commoditySearch.commoditySearchId(mapping.getKey());
+            Commodity cur = commoditySearch.commoditySearchById(mapping.getKey());
             result.add(cur);
         }
         return result;

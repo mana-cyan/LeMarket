@@ -25,6 +25,7 @@ public class CommodityAbout {
     @RequestMapping(value = "getComment", method = RequestMethod.GET)
     @ResponseBody
     public List<Comment> getComment(int id, int page){
+        System.out.println(id + "...." + page);
         return commodityAboutService.getCommentPageById(id, (page-1)*5 , 5);
     }
 

@@ -24,7 +24,9 @@ public class CommodityAboutService {
         this.commoditytypeMapper = commoditytypeMapper;
     }
 
+    //根据商品id获取评论
     public List<Comment> getCommentPageById(int commodityId, int pageRow, int pageSize){
+        System.out.println(commodityId);
         return  commentMapper.selectPageById(commodityId, pageRow, pageSize);
     }
 

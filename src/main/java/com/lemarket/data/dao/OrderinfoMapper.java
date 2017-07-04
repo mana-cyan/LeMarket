@@ -26,7 +26,7 @@ public interface OrderinfoMapper {
     //获取用户订单
     List<Orderinfo> selectByUserIdAndStatus(int id, String status, int beginRow, int pageSize);
 
-    List<Orderinfo> selectAllById(int id);
+    List<Orderinfo> selectAllById(int id, int beginRow, int pageSize);
     int selectLast();
 
     int updateStatusById(String status,int id);

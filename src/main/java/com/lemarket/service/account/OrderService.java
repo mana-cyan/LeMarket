@@ -27,9 +27,9 @@ public class OrderService {
     }
 
     //根据Token获取用户的所有订单
-    public List<Orderinfo> getAllOrderById(String tokenString){
+    public List<Orderinfo> getAllOrderById(String tokenString, int beginRow, int pageSize){
         Token token = tokenMapper.selectByToken(tokenString);
-        return orderinfoMapper.selectAllById(token.getId());
+        return orderinfoMapper.selectAllById(token.getId(), beginRow, pageSize);
     }
 
     //根据店铺id获取相应状态的订单

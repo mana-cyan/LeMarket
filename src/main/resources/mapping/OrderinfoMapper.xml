@@ -39,7 +39,7 @@
       SELECT * FROM OrderInfo WHERE user = #{id} AND status = #{status} ORDER BY id LIMIT #{beginRow}, #{pageSize};
     </select>
   <select id="selectAllById" resultMap="BaseResultMap">
-    SELECT * FROM OrderInfo WHERE user=#{id};
+    SELECT * FROM OrderInfo WHERE user=#{id} ORDER BY id LIMIT #{beginRow}, #{pageSize};
   </select>
   <select id="selectLast" resultMap="BaseResultMap">
     SELECT LAST_INSERT_ID() FROM OrderInfo

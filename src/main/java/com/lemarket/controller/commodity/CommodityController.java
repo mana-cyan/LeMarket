@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CommodityController {
@@ -24,6 +25,7 @@ public class CommodityController {
 
     }
 
+    //跳转到商品详情页
     @RequestMapping(value = "commodityDetails", method = RequestMethod.GET)
     public String commodityDetails(Integer id, Model model) {
         CommodityWithShop commodity = commoditySearch.commodityWithShopById(id);
@@ -31,4 +33,10 @@ public class CommodityController {
         return "shop/commodityDetails";
     }
 
+    //根据id获取商品信息
+    @RequestMapping(value = "getCommodity", method = RequestMethod.GET)
+    @ResponseBody
+    public Commodity getCommodity(Integer id){
+        return commoditySearch.commoditySearchById(id);
+    }
 }

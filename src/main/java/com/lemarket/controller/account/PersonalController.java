@@ -25,31 +25,31 @@ public class PersonalController {
 
     @RequestMapping(value = "unpaid", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfUnpaid(HttpServletRequest request) {
+    public List<Orderinfo> getOrderOfUnpaid(int page, HttpServletRequest request) {
         String token = request.getHeader("Token");
-        return orderService.getOrderByStatus(token, "待付款");
+        return orderService.getOrderByStatus(token, "待付款", (page-1)*10, 10);
     }
 
 
     @RequestMapping(value = "unreceiving", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfUnreceiving(HttpServletRequest request) {
+    public List<Orderinfo> getOrderOfUnreceiving(int page, HttpServletRequest request) {
         String token = request.getHeader("Token");
-        return orderService.getOrderByStatus(token, "待收获");
+        return orderService.getOrderByStatus(token, "待收货", (page-1)*10, 10);
     }
 
     @RequestMapping(value = "uncomment", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfUncomment(HttpServletRequest request) {
+    public List<Orderinfo> getOrderOfUncomment(int page, HttpServletRequest request) {
         String token = request.getHeader("Token");
-        return orderService.getOrderByStatus(token, "待收获");
+        return orderService.getOrderByStatus(token, "收货", (page-1)*10, 10);
     }
 
     @RequestMapping(value = "orderList", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfAll(HttpServletRequest request) {
+    public List<Orderinfo> getOrderOfAll(int page, HttpServletRequest request) {
         String token = request.getHeader("Token");
-        return orderService.getAllOrderById(token);
+        return orderService.getAllOrderById(token, (page-1)*10, 10);
     }
 
     @RequestMapping(value = "getAddress", method = RequestMethod.GET)

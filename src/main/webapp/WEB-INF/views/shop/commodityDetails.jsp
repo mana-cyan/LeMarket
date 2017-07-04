@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home</title>
+    <title>${commodity.name}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -168,39 +168,28 @@
         <div class="container" style="margin-top:30px;">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="${pageContext.request.contextPath}/static/images/product/arrival/3.jpg" style="width:80%;height:80%;">
+                    <img id="commodityPicture" name="${commodity.image}" src="" style="width:80%;height:80%;">
                 </div>
                 <div class="col-md-6" style="margin-top:10px;">
-                    <p>糖果</p>
-                    <h4><strong>时尚潮流无袖连衣裙</strong></h4>
+                    <h4><strong>${commodity.name}</strong></h4>
                     <div class="price" style="background-color:#FAF5F8;padding-left:10px;padding-bottom:10px;">
-                        <span style="color:#F10180;font-size:20px;">￥</span><span style="color:#F10180;font-size:60px;">391</span>
-                        <h5>原价：￥599</h5>
+                        <span style="color:#F10180;font-size:20px;">￥</span><span style="color:#F10180;font-size:60px;">${commodity.price}</span>
                     </div>
                     <div style="border-top:1px solid #FAF5F8;border-bottom:1px solid #FAF5F8;margin-top:20px;padding-top:5px;">
-                        <div style="margin-top:5px;"><span>商品描述：</span><span>身：100%聚酯纤维；后担干：100%锦纶；里布：100%聚酯纤维</span></div>
+                        <div style="margin-top:5px;"><span>商品描述：</span><span>${commodity.details}</span></div>
                         <!--<div style="margin-top:5px;"><span>洗涤规则：</span><span>手洗，不可漂白，悬挂晾干，低温熨烫，常规干洗</span></div>-->
-                        <div style="margin-top:5px;"><span>店铺：</span><span><a href="shop.jsp">良品铺子 (点击进入店铺)</a></span></div>
+                        <div style="margin-top:5px;"><span>店铺：</span><span><a href="shop.jsp">${commodity.shop.name} (点击进入店铺)</a></span></div>
                     </div>
                     <div style="margin-top:20px;">
                         <span >运费：</span><span style="color:#fff;background-color:#F3B241;">免运费</span><span >（订单满288免运费）</span>
                     </div>
                     <div style="margin-top:20px;">
-                        <div class="row">
+                        <div id="type" class="row">
                             <div class="col-md-2">
-                                <span>尺码</span>
+                                <span>型号</span>
                             </div>
                             <div class="col-md-2">
                                 <button type="button" class="btn btn-default" data-toggle="tooltip">S</button>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" >M</button>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" >L</button>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" >XL</button>
                             </div>
                         </div>
                     </div>
@@ -216,7 +205,7 @@
                     <div style="margin-top:20px;">
                         <button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;border-radius:5px;"><a href="../user/pay.jsp">立即购买</a></button>
                         <button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;margin-left:10px;border-radius:5px;" class="buyBtn">加入购物车</button>
-                        <img src="../images/product/arrival/3.jpg"  class="buyGoodsOri" style="margin-left:-100px;z-index:-1;position:absolute;width:30px;height:50px;">
+                        <img id="thumbs" src="${pageContext.request.contextPath}/static/images/product/arrival/3.jpg"  class="buyGoodsOri" style="margin-left:-100px;z-index:-1;position:absolute;width:30px;height:50px;">
                     </div>
                 </div>
             </div>   
@@ -753,3 +742,6 @@
 </body>
 
 </html>
+
+<script src="${pageContext.request.contextPath}/static/js/request/picture.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/request/commodityDetails.js"></script>

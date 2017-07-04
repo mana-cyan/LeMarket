@@ -69,4 +69,9 @@ public class CommodityAboutService {
         commodity.setOwner(shop.getOwner());
         return commodityMapper.insert(commodity);
     }
+
+    //添加商品类型
+    public int addCommodityType(int id, List<String> type){
+        return commoditytypeMapper.insertCommodityTypeList(id, type);
+    }
 }

@@ -3,7 +3,6 @@ package com.lemarket.controller.commodity;
 import com.lemarket.data.dao.CommodityMapper;
 import com.lemarket.data.model.Commodity;
 import com.lemarket.data.model.CommodityWithShop;
-import com.lemarket.data.model.Shop;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.CommodityAboutService;
 import com.lemarket.service.utils.CommoditySearch;
@@ -18,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
+import java.util.List;
 
 @Controller
 public class CommodityController {
@@ -69,6 +68,16 @@ public class CommodityController {
     public Status addCommodity(Commodity commodity){
         int status = commodityAboutService.addCommodity(commodity);
         if (status>0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
+    }
+
+    //添加商品类型
+    @RequestMapping(value = "addCommodityType", method = RequestMethod.GET)
+    @ResponseBody
+    public Status addCommodityType(int id, List<String> type) {
+        int insertNumber = commodityAboutService.addCommodityType(id, type);
+        if (insertNumber > 0)
             return new Status("SUCCESS");
         return new Status("ERROR");
     }

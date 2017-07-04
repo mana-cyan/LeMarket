@@ -3,6 +3,7 @@ package com.lemarket.service.utils;
 import com.lemarket.data.dao.CommodityMapper;
 import com.lemarket.data.dao.ShopMapper;
 import com.lemarket.data.model.Commodity;
+import com.lemarket.data.model.CommodityWithShop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,7 @@ public class CommoditySearch {
      * @param id 关键词
      * @return CommodityList 商品信息
      */
-    public Commodity commoditySearchId(Integer id) {
-        return commodityMapper.selectById(id);
+    public CommodityWithShop commodityWithShopById(Integer id) {
+        return commodityMapper.selectCommodityWithShopByCommodityId(id);
     }
 }

@@ -2,6 +2,7 @@ package com.lemarket.controller.commodity;
 
 import com.lemarket.data.dao.CommodityMapper;
 import com.lemarket.data.model.Commodity;
+import com.lemarket.data.model.CommodityWithShop;
 import com.lemarket.service.utils.CommoditySearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class CommodityController {
 
     @RequestMapping(value = "commodityDetails", method = RequestMethod.GET)
     public String commodityDetails(Integer id, Model model) {
-        Commodity details = commoditySearch.commoditySearchId(id);
+        CommodityWithShop details = commoditySearch.commodityWithShopById(id);
         model.addAttribute("detail", details);
         return "shop/commodityDetails";
     }

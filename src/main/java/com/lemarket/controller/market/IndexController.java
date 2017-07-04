@@ -37,5 +37,11 @@ public class IndexController {
         return "redirect:index";
         else return "redirect:user/login";
     }
+
+    @RequestMapping(value = "/getToolBar")
+    public String getToolBar()
+    {
+        return "shop/toolBar";
+    }
 }
 

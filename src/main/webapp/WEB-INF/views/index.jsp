@@ -72,59 +72,7 @@
 <div class="wrapper">
     <!-- Start of header area -->
     <header>
-        <div class="header-top gray-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5 hidden-xs">
-                        <div class="header-top-left">
-                            <ul class="header-top-style text-capitalize mr-25">
-                                <li><a href="index"><span class="mr-10">首页</span></a>
-                                </li>
-                            </ul>
-                            <ul class="header-top-style text-capitalize mr-25">
-                                <li><a href="user/userPage.jsp"><span class="mr-10">个人中心</span><i class="fa fa-angle-down"></i></a>
-                                    <ul class="ul-style currency box-shadow white-bg">
-                                        <li><a href="login"><i class="fa fa-usd"></i><span>登录</span></a></li>
-                                        <li><a href="register"><i class="fa fa-euro"></i><span>注册</span></a></li>
-                                        <li><a href="user/userPage.jsp"><i class="fa fa-gbp"></i><span>我的</span></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="header-top-style pl-10">
-                                <li>
-                                    <a href="user/userPage.jsp"><span class="mr-10">我的订单</span></a>
-                                </li>
-                            </ul>
-                            <ul class="header-top-style pl-10">
-                                <li>
-                                    <a href="admin"><span class="mr-10">管理员</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                    </div>
-                    <div class="col-sm-4 col-xs-6 selector">
-                        <div class="col-md-3" style="margin-right:-30px;">
-                            <form action="" >
-                                <label>
-                                    <select id="userSearch">
-                                        <option value=0>搜店铺</option>
-                                        <option value=1>搜商品</option>
-                                    </select>
-                                </label>
-                            </form>
-                        </div>
-                        <div class="col-md-7" >
-                            <span><input id="searchString" type="text" class="pl-10" placeholder="请输入店铺名、商品" style="border-left:0;color:#fff;"></span>
-                        </div>
-                        <div class="col-md-2">
-                            <span class="mr-20" ><a id="search_href" ><img alt="" src="${pageContext.request.contextPath}/static/images/header/search-icon.png" style="width:20px;height:20px;margin-top:5px;margin-left:-15px;"></a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <jsp:include page="/getToolBar"/>
         <div class="header-bottom">
             <div class="container">
                 <div class="row header-middle-content">
@@ -610,7 +558,8 @@
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 
-<!--Load Search -->
+<script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
+<!-- Load Search -->
 <script src="${pageContext.request.contextPath}/static/js/request/search.js"></script>
 <!-- Load Picture -->
 <script src="${pageContext.request.contextPath}/static/js/request/picture.js"></script>
@@ -618,6 +567,8 @@
 <script src="${pageContext.request.contextPath}/static/js/request/category.js"></script>
 <!-- Load Prefer Commodities -->
 <script src="${pageContext.request.contextPath}/static/js/request/preferCommodity.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/request/toolBar.js"></script>
 
 </body>
 

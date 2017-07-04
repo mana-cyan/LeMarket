@@ -21,6 +21,7 @@ Register.checkUsername = function () {
 };
 
 Register.checkEmail = function () {
+
     checkEmail($('#email').val(),emailCheckCallback);
 };
 

@@ -96,6 +96,6 @@
       s.id as sid, s.owner as sowner, s.name as sname,
       s.icon as sicon, s.phoneNumber as sphoneNumber, s.customerService as scustomerService,
       s.servicePhoneNumber as sservicePhoneNumber, s.description as sdescription
-    from Commodity c,Shop s WHERE id=#{id} AND c.shop = s.id;
+    from Commodity c,Shop s WHERE c.id=#{id} AND c.shop = s.id;
   </select>
 </mapper>

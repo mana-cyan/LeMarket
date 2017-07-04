@@ -513,9 +513,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="footer-top-content">
-                            <a href="index.jsp">
                                 <img src="${pageContext.request.contextPath}/static/images/footer/logo.png" alt="">
-                            </a>
                             <p class="pb-30">最好的商品购物平台，最优质的商品服务系统，满足你所有的购物心理</p>
                         </div>
                     </div>

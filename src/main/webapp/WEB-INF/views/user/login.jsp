@@ -157,7 +157,7 @@
             <div class="col-md-3">
                     <label id="wrongMessage" style="color: red"></label>
                     <div class="form-group">
-                        <input id="username" type="text" name="username" placeholder="请输入姓名" class="form-control"/>
+                        <input id="username" type="text" name="username" placeholder="请输入用户名或邮箱" class="form-control"/>
                     </div>
                     <div>
                         <input type="text" style="display: none"/>

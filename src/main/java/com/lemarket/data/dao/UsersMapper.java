@@ -19,12 +19,11 @@ public interface UsersMapper {
 
     Users selectById(int id);
 
-    int updateNameById(@Param("username") String username,@Param("id") int id);
+    int updateNameById(@Param("name") String name,@Param("id") int id);
     int updateGenderById(@Param("gender") String gender, @Param("id") int id);
     int updateBirthdayById(@Param("date") Date date, @Param("id") int id);
     int updateAddressById(@Param("address") String address,@Param("id") int id);
     int updatePhoneById(@Param("phone") String phone, @Param("id") int id);
-    int updateEmailById(@Param("email") String email, @Param("id") int id);
     int updateRoleById(@Param("role") String role, @Param("id") int id);
     int updatePasswordById(@Param("newPassword") String newPassword, @Param("id") int id);
     int updateIdentityById(@Param("identity") String identity, @Param("id") int id);

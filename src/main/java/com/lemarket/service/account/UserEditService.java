@@ -19,28 +19,26 @@ public class UserEditService {
         this.tokenMapper = tokenMapper;
     }
 
-    public Users getAddressByToken(String tokenString){
+    public Users getUserByToken(String tokenString){
         Token token = tokenMapper.selectByToken(tokenString);
         return usersMapper.selectById(token.getId());
     }
 
-    public String setUserInfo(Users users, String tokenString){
+    public String setUserInfo(Users users, String tokenString) {
         try{
             Token token = tokenMapper.selectByToken(tokenString);
             int id = token.getId();
-            if(users.getUsername() != null &&
+            if(users.getName() != null &&
                     users.getGender() != null &&
                     users.getBirthday() != null &&
                     users.getAddress() != null &&
                     users.getPhonenumber() != null &&
-                    users.getEmail() != null &&
                     users.getIdentitynumber() != null) {
-                usersMapper.updateNameById(users.getUsername(), id);
+                usersMapper.updateNameById(users.getName(), id);
                 usersMapper.updateGenderById(users.getGender(), id);
                 usersMapper.updateBirthdayById(users.getBirthday(), id);
                 usersMapper.updateAddressById(users.getAddress(), id);
                 usersMapper.updatePhoneById(users.getPhonenumber(), id);
-                usersMapper.updateEmailById(users.getEmail(), id);
                 usersMapper.updateIdentityById(users.getIdentitynumber(), id);
             }else {
                 return "ERROR";

@@ -417,10 +417,6 @@
                                     <td>电话号码：</td>
                                     <td colspan="2"><input id="phoneNumber" type="text" class="form-control" placeholder="手机号"></td>
                                 </tr>
-                                <tr style="width:100%;">
-                                    <td>邮箱：</td>
-                                    <td colspan="2"><input id="email" type="text" class="form-control" placeholder="电子邮箱"></td>
-                                </tr>
                             </table> 
                         </div>
                         <button type="button" class="btn btn-default" style="width:20%;height:60%;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;" onclick="setUserInfo()">保存</button>

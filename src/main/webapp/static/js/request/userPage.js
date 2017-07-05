@@ -20,6 +20,28 @@ function unlockNav() {
     $(nav_tabs[4]).attr('href', '#shoucang');
 }
 
+function loadUserInfo() {
+    $.ajax({
+        type: 'get',
+        url: 'getUser',
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var birthday = new Date(data.birthday);
+            $('#name').val(data.name);
+            $('#gender').val(data.gender);
+            $('#year').val(birthday.getFullYear());
+            $('#month').val(birthday.getMonth());
+            $('#day').val(birthday.getDate());
+            $('#address').val(data.address);
+            $('#identityNumber').val(data.identitynumber);
+            $('#phoneNumber').val(data.phonenumber)
+        },
+        error: function () {
+            console.log('Cannot Load UserInfo')
+        }
+    })
+}
+
 function checkUserInfo() {
    $.ajax({
        type: 'get',
@@ -29,6 +51,9 @@ function checkUserInfo() {
            if (data.status === 'ERROR') {
                $('.nav-tabs a[href="#settings"]').tab('show');
                lockNav();
+           } else {
+               loadUserInfo();
+               loadUnpaidOrders();
            }
        },
        error: function () {
@@ -44,13 +69,12 @@ function setUserInfo() {
     birthday.setDate($('#day').val());
 
     var user = {
-        'username': $('#name').val(),
+        'name': $('#name').val(),
         'gender': $('#gender').val(),
         'birthday': birthday.getTime(),
         'address': $('#address').val(),
         'identitynumber': $('#identityNumber').val(),
-        'phonenumber': $('#phoneNumber').val(),
-        'email': $('#email').val()
+        'phonenumber': $('#phoneNumber').val()
     };
     if (user.name === '') {
         alert('姓名不能为空');
@@ -66,10 +90,6 @@ function setUserInfo() {
     }
     if (user.phonenumber === '') {
         alert('手机号不能为空');
-        return null;
-    }
-    if (user.email === '') {
-        alert('邮箱不能为空');
         return null;
     }
     console.log(user);
@@ -96,3 +116,17 @@ function userInfoHint() {
 }
 
 $(document).ready(checkUserInfo);
+
+function loadUnpaidOrders() {
+    $.ajax({
+        type: 'get',
+        url: 'unpaid',
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            console.log(data);
+        },
+        error: function () {
+            console.log('Cannot load unpaid orders')
+        }
+    })
+}

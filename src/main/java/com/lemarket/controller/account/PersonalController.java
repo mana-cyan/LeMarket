@@ -55,11 +55,11 @@ public class PersonalController {
         return orderService.getAllOrderById(token, (page - 1) * 10, 10);
     }
 
-    @RequestMapping(value = "getAddress", method = RequestMethod.GET)
+    @RequestMapping(value = "getUser", method = RequestMethod.GET)
     @ResponseBody
     public Users getAddress(HttpServletRequest request) {
         String token = request.getHeader("token");
-        return userEditService.getAddressByToken(token);
+        return userEditService.getUserByToken(token);
     }
 
     @RequestMapping(value = "setUserInfo", method = RequestMethod.POST)

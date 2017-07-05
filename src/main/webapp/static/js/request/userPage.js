@@ -48,8 +48,8 @@ function setUserInfo() {
         'gender': $('#gender').val(),
         'birthday': birthday.getTime(),
         'address': $('#address').val(),
-        'identityNumber': $('#identityNumber').val(),
-        'phoneNumber': $('#phoneNumber').val(),
+        'identitynumber': $('#identityNumber').val(),
+        'phonenumber': $('#phoneNumber').val(),
         'email': $('#email').val()
     };
     if (user.name === '') {
@@ -60,11 +60,11 @@ function setUserInfo() {
         alert('地址不能为空');
         return null;
     }
-    if (user.identityNumber === '') {
+    if (user.identitynumber === '') {
         alert('身份证号不能为空');
         return null;
     }
-    if (user.phoneNumber === '') {
+    if (user.phonenumber === '') {
         alert('手机号不能为空');
         return null;
     }
@@ -76,7 +76,8 @@ function setUserInfo() {
     $.ajax({
         type: 'post',
         url: 'setUserInfo',
-        data: user,
+        data: JSON.stringify(user),
+        contentType: "application/json",
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
             if (data.status === 'SUCCESS') {

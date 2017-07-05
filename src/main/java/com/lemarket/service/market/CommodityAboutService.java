@@ -69,4 +69,33 @@ public class CommodityAboutService {
         commodity.setOwner(shop.getOwner());
         return commodityMapper.insert(commodity);
     }
+
+    //添加商品类型
+    public int addCommodityType(int id, List<String> type){
+        return commoditytypeMapper.insertCommodityTypeList(id, type);
+    }
+
+    //编辑商品
+    public int updateCommodity(Commodity commodity){
+        if(commodity.getId() == 0)
+            return 0;
+        if(commodity.getName() == null)
+            return 0;
+        if(commodity.getDetails() == null)
+            return 0;
+        if(commodity.getCategory() == 0)
+            return 0;
+        if(commodity.getStorage() == 0)
+            return 0;
+        if(commodity.getPrice() == 0.0f)
+            return 0;
+        if(commodity.getImage() == 0)
+            return 0;
+        return commodityMapper.updateCommodity(commodity);
+    }
+
+    //删除商品
+    public int deleteCommodity(int commodityId){
+        return commodityMapper.deleteCommodity(commodityId);
+    }
 }

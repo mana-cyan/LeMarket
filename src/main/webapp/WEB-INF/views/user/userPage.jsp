@@ -182,7 +182,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -240,7 +240,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -258,7 +258,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -299,7 +299,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -317,7 +317,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -364,7 +364,7 @@
 
                     <div style="margin-top:30px;">
                         <h5 style="border-bottom:1px solid #ccc;padding:10px;"><strong>新增收货地址</strong></h5>
-                        <div style="margin-top:20px;border-bottom:1px solid #ccc;">
+                        <div style="margin-top:20px;border-bottom:1px solid #ccc;padding-bottom:20px;">
                             <table style="" class="shdz">
                                 <tr style="width:100%;">
                                     <td>姓名：</td>
@@ -373,14 +373,7 @@
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>地址：</td>
-                                    <td><input type="text" class="form-control" placeholder="省/直辖市"></td>
-                                    <td><input type="text" class="form-control" placeholder="市"></td>
-                                    <td><input type="text" class="form-control" placeholder="区/县"></td>
-                                    <td><input type="text" class="form-control" placeholder="乡村/街道"></td>
-                                </tr>
-                                <tr style="width:100%;">
-                                    <td></td>
-                                    <td colspan="2"><input type="text" class="form-control" placeholder="详细地址"></td>                                   
+                                    <td colspan="2"><input type="text" class="form-control" placeholder="详细地址"></td>
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>电话号码：</td>

@@ -81,20 +81,22 @@
         <div class="row" style="margin-top:20px;margin-left:70px;">
             <div class="col-md-4">
             </div>
+            <form action="/admin/index" method="post">
             <div class="col-md-3">
                     <div class="form-group">
-                        <input type="text"  placeholder="请输入用户名" class="form-control"/>
+                        <input id="username" name="username" type="text"  placeholder="请输入用户名" class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="请输入密码" class="form-control" />
+                        <input id="password" name="password" type="password" placeholder="请输入密码" class="form-control" />
                     </div>
                     <div class="form-group">
-                            <input id="validateText" type="text" name="validateText" class="form-control" style="width:50%;"/>
+                            <input id="validateText" name="validateCode" type="text" name="validateText" class="form-control" style="width:50%;"/>
                             <img src="" id="validateCode"/> <label id="refreshValidateCode">换一张</label>
                         <label id="validateStatus" style="color:red"></label>
                     </div>
-                    <button type="button" class="form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">登录</button>
+                    <button id="submit" type="submit" class="form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">登录</button>
             </div>
+            </form>
             <div class="col-md-5">
             </div>
         </div>
@@ -156,6 +158,8 @@
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 
 <script src="${pageContext.request.contextPath}/static/js/request/validate.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/loginAndRegister/adminLogin.js"></script>
 
 </body>
 

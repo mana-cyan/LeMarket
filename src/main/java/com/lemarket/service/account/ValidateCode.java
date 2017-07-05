@@ -5,9 +5,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 
-/**
- * Created by gxw on 2017/7/5.
- */
 public class ValidateCode {
     private String code;
     private BufferedImage image;

@@ -34,6 +34,7 @@ public class RegisterController {
                                 HttpServletRequest request){
         System.out.println("registerAction");
         String salt = (String) request.getSession().getAttribute("salt");
+        //System.out.println(salt);
         request.getSession().removeAttribute("salt");
         return register.register(email,username,password,salt);
     }

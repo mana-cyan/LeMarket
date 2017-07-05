@@ -39,7 +39,7 @@ Register.Do = function () {
                 'email': emailDiv.val()
             },
             success: function (response) {
-                onRegisterFinish(response);
+                onRegisterFinish(response.token);
             },
             error: function () {
                 console.log('error!');
@@ -72,13 +72,16 @@ function emailCheckCallback(response) {
 
 
 
-function onRegisterFinish(response) {
+function onRegisterFinish(token) {
     var messageDiv = $('#registerFailMessage');
-    if (response.token === '') {
+    if (token === '') {
         showMessage(messageDiv,false,'注册失败');
     }
     else {
-        Cookie.setToken(response.token);
+
+        messageDiv.html("注册成功");
+        Cookie.setToken(token);
+        window.location.href='redirectIndex?token='+Cookie.getToken();
         $.ajax({
                 type: 'get',
                 url: '/redirectIndex'

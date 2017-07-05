@@ -1,3 +1,25 @@
+var nav_tabs = $('#nav-list').find('a');
+
+function lockNav() {
+    for (var i = 0 ; i < 5; i++) {
+        if (i !== 2) {
+            $(nav_tabs[i]).attr('href', '#');
+            $(nav_tabs[i]).attr('onclick', 'userInfoHint()');
+        }
+    }
+}
+
+function unlockNav() {
+    for (var i = 0 ; i < 5; i++) {
+        if (i !== 2)
+            $(nav_tabs[i]).removeAttr('onclick')
+    }
+    $(nav_tabs[0]).attr('href', '#home');
+    $(nav_tabs[1]).attr('href', '#profile');
+    $(nav_tabs[3]).attr('href', '#messages');
+    $(nav_tabs[4]).attr('href', '#shoucang');
+}
+
 function checkUserInfo() {
    $.ajax({
        type: 'get',
@@ -6,12 +28,7 @@ function checkUserInfo() {
        success: function (data) {
            if (data.status === 'ERROR') {
                $('.nav-tabs a[href="#settings"]').tab('show');
-               var nav_tabs = $('#nav-list').find('a');
-               for (var i = 0 ; i < 5; i++)
-                   if ( i !== 2 ) {
-                       $(nav_tabs[i]).attr('href', '#');
-                       $(nav_tabs[i]).attr('onclick', 'userInfoHint()');
-                   }
+               lockNav();
            }
        },
        error: function () {
@@ -25,23 +42,52 @@ function setUserInfo() {
     birthday.setFullYear($('#year').val());
     birthday.setMonth($('#month').val());
     birthday.setDate($('#day').val());
+
     var user = {
-        'name': $('#name').val(),
+        'username': $('#name').val(),
         'gender': $('#gender').val(),
-        'birthday': birthday,
+        'birthday': birthday.getTime(),
         'address': $('#address').val(),
         'identityNumber': $('#identityNumber').val(),
         'phoneNumber': $('#phoneNumber').val(),
         'email': $('#email').val()
     };
-    if (user.name === '')
+    if (user.name === '') {
         alert('姓名不能为空');
-    if (user.addressNumber === '')
+        return null;
+    }
+    if (user.address === '') {
         alert('地址不能为空');
-    if (user.identityNumber === '')
+        return null;
+    }
+    if (user.identityNumber === '') {
         alert('身份证号不能为空');
-    if (user.phoneNumber === '')
+        return null;
+    }
+    if (user.phoneNumber === '') {
         alert('手机号不能为空');
+        return null;
+    }
+    if (user.email === '') {
+        alert('邮箱不能为空');
+        return null;
+    }
+    console.log(user);
+    $.ajax({
+        type: 'post',
+        url: 'setUserInfo',
+        data: user,
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            if (data.status === 'SUCCESS') {
+                unlockNav();
+                $('.nav-tabs a[href="#home"]').tab('show');
+            }
+        },
+        error: function () {
+            console.log('Cannot set user info');
+        }
+    })
 }
 
 function userInfoHint() {

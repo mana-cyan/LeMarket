@@ -36,7 +36,7 @@ public class ShopController {
     @RequestMapping(value = "addShop", method = RequestMethod.POST)
     @ResponseBody
     public Status addShop(String name, String description, HttpServletRequest request){
-        int answer = shopService.addShop(name, description, request.getHeader("Token"));
+        int answer = shopService.addShop(name, description, request.getHeader("token"));
         if(answer == 1)
             return new Status("SUCCESS");
         else
@@ -54,7 +54,7 @@ public class ShopController {
     @RequestMapping(value = "getShop", method = RequestMethod.GET)
     @ResponseBody
     public Shop getShopByToken(HttpServletRequest request){
-        return shopService.getShopByToken(request.getHeader("Token"));
+        return shopService.getShopByToken(request.getHeader("token"));
     }
 
 
@@ -77,7 +77,7 @@ public class ShopController {
         shop.setName(name);
         shop.setDescription(description);
         shop.setPhonenumber(phone);
-        String resp = shopService.updateShopInformation(shop, request.getHeader("Token"));
+        String resp = shopService.updateShopInformation(shop, request.getHeader("token"));
         return new Status(resp);
     }
 
@@ -87,7 +87,7 @@ public class ShopController {
     public Status setShopImage(MultipartFile multipartFile, HttpServletRequest request,HttpSession session) throws IOException {
             String path = imageFactory.saveFile(multipartFile,session);
             if(!path.equals("ERROR")) {
-                shopService.updateShopIcon(path, request.getHeader("Token"));
+                shopService.updateShopIcon(path, request.getHeader("token"));
                 return new Status("SUCCESS");
             }
             return new Status("ERROR");

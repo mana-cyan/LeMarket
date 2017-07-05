@@ -20,7 +20,7 @@ function preferSet(viewDiv, preferObject) {
     });
     viewDiv.find(".c-price").html("￥" + preferObject.price);
     viewDiv.find("h6").html(preferObject.name);
-    viewDiv.find('a').attr('href', '/commodityDetails?id='+preferObject.id)
+    viewDiv.find('a').attr('href', 'commodityDetails?id='+preferObject.id)
 }
 
 //批量填充推荐商品数据

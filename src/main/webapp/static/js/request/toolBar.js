@@ -1,6 +1,5 @@
 var ToolBar= {};
 ToolBar.getStatus=function () {
-    console.log('checkStatus');
     if(Cookie.getToken()===null||Cookie.getToken()==='')
     {
         doStatusError();

@@ -11,7 +11,7 @@ public interface UsersMapper {
 
     int insert(Users record);
     
-    List<Users> selectAll();
+    List<Users> selectAll(int beginRow, int pageSize);
 
     Users selectByUsername(String username);
     Users selectByEmail(String email);
@@ -26,4 +26,8 @@ public interface UsersMapper {
     int updateEmailById(String email, int id);
 
     int updateRoleById(String role, int id);
+
+    int updatePasswordById(String newPassword,int id);
+
+    List<Users> selectUserByNameOrEmail(String key);
 }

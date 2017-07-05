@@ -17,13 +17,26 @@ Register.checkPasswordRepeat = function () {
 };
 
 Register.checkUsername = function () {
+    if(!Register.checkUserNameLegal()) return showMessage($('#usernameStatus'),false,'用户名不合法');
     checkUsername($('#username').val(),userNameCheckCallback);
 };
 
-Register.checkEmail = function () {
+Register.checkUserNameLegal=function () {
+    var username=$('#username').val();
+    if(username.length>=6&&username.length<=20) return true;
+    return false;
+}
 
+Register.checkEmail = function () {
+    if(!Register.checkEmailLegal()) return showMessage($('#emailStatus'),false,'邮箱不合法');
     checkEmail($('#email').val(),emailCheckCallback);
 };
+
+Register.checkEmailLegal=function () {
+    var email=$('#email').val();
+    if(email.length>=8&&email.length<=30) return true;
+    return false;
+}
 
 Register.Do = function () {
     var usernameDiv = $('#username');
@@ -39,7 +52,7 @@ Register.Do = function () {
                 'email': emailDiv.val()
             },
             success: function (response) {
-                onRegisterFinish(response.token);
+                onRegisterFinish(response);
             },
             error: function () {
                 console.log('error!');
@@ -72,21 +85,15 @@ function emailCheckCallback(response) {
 
 
 
-function onRegisterFinish(token) {
+function onRegisterFinish(response) {
     var messageDiv = $('#registerFailMessage');
-    if (token === '') {
+    if (response.token === '') {
         showMessage(messageDiv,false,'注册失败');
     }
     else {
-
-        messageDiv.html("注册成功");
-        Cookie.setToken(token);
-        window.location.href='redirectIndex?token='+Cookie.getToken();
-        $.ajax({
-                type: 'get',
-                url: '/redirectIndex'
-            }
-        );
+        console.log(response.token);
+        Cookie.setToken(response.token);
+        window.location.href='userPage';
     }
 }
 

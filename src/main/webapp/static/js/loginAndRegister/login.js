@@ -1,7 +1,4 @@
-
 var Login=Login ||  {};
-
-
 
 Login.checkKey= function() {
     var div = $('#username');
@@ -18,15 +15,15 @@ function checkArgsIsLegal()
     var validateDiv = $('#validateText');
 
     console.log('legalJudge');
-    if(usernameDiv.val()==='') return false;
-    if(passwordDiv.val()==='') return false;
+    if(usernameDiv.val()===''||usernameDiv.length>20) return false;
+    if(passwordDiv.val()===''||passwordDiv.length>32) return false;
     if(validateDiv.val()==='') return false;
     console.log('success');
     return true;
 }
 
 Login.Do=function() {
-    if(checkArgsIsLegal()===false) return;
+    if(checkArgsIsLegal()===false) return onArgsIllegalInput();
     var passwordDiv=$('#password');
     console.log(Cookie.getSalt());
     var cryptText=encryptWithSalt(passwordDiv.html(),Cookie.getSalt());
@@ -38,6 +35,10 @@ Login.Do=function() {
         loginWithUsername();
 };
 
+function onArgsIllegalInput() {
+    $('#loginStatus').html('不合法的密码或用户名');
+}
+
 
 
 function onCheckFinish(val) {
@@ -48,8 +49,6 @@ function onCheckFinish(val) {
 
     }
 }
-
-
 
 function loginWithUsername() {
     var usernameDiv = $('#username');

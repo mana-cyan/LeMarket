@@ -3,13 +3,13 @@ package com.lemarket.controller.account;
 import com.google.gson.JsonObject;
 import com.lemarket.data.dao.UsersMapper;
 import com.lemarket.data.reponseObject.EmailCheckStatus;
+import com.lemarket.data.reponseObject.Status;
 import com.lemarket.data.reponseObject.UsernameCheckStatus;
 import com.lemarket.service.account.*;
 import com.lemarket.service.utils.SaltFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,13 +33,19 @@ public class AccountController {
 
     private final ValidateCodeChecker validateCodeChecker;
 
+    private final ValidateCodeFactory validateCodeFactory;
+
+    private final UserDataFactory userDataFactory;
+
     @Autowired
-    public AccountController(EmailChecker emailChecker, TokenSetter tokenSetter, UsernameChecker usernameChecker, UsersMapper usersMapper, ValidateCodeChecker validateCodeChecker) {
+    public AccountController(EmailChecker emailChecker, TokenSetter tokenSetter, UsernameChecker usernameChecker, UsersMapper usersMapper, ValidateCodeChecker validateCodeChecker, ValidateCodeFactory validateCodeFactory, UserDataFactory userDataFactory) {
         this.emailChecker = emailChecker;
         this.tokenSetter = tokenSetter;
         this.usernameChecker = usernameChecker;
         this.usersMapper = usersMapper;
         this.validateCodeChecker = validateCodeChecker;
+        this.validateCodeFactory = validateCodeFactory;
+        this.userDataFactory = userDataFactory;
     }
 
     @RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
@@ -72,25 +78,19 @@ public class AccountController {
      * @return null
      */
     @RequestMapping(value="/validateCode")
-    public String validateCode(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        // 设置响应的类型格式为图片格式
-        response.setContentType("image/jpeg");
-        response.setDateHeader("Expires", 0);
-
+    public String validateCode(HttpServletRequest request,HttpServletResponse response) throws Exception{
         HttpSession session = request.getSession();
-
-        //生成验证码
-        ValidateCode vCode = new ValidateCode(120,40,5,100);
+        ValidateCode validateCode= validateCodeFactory.getValidateCode();
         //将图片流转化为图片
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        vCode.write(byteArrayOutputStream);
+        validateCode.write(byteArrayOutputStream);
         byte[] imageBitArray = byteArrayOutputStream.toByteArray();
         byteArrayOutputStream.close();
         String imageB64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageBitArray);
         //验证码存入session
-        session.setAttribute("code", vCode.getCode().toLowerCase());
-        //验证图片返回前端
+        session.setAttribute("code", validateCode.getCode().toLowerCase());
         response.getWriter().write(imageB64);
+        validateCodeFactory.refresh();
         return null;
     }
 
@@ -143,5 +143,11 @@ public class AccountController {
         return "test";
     }
 
+    //检查用户信息是否完整
+    @RequestMapping(value = "checkUserInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public Status checkUserInfo(HttpServletRequest request){
+        return new Status(userDataFactory.checkUserInformation(request.getHeader("token")));
+    }
 
 }

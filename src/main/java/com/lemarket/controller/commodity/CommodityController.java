@@ -91,4 +91,14 @@ public class CommodityController {
             return new Status("SUCCESS");
         return new Status("ERROR");
     }
+
+    //删除商品
+    @RequestMapping(value = "deleteCommodity", method = RequestMethod.POST)
+    @ResponseBody
+    public Status deleteCommodity(int id){
+        int st = commodityAboutService.deleteCommodity(id);
+        if(st > 0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
+    }
 }

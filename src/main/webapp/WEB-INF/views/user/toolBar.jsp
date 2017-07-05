@@ -13,18 +13,18 @@
                         </li>
                     </ul>
                     <ul class="header-top-style text-capitalize mr-25">
-                        <li><a href="user/userPage.jsp"><span class="mr-10">个人中心</span><i class="fa fa-angle-down"></i></a>
+                        <li><a href="userPage"><span class="mr-10">个人中心</span><i class="fa fa-angle-down"></i></a>
                             <ul class="ul-style currency box-shadow white-bg">
                                 <li id="barLogin"><a href="login"><i class="fa fa-usd"></i><span>登录</span></a></li>
                                 <li id="barRegister" ><a href="register"><i class="fa fa-euro"></i><span>注册</span></a></li>
-                                <li id="barMyRoom"><a href="user/userPage.jsp"><i class="fa fa-gbp"></i><span>我的</span></a></li>
-                                <li id="barExit" ><i class="fa fa-euro"></i><span>退出</span></li>
+                                <li id="barMyRoom"><a href="userPage"><i class="fa fa-gbp"></i><span>我的</span></a></li>
+                                <li id="barExit" ><a href="index"><i class="fa fa-euro"></i><span>退出</span></a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="header-top-style pl-10">
                         <li id="barMyOrder">
-                            <a href="user/userPage.jsp"><span class="mr-10">我的订单</span></a>
+                            <a href="userPage"><span class="mr-10">我的订单</span></a>
                         </li>
                     </ul>
                     <ul class="header-top-style pl-10">

@@ -175,7 +175,7 @@
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 
-    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/bcrypt.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/bcrypt.min.js"></script>
 
     <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
 

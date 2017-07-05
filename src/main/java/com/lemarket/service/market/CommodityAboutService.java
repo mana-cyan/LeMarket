@@ -33,7 +33,6 @@ public class CommodityAboutService {
     //按商品类别获取相同类别商品分页
     public List<Commodity> getCommodityAbout(int id, int pageRow, int pageSize){
         Commodity commodity = commodityMapper.selectById(id);
-        System.out.println(commodity.toString());
         List<Commodity> commodityList = commodityMapper.selectPageByKindAndSaled(commodity.getCategory(), pageRow, pageSize);
         commodityList.remove(commodity);
         return commodityList;
@@ -92,5 +91,10 @@ public class CommodityAboutService {
         if(commodity.getImage() == 0)
             return 0;
         return commodityMapper.updateCommodity(commodity);
+    }
+
+    //删除商品
+    public int deleteCommodity(int commodityId){
+        return commodityMapper.deleteCommodity(commodityId);
     }
 }

@@ -42,29 +42,34 @@
   <update id="updateCommodity" parameterType="com.lemarket.data.model.Commodity">
       UPDATE Commodity SET name=#{name}, details=#{details}, category=#{category}, storage=#{storage}, price=#{price},image=#{image} WHERE id=#{id};
   </update>
-    <select id="selectAll" resultMap="BaseResultMap">
+  <update id="deleteCommodity">
+    UPDATE Commodity SET status=0 WHERE id = #{commodityId};
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
     select id, category, shop, name, storage, saled, price, image, visitCount, status,
     time, owner, details
     from Commodity
+    WHERE status=1
+    LIMIT #{beginRow}, #{pageSize};
   </select>
     <select id="selectBySaledOrder" resultMap="BaseResultMap">
-      SELECT * FROM Commodity ORDER BY saled DESC LIMIT 0, 10;
+      SELECT * FROM Commodity WHERE status=1 ORDER BY saled DESC LIMIT 0, 10;
     </select>
     <select id="selectById" resultMap="BaseResultMap">
       SELECT * FROM Commodity WHERE id=#{id};
     </select>
   <select id="selectPageByKindAndSaled" resultMap="BaseResultMap">
-      SELECT * FROM Commodity WHERE category = #{category} ORDER BY saled DESC LIMIT #{beginRow}, #{pageSize};
+      SELECT * FROM Commodity WHERE category = #{category} AND status=1 ORDER BY saled DESC LIMIT #{beginRow}, #{pageSize};
   </select>
   <select id="selectByShopId" resultMap="BaseResultMap">
-      SELECT * FROM Commodity WHERE shop = #{shopId} LIMIT #{beginRow}, #{pageSize};
+      SELECT * FROM Commodity WHERE shop = #{shopId} AND status=1 LIMIT #{beginRow}, #{pageSize};
   </select>
 
   <select id="selectByName" resultMap="BaseResultMap" >
     SELECT * FROM Commodity WHERE name LIKE #{word}
   </select>
   <select id="selectCountById" resultType="java.lang.Integer">
-    SELECT COUNT(*) FROM Commodity WHERE category = #{category};
+    SELECT COUNT(*) FROM Commodity WHERE category = #{category} AND status=1;
   </select>
 
   <!--commodity shop 连表查询-->
@@ -98,6 +103,6 @@
       s.id as sid, s.owner as sowner, s.name as sname,
       s.icon as sicon, s.phoneNumber as sphoneNumber, s.customerService as scustomerService,
       s.servicePhoneNumber as sservicePhoneNumber, s.description as sdescription
-    from Commodity c,Shop s WHERE c.id=#{id} AND c.shop = s.id;
+    from Commodity c,Shop s WHERE c.id=#{id} AND c.shop = s.id AND c.status=1;
   </select>
 </mapper>

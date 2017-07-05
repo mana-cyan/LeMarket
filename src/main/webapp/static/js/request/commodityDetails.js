@@ -90,7 +90,7 @@ function loadComponents() {
             });
             $(products[p]).find('.c-price').html(data[p].price);
             $(products[p]).find('.product-name').find('a').html(data[p].name);
-            $(products[p]).attr('onclick', '')
+            $(products[p]).find('a').attr('href', 'commodityDetails?id='+data[p].id)
         }
         for (var i = data.length; i < products.length; i++)
             $(products[i]).remove()

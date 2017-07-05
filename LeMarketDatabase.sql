@@ -80,7 +80,7 @@ CREATE TABLE `Commodity` (
   `price` FLOAT NOT NULL COMMENT '商品价格',
   `image` INT NOT NULL COMMENT '商品图片地址',
   `visitCount` INT DEFAULT '0' COMMENT '商品浏览量',
-  `status` INT COMMENT '商品状态',
+  `status` INT DEFAULT 1 COMMENT '商品状态',
   `time` DATETIME NOT NULL COMMENT '上架时间',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`owner`) REFERENCES Users(`id`),
@@ -95,7 +95,7 @@ CREATE TABLE `CommodityType` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '商品型号id',
   `commodity` INT NOT NULL COMMENT '商品id',
   `name` VARCHAR(30) NOT NULL COMMENT '商品型号名称',
-  `storage` INT DEFAULT 0 COMMENT '该型号库存'
+  `storage` INT DEFAULT 0 COMMENT '该型号库存',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`commodity`) REFERENCES Commodity(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品型号表';

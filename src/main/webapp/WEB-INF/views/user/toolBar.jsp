@@ -18,7 +18,7 @@
                                 <li id="barLogin"><a href="login"><i class="fa fa-usd"></i><span>登录</span></a></li>
                                 <li id="barRegister" ><a href="register"><i class="fa fa-euro"></i><span>注册</span></a></li>
                                 <li id="barMyRoom"><a href="userPage"><i class="fa fa-gbp"></i><span>我的</span></a></li>
-                                <li id="barExit" ><i class="fa fa-euro"></i><span>退出</span></li>
+                                <li id="barExit" ><a><i class="fa fa-euro"></i><span>退出</span><a></li>
                             </ul>
                         </li>
                     </ul>

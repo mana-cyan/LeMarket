@@ -35,7 +35,13 @@ function setUserInfo() {
         'email': $('#email').val()
     };
     if (user.name === '')
-        alert('姓名');
+        alert('姓名不能为空');
+    if (user.addressNumber === '')
+        alert('地址不能为空');
+    if (user.identityNumber === '')
+        alert('身份证号不能为空');
+    if (user.phoneNumber === '')
+        alert('手机号不能为空');
 }
 
 function userInfoHint() {

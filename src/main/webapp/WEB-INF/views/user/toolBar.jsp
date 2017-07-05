@@ -29,7 +29,7 @@
                     </ul>
                     <ul class="header-top-style pl-10">
                         <li id="barAdmin">
-                            <a href="admin"><span class="mr-10">管理员</span></a>
+                            <a href="/admin/login"><span class="mr-10">管理员</span></a>
                         </li>
                     </ul>
                 </div>

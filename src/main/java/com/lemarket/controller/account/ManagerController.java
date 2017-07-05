@@ -58,4 +58,36 @@ public class ManagerController {
     public List<Commodity> searchCommodity(String name){
         return managerService.searchCommodity(name);
     }
+
+    @RequestMapping(value = "admin/login",method = RequestMethod.POST)
+    public String adminLogin()
+    {
+        return  null;
+    }
+
+    @RequestMapping(value = "admin")
+    public String admin()
+    {
+        return "admin/index";
+    }
+
+    @RequestMapping(value = "admin/report")
+    public String adminReportPage()
+    {
+        return "admin/report";
+
+
+    }
+
+    @RequestMapping(value = "admin/login")
+    public String adminLoginPage()
+    {
+        return "admin/login";
+    }
+
+    @RequestMapping(value = "admin/goods")
+    public String adminGoodsPage()
+    {
+        return "admin/goods";
+    }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
 <head>
@@ -96,13 +96,13 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.jsp"><i class="fa fa-wrench fa-fw"></i>用户管理</a>
+                            <a href="/admin"><i class="fa fa-wrench fa-fw"></i>用户管理</a>
                         </li>
                         <li>
-                            <a href="report.jsp"><i class="fa fa-bar-chart-o fa-fw"></i>举报管理</a>
+                            <a href="/admin/report"><i class="fa fa-bar-chart-o fa-fw"></i>举报管理</a>
                         </li>
                         <li>
-                            <a href="goods.jsp"><i class="fa fa-dashboard fa-fw"></i>商品管理</a>
+                            <a href="/admin/goods"><i class="fa fa-dashboard fa-fw"></i>商品管理</a>
                         </li>
                     </ul>
                 </div>

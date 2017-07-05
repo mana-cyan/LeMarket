@@ -47,11 +47,6 @@ function checkEmail(email,callback) {
     )
 }
 
-function checkEmailIsLegal(email) {
-    if(email.indexOf('@')>0) return true;
-    return false;
-}
-
 function showMessage(div,status,message) {
     var successColor='green';
     var failColor='red';

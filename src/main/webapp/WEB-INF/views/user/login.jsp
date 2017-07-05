@@ -79,77 +79,7 @@
 <!-- Body main wrapper start -->
 <div class="wrapper">
     <!-- Start of header area -->
-    <header>
-        <div class="header-top gray-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5 hidden-xs">
-                        <div class="header-top-left">
-                            <ul class="header-top-style text-capitalize mr-25">
-                                <li><a href="../index.jsp"><span class="mr-10">首页</span></a>
-                                </li>
-                            </ul>
-                            <ul class="header-top-style text-capitalize mr-25">
-                                <li><a href="userPage.jsp"><span class="mr-10">个人中心</span><i
-                                        class="fa fa-angle-down"></i></a>
-                                    <ul class="ul-style currency box-shadow white-bg">
-                                        <li><a href="login.html"><i class="fa fa-usd"></i><span>登录</span></a></li>
-                                        <li><a href="register.jsp"><i class="fa fa-euro"></i><span>注册</span></a></li>
-                                        <li><a href="userPage.jsp"><i class="fa fa-gbp"></i><span>我的</span></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="header-top-style pl-10">
-                                <li>
-                                    <a href="userPage.jsp"><span class="mr-10">我的订单</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                    </div>
-                    <div class="col-sm-4 col-xs-6 selector">
-                        <div class="col-md-3" style="margin-right:-30px;">
-                            <form action="">
-                                <label>
-                                    <select name="">
-                                        <option value="shop">搜店铺</option>
-                                        <option value="commodity">搜商品</option>
-                                    </select>
-                                </label>
-                            </form>
-                        </div>
-                        <div class="col-md-7">
-                            <span><input type="text" class="pl-10" placeholder="请输入店铺名、商品"
-                                         style="border-left:0;color:#fff;"></span>
-                        </div>
-                        <div class="col-md-2">
-                            <span class="mr-20"><a href="#"><img alt=""
-                                                                 src="${pageContext.request.contextPath}/static/images/header/search-icon.png"
-                                                                 style="width:20px;height:20px;margin-top:5px;margin-left:-15px;"></a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-bottom">
-            <div class="container">
-                <div class="row header-middle-content">
-                    <div class="col-md-5 col-sm-4 hidden-xs">
-                    </div>
-                    <div class="col-md-2 col-sm-4 col-xs-12">
-                        <div class="header-logo text-center">
-                            <a href="../index.jsp"><img alt=""
-                                                        src="${pageContext.request.contextPath}/static/images/logo.png"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-offset-0 col-md-5 col-sm-offset-0 col-sm-4 col-xs-offset-3 col-xs-6">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
+    <jsp:include page="/getToolBar"/>
     <div class="container">
         <div class="row" style="margin-top:20px;margin-left:70px;">
             <div class="col-md-4">
@@ -170,6 +100,7 @@
                         <img src="" id="validateCode"/> <label id="refreshValidateCode">换一张</label>
                     </div>
                     <label id="validateStatus" style="color: red"></label>
+                    <label id="loginStatus"/>
                     <button id="submit" class="btn btn-default form-control"
                             style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">
                         登录</button>

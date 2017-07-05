@@ -373,7 +373,7 @@
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>地址：</td>
-                                    <td colspan="2"><input type="text" class="form-control" placeholder="详细地址"></td>
+                                    <td colspan="2" ><input type="text" class="form-control" placeholder="详细地址" ></td>
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>电话号码：</td>
@@ -447,6 +447,24 @@
                         <div class="tab-content">
                             <!-- 收藏商品 -->
                             <div role="tabpanel" class="tab-pane active" id="scsp">
+                                <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:25px;">
+                                    <div class="col-md-3" >
+                                        <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    </div>
+                                    <div class="col-md-5" style="margin-top:20px;padding:20px;">
+                                        <span>女装连衣裙净黑色</span>
+                                    </div>
+                                    <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                        <h4>￥49</h4>
+                                    </div>
+                                    <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                             <button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>
+                                             <button type="button" class="btn btn-default">删除订单</button>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                     <div class="col-md-3" >
                                         <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
@@ -465,25 +483,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
-                                    <div class="col-md-3" >
-                                        <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                    </div>
-                                    <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                        <span>女装连衣裙净黑色</span>
-                                    </div>
-                                    <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                        <h4>￥49</h4>
-                                    </div>
-                                    <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                        <div class="btn-group" role="group" aria-label="...">
-                                             <button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>
-                                             <button type="button" class="btn btn-default">删除订单</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                                <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                     <div class="col-md-3" >
                                         <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                     </div>
@@ -518,7 +518,7 @@
                                         </div>
                                     </div>
                                 </div> 
-                                <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                                <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                     <div class="col-md-3" >
                                         <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                     </div>

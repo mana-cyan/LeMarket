@@ -56,7 +56,7 @@ function checkUserInfo() {
                loadUnpaidOrders(1);
            }
        },
-       error: function () {
+       error: function () { 
            console.log('Cannot check UserInfo')
        }
    })

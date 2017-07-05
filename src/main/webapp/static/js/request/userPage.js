@@ -2,4 +2,16 @@ function setUserInfo() {
     scrollTo("#settings", 500)
 }
 
-$(document).ready(setUserInfo)
+function checkUserInfo(id, callback) {
+   $.ajax({
+       type: 'get',
+       url: 'checkUserInfo',
+       data: { 'id': id },
+       success: function (data) {
+           if (data.status === 'SUCCESS')
+               callback();
+       }
+   })
+}
+
+$(document).ready(setUserInfo);

@@ -533,11 +533,29 @@ phone: string (手机号)
 }
 ```
 
-6. 编辑个人资料
+6. 检测个人资料
 
 |URL|Header|Method|
 |---|------|------|
-|setUSerInfo|token|POST|
+|checkUserInfo|无|GET|
+
+**Param Data**
+```
+id: int(用户id)
+```
+
+**Return Data**
+```
+{
+	'status': 'SUCCESS'/'ERROR'
+}
+```
+
+7. 编辑个人资料
+
+|URL|Header|Method|
+|---|------|------|
+|setUserInfo|token|POST|
 
 **Post Data**
 ```

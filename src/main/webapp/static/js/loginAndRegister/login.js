@@ -1,7 +1,4 @@
-
 var Login=Login ||  {};
-
-
 
 Login.checkKey= function() {
     var div = $('#username');
@@ -48,8 +45,6 @@ function onCheckFinish(val) {
 
     }
 }
-
-
 
 function loginWithUsername() {
     var usernameDiv = $('#username');

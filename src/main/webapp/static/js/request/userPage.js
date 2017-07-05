@@ -42,10 +42,11 @@ function setUserInfo() {
     birthday.setFullYear($('#year').val());
     birthday.setMonth($('#month').val());
     birthday.setDate($('#day').val());
+
     var user = {
         'username': $('#name').val(),
         'gender': $('#gender').val(),
-        'birthday': birthday,
+        'birthday': birthday.getTime(),
         'address': $('#address').val(),
         'identityNumber': $('#identityNumber').val(),
         'phoneNumber': $('#phoneNumber').val(),
@@ -65,6 +66,10 @@ function setUserInfo() {
     }
     if (user.phoneNumber === '') {
         alert('手机号不能为空');
+        return null;
+    }
+    if (user.email === '') {
+        alert('邮箱不能为空');
         return null;
     }
     console.log(user);

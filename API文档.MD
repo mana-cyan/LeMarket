@@ -563,7 +563,8 @@ name: string (用户姓名)
 gender: string (性别)
 birthday:date (生日)
 address: string (收货地址)
-phone: string (手机号)
+phoneNumber: string (手机号)
+identityNumber: string (身份证号)
 email: string (邮箱)
 ```
 

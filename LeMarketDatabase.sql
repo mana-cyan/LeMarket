@@ -178,7 +178,7 @@ CREATE TABLE `ReceiveInfo` (
 DROP TABLE IF EXISTS `Token`;
 CREATE TABLE Token(
   `id` INT COMMENT 'token id',
-  `token` VARCHAR(129) COMMENT 'token',
+  `token` VARCHAR(256) COMMENT 'token',
   `date_create` DATETIME COMMENT '创建时间',
   `validity` INT COMMENT '有效天数',
   FOREIGN KEY (`id`) REFERENCES Users(`id`),

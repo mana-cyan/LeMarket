@@ -93,4 +93,9 @@ public class CommodityAboutService {
             return 0;
         return commodityMapper.updateCommodity(commodity);
     }
+
+    //删除商品
+    public int deleteCommodity(int commodityId){
+        return commodityMapper.deleteCommodity(commodityId);
+    }
 }

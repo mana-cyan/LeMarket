@@ -95,7 +95,7 @@ CREATE TABLE `CommodityType` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '商品型号id',
   `commodity` INT NOT NULL COMMENT '商品id',
   `name` VARCHAR(30) NOT NULL COMMENT '商品型号名称',
-  `storage` INT DEFAULT 0 COMMENT '该型号库存'
+  `storage` INT DEFAULT 0 COMMENT '该型号库存',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`commodity`) REFERENCES Commodity(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品型号表';

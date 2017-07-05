@@ -3,6 +3,7 @@ package com.lemarket.controller.account;
 import com.google.gson.JsonObject;
 import com.lemarket.data.dao.UsersMapper;
 import com.lemarket.data.reponseObject.EmailCheckStatus;
+import com.lemarket.data.reponseObject.Status;
 import com.lemarket.data.reponseObject.UsernameCheckStatus;
 import com.lemarket.service.account.*;
 import com.lemarket.service.utils.SaltFactory;
@@ -34,14 +35,17 @@ public class AccountController {
 
     private final ValidateCodeFactory validateCodeFactory;
 
+    private final UserDataFactory userDataFactory;
+
     @Autowired
-    public AccountController(EmailChecker emailChecker, TokenSetter tokenSetter, UsernameChecker usernameChecker, UsersMapper usersMapper, ValidateCodeChecker validateCodeChecker, ValidateCodeFactory validateCodeFactory) {
+    public AccountController(EmailChecker emailChecker, TokenSetter tokenSetter, UsernameChecker usernameChecker, UsersMapper usersMapper, ValidateCodeChecker validateCodeChecker, ValidateCodeFactory validateCodeFactory, UserDataFactory userDataFactory) {
         this.emailChecker = emailChecker;
         this.tokenSetter = tokenSetter;
         this.usernameChecker = usernameChecker;
         this.usersMapper = usersMapper;
         this.validateCodeChecker = validateCodeChecker;
         this.validateCodeFactory = validateCodeFactory;
+        this.userDataFactory = userDataFactory;
     }
 
     @RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
@@ -139,5 +143,11 @@ public class AccountController {
         return "test";
     }
 
+    //检查用户信息是否完整
+    @RequestMapping(value = "checkUserInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public Status checkUserInfo(int id){
+        return new Status(userDataFactory.checkUserInformation(id));
+    }
 
 }

@@ -24,4 +24,16 @@ public class UserDataFactory {
     public Users getUserByEmail(String email){
         return usersMapper.selectByEmail(email);
     }
+
+    //检查用户信息是否完整
+    public String checkUserInformation(int id){
+        Users users = usersMapper.selectById(id);
+        if(users.getPhonenumber() == null)
+            return "ERROR";
+        if(users.getIdentitynumber() == null)
+            return "ERROR";
+        if(users.getAddress() == null)
+            return "ERROR";
+        return "SUCCESS";
+    }
 }

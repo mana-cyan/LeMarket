@@ -81,4 +81,14 @@ public class CommodityController {
             return new Status("SUCCESS");
         return new Status("ERROR");
     }
+
+    //编辑商品信息
+    @RequestMapping(value = "editCommodity", method = RequestMethod.GET)
+    @ResponseBody
+    public Status editCommodity(Commodity commodity){
+        int st = commodityAboutService.updateCommodity(commodity);
+        if(st > 0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
+    }
 }

@@ -42,4 +42,6 @@ public interface CommodityMapper {
     //更新图标
     int updateImage(int imageId, int commodityId);
 
+    //更新商品
+    int updateCommodity(Commodity newCommodity);
 }

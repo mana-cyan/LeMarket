@@ -2,6 +2,7 @@ package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Comment;
 import com.lemarket.data.model.CommentWithUser;
+import com.lemarket.data.model.Commodity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -26,4 +27,5 @@ public interface CommentMapper {
     List<Comment> selectAll();
 
     List<CommentWithUser> selectPageById(@Param("commodityId") int commodityId, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
+
 }

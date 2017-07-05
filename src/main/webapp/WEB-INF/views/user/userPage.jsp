@@ -59,7 +59,6 @@
             height:30px;
         }
 
-        .header-top {height:50px;padding-top:10px;}
     </style>
 </head>
 
@@ -109,7 +108,7 @@
                          <div role="tabpanel" class="tab-pane active" id="dfk">
                              <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -125,9 +124,9 @@
                                 </div>
                              </div>
 
-                             <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -143,9 +142,9 @@
                                 </div>
                              </div>
 
-                             <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -165,9 +164,9 @@
 
                          <!-- 待收货 -->
                          <div role="tabpanel" class="tab-pane" id="dsh">
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -183,9 +182,9 @@
                                 </div>
                             </div>
 
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -201,9 +200,9 @@
                                 </div>
                             </div>
 
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -223,9 +222,9 @@
 
                          <!-- 待评价 -->
                          <div role="tabpanel" class="tab-pane" id="dpj">
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -235,15 +234,15 @@
                                 </div>
                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
                                     <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="../commodity/comment.jsp">去评价</a></button>
+                                         <button type="button" class="btn btn-default"><a href="commentPage">去评价</a></button>
                                          <button type="button" class="btn btn-default">删除订单</button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -253,15 +252,15 @@
                                 </div>
                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
                                     <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="../commodity/comment.jsp">去评价</a></button>
+                                         <button type="button" class="btn btn-default"><a href="commentPage">去评价</a></button>
                                          <button type="button" class="btn btn-default">删除订单</button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -271,7 +270,7 @@
                                 </div>
                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
                                     <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="../commodity/comment.jsp">去评价</a></button>
+                                         <button type="button" class="btn btn-default"><a href="commentPage">去评价</a></button>
                                          <button type="button" class="btn btn-default">删除订单</button>
                                     </div>
                                 </div>
@@ -282,9 +281,9 @@
 
                          <!-- 全部订单 -->
                          <div role="tabpanel" class="tab-pane" id="qbdd">
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -300,9 +299,9 @@
                                 </div>
                             </div>
 
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -318,9 +317,9 @@
                                 </div>
                             </div>
 
-                            <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                 <div class="col-md-3" >
-                                    <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                     <span>女装连衣裙净黑色</span>
@@ -443,8 +442,8 @@
                 <!--我要开店的登录注册-->
                 <div role="tabpanel" class="tab-pane" id="messages" style="margin-top:20px;padding:20px;">
                     <div style="margin-top:20px;">
-                        <a href="/static/business/pages/index.html"><button style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;border-radius:5px;">进入我的店铺</button></a>
-                        <a href="/static/business/b-sign.html"><button style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;margin-left:10px;border-radius:5px;">注册新店铺</button></a>
+                        <a href="addShop"><button style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;border-radius:5px;">进入我的店铺</button></a>
+                        <a href="addShop"><button style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;margin-left:10px;border-radius:5px;">注册新店铺</button></a>
                     </div>
 
                 </div><!--我要开店的登录注册结束-->
@@ -458,9 +457,9 @@
                         <div class="tab-content">
                             <!-- 收藏商品 -->
                             <div role="tabpanel" class="tab-pane active" id="scsp">
-                                <div calss="row" style="border-top:1px solid #ccc;padding:10px;">
+                                <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                     <div class="col-md-3" >
-                                        <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                        <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                     </div>
                                     <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                         <span>女装连衣裙净黑色</span>
@@ -476,9 +475,9 @@
                                     </div>
                                 </div>
 
-                                <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                                <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                     <div class="col-md-3" >
-                                        <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                        <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                     </div>
                                     <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                         <span>女装连衣裙净黑色</span>
@@ -494,9 +493,9 @@
                                     </div>
                                 </div>
 
-                                <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                                <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                     <div class="col-md-3" >
-                                        <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                        <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                     </div>
                                     <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                         <span>女装连衣裙净黑色</span>
@@ -515,9 +514,9 @@
 
                             <!-- 收藏店铺 -->
                             <div role="tabpanel" class="tab-pane" id="scdp">
-                                <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:30px;">
+                                <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:30px;">
                                     <div class="col-md-3" >
-                                        <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                        <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                     </div>
                                     <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                         <span>美特斯邦威</span>
@@ -529,9 +528,9 @@
                                         </div>
                                     </div>
                                 </div> 
-                                <div calss="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                                <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
                                     <div class="col-md-3" >
-                                        <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                        <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                     </div>
                                     <div class="col-md-5" style="margin-top:20px;padding:20px;">
                                         <span>美特斯邦威</span>
@@ -591,8 +590,7 @@
                 </div>
             </div>
         </footer>
-        <!-- End footer area -->               
-    </div>
+        <!-- End footer area -->
     <!-- Body main wrapper end -->    
 
     <!-- Placed js at the end of the document so the pages load faster -->

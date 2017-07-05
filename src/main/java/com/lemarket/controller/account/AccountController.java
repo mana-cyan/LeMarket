@@ -146,8 +146,8 @@ public class AccountController {
     //检查用户信息是否完整
     @RequestMapping(value = "checkUserInfo", method = RequestMethod.GET)
     @ResponseBody
-    public Status checkUserInfo(int id){
-        return new Status(userDataFactory.checkUserInformation(id));
+    public Status checkUserInfo(HttpServletRequest request){
+        return new Status(userDataFactory.checkUserInformation(request.getHeader("Token")));
     }
 
 }

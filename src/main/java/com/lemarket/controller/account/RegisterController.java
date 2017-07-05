@@ -32,7 +32,6 @@ public class RegisterController {
                                 String username,
                                 String password,
                                 HttpServletRequest request){
-        System.out.println("registerAction");
         String salt = (String) request.getSession().getAttribute("salt");
         request.getSession().removeAttribute("salt");
         return register.register(email,username,password,salt);

@@ -46,9 +46,7 @@ public class LoginController {
             return new TokenString();
         if(email == null){
             Users users = userDataFactory.getUserByUsername(username);
-            System.out.println("ValidUserAccess");
             if(users != null && users.getPassword().equals(passwordChecker.getSavePasswordPart(password))){
-                System.out.println("ValidPassword");
                 return tokenSetter.newOrGetTokenByUsername(username);
             }
         }

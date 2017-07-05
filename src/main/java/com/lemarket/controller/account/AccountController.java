@@ -147,7 +147,7 @@ public class AccountController {
     @RequestMapping(value = "checkUserInfo", method = RequestMethod.GET)
     @ResponseBody
     public Status checkUserInfo(HttpServletRequest request){
-        return new Status(userDataFactory.checkUserInformation(request.getHeader("Token")));
+        return new Status(userDataFactory.checkUserInformation(request.getHeader("token")));
     }
 
 }

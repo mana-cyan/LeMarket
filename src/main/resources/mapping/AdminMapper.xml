@@ -28,4 +28,7 @@
     select id, username, password
     from Admin
   </select>
+  <select id="selectByUsername" resultMap="BaseResultMap">
+    select * from lemarket.Admin WHERE username = #{username};
+  </select>
 </mapper>

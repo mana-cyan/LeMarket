@@ -42,6 +42,8 @@ Register.Do = function () {
     var usernameDiv = $('#username');
     var passwordDiv = $('#password');
     var emailDiv = $('#email');
+    console.log(Cookie.getSalt());
+    console.log(encryptWithSalt(passwordDiv.val(),Cookie.getSalt()));
     $.ajax(
         {
             type: 'post',

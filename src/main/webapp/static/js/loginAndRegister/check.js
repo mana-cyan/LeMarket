@@ -59,7 +59,6 @@ function showMessage(div,status,message) {
 }
 
 function encryptWithSalt(password, salt) {
-
     return bcrypt.hashSync(password, salt);
 }
 

@@ -53,7 +53,7 @@ function checkUserInfo() {
                lockNav();
            } else {
                loadUserInfo();
-               loadUnpaidOrders();
+               loadUnpaidOrders(1);
            }
        },
        error: function () {
@@ -117,10 +117,11 @@ function userInfoHint() {
 
 $(document).ready(checkUserInfo);
 
-function loadUnpaidOrders() {
+function loadUnpaidOrders(page) {
     $.ajax({
         type: 'get',
         url: 'unpaid',
+        data: { 'page': page },
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
             console.log(data);

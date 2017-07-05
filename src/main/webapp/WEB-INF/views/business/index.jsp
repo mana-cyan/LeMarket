@@ -284,7 +284,6 @@
     <script src="${pageContext.request.contextPath}/static/js/raphael.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/morris.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/morris-data.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="${pageContext.request.contextPath}/static/js/sb-admin-2.js"></script>
 

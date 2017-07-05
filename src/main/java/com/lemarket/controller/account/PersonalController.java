@@ -65,7 +65,6 @@ public class PersonalController {
     @RequestMapping(value = "setUserInfo", method = RequestMethod.POST)
     @ResponseBody
     public Status setUserInfo(@RequestBody Users users, HttpServletRequest request) {
-        System.out.println(users.getUsername() + "----------" + users.getPhonenumber());
         return new Status(userEditService.setUserInfo(users, request.getHeader("token")));
     }
 

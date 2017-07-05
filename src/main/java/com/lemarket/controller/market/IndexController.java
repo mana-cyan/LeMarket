@@ -41,7 +41,7 @@ public class IndexController {
     @RequestMapping(value = "/getToolBar")
     public String getToolBar()
     {
-        return "shop/toolBar";
+        return "user/toolBar";
     }
 }
 

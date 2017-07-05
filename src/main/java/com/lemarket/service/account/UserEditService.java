@@ -40,6 +40,8 @@ public class UserEditService {
                 usersMapper.updatePhoneById(users.getPhonenumber(), id);
             if(users.getEmail() != null)
                 usersMapper.updateEmailById(users.getEmail(), id);
+            if(users.getIdentitynumber() != null)
+                usersMapper.updateIdentityById(users.getIdentitynumber(), id);
         }catch (Exception e){
             e.printStackTrace();
             return "ERROR";

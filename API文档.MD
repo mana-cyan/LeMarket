@@ -427,7 +427,7 @@ count: int
 
 |URL|Header|Method|
 |---|------|------|
-|unreceiving|token|GET|
+|unreceived|token|GET|
 
 **Param Data**
 ```

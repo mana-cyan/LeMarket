@@ -17,11 +17,16 @@ import java.util.List;
 
 @Controller
 public class PersonalController {
-    @Autowired
-    private OrderService orderService;
+
+    private final OrderService orderService;
+
+    private final UserEditService userEditService;
 
     @Autowired
-    private UserEditService userEditService;
+    public PersonalController(OrderService orderService, UserEditService userEditService) {
+        this.orderService = orderService;
+        this.userEditService = userEditService;
+    }
 
     @RequestMapping(value = "unpaid", method = RequestMethod.GET)
     @ResponseBody
@@ -31,9 +36,9 @@ public class PersonalController {
     }
 
 
-    @RequestMapping(value = "unreceiving", method = RequestMethod.GET)
+    @RequestMapping(value = "unreceived", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfUnreceiving(int page, HttpServletRequest request) {
+    public List<Orderinfo> getOrderOfUnreceived(int page, HttpServletRequest request) {
         String token = request.getHeader("Token");
         return orderService.getOrderByStatus(token, "待收货", (page - 1) * 10, 10);
     }

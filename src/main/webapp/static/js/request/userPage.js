@@ -1,17 +1,13 @@
-function setUserInfo() {
-    scrollTo("#settings", 500)
-}
-
-function checkUserInfo(id, callback) {
+function checkUserInfo(id) {
    $.ajax({
        type: 'get',
        url: 'checkUserInfo',
        data: { 'id': id },
        success: function (data) {
-           if (data.status === 'SUCCESS')
-               callback();
+           if (data.status === 'ERROR')
+               $('.nav-tabs a[href="#settings"]').tab('show')
        }
    })
 }
 
-$(document).ready(setUserInfo);
+$(document).ready(checkUserInfo);

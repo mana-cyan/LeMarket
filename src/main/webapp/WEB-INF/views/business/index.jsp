@@ -276,13 +276,10 @@
 
     <!-- jQuery -->
     <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
-
     <!-- Metis Menu Plugin JavaScript -->
     <script src="${pageContext.request.contextPath}/static/js/metisMenu.min.js"></script>
-
     <!-- Morris Charts JavaScript -->
     <script src="${pageContext.request.contextPath}/static/js/raphael.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/morris.min.js"></script>

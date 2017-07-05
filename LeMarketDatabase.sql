@@ -80,7 +80,7 @@ CREATE TABLE `Commodity` (
   `price` FLOAT NOT NULL COMMENT '商品价格',
   `image` INT NOT NULL COMMENT '商品图片地址',
   `visitCount` INT DEFAULT '0' COMMENT '商品浏览量',
-  `status` INT COMMENT '商品状态',
+  `status` INT DEFAULT 1 COMMENT '商品状态',
   `time` DATETIME NOT NULL COMMENT '上架时间',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`owner`) REFERENCES Users(`id`),

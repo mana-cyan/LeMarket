@@ -192,7 +192,27 @@
             <div class="" style="border:1px solid #E2E2E2;background-color:#F9F9F9;border-left:2px solid #F3168A;padding:5px;">
                 <span>合计</span><h4 style="padding-top:5px;"><span>￥</span>49</h4>
                 </div>
-            <button type="button" class="btn btn-default" style="width:10%;height:30px;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;font-size:15px;">提交订单</button>
+
+            <!-- 付款二维码 -->
+            <button type="button" class="btn btn-default" style="width:10%;height:30px;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;font-size:15px;" data-toggle="modal" data-target="#myModal">
+                结算
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-left:20%;margin-top:60px;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="width:340px;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true" >&times;</span></button>
+                            <h5 class="modal-title" id="myModalLabel" style="margin-left:20px;">支付宝 扫一扫 付款</h5>
+                        </div>
+                        <div class="modal-body">
+                            <img src="${pageContext.request.contextPath}/static/images/qrcode.png" style="width:300px;height:300px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 付款二维码结束************************************ -->
+
         </div>
 
 
@@ -233,7 +253,7 @@
                 </div>
             </div>
         </footer>
-        <!-- End footer area -->               
+        <!-- End footer area -->
     </div>
     <!-- Body main wrapper end -->    
 

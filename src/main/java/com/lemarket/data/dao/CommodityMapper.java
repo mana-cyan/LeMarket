@@ -23,7 +23,7 @@ public interface CommodityMapper {
      *
      * @mbg.generated
      */
-    List<Commodity> selectAll();
+    List<Commodity> selectAll(int beginRow, int pageSize);
 
     List<Commodity> selectBySaledOrder();
 

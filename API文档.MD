@@ -913,7 +913,7 @@ id: int (商品id)
 
 **Param Data**
 ```
-无
+page:int(分页码)
 ```
 
 **Return Data**
@@ -935,6 +935,7 @@ id: int (商品id)
 **Post Data**
 ```
 id: int (用户id)
+newPassword:String(新密码)
 ```
 
 **Return Data**
@@ -949,11 +950,11 @@ id: int (用户id)
 
 |URL|Header|Method|
 |---|------|------|
-|getCommodityList|无|GET|
+|getAllCommodityList|无|GET|
 
 **Param Data**
 ```
-无
+page:int(分页码)
 ```
 
 **Return Data**
@@ -974,7 +975,7 @@ id: int (用户id)
 
 **Param Data**
 ```
-name/email: string
+key: string(用户名或者密码)
 ```
 
 **Return Data**

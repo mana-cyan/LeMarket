@@ -49,7 +49,8 @@
     select id, category, shop, name, storage, saled, price, image, visitCount, status,
     time, owner, details
     from Commodity
-    WHERE status=1;
+    WHERE status=1
+    LIMIT #{beginRow}, #{pageSize};
   </select>
     <select id="selectBySaledOrder" resultMap="BaseResultMap">
       SELECT * FROM Commodity WHERE status=1 ORDER BY saled DESC LIMIT 0, 10;

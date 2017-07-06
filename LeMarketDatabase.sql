@@ -223,6 +223,7 @@ AS
 SELECT t1.id as vid,
   t1.status as vstatus,
   t1.user as vuser,
+  t5.phoneNumber as vphoneNumber,
   t2.commodity as vcommodityId,
   t3.name as vname,
   t4.name as vcommodityType,

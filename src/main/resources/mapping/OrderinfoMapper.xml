@@ -11,11 +11,14 @@
 
   <resultMap id="OrderWithDetail" type="com.lemarket.data.model.OrderWithDetail">
       <result property="id" javaType="integer" column="vid"/>
+    <result property="user" javaType="integer" column="vuser"/>
+    <result property="phoneNumber" javaType="string" column="vphoneNumber"/>
       <result property="status" javaType="string" column="vstatus"/>
       <result property="commodityId" javaType="integer" column="vcommodityId"/>
       <result property="name" javaType="string" column="vname"/>
       <result property="commodityType" javaType="string" column="vcommodityType"/>
       <result property="price" javaType="float" column="vprice"/>
+    <result property="address" javaType="string" column="vaddress"/>
   </resultMap>
 
   <insert id="insert" parameterType="com.lemarket.data.model.Orderinfo">

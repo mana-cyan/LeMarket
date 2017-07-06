@@ -165,15 +165,16 @@ function loadAddress() {
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
             var addressList = $('#addressList');
+            addressList.html('');
             for (var i in data) {
-
+                var id = parseInt(i) + 1;
                 addressList.append(
                     '<tr style="width:100%;">' +
-                    '<td id="addressId">' + data[i].id + '</td>' +
+                    '<td id="addressId" aid="' + data[i].id + '">' + id + '</td>' +
                     '<td id="receiverName">' + data[i].name + '</td>' +
                     '<td id="addressDetails">' + data[i].address + '</td>' +
                     '<td id="receiverPhoneNumber">' + data[i].phonenumber + '</td>' +
-                    '<td><button type="button" class="btn btn-default" onclick="editAddress(' + data[i].id +')">修改</button></td>' +
+                    '<td><button type="button" class="btn btn-default" onclick="editAddress(' + id +')">修改</button></td>' +
                     '</tr>'
                 )
             }
@@ -188,16 +189,20 @@ function addAddress() {
     var address = {
         'name': $('#new-name').val(),
         'address': $('#new-address').val(),
-        'phonenumber': $('#new-phone').val()
+        'phone': $('#new-phone').val()
     };
     $.ajax({
         type: 'post',
         url: 'addAddress',
-        data: JSON.stringify(address),
+        data: address,
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
-            if (data.status === 'SUCCESS')
+            if (data.status === 'SUCCESS') {
+                $('#new-name').val('');
+                $('#new-address').val('');
+                $('#new-phone').val('')
                 loadAddress()
+            }
         },
         error: function () {
             console.log('Cannot add new address')
@@ -205,9 +210,25 @@ function addAddress() {
     })
 }
 
-// function editAddress(id) {
-//     $.ajax({
-//         type: 'post',
-//         url: 'editAddress',
-//     })
-// }
+function editAddress(id) {
+    var addr = $($('#addressList')[id-1]);
+    var address = {
+        'id': addr.find('#addressId').attr('aid'),
+        'name': addr.find('#receiverName').html(),
+        'address': addr.find('#addressDetails').html(),
+        'phonenumber': addr.find('#receiverPhoneNumber').html()
+    };
+    $.ajax({
+        type: 'post',
+        url: 'editAddress',
+        data: JSON.stringify(address),
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            if(data.status === 'SUCCESS')
+                alert('保存成功')
+        },
+        error: function () {
+            console.log('Cannot save Address')
+        }
+    })
+}

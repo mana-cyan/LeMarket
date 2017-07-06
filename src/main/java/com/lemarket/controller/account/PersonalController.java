@@ -83,8 +83,9 @@ public class PersonalController {
     //新增收货地址
     @RequestMapping(value = "addAddress", method = RequestMethod.POST)
     @ResponseBody
-    public Status addAddress(String name, String address, String phone, @RequestHeader("token") String token){
-        int st = userEditService.addAddress(token,name,address,phone);
+    public Status addAddress(String name, String address, String phone, HttpServletRequest servletRequest){
+        System.out.println(name);
+        int st = userEditService.addAddress(servletRequest.getHeader("token"), name,address,phone);
         if(st > 0)
             return new Status("SUCCESS");
         return new Status("ERROR");

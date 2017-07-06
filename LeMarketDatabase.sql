@@ -193,6 +193,7 @@ CREATE TABLE Address(
   `name` VARCHAR(50) NOT NULL COMMENT '收货人姓名',
   `phoneNumber` VARCHAR(11) NOT NULL COMMENT '手机号',
   `address` TEXT NOT NULL COMMENT '收货地址',
+  `status` INT NOT NULL DEFAULT 1 COMMENT '地址状态',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user`) REFERENCES Users (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收货地址表';

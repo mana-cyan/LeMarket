@@ -96,7 +96,7 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="home" style="margin-top:20px;">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#dfk" aria-controls="dfk" role="tab" data-toggle="tab">待付款</a></li>
+                        <li role="presentation" class="active"><a href="#dfk" aria-controls="dfk" role="tab" data-toggle="tab">购物车</a></li>
                         <li role="presentation"><a href="#dsh" aria-controls="dsh" role="tab" data-toggle="tab">待收货</a></li>
                         <li role="presentation"><a href="#dpj" aria-controls="dpj" role="tab" data-toggle="tab">待评价</a></li>
                         <li role="presentation"><a href="#qbdd" aria-controls="qbdd" role="tab" data-toggle="tab">全部订单</a></li>
@@ -104,14 +104,47 @@
 
                   <!-- Tab panes -->
                     <div class="tab-content" style="margin-top:20px;padding:20px;">
-                        <!-- 待付款 -->
+                        <!-- 购物车 -->
                          <div role="tabpanel" class="tab-pane active" id="dfk">
                              <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                 <div class="col-md-3" >
-                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                 <div class="col-md-2" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:40%;height:50%;margin-top:20px;"></a>
                                  </div>
-                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
                                      <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
+                                         <button type="button" class="btn btn-default">去付款</button>
+                                         <button type="button" class="btn btn-default">删除订单</button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- 待收货 -->
+                         <div role="tabpanel" class="tab-pane" id="dsh">
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
                                  </div>
                                  <div class="col-md-1" style="margin-top:25px;padding:20px;">
                                      <h4>￥49</h4>
@@ -123,180 +156,231 @@
                                      </div>
                                  </div>
                              </div>
-                         </div>
 
-                         <!-- 待收货 -->
-                         <div role="tabpanel" class="tab-pane" id="dsh">
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
                                          <button type="button" class="btn btn-default">确认收货</button>
                                          <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
+                                     </div>
+                                 </div>
+                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
                                          <button type="button" class="btn btn-default">确认收货</button>
                                          <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default">确认收货</button>
-                                         <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
+                                     </div>
+                                 </div>
+                             </div>
 
                          </div>
 
                          <!-- 待评价 -->
                          <div role="tabpanel" class="tab-pane" id="dpj">
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="commentPage">去评价</a></button>
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
+                                         <button type="button" class="btn btn-default">去评价</button>
                                          <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
+                                     </div>
+                                 </div>
+                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="commentPage">去评价</a></button>
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
+                                         <button type="button" class="btn btn-default">去评价</button>
                                          <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
+                                     </div>
+                                 </div>
+                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="commentPage">去评价</a></button>
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
+                                         <button type="button" class="btn btn-default">去评价</button>
                                          <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
+                                     </div>
+                                 </div>
+                             </div>
 
                          </div>
 
 
                          <!-- 全部订单 -->
                          <div role="tabpanel" class="tab-pane" id="qbdd">
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default">交易成功</button>
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
+                                         <button type="button" class="btn btn-default">去看看</button>
                                          <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
+                                     </div>
+                                 </div>
+                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default">交易成功</button>
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
+                                         <button type="button" class="btn btn-default">去看看</button>
                                          <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
+                                     </div>
+                                 </div>
+                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default">交易成功</button>
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-1" style="">
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:100%;height:100%;margin-top:20px;"></a>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:20px;padding:20px;">
+                                     <span>黑色S</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>13437256907</span>
+                                 </div>
+                                 <div class="col-md-2" style="margin-top:20px;padding:20px;">
+                                     <span>湖北省武汉市洪山区珞喻路152号华中师范大学</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
+                                         <button type="button" class="btn btn-default">去看看</button>
                                          <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                            </div>
+                                     </div>
+                                 </div>
+                             </div>
 
 
                          </div>

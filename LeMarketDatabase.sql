@@ -192,6 +192,7 @@ CREATE TABLE Address(
   `user` INT NOT NULL COMMENT '用户id',
   `name` VARCHAR(50) NOT NULL COMMENT '收货人姓名',
   `phoneNumber` VARCHAR(11) NOT NULL COMMENT '手机号',
+  `address` TEXT NOT NULL COMMENT '收货地址',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user`) REFERENCES Users (`id`)
 );

@@ -522,15 +522,51 @@ phone: string (手机号)
 **Return Data**
 ```
 {
-	'orderList': 
-	{
-		'commodity1': { 'id': int, 'name': string, 'price': float }
-		'commodity2': { 'id': int, 'name': string, 'price': float }
-	}
+	'status': 'SUCCESS'/'ERROR'
 }
 ```
 
-6. 检测个人资料
+7. 获取收货地址
+
+|URL|Header|Method|
+|---|------|------|
+|addAddress|token|POST|
+
+**Param Data**
+```
+id: int(收货地址id)
+```
+
+**Return Data**
+```
+{
+	'name': string,
+	'address': string,
+	'phonenumber': string
+}
+```
+
+8. 编辑收货地址
+|URL|Header|Method|
+|---|------|------|
+|addAddress|token|POST|
+
+**Post Data**
+```
+id: int(收货地址id)
+name: string (收货人姓名)
+address: string (收货地址)
+phone: string (手机号)
+```
+ 
+**Return Data**
+```
+{
+    'status': 'SUCCESS'/'ERROR'
+}
+```
+
+9. 检测个人资料
 
 |URL|Header|Method|
 |---|------|------|
@@ -548,7 +584,7 @@ id: int(用户id)
 }
 ```
 
-7. 编辑个人资料
+10. 编辑个人资料
 
 |URL|Header|Method|
 |---|------|------|

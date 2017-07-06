@@ -549,7 +549,7 @@ id: int(收货地址id)
 8. 编辑收货地址
 |URL|Header|Method|
 |---|------|------|
-|addAddress|token|POST|
+|editAddress|token|POST|
 
 **Post Data**
 ```

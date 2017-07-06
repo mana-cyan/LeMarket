@@ -1,5 +1,6 @@
 package com.lemarket.controller.account;
 
+import com.lemarket.data.model.Address;
 import com.lemarket.data.model.OrderWithDetail;
 import com.lemarket.data.model.Users;
 import com.lemarket.data.reponseObject.Status;
@@ -70,5 +71,39 @@ public class PersonalController {
     @RequestMapping(value = "userPage")
     public String userPage() {
         return "user/userPage";
+    }
+
+    //获取个人所有收货地址
+    @RequestMapping(value = "getAllAddress", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Address> getAllAddress(@RequestHeader("token") String token){
+        return userEditService.getAllAddressByToken(token);
+    }
+
+    //新增收货地址
+    @RequestMapping(value = "addAddress", method = RequestMethod.POST)
+    @ResponseBody
+    public Status addAddress(String name, String address, String phone, @RequestHeader("token") String token){
+        int st = userEditService.addAddress(token,name,address,phone);
+        if(st > 0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
+    }
+
+    //获取个人单个收货地址
+    @RequestMapping(value = "getAddress", method = RequestMethod.GET)
+    @ResponseBody
+    public Address getAddress(int id, @RequestHeader("token") String token){
+        return userEditService.getAddress(token, id);
+    }
+
+    //编辑收货地址
+    @RequestMapping(value = "editAddress", method = RequestMethod.POST)
+    @ResponseBody
+    public Status editAddress(int id, String name, String address, String phone, @RequestHeader("token") String token){
+        int st = userEditService.editAddress(id, name, address, phone, token);
+        if(st>0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
     }
 }

@@ -89,4 +89,9 @@ public class UserEditService {
         newAddress.setAddress(address);
         return addressMapper.updateAddress(newAddress);
     }
+
+    //删除收获地址
+    public int deleteAddress(int id){
+        return addressMapper.updateByIdToDelete(id);
+    }
 }

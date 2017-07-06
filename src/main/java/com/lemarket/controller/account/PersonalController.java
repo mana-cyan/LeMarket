@@ -107,4 +107,14 @@ public class PersonalController {
             return new Status("SUCCESS");
         return new Status("ERROR");
     }
+
+    //删除收获地址
+    @RequestMapping(value = "deleteAddress", method = RequestMethod.POST)
+    @ResponseBody
+    public Status deleteAddress(int id){
+        int st = userEditService.deleteAddress(id);
+        if(st>0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
+    }
 }

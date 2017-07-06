@@ -26,6 +26,10 @@
   <update id="updateAddress" parameterType="com.lemarket.data.model.Address">
     UPDATE Address SET user = #{user} AND address = #{address} AND name = #{name} AND phonenumber = #{phonenumber} WHERE id = #{id};
   </update>
+  <update id="updateByIdToDelete">
+    UPDATE Address SET status = 0 WHERE id = #{id};
+  </update>
+
   <select id="selectAll" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

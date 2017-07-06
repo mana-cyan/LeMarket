@@ -31,4 +31,6 @@ public interface AddressMapper {
     //更改收货地址
     int updateAddress(Address re);
 
+    //删除收获地址
+    int updateByIdToDelete(@Param("id") int id);
 }

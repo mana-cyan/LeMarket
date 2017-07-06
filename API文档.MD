@@ -486,11 +486,11 @@ count: int
 }
 ```
 
-5. 获取收货地址
+5. 获取全部收货地址
 
 |URL|Header|Method|
 |---|------|------|
-|getAddress|token|GET|
+|getAllAddress|token|GET|
 
 **Param Data**
 ```
@@ -530,7 +530,7 @@ phone: string (手机号)
 
 |URL|Header|Method|
 |---|------|------|
-|addAddress|token|POST|
+|getAddress|token|POST|
 
 **Param Data**
 ```

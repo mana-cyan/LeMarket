@@ -184,7 +184,7 @@ CREATE TABLE Token(
   `validity` INT COMMENT '有效天数',
   FOREIGN KEY (`id`) REFERENCES Users(`id`),
   INDEX indexToken (`token`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Token表';
 
 DROP TABLE IF EXISTS `Address`;
 CREATE TABLE Address(
@@ -195,7 +195,7 @@ CREATE TABLE Address(
   `address` TEXT NOT NULL COMMENT '收货地址',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user`) REFERENCES Users (`id`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收货地址表';
 
 INSERT INTO UserType(`name`) VALUES('买家');
 INSERT INTO UserType(`name`) VALUES('卖家');

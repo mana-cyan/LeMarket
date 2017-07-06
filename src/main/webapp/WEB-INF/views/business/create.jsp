@@ -1,4 +1,4 @@
-<!doctype html>
+﻿﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -151,17 +151,8 @@
                             <div class="form-group">
                                 <input type="text" name="stuemail" placeholder="请输入手机号" class="form-control" />
                             </div>
-                            <div class="form-group">
-                                <input type="text" name="stuemail" placeholder="请输入电子邮箱" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="stuemail" placeholder="请输入密码" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="stuemail" placeholder="请重新输入密码" class="form-control" />
-                            </div>
                             
-                            <button type="submit" class="btn btn-default" class="form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;"><a href="index.jsp">注册新用户</a></button>
+                            <button type="submit" class="btn btn-default form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;"><a href="index.jsp">注册新用户</a></button>
                     </form>
                 </div>
                 <div class="col-md-5">

@@ -93,17 +93,16 @@
                         <input type="text" style="display: none"/>
                     </div>
                     <div class="form-group">
-                        <input id="password" type="password" name="password" placeholder="请输入密码" class="form-control"/>
+                        <input id="password" type="text" name="password" placeholder="请输入密码" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <input id="validateText" type="text" name="validateText" class="form-control" style="width:50%;"/>
                         <img src="" id="validateCode"/> <label id="refreshValidateCode">换一张</label>
                     </div>
                     <label id="validateStatus" style="color: red"></label>
-                    <label id="loginStatus"/>
+                    <label id="loginStatus"></label>
                     <button id="submit" class="btn btn-default form-control"
-                            style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">
-                        登录</button>
+                            style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">登录</button>
             </div>
             <div class="col-md-5">
             </div>
@@ -176,5 +175,7 @@
 <script src="${pageContext.request.contextPath}/static/js/request/validate.js"></script>
 
 <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/login.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/request/toolBar.js"></script>
 </body>
 </html>

@@ -22,4 +22,6 @@ public interface AdminMapper {
      * @mbg.generated
      */
     List<Admin> selectAll();
+
+    Admin selectByUsername(String username);
 }

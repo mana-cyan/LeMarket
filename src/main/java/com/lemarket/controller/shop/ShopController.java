@@ -1,9 +1,6 @@
 package com.lemarket.controller.shop;
 
-import com.lemarket.data.model.Commodity;
-import com.lemarket.data.model.Orderdetails;
-import com.lemarket.data.model.Orderinfo;
-import com.lemarket.data.model.Shop;
+import com.lemarket.data.model.*;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.ShopService;
 import com.lemarket.service.utils.ImageFactory;
@@ -17,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,12 +27,17 @@ public class ShopController {
         this.imageFactory = imageFactory;
     }
 
+    //跳转新建店铺页面
+    @RequestMapping(value = "addShop")
+    public String addShop() {
+        return "business/create";
+    }
 
     //添加店铺
     @RequestMapping(value = "addShop", method = RequestMethod.POST)
     @ResponseBody
     public Status addShop(String name, String description, HttpServletRequest request){
-        int answer = shopService.addShop(name, description, request.getHeader("Token"));
+        int answer = shopService.addShop(name, description, request.getHeader("token"));
         if(answer == 1)
             return new Status("SUCCESS");
         else
@@ -54,7 +55,7 @@ public class ShopController {
     @RequestMapping(value = "getShop", method = RequestMethod.GET)
     @ResponseBody
     public Shop getShopByToken(HttpServletRequest request){
-        return shopService.getShopByToken(request.getHeader("Token"));
+        return shopService.getShopByToken(request.getHeader("token"));
     }
 
 
@@ -77,7 +78,7 @@ public class ShopController {
         shop.setName(name);
         shop.setDescription(description);
         shop.setPhonenumber(phone);
-        String resp = shopService.updateShopInformation(shop, request.getHeader("Token"));
+        String resp = shopService.updateShopInformation(shop, request.getHeader("token"));
         return new Status(resp);
     }
 
@@ -87,7 +88,7 @@ public class ShopController {
     public Status setShopImage(MultipartFile multipartFile, HttpServletRequest request,HttpSession session) throws IOException {
             String path = imageFactory.saveFile(multipartFile,session);
             if(!path.equals("ERROR")) {
-                shopService.updateShopIcon(path, request.getHeader("Token"));
+                shopService.updateShopIcon(path, request.getHeader("token"));
                 return new Status("SUCCESS");
             }
             return new Status("ERROR");
@@ -128,7 +129,7 @@ public class ShopController {
      */
     @RequestMapping(value = "getSended", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getSended(int id){
+    public List<OrderWithDetail> getSended(int id){
         return shopService.getShopSendedOrder(id, 0, 10);
     }
 }

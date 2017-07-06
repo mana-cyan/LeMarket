@@ -19,27 +19,30 @@ public class UserEditService {
         this.tokenMapper = tokenMapper;
     }
 
-    public Users getAddressByToken(String tokenString){
+    public Users getUserByToken(String tokenString){
         Token token = tokenMapper.selectByToken(tokenString);
         return usersMapper.selectById(token.getId());
     }
 
-    public String setUserInfo(Users users, String tokenString){
+    public String setUserInfo(Users users, String tokenString) {
         try{
             Token token = tokenMapper.selectByToken(tokenString);
             int id = token.getId();
-            if(users.getUsername() != null)
-                usersMapper.updateNameById(users.getUsername(), id);
-            if(users.getGender() != null)
+            if(users.getName() != null &&
+                    users.getGender() != null &&
+                    users.getBirthday() != null &&
+                    users.getAddress() != null &&
+                    users.getPhonenumber() != null &&
+                    users.getIdentitynumber() != null) {
+                usersMapper.updateNameById(users.getName(), id);
                 usersMapper.updateGenderById(users.getGender(), id);
-            if(users.getBirthday() != null)
                 usersMapper.updateBirthdayById(users.getBirthday(), id);
-            if(users.getAddress() != null)
                 usersMapper.updateAddressById(users.getAddress(), id);
-            if(users.getPhonenumber() != null)
                 usersMapper.updatePhoneById(users.getPhonenumber(), id);
-            if(users.getEmail() != null)
-                usersMapper.updateEmailById(users.getEmail(), id);
+                usersMapper.updateIdentityById(users.getIdentitynumber(), id);
+            }else {
+                return "ERROR";
+            }
         }catch (Exception e){
             e.printStackTrace();
             return "ERROR";

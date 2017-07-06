@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html class="no-js" lang="zxx">
 
 <head>
 
@@ -96,13 +96,13 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.jsp"><i class="fa fa-wrench fa-fw"></i>用户管理</a>
+                            <a href="/admin"><i class="fa fa-wrench fa-fw"></i>用户管理</a>
                         </li>
                         <li>
-                            <a href="report.jsp"><i class="fa fa-bar-chart-o fa-fw"></i>举报管理</a>
+                            <a href="/admin/report"><i class="fa fa-bar-chart-o fa-fw"></i>举报管理</a>
                         </li>
                         <li>
-                            <a href="goods.jsp"><i class="fa fa-dashboard fa-fw"></i>商品管理</a>
+                            <a href="/admin/goods"><i class="fa fa-dashboard fa-fw"></i>商品管理</a>
                         </li>
                     </ul>
                 </div>
@@ -257,6 +257,29 @@
 
                         </div>
                         <!-- /.panel-body -->
+                        <!-- 分页 -->
+                        <nav aria-label="Page navigation" class="text-center">
+                            <ul class="pagination" style="">
+                                <li style="width:30px;">
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;上一页</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">...</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">下一页&raquo;</span>
+                                    </a>
+                                </li>
+                                <span style="margin-top:10px;margin-left:20px;">共<span>100</span>页,</span>
+                                <span style="margin-top:10px;">跳转到<input style="width:40px;height:30px;margin:0 5px;" value="1">页<input type="button" value="确定" style="width:40px;height:30px;margin:0 5px;padding:3px;background-color:#eee;"></span>
+                            </ul>
+                        </nav>
+                        <!-- 分页结束************************************* -->
                     </div>
                     <!-- /.panel -->
                 </div>

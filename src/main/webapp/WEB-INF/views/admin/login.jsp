@@ -1,4 +1,4 @@
-<!doctype html>
+﻿﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -46,32 +46,16 @@
                     <div class="col-sm-5 hidden-xs">
                         <div class="header-top-left">
                             <ul class="header-top-style text-capitalize mr-25">
-                                <li><a href="../userPage/index.html"><span class="mr-10">首页</span></a>
-                                </li>
                             </ul>
                             <ul class="header-top-style text-capitalize mr-25">
-                                <li><a href="../userPage/grzx.html"><span class="mr-10">个人中心</span><i class="fa fa-angle-down"></i></a>
-                                    <ul class="ul-style currency box-shadow white-bg">
-                                        <li><a href="../userPage/login.html"><i class="fa fa-usd"></i><span>登录</span></a></li>
-                                        <li><a href="../userPage/sign.html"><i class="fa fa-euro"></i><span>注册</span></a></li>
-                                        <li><a href="../userPage/grzx.html"><i class="fa fa-gbp"></i><span>我的</span></a></li>
-                                    </ul>
-                                </li>
                             </ul>
                             <ul class="header-top-style pl-10">
-                                <li>
-                                    <a href="../userPage/grzx.html"><span class="mr-10">我的订单</span></a>
-                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-6">
                     </div>
                     <div class="col-sm-4 col-xs-6">
-                        <div class="header-top-right">
-                            <span class="mr-20"><a href="#"><img alt="" src="${pageContext.request.contextPath}/static/images/header/search-icon.png"></a></span>
-                            <span><input type="text" class="pl-10" placeholder="请输入店铺名、商品"></span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -97,17 +81,22 @@
         <div class="row" style="margin-top:20px;margin-left:70px;">
             <div class="col-md-4">
             </div>
+            <form action="/admin/index" method="post">
             <div class="col-md-3">
-                <form action="" >
                     <div class="form-group">
-                        <input type="text" name="username" placeholder="请输入用户名" class="form-control"/>
+                        <input id="username" name="username" type="text"  placeholder="请输入用户名" class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="stuemail" placeholder="请输入密码" class="form-control" />
+                        <input id="password" name="password" type="password" placeholder="请输入密码" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-default" class="form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;"><a href="index.jsp">登录</a></button>
-                </form>
+                    <div class="form-group">
+                            <input id="validateText" name="validateCode" type="text" name="validateText" class="form-control" style="width:50%;"/>
+                            <img src="" id="validateCode"/> <label id="refreshValidateCode">换一张</label>
+                        <label id="validateStatus" style="color:red"></label>
+                    </div>
+                    <button id="submit" type="submit" class="form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">登录</button>
             </div>
+            </form>
             <div class="col-md-5">
             </div>
         </div>
@@ -167,6 +156,10 @@
 <script src="${pageContext.request.contextPath}/static/js/plugins.js"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/request/validate.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/loginAndRegister/adminLogin.js"></script>
 
 </body>
 

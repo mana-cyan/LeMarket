@@ -1,4 +1,4 @@
-﻿<!doctype html>
+﻿﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -84,7 +84,7 @@
 
         <div class="container">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist" style="border-bottom:1px solid #ccc;">
+            <ul id="nav-list" class="nav nav-tabs" role="tablist" style="border-bottom:1px solid #ccc;">
                 <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">订单管理</a></li>
                 <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">收货地址</a></li>
                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">我的资料</a></li>
@@ -104,63 +104,8 @@
 
                   <!-- Tab panes -->
                     <div class="tab-content" style="margin-top:20px;padding:20px;">
-                        <!-- 代付款 -->
-                         <div role="tabpanel" class="tab-pane active" id="dfk">
-                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>
-                                         <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                             </div>
-
-                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>
-                                         <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                             </div>
-
-                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>
-                                         <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                             </div>
-
-                         </div>
+                        <!-- 待付款 -->
+                         <div role="tabpanel" class="tab-pane active" id="dfk"></div>
 
                          <!-- 待收货 -->
                          <div role="tabpanel" class="tab-pane" id="dsh">
@@ -182,7 +127,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -200,7 +145,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -240,7 +185,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -258,7 +203,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -299,7 +244,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -317,7 +262,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="border-top:1px solid #ccc;padding:10px;margin-top:100px;">
+                            <div class="row" style="border-top:1px solid #ccc;padding:10px;">
                                 <div class="col-md-3" >
                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                                 </div>
@@ -364,7 +309,7 @@
 
                     <div style="margin-top:30px;">
                         <h5 style="border-bottom:1px solid #ccc;padding:10px;"><strong>新增收货地址</strong></h5>
-                        <div style="margin-top:20px;border-bottom:1px solid #ccc;">
+                        <div style="margin-top:20px;border-bottom:1px solid #ccc;padding-bottom:20px;">
                             <table style="" class="shdz">
                                 <tr style="width:100%;">
                                     <td>姓名：</td>
@@ -373,14 +318,7 @@
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>地址：</td>
-                                    <td><input type="text" class="form-control" placeholder="省/直辖市"></td>
-                                    <td><input type="text" class="form-control" placeholder="市"></td>
-                                    <td><input type="text" class="form-control" placeholder="区/县"></td>
-                                    <td><input type="text" class="form-control" placeholder="乡村/街道"></td>
-                                </tr>
-                                <tr style="width:100%;">
-                                    <td></td>
-                                    <td colspan="2"><input type="text" class="form-control" placeholder="详细地址"></td>                                   
+                                    <td colspan="2"><input type="text" class="form-control" placeholder="详细地址"></td>
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>电话号码：</td>
@@ -396,44 +334,37 @@
                     <!-- 我的资料 -->
                     <div style="margin-top:30px;">
                         <h5 style="border-bottom:1px solid #ccc;padding:10px;"><strong>基本资料</strong></h5>
-                        <div style="margin-top:20px;border-bottom:1px solid #ccc;">
+                        <div style="margin-top:20px; padding-bottom:20px; border-bottom:1px solid #ccc;">
                             <table style="" class="shdz">
                                 <tr style="width:100%;">
                                     <td>姓名：</td>
-                                    <td><input type="text" class="form-control" placeholder="姓名"></td>                          
+                                    <td><input id="name" type="text" class="form-control" placeholder="姓名"></td>
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>姓别：</td>
-                                    <td><input type="text" class="form-control" placeholder="性别"></td>                          
+                                    <td><input id="gender" type="text" class="form-control" placeholder="性别"></td>
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>生日：</td>
-                                    <td><input type="text" class="form-control" placeholder="年"></td>
-                                    <td><input type="text" class="form-control" placeholder="月"></td>
-                                    <td><input type="text" class="form-control" placeholder="日"></td>
+                                    <td><input id="year" type="text" class="form-control" placeholder="年"></td>
+                                    <td><input id="month" type="text" class="form-control" placeholder="月"></td>
+                                    <td><input id="day" type="text" class="form-control" placeholder="日"></td>
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>地址：</td>
-                                    <td><input type="text" class="form-control" placeholder="省/直辖市"></td>
-                                    <td><input type="text" class="form-control" placeholder="市"></td>
-                                    <td><input type="text" class="form-control" placeholder="区/县"></td>
-                                    <td><input type="text" class="form-control" placeholder="乡村/街道"></td>
+                                    <td colspan="3"><input id="address" type="text" class="form-control" placeholder="详细地址"></td>
                                 </tr>
                                 <tr style="width:100%;">
-                                    <td></td>
-                                    <td colspan="2"><input type="text" class="form-control" placeholder="详细地址"></td>                                   
+                                    <td>身份证号：</td>
+                                    <td colspan="2"><input id="identityNumber" type="text" class="form-control" placeholder="身份证号"></td>
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>电话号码：</td>
-                                    <td colspan="2"><input type="text" class="form-control" placeholder="手机号"></td>      
-                                </tr>
-                                <tr style="width:100%;">
-                                    <td>邮箱：</td>
-                                    <td colspan="2"><input type="text" class="form-control" placeholder="电子邮箱"></td>      
+                                    <td colspan="2"><input id="phoneNumber" type="text" class="form-control" placeholder="手机号"></td>
                                 </tr>
                             </table> 
                         </div>
-                        <button type="button" class="btn btn-default" style="width:20%;height:60%;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;">保存</button>
+                        <button type="button" class="btn btn-default" style="width:20%;height:60%;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;" onclick="setUserInfo()">保存</button>
                     </div>
 
 

@@ -24,7 +24,7 @@ function onReceiveStatusResult(status) {
 
 function logOut() {
     Cookie.setToken('');
-    ToolBar.getStatus();
+    window.location.href='index';
 }
 
 function doStatusSuccess() {

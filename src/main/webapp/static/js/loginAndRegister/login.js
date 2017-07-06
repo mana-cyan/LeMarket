@@ -26,7 +26,7 @@ Login.Do=function() {
     if(checkArgsIsLegal()===false) return onArgsIllegalInput();
     var passwordDiv=$('#password');
     console.log(Cookie.getSalt());
-    var cryptText=encryptWithSalt(passwordDiv.html(),Cookie.getSalt());
+    var cryptText=encryptWithSalt(passwordDiv.val().trim(),Cookie.getSalt());
     passwordDiv.val(cryptText);
     var keyDiv = $('#username');
     if (keyDiv.val().indexOf('@')>0)

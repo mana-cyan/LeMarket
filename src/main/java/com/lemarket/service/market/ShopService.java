@@ -114,12 +114,12 @@ public class ShopService {
     }
 
     //获取店铺以发货订单
-    public List<Orderinfo> getShopSendedOrder(int shopid, int beginRow, int pageSize){
+    public List<OrderWithDetail> getShopSendedOrder(int shopid, int beginRow, int pageSize){
         //待收货
-        List<Orderinfo> listOfSended = orderinfoMapper.selectOrderByShopIdAndStatus(shopid, "待收货", beginRow, pageSize);
+        List<OrderWithDetail> listOfSended = orderinfoMapper.selectOrderByShopIdAndStatus(shopid, "待收货", beginRow, pageSize);
         //以完成
-        List<Orderinfo> listOfFinished = orderinfoMapper.selectOrderByShopIdAndStatus(shopid, "已完成", beginRow, pageSize);
-        List<Orderinfo> list = new ArrayList<>();
+        List<OrderWithDetail> listOfFinished = orderinfoMapper.selectOrderByShopIdAndStatus(shopid, "已完成", beginRow, pageSize);
+        List<OrderWithDetail> list = new ArrayList<>();
         list.addAll(listOfSended);
         list.addAll(listOfFinished);
         return list;

@@ -1,6 +1,7 @@
 package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Users;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -18,15 +19,14 @@ public interface UsersMapper {
 
     Users selectById(int id);
 
-    int updateNameById(String username, int id);
-    int updateGenderById(String gender, int id);
-    int updateBirthdayById(Date date, int id);
-    int updateAddressById(String address, int id);
-    int updatePhoneById(String phone, int id);
-    int updateEmailById(String email, int id);
-    int updateRoleById(String role, int id);
-    int updatePasswordById(String newPassword,int id);
-    int updateIdentityById(String identity, int id);
+    int updateNameById(@Param("name") String name,@Param("id") int id);
+    int updateGenderById(@Param("gender") String gender, @Param("id") int id);
+    int updateBirthdayById(@Param("date") Date date, @Param("id") int id);
+    int updateAddressById(@Param("address") String address,@Param("id") int id);
+    int updatePhoneById(@Param("phone") String phone, @Param("id") int id);
+    int updateRoleById(@Param("role") String role, @Param("id") int id);
+    int updatePasswordById(@Param("newPassword") String newPassword, @Param("id") int id);
+    int updateIdentityById(@Param("identity") String identity, @Param("id") int id);
 
     List<Users> selectUserByNameOrEmail(String key);
 }

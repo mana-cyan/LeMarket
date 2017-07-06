@@ -20,6 +20,28 @@ function unlockNav() {
     $(nav_tabs[4]).attr('href', '#shoucang');
 }
 
+function loadUserInfo() {
+    $.ajax({
+        type: 'get',
+        url: 'getUser',
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var birthday = new Date(data.birthday);
+            $('#name').val(data.name);
+            $('#gender').val(data.gender);
+            $('#year').val(birthday.getFullYear());
+            $('#month').val(birthday.getMonth());
+            $('#day').val(birthday.getDate());
+            $('#address').val(data.address);
+            $('#identityNumber').val(data.identitynumber);
+            $('#phoneNumber').val(data.phonenumber)
+        },
+        error: function () {
+            console.log('Cannot Load UserInfo')
+        }
+    })
+}
+
 function checkUserInfo() {
    $.ajax({
        type: 'get',
@@ -29,6 +51,9 @@ function checkUserInfo() {
            if (data.status === 'ERROR') {
                $('.nav-tabs a[href="#settings"]').tab('show');
                lockNav();
+           } else {
+               loadUserInfo();
+               loadUnpaidOrders(1);
            }
        },
        error: function () {
@@ -44,13 +69,12 @@ function setUserInfo() {
     birthday.setDate($('#day').val());
 
     var user = {
-        'username': $('#name').val(),
+        'name': $('#name').val(),
         'gender': $('#gender').val(),
         'birthday': birthday.getTime(),
         'address': $('#address').val(),
-        'identityNumber': $('#identityNumber').val(),
-        'phoneNumber': $('#phoneNumber').val(),
-        'email': $('#email').val()
+        'identitynumber': $('#identityNumber').val(),
+        'phonenumber': $('#phoneNumber').val()
     };
     if (user.name === '') {
         alert('姓名不能为空');
@@ -60,23 +84,20 @@ function setUserInfo() {
         alert('地址不能为空');
         return null;
     }
-    if (user.identityNumber === '') {
+    if (user.identitynumber === '') {
         alert('身份证号不能为空');
         return null;
     }
-    if (user.phoneNumber === '') {
+    if (user.phonenumber === '') {
         alert('手机号不能为空');
-        return null;
-    }
-    if (user.email === '') {
-        alert('邮箱不能为空');
         return null;
     }
     console.log(user);
     $.ajax({
         type: 'post',
         url: 'setUserInfo',
-        data: user,
+        data: JSON.stringify(user),
+        contentType: "application/json",
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
             if (data.status === 'SUCCESS') {
@@ -95,3 +116,41 @@ function userInfoHint() {
 }
 
 $(document).ready(checkUserInfo);
+
+function loadUnpaidOrders(page) {
+    $.ajax({
+        type: 'get',
+        url: 'unpaid',
+        data: { 'page': page },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            console.log(data);
+            var unpaid = $('#dfk');
+            for (var i in data) {
+                $(unpaid[i]).append
+                (
+                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">'+
+                        '<div class="col-md-3" >'+
+                            '<a href="commodityDetails"><img src="/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>'+
+                        '</div>'+
+                        '<div class="col-md-5" style="margin-top:20px;padding:20px;">'+
+                            '<span>' + data[i].id.commodityId + '</span>'+
+                        '</div>'+
+                        '<div class="col-md-1" style="margin-top:25px;padding:20px;">'+
+                            '<h4>￥' + data[i].price + '</h4>'+
+                        '</div>'+
+                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
+                            '<div class="btn-group" role="group" aria-label="...">'+
+                                '<button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>'+
+                                '<button type="button" class="btn btn-default">删除订单</button>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load unpaid orders')
+        }
+    })
+}

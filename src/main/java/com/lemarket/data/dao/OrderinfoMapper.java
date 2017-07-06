@@ -1,6 +1,8 @@
 package com.lemarket.data.dao;
 
+import com.lemarket.data.model.OrderWithDetail;
 import com.lemarket.data.model.Orderinfo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,18 +23,18 @@ public interface OrderinfoMapper {
      *
      * @mbg.generated
      */
-    List<Orderinfo> selectAll();
+    List<OrderWithDetail> selectAll();
 
     //获取用户订单
-    List<Orderinfo> selectByUserIdAndStatus(int id, String status, int beginRow, int pageSize);
+    List<OrderWithDetail> selectByUserIdAndStatus(@Param("id") int id, @Param("status") String status, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
 
-    List<Orderinfo> selectAllById(int id, int beginRow, int pageSize);
+    List<OrderWithDetail> selectAllById(@Param("id") int id, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
     int selectLast();
 
-    int updateStatusById(String status,int id);
+    int updateStatusById(@Param("status") String status, @Param("id") int id);
     //删除订单
-    int deleteOrderByOrderId(int id);
+    int deleteOrderByOrderId(@Param("id") int id);
 
     //获取店铺订单状态
-    List<Orderinfo> selectOrderByShopIdAndStatus(int shopId, String status, int beginRow, int pageSize);
+    List<OrderWithDetail> selectOrderByShopIdAndStatus(@Param("shopId") int shopId, @Param("status") String status, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
 }

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+﻿﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -104,63 +104,8 @@
 
                   <!-- Tab panes -->
                     <div class="tab-content" style="margin-top:20px;padding:20px;">
-                        <!-- 代付款 -->
-                         <div role="tabpanel" class="tab-pane active" id="dfk">
-                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>
-                                         <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                             </div>
-
-                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>
-                                         <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                             </div>
-
-                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                <div class="col-md-3" >
-                                    <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
-                                </div>
-                                <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                                    <span>女装连衣裙净黑色</span>
-                                </div>
-                                <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                    <h4>￥49</h4>
-                                </div>
-                                <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>
-                                         <button type="button" class="btn btn-default">删除订单</button>
-                                    </div>
-                                </div>
-                             </div>
-
-                         </div>
+                        <!-- 待付款 -->
+                         <div role="tabpanel" class="tab-pane active" id="dfk"></div>
 
                          <!-- 待收货 -->
                          <div role="tabpanel" class="tab-pane" id="dsh">
@@ -416,10 +361,6 @@
                                 <tr style="width:100%;">
                                     <td>电话号码：</td>
                                     <td colspan="2"><input id="phoneNumber" type="text" class="form-control" placeholder="手机号"></td>
-                                </tr>
-                                <tr style="width:100%;">
-                                    <td>邮箱：</td>
-                                    <td colspan="2"><input id="email" type="text" class="form-control" placeholder="电子邮箱"></td>
                                 </tr>
                             </table> 
                         </div>

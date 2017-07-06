@@ -414,13 +414,10 @@ count: int
 
 **Return Data**
 ```
-{
-	'unpaid': 
-	{
-		'commodity1': { 'id': int, 'name': string, 'price': float }
-		'commodity2': { 'id': int, 'name': string, 'price': float }
-	}
-}
+[
+	{ 'id': int, 'commodityId':int, 'name': string, 'commodityType': string, 'price': float }
+	{ 'id': int, 'commodityId':int, 'name': string, 'commodityType': string, 'price': float }
+]
 ```
 
 2. 待收货订单

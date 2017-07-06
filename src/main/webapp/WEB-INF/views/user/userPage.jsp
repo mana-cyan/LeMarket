@@ -105,7 +105,25 @@
                   <!-- Tab panes -->
                     <div class="tab-content" style="margin-top:20px;padding:20px;">
                         <!-- 待付款 -->
-                         <div role="tabpanel" class="tab-pane active" id="dfk"></div>
+                         <div role="tabpanel" class="tab-pane active" id="dfk">
+                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
+                                 <div class="col-md-3" >
+                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                                 </div>
+                                 <div class="col-md-5" style="margin-top:20px;padding:20px;">
+                                     <span>女装连衣裙净黑色</span>
+                                 </div>
+                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                                     <h4>￥49</h4>
+                                 </div>
+                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
+                                     <div class="btn-group" role="group" aria-label="...">
+                                         <button type="button" class="btn btn-default">确认收货</button>
+                                         <button type="button" class="btn btn-default">删除订单</button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
 
                          <!-- 待收货 -->
                          <div role="tabpanel" class="tab-pane" id="dsh">

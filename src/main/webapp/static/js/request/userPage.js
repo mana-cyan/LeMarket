@@ -134,7 +134,7 @@ function loadUnpaidOrders(page) {
                             '<a href="commodityDetails"><img src="/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>'+
                         '</div>'+
                         '<div class="col-md-5" style="margin-top:20px;padding:20px;">'+
-                            '<span>' + data[i].id.commodityId + '</span>'+
+                            '<span>' + data[i].name + '</span>'+
                         '</div>'+
                         '<div class="col-md-1" style="margin-top:25px;padding:20px;">'+
                             '<h4>￥' + data[i].price + '</h4>'+

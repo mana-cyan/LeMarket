@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-md-3">
                             <div class="form-group">
-                                <input type="text" id="username" name="username" placeholder="请输入昵称" class="form-control"/> <label id="usernameStatus"
+                                <input type="text" id="username" name="username" placeholder="请输入用户名" class="form-control"/> <label id="usernameStatus"
                                                                                                                                    ></label>
                             </div>
                             <div class="form-group">

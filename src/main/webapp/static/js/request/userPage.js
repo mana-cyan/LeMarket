@@ -54,6 +54,7 @@ function checkUserInfo() {
            } else {
                loadUserInfo();
                loadUnpaidOrders(1);
+               loadAddress();
            }
        },
        error: function () {
@@ -124,25 +125,27 @@ function loadUnpaidOrders(page) {
         data: { 'page': page },
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
-            console.log(data);
             var unpaid = $('#dfk');
             for (var i in data) {
                 $(unpaid[i]).append
                 (
                     '<div class="row" style="border-top:1px solid #ccc;padding:10px;">'+
-                        '<div class="col-md-3" >'+
-                            '<a href="commodityDetails"><img src="/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>'+
+                        '<div class="col-md-2" >'+
+                            '<a href="commodityDetails"><img src="/static/images/product/arrival/1.jpg" style="width:40%;height:50%;margin-top:20px;"></a>'+
                         '</div>'+
-                        '<div class="col-md-5" style="margin-top:20px;padding:20px;">'+
+                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
                             '<span>' + data[i].name + '</span>'+
+                        '</div>'+
+                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
+                            '<span>' + data[i].commodityType + '</span>'+
                         '</div>'+
                         '<div class="col-md-1" style="margin-top:25px;padding:20px;">'+
                             '<h4>￥' + data[i].price + '</h4>'+
                         '</div>'+
                         '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
                             '<div class="btn-group" role="group" aria-label="...">'+
-                                '<button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>'+
-                                '<button type="button" class="btn btn-default">删除订单</button>'+
+                                '<button type="button" class="btn btn-default" onclick="">去付款</button>'+
+                                '<button type="button" class="btn btn-default" onclick="">删除订单</button>'+
                             '</div>'+
                         '</div>'+
                     '</div>'
@@ -154,3 +157,57 @@ function loadUnpaidOrders(page) {
         }
     })
 }
+
+function loadAddress() {
+    $.ajax({
+        type: 'get',
+        url: 'getAllAddress',
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var addressList = $('#addressList');
+            for (var i in data) {
+
+                addressList.append(
+                    '<tr style="width:100%;">' +
+                    '<td id="addressId">' + data[i].id + '</td>' +
+                    '<td id="receiverName">' + data[i].name + '</td>' +
+                    '<td id="addressDetails">' + data[i].address + '</td>' +
+                    '<td id="receiverPhoneNumber">' + data[i].phonenumber + '</td>' +
+                    '<td><button type="button" class="btn btn-default" onclick="editAddress(' + data[i].id +')">修改</button></td>' +
+                    '</tr>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load Address')
+        }
+    })
+}
+
+function addAddress() {
+    var address = {
+        'name': $('#new-name').val(),
+        'address': $('#new-address').val(),
+        'phonenumber': $('#new-phone').val()
+    };
+    $.ajax({
+        type: 'post',
+        url: 'addAddress',
+        data: JSON.stringify(address),
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            if (data.status === 'SUCCESS')
+                loadAddress()
+        },
+        error: function () {
+            console.log('Cannot add new address')
+        }
+    })
+}
+
+// function editAddress(id) {
+//     $.ajax({
+//         type: 'post',
+//         url: 'editAddress',
+//     })
+// }

@@ -105,28 +105,7 @@
                   <!-- Tab panes -->
                     <div class="tab-content" style="margin-top:20px;padding:20px;">
                         <!-- 购物车 -->
-                         <div role="tabpanel" class="tab-pane active" id="dfk">
-                             <div class="row" style="border-top:1px solid #ccc;padding:10px;">
-                                 <div class="col-md-2" style="">
-                                     <a href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:40%;height:50%;margin-top:20px;"></a>
-                                 </div>
-                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                     <span>女装连衣裙净黑色</span>
-                                 </div>
-                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                     <span>黑色S</span>
-                                 </div>
-                                 <div class="col-md-1" style="margin-top:25px;padding:20px;">
-                                     <h4>￥49</h4>
-                                 </div>
-                                 <div class="col-md-3" style="margin-top:20px;padding:20px;">
-                                     <div class="btn-group" role="group" aria-label="...">
-                                         <button type="button" class="btn btn-default">去付款</button>
-                                         <button type="button" class="btn btn-default">删除订单</button>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
+                         <div role="tabpanel" class="tab-pane active" id="dfk"></div>
 
                          <!-- 待收货 -->
                          <div role="tabpanel" class="tab-pane" id="dsh">
@@ -381,8 +360,6 @@
                                      </div>
                                  </div>
                              </div>
-
-
                          </div>
                     </div>
                 </div>
@@ -390,22 +367,7 @@
                     <div style="border-bottom:1px solid #ccc;padding:10px;">
                         <h5 style="border-bottom:1px solid #ccc;padding:10px;"><strong>已保存的收货地址</strong></h5>
                         <div style="margin-top:20px;">
-                            <table border="1" class="shdz">
-                                <tr style="width:100%;">
-                                    <td>1</td>
-                                    <td>颜池</td>
-                                    <td>湖北省 武汉市 洪山区 珞南街道 152华中师范大学</td>
-                                    <td>13437256907</td>
-                                    <td><button type="button" class="btn btn-default">修改</button></td>
-                                </tr>
-                                <tr style="width:100%;">
-                                    <td>2</td>
-                                    <td>颜池</td>
-                                    <td>湖北省 武汉市 洪山区 珞南街道 152华中师范大学</td>
-                                    <td>13437256907</td>
-                                    <td><button type="button" class="btn btn-default">修改</button></td>
-                                </tr>
-                            </table>
+                            <table id="addressList" border="1" class="shdz"></table>
                         </div>
                     </div>
 
@@ -415,16 +377,16 @@
                             <table style="" class="shdz">
                                 <tr style="width:100%;">
                                     <td>姓名：</td>
-                                    <td><input type="text" class="form-control" placeholder="收货人姓名"></td>
+                                    <td><input id="new-name" type="text" class="form-control" placeholder="收货人姓名"></td>
                                     
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>地址：</td>
-                                    <td colspan="2" ><input type="text" class="form-control" placeholder="详细地址" ></td>
+                                    <td colspan="2" ><input id="new-address" type="text" class="form-control" placeholder="详细地址" ></td>
                                 </tr>
                                 <tr style="width:100%;">
                                     <td>电话号码：</td>
-                                    <td colspan="2"><input type="text" class="form-control" placeholder="手机号"></td>      
+                                    <td colspan="2"><input id="new-phone" type="text" class="form-control" placeholder="手机号"></td>
                                 </tr>
                             </table> 
                         </div>

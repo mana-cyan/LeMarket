@@ -36,7 +36,7 @@ CREATE TABLE `Users` (
   `identityNumber` VARCHAR(18) COMMENT '身份证号',
   `address` TEXT COMMENT '地址',
   `status` INT COMMENT '状态：0-离线，1-在线',
-  `name` VARCHAR(32) COMMENT '姓名'
+  `name` VARCHAR(32) COMMENT '姓名',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`role`) REFERENCES UserType(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -184,6 +184,16 @@ CREATE TABLE Token(
   `validity` INT COMMENT '有效天数',
   FOREIGN KEY (`id`) REFERENCES Users(`id`),
   INDEX indexToken (`token`)
+);
+
+DROP TABLE IF EXISTS `Address`;
+CREATE TABLE Address(
+  `id` INT AUTO_INCREMENT COMMENT '地址id',
+  `user` INT NOT NULL COMMENT '用户id',
+  `name` VARCHAR(50) NOT NULL COMMENT '收货人姓名',
+  `phoneNumber` VARCHAR(11) NOT NULL COMMENT '手机号',
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user`) REFERENCES Users (`id`)
 );
 
 INSERT INTO UserType(`name`) VALUES('买家');

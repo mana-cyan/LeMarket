@@ -1,9 +1,6 @@
 package com.lemarket.controller.shop;
 
-import com.lemarket.data.model.Commodity;
-import com.lemarket.data.model.Orderdetails;
-import com.lemarket.data.model.Orderinfo;
-import com.lemarket.data.model.Shop;
+import com.lemarket.data.model.*;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.ShopService;
 import com.lemarket.service.utils.ImageFactory;
@@ -17,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -128,7 +124,7 @@ public class ShopController {
      */
     @RequestMapping(value = "getSended", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getSended(int id){
+    public List<OrderWithDetail> getSended(int id){
         return shopService.getShopSendedOrder(id, 0, 10);
     }
 }

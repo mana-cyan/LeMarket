@@ -1,13 +1,12 @@
 package com.lemarket.controller.account;
 
-import com.lemarket.data.model.Orderinfo;
+import com.lemarket.data.model.OrderWithDetail;
 import com.lemarket.data.model.Users;
 import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.account.OrderService;
 import com.lemarket.service.account.UserEditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +27,7 @@ public class PersonalController {
 
     @RequestMapping(value = "unpaid", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfUnpaid(int page, HttpServletRequest request) {
+    public List<OrderWithDetail> getOrderOfUnpaid(int page, HttpServletRequest request) {
         String token = request.getHeader("token");
         return orderService.getOrderByStatus(token, "待付款", (page - 1) * 10, 10);
     }
@@ -36,21 +35,21 @@ public class PersonalController {
 
     @RequestMapping(value = "unreceived", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfUnreceived(int page, HttpServletRequest request) {
+    public List<OrderWithDetail> getOrderOfUnreceived(int page, HttpServletRequest request) {
         String token = request.getHeader("token");
         return orderService.getOrderByStatus(token, "待收货", (page - 1) * 10, 10);
     }
 
     @RequestMapping(value = "uncomment", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfUncomment(int page, HttpServletRequest request) {
+    public List<OrderWithDetail> getOrderOfUncomment(int page, HttpServletRequest request) {
         String token = request.getHeader("token");
         return orderService.getOrderByStatus(token, "收货", (page - 1) * 10, 10);
     }
 
     @RequestMapping(value = "orderList", method = RequestMethod.GET)
     @ResponseBody
-    public List<Orderinfo> getOrderOfAll(int page, HttpServletRequest request) {
+    public List<OrderWithDetail> getOrderOfAll(int page, HttpServletRequest request) {
         String token = request.getHeader("token");
         return orderService.getAllOrderById(token, (page - 1) * 10, 10);
     }

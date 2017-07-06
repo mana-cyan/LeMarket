@@ -39,18 +39,17 @@
 
         <!-- !!!! Table Configurations !!!! -->
 
-        <table tableName="Picture"/>
         <!--
+        <table tableName="Picture"/>
+
         <table tableName="Admin"/>
 
         <table tableName="Comment" />
-        -->
 
         <table tableName="Category" />
 
         <table tableName="Commodity" />
 
-        <!--
         <table tableName="CommodityType" />
 
         <table tableName="Information" />
@@ -62,16 +61,17 @@
         <table tableName="OrderInfo" />
 
         <table tableName="ReceiveInfo" />
-        -->
 
         <table tableName="Shop" />
 
-        <!--
         <table tableName="Users"/>
 
         <table tableName="UserType" />
 
         <table tableName="Token" />
         -->
+
+        <table tableName="Address" />
+
     </context>
 </generatorConfiguration>

@@ -56,7 +56,7 @@ function checkUserInfo() {
                loadUnpaidOrders(1);
            }
        },
-       error: function () { 
+       error: function () {
            console.log('Cannot check UserInfo')
        }
    })
@@ -125,6 +125,29 @@ function loadUnpaidOrders(page) {
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
             console.log(data);
+            var unpaid = $('#dfk');
+            for (var i in data) {
+                $(unpaid[i]).append
+                (
+                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">'+
+                        '<div class="col-md-3" >'+
+                            '<a href="commodityDetails"><img src="/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>'+
+                        '</div>'+
+                        '<div class="col-md-5" style="margin-top:20px;padding:20px;">'+
+                            '<span>' + data[i].id.commodityId + '</span>'+
+                        '</div>'+
+                        '<div class="col-md-1" style="margin-top:25px;padding:20px;">'+
+                            '<h4>￥' + data[i].price + '</h4>'+
+                        '</div>'+
+                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
+                            '<div class="btn-group" role="group" aria-label="...">'+
+                                '<button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>'+
+                                '<button type="button" class="btn btn-default">删除订单</button>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'
+                )
+            }
         },
         error: function () {
             console.log('Cannot load unpaid orders')

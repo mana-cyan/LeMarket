@@ -216,3 +216,19 @@ INSERT INTO Category(`name`, `description`, `picture`) VALUES ('儿童世界', '
 
 INSERT INTO Shop(`owner`, `name`) VALUES (1, 'TestShop');
 INSERT INTO Commodity(`owner`,`category`,`shop`,`name`,`storage`,`price`,`image`,`time`) VALUES (1,1,1,'TestCommodity',100,20,1,NOW());
+
+CREATE VIEW OrderWithAllCommodityDetail
+AS
+SELECT t1.id as vid,
+  t1.status as vstatus,
+  t1.user as vuser,
+  t2.commodity as vcommodityId,
+  t3.name as vname,
+  t4.name as vcommodityType,
+  t3.price as vprice,
+  t5.address as vaddress
+FROM OrderInfo t1
+LEFT JOIN OrderDetails t2 ON t1.id = t2.orderInfo
+LEFT JOIN Commodity t3 ON t2.commodity = t3.id
+LEFT JOIN CommodityType t4 ON t2.commodityType = t4.id
+LEFT JOIN Users t5 ON t1.user = t5.id;

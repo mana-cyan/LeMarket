@@ -45,7 +45,7 @@ public class ShopController {
     @ResponseBody
     public Status addShop(String name, String description, String phoneNumber, HttpServletRequest request){
         int answer = shopService.addShop(name, description, phoneNumber, request.getHeader("token"));
-        if(answer > 1)
+        if(answer > 0)
             //return "business/index";
             return new Status("SUCCESS");
         else

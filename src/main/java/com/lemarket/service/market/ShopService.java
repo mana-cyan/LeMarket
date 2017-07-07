@@ -45,12 +45,13 @@ public class ShopService {
     }
 
     //添加店铺
-    public int addShop(String name, String description, String tokenString){
+    public int addShop(String name, String description, String phone, String tokenString){
         Token token = tokenMapper.selectByToken(tokenString);
         Shop shop = new Shop();
         shop.setName(name);
         shop.setDescription(description);
         shop.setOwner(token.getId());
+        shop.setPhonenumber(phone);
         usersMapper.updateRoleById("卖家", token.getId());
         return shopMapper.insert(shop);
     }

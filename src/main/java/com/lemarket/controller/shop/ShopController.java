@@ -36,8 +36,8 @@ public class ShopController {
     //添加店铺
     @RequestMapping(value = "addShop", method = RequestMethod.POST)
     @ResponseBody
-    public Status addShop(String name, String description, HttpServletRequest request){
-        int answer = shopService.addShop(name, description, request.getHeader("token"));
+    public Status addShop(String name, String description, String phoneNumber, HttpServletRequest request){
+        int answer = shopService.addShop(name, description, phoneNumber, request.getHeader("token"));
         if(answer == 1)
             return new Status("SUCCESS");
         else

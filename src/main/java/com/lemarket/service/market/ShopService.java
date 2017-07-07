@@ -68,10 +68,16 @@ public class ShopService {
         return shopMapper.insert(shop);
     }
 
-    //根据用户token获取店铺
-    public ShopWithUser getShopByToken(String tokenString){
+//    //根据用户token获取店铺
+//    public Shop getShopByToken(String tokenString){
+//        Token token = tokenMapper.selectByToken(tokenString);
+//        return shopMapper.selectByOwner(token.getId());
+//    }
+
+    //根据用户token获取店铺withUSer
+    public ShopWithUser getShopWithUserByToken(String tokenString){
         Token token = tokenMapper.selectByToken(tokenString);
-        return shopMapper.selectById(token.getId());
+        return shopMapper.selectWithUserByOwner(token.getId());
     }
 
     //更新店铺信息

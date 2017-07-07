@@ -68,5 +68,8 @@
   <select id="selectByOwner" resultMap="BaseResultMap">
     SELECT * FROM Shop WHERE owner = #{owner};
   </select>
+  <select id="selectWithUserByOwner" resultType="com.lemarket.data.model.ShopWithUser">
+    SELECT * FROM ShopWithUser WHERE towner = #{owner};
+  </select>
 
 </mapper>

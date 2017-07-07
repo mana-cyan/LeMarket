@@ -16,6 +16,7 @@ public interface ShopMapper {
     ShopWithUser selectById(@Param("id") int id);
 
     Shop selectByOwner(@Param("owner") int owner);
+    ShopWithUser selectWithUserByOwner(@Param("owner") int owner);
 
     int updateName(@Param("name") String name, @Param("id") int id);
     int updateDescription(@Param("description") String description, @Param("id") int id);

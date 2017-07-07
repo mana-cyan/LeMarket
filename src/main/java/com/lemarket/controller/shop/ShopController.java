@@ -73,7 +73,7 @@ public class ShopController {
     @RequestMapping(value = "getShop", method = RequestMethod.GET)
     @ResponseBody
     public ShopWithUser getShopByToken(HttpServletRequest request){
-        return shopService.getShopByToken(request.getHeader("token"));
+        return shopService.getShopWithUserByToken(request.getHeader("token"));
     }
 
 

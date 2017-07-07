@@ -54,6 +54,7 @@ function checkUserInfo() {
            } else {
                loadUserInfo();
                loadUnpaidOrders(1);
+               loadAddress();
            }
        },
        error: function () {
@@ -124,25 +125,27 @@ function loadUnpaidOrders(page) {
         data: { 'page': page },
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
-            console.log(data);
             var unpaid = $('#dfk');
             for (var i in data) {
                 $(unpaid[i]).append
                 (
                     '<div class="row" style="border-top:1px solid #ccc;padding:10px;">'+
-                        '<div class="col-md-3" >'+
-                            '<a href="commodityDetails"><img src="/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>'+
+                        '<div class="col-md-2" >'+
+                            '<a href="commodityDetails"><img src="/static/images/product/arrival/1.jpg" style="width:40%;height:50%;margin-top:20px;"></a>'+
                         '</div>'+
-                        '<div class="col-md-5" style="margin-top:20px;padding:20px;">'+
-                            '<span>' + data[i].id.commodityId + '</span>'+
+                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
+                            '<span>' + data[i].name + '</span>'+
+                        '</div>'+
+                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
+                            '<span>' + data[i].commodityType + '</span>'+
                         '</div>'+
                         '<div class="col-md-1" style="margin-top:25px;padding:20px;">'+
                             '<h4>￥' + data[i].price + '</h4>'+
                         '</div>'+
                         '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
                             '<div class="btn-group" role="group" aria-label="...">'+
-                                '<button type="button" class="btn btn-default"><a href="pay.jsp">去付款</a></button>'+
-                                '<button type="button" class="btn btn-default">删除订单</button>'+
+                                '<button type="button" class="btn btn-default" onclick="">去付款</button>'+
+                                '<button type="button" class="btn btn-default" onclick="">删除订单</button>'+
                             '</div>'+
                         '</div>'+
                     '</div>'
@@ -151,6 +154,81 @@ function loadUnpaidOrders(page) {
         },
         error: function () {
             console.log('Cannot load unpaid orders')
+        }
+    })
+}
+
+function loadAddress() {
+    $.ajax({
+        type: 'get',
+        url: 'getAllAddress',
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var addressList = $('#addressList');
+            addressList.html('');
+            for (var i in data) {
+                var id = parseInt(i) + 1;
+                addressList.append(
+                    '<tr style="width:100%;">' +
+                    '<td id="addressId" aid="' + data[i].id + '">' + id + '</td>' +
+                    '<td id="receiverName">' + data[i].name + '</td>' +
+                    '<td id="addressDetails">' + data[i].address + '</td>' +
+                    '<td id="receiverPhoneNumber">' + data[i].phonenumber + '</td>' +
+                    '<td><button type="button" class="btn btn-default" onclick="editAddress(' + id +')">修改</button></td>' +
+                    '</tr>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load Address')
+        }
+    })
+}
+
+function addAddress() {
+    var address = {
+        'name': $('#new-name').val(),
+        'address': $('#new-address').val(),
+        'phone': $('#new-phone').val()
+    };
+    $.ajax({
+        type: 'post',
+        url: 'addAddress',
+        data: address,
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            if (data.status === 'SUCCESS') {
+                $('#new-name').val('');
+                $('#new-address').val('');
+                $('#new-phone').val('')
+                loadAddress()
+            }
+        },
+        error: function () {
+            console.log('Cannot add new address')
+        }
+    })
+}
+
+function editAddress(id) {
+    var addr = $($('#addressList')[id-1]);
+    var address = {
+        'id': addr.find('#addressId').attr('aid'),
+        'name': addr.find('#receiverName').html(),
+        'address': addr.find('#addressDetails').html(),
+        'phonenumber': addr.find('#receiverPhoneNumber').html()
+    };
+    $.ajax({
+        type: 'post',
+        url: 'editAddress',
+        data: JSON.stringify(address),
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            if(data.status === 'SUCCESS')
+                alert('保存成功')
+        },
+        error: function () {
+            console.log('Cannot save Address')
         }
     })
 }

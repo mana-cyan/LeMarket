@@ -24,10 +24,6 @@ function checkArgsIsLegal()
 
 Login.Do=function() {
     if(checkArgsIsLegal()===false) return onArgsIllegalInput();
-    var passwordDiv=$('#password');
-    console.log(Cookie.getSalt());
-    var cryptText=encryptWithSalt(passwordDiv.val().trim(),Cookie.getSalt());
-    passwordDiv.val(cryptText);
     var keyDiv = $('#username');
     if (keyDiv.val().indexOf('@')>0)
         loginWithEmail();
@@ -61,7 +57,7 @@ function loginWithUsername() {
             dataType: 'json',
             data: {
                 'username': usernameDiv.val(),
-                'password': passwordDiv.val(),
+                'password': encryptWithSalt(passwordDiv.val().trim(),Cookie.getSalt()),
                 'validateCode': validateDiv.val()
             },
             success: function (response) {
@@ -87,7 +83,7 @@ function loginWithEmail() {
             dataType: 'json',
             data: {
                 'email': usernameDiv.val(),
-                'password': passwordDiv.val(),
+                'password': encryptWithSalt(passwordDiv.val().trim(),Cookie.getSalt()),
                 'validateCode': validateDiv.val()
             },
             success: function (response) {

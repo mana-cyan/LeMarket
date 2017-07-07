@@ -3,6 +3,7 @@ package com.lemarket.data.model;
 public class OrderWithDetail {
     private int id; //订单id
     private int user; //用户id
+    private String phoneNumber; //手机号
     private String status; //状态
     private int commodityId; //商品id
     private String name; //商品名称
@@ -72,5 +73,13 @@ public class OrderWithDetail {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

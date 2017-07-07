@@ -65,3 +65,4 @@ gradle-app.setting
 !/src/main/libs/lucene-core-4.0.0.jar
 !/src/main/libs/lucene-queryparser-4.0.0.jar
 !/src/main/libs/trove.jar
+!/src/main/resources/mapping/AddressMapper.xml

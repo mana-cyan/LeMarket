@@ -93,7 +93,7 @@
                         <input type="text" style="display: none"/>
                     </div>
                     <div class="form-group">
-                        <input id="password" type="text" name="password" placeholder="请输入密码" class="form-control"/>
+                        <input id="password" type="password" name="password" placeholder="请输入密码" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <input id="validateText" type="text" name="validateText" class="form-control" style="width:50%;"/>

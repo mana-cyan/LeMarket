@@ -184,7 +184,7 @@ CREATE TABLE Token(
   `validity` INT COMMENT '有效天数',
   FOREIGN KEY (`id`) REFERENCES Users(`id`),
   INDEX indexToken (`token`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Token表';
 
 DROP TABLE IF EXISTS `Address`;
 CREATE TABLE Address(
@@ -193,9 +193,10 @@ CREATE TABLE Address(
   `name` VARCHAR(50) NOT NULL COMMENT '收货人姓名',
   `phoneNumber` VARCHAR(11) NOT NULL COMMENT '手机号',
   `address` TEXT NOT NULL COMMENT '收货地址',
+  `status` INT NOT NULL DEFAULT 1 COMMENT '地址状态',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user`) REFERENCES Users (`id`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收货地址表';
 
 INSERT INTO UserType(`name`) VALUES('买家');
 INSERT INTO UserType(`name`) VALUES('卖家');
@@ -223,6 +224,7 @@ AS
 SELECT t1.id as vid,
   t1.status as vstatus,
   t1.user as vuser,
+  t5.phoneNumber as vphoneNumber,
   t2.commodity as vcommodityId,
   t3.name as vname,
   t4.name as vcommodityType,

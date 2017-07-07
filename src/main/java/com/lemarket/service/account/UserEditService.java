@@ -13,10 +13,11 @@ import java.util.List;
 
 @Service
 public class UserEditService {
-    private final UsersMapper usersMapper;
 
+    private final UsersMapper usersMapper;
     private final TokenMapper tokenMapper;
     private final AddressMapper addressMapper;
+
     @Autowired
     public UserEditService(UsersMapper usersMapper, TokenMapper tokenMapper, AddressMapper addressMapper) {
         this.usersMapper = usersMapper;

@@ -54,7 +54,9 @@ function checkUserInfo() {
            } else {
                loadUserInfo();
                loadUnpaidOrders(1);
-               loadAddress();
+               loadUnreceivedOrders(1);
+               loadUncommentedOrders(1);
+               loadAddress()
            }
        },
        error: function () {
@@ -154,6 +156,97 @@ function loadUnpaidOrders(page) {
         },
         error: function () {
             console.log('Cannot load unpaid orders')
+        }
+    })
+}
+
+function loadUnreceivedOrders(page) {
+    $.ajax({
+        type: 'get',
+        url: 'unreceived',
+        data: { 'page': page },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var unreceived = $('#dsh');
+            for (var i in data) {
+                $(unreceived[i]).append(
+                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                    '<div class="col-md-1" style="">' +
+                    '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].name + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].commodityType + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].phoneNumber +'</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].address + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:25px;padding:20px;">' +
+                    '<h4>￥' + data[i].price +  '</h4>' +
+                    '</div>' +
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">' +
+                    '<div class="btn-group" role="group" aria-label="...">' +
+                    '<button type="button" class="btn btn-default">确认收货</button>' +
+                    '<button type="button" class="btn btn-default">删除订单</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load unreceived orders')
+        }
+    })
+}
+
+function loadUncommentedOrders(page) {
+    $.ajax({
+        type: 'get',
+        url: 'uncomment',
+        data: { 'page': page },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            console.log(data)
+            var unreceived = $('#dpj');
+            for (var i in data) {
+                $(unreceived[i]).append(
+                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                    '<div class="col-md-1" style="">' +
+                    '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].name + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].commodityType + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].phoneNumber +'</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].address + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:25px;padding:20px;">' +
+                    '<h4>￥' + data[i].price +  '</h4>' +
+                    '</div>' +
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">' +
+                    '<div class="btn-group" role="group" aria-label="...">' +
+                    '<button type="button" class="btn btn-default">确认收货</button>' +
+                    '<button type="button" class="btn btn-default">删除订单</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load uncommented order');
         }
     })
 }

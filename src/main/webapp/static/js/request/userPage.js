@@ -56,6 +56,7 @@ function checkUserInfo() {
                loadUnpaidOrders(1);
                loadUnreceivedOrders(1);
                loadUncommentedOrders(1);
+               loadAllOrders(1);
                loadAddress()
            }
        },
@@ -212,10 +213,9 @@ function loadUncommentedOrders(page) {
         data: { 'page': page },
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
-            console.log(data)
-            var unreceived = $('#dpj');
+            var uncommented = $('#dpj');
             for (var i in data) {
-                $(unreceived[i]).append(
+                $(uncommented[i]).append(
                     '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
                     '<div class="col-md-1" style="">' +
                     '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
@@ -237,7 +237,7 @@ function loadUncommentedOrders(page) {
                     '</div>' +
                     '<div class="col-md-3" style="margin-top:20px;padding:20px;">' +
                     '<div class="btn-group" role="group" aria-label="...">' +
-                    '<button type="button" class="btn btn-default">确认收货</button>' +
+                    '<button type="button" class="btn btn-default">去评价</button>' +
                     '<button type="button" class="btn btn-default">删除订单</button>' +
                     '</div>' +
                     '</div>' +
@@ -247,6 +247,52 @@ function loadUncommentedOrders(page) {
         },
         error: function () {
             console.log('Cannot load uncommented order');
+        }
+    })
+}
+
+function loadAllOrders(page) {
+    $.ajax({
+        type: 'get',
+        url: 'finished',
+        data: { 'page': page },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var orderList = $('#qbdd');
+            for (var i in data) {
+                console.log(data[i])
+                $(orderList).append(
+                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                    '<div class="col-md-1" style="">' +
+                    '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].name + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].commodityType + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].phoneNumber +'</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].address + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:25px;padding:20px;">' +
+                    '<h4>￥' + data[i].price +  '</h4>' +
+                    '</div>' +
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">' +
+                    '<div class="btn-group" role="group" aria-label="...">' +
+                    '<button type="button" class="btn btn-default">去看看</button>' +
+                    '<button type="button" class="btn btn-default">删除订单</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load unreceived orders')
         }
     })
 }

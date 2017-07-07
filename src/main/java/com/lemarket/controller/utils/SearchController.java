@@ -2,6 +2,7 @@ package com.lemarket.controller.utils;
 
 import com.lemarket.data.model.Commodity;
 import com.lemarket.data.model.Shop;
+import com.lemarket.data.model.ShopWithUser;
 import com.lemarket.service.utils.CommoditySearch;
 import com.lemarket.service.utils.ShopSearch;
 import com.lemarket.service.utils.WordSegmentation;
@@ -35,7 +36,7 @@ public class SearchController {
             model.addAttribute("list", commodityList);
         }
         else {    //搜索店铺
-            List<Shop> shopList = searchShop(input);
+            List<ShopWithUser> shopList = searchShop(input);
             model.addAttribute("list",shopList);
         }
         return "shop/search";
@@ -74,7 +75,7 @@ public class SearchController {
         return result;
     }
 
-    private List<Shop> searchShop(String input)throws Exception {
+    private List<ShopWithUser> searchShop(String input)throws Exception {
 
         List<String> wordList = WordSegmentation.getWord(input);
         Map<Integer,Integer> keyNum = new HashMap<>();
@@ -91,9 +92,9 @@ public class SearchController {
         List<Map.Entry<Integer, Integer>> list = new ArrayList<>(keyNum.entrySet());
         list.sort((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
-        List<Shop> result = new ArrayList<>();
+        List<ShopWithUser> result = new ArrayList<>();
         for (Map.Entry<Integer, Integer> mapping : list) {
-            Shop cur = shopSearch.shopSearchId(mapping.getKey());
+            ShopWithUser cur = shopSearch.shopSearchId(mapping.getKey());
             result.add(cur);
         }
         return result;

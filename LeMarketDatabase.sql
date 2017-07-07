@@ -235,3 +235,16 @@ LEFT JOIN OrderDetails t2 ON t1.id = t2.orderInfo
 LEFT JOIN Commodity t3 ON t2.commodity = t3.id
 LEFT JOIN CommodityType t4 ON t2.commodityType = t4.id
 LEFT JOIN Users t5 ON t1.user = t5.id;
+
+CREATE VIEW ShopWithUser
+AS
+SELECT
+  t1.id as tid,
+  t1.name as tname,
+  t1.description as tdescription,
+  t2.address as taddress,
+  t2.phoneNumber as tphoneNumber,
+  t2.email as temail,
+  t2.id as towner
+  FROM Shop t1
+  LEFT JOIN Users t2 ON t1.owner = t2.id;

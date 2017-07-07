@@ -36,7 +36,7 @@ public class ShopService {
         this.orderinfoMapper = orderinfoMapper;
     }
 
-    public Shop getShopById(int id){
+    public ShopWithUser getShopById(int id){
         return shopMapper.selectById(id);
     }
 

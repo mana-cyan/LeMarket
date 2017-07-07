@@ -3,6 +3,7 @@ package com.lemarket.service.utils;
 import com.lemarket.data.dao.CommodityMapper;
 import com.lemarket.data.dao.ShopMapper;
 import com.lemarket.data.model.Shop;
+import com.lemarket.data.model.ShopWithUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,7 @@ public class ShopSearch {
      * @param id 关键词
      * @return ShopIdList 店铺信息
      */
-    public Shop shopSearchId(Integer id) {
+    public ShopWithUser shopSearchId(Integer id) {
         return shopMapper.selectById(id);
     }
 }

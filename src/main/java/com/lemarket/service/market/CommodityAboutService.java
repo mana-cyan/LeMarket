@@ -64,7 +64,7 @@ public class CommodityAboutService {
     //添加商品
     public int addCommodity(Commodity commodity){
         //commodity里无店主id， 获取并设置
-        Shop shop = shopMapper.selectById(commodity.getShop());
+        ShopWithUser shop = shopMapper.selectById(commodity.getShop());
         commodity.setOwner(shop.getOwner());
         return commodityMapper.insert(commodity);
     }

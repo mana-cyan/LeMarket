@@ -65,7 +65,7 @@ public class ShopController {
     //根据店铺id获取店铺信息
     @RequestMapping(value = "shop", method = RequestMethod.GET)
     @ResponseBody
-    public Shop getShopById(int id){
+    public ShopWithUser getShopById(int id){
         return shopService.getShopById(id);
     }
 

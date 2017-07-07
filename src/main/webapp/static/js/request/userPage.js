@@ -170,11 +170,11 @@ function loadAddress() {
                 var id = parseInt(i) + 1;
                 addressList.append(
                     '<tr style="width:100%;">' +
-                    '<td id="addressId" aid="' + data[i].id + '">' + id + '</td>' +
-                    '<td id="receiverName">' + data[i].name + '</td>' +
-                    '<td id="addressDetails">' + data[i].address + '</td>' +
-                    '<td id="receiverPhoneNumber">' + data[i].phonenumber + '</td>' +
-                    '<td><button type="button" class="btn btn-default" onclick="editAddress(' + id +')">修改</button></td>' +
+                    '<td class="addressId" aid="' + data[i].id + '">' + id + '</td>' +
+                    '<td class="receiverName">' + data[i].name + '</td>' +
+                    '<td class="addressDetails">' + data[i].address + '</td>' +
+                    '<td class="receiverPhoneNumber">' + data[i].phonenumber + '</td>' +
+                    '<td><button type="button" class="btn btn-default" onclick="deleteAddress(' + id +')">删除</button></td>' +
                     '</tr>'
                 )
             }
@@ -211,12 +211,12 @@ function addAddress() {
 }
 
 function editAddress(id) {
-    var addr = $($('#addressList')[id-1]);
+    var addressList = $($('#addressList').find('tr')[id-1]);
     var address = {
-        'id': addr.find('#addressId').attr('aid'),
-        'name': addr.find('#receiverName').html(),
-        'address': addr.find('#addressDetails').html(),
-        'phonenumber': addr.find('#receiverPhoneNumber').html()
+        'id': addressList.find('.addressId').attr('aid'),
+        'name': addressList.find('.receiverName').html(),
+        'address': addressList.find('.addressDetails').html(),
+        'phonenumber': addressList.find('.receiverPhoneNumber').html()
     };
     $.ajax({
         type: 'post',
@@ -229,6 +229,24 @@ function editAddress(id) {
         },
         error: function () {
             console.log('Cannot save Address')
+        }
+    })
+}
+
+function deleteAddress(id) {
+    var addressList = $($('#addressList').find('tr')[id-1]);
+    var aid = addressList.find('.addressId').attr('aid');
+    $.ajax({
+        type: 'post',
+        url: 'deleteAddress',
+        data: { 'id': aid },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            if(data.status === 'SUCCESS')
+                addressList.remove();
+        },
+        error: function () {
+            console.log('Cannot delete Address')
         }
     })
 }

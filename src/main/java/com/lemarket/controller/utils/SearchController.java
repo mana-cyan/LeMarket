@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -29,15 +30,17 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search(int searchType, String input, Model model)throws Exception {
+    public String search(int searchType, String input, HttpServletRequest request, Model model)throws Exception {
         model.addAttribute("type", searchType);
         if(searchType == 0) {   //搜索商品
             List<Commodity> commodityList = searchCommodity(input);
-            model.addAttribute("list", commodityList);
+//            model.addAttribute("list", commodityList);
+            request.getSession().setAttribute("list", commodityList);
         }
         else {    //搜索店铺
             List<ShopWithUser> shopList = searchShop(input);
-            model.addAttribute("list",shopList);
+//            model.addAttribute("list",shopList);
+            request.getSession().setAttribute("list", shopList);
         }
         return "shop/search";
     }

@@ -46,7 +46,7 @@ public class CommodityAbout {
     @RequestMapping(value = "getCommodityByCategoryId", method = RequestMethod.GET)
     public String getCommodityByCategory(int categoryId, int page, Model model, HttpServletRequest request){
         model.addAttribute("type", 0);
-        model.addAttribute("count", commodityAboutService.getCommodityCount(categoryId));
+//        model.addAttribute("count", commodityAboutService.getCommodityCount(categoryId));
         //model.addAttribute("list", commodityAboutService.getCommodityByCategoryId(categoryId, (page-1)*8, 8));
         request.getSession().setAttribute("list", commodityAboutService.getCommodityByCategoryId(categoryId, (page-1)*8, 8));
         return "shop/search";

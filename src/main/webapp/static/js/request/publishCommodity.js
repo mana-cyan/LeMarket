@@ -49,14 +49,12 @@ function addCommodity(category, shopId) {
         'image': 1,
         'status': 1
     };
-    console.log(commodity);
     $.ajax({
         type: 'post',
         url: 'addCommodity',
         data: commodity,
         headers: { 'token': Cookie.getToken() },
         success: function (id) {
-            console.log(id);
             addCommodityType(id)
         },
         error: function () {
@@ -68,15 +66,17 @@ function addCommodity(category, shopId) {
 function addCommodityType(commodityId) {
     var types = commodityTypes.find('input');
     var typeList = [];
-    for (var i in types)
-        typeList.push($(types[i]).val())
+    var str = "{'id': commodityId,";
+    for (var i = 0; i < types.length; i++) {
+        typeList[i] = $(types[i]).val();
+        str +="'type':" + $(types[i]).val()
+    }
+    str += "}";
+    console.log(typeList)
     $.ajax({
         type: 'post',
         url: 'addCommodityType',
-        data: {
-            'id': commodityId,
-            'type': typeList
-        },
+        data: str,
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
             if (data.status === 'SUCCESS')

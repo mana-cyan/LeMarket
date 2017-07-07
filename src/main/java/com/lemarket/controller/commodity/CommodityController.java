@@ -85,10 +85,11 @@ public class CommodityController {
     }
 
     //添加商品类型
-    @RequestMapping(value = "addCommodityType", method = RequestMethod.GET)
+    @RequestMapping(value = "addCommodityType", method = RequestMethod.POST)
     @ResponseBody
-    public Status addCommodityType(int id, List<String> type) {
-        int insertNumber = commodityAboutService.addCommodityType(id, type);
+    public Status addCommodityType(/*int id, */List<String> type) {
+        System.out.println(type);
+        int insertNumber = 1;//commodityAboutService.addCommodityType(id, type);
         if (insertNumber > 0)
             return new Status("SUCCESS");
         return new Status("ERROR");

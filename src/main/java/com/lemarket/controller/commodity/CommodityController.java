@@ -7,6 +7,7 @@ import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.market.CommodityAboutService;
 import com.lemarket.service.utils.CommoditySearch;
 import com.lemarket.service.utils.ImageFactory;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -75,7 +76,8 @@ public class CommodityController {
     //添加商品
     @RequestMapping(value = "addCommodity", method = RequestMethod.POST)
     @ResponseBody
-    public Status addCommodity(Commodity commodity){
+    public Status addCommodity( Commodity commodity){
+        System.out.println(commodity);
         int status = commodityAboutService.addCommodity(commodity);
         if (status>0)
             return new Status("SUCCESS");

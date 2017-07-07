@@ -143,7 +143,7 @@
                             </tr>
                             <tr style="width:100%;">
                                 <td>选择商品图片：</td>
-                                <td><input id="commodityPicture" type="file"  placeholder="选择图片"></td>
+                                <td><input id="commodityPicture" type="file" placeholder="选择图片"></td>
                             </tr>
                         </table>
                     </div>

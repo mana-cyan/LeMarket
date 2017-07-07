@@ -79,7 +79,7 @@ CREATE TABLE `Commodity` (
   `storage` INT NOT NULL COMMENT '商品库存',
   `saled` INT DEFAULT '0' COMMENT '商品销量',
   `price` FLOAT NOT NULL COMMENT '商品价格',
-  `image` INT NOT NULL COMMENT '商品图片地址',
+  `image` INT DEFAULT 0 COMMENT '商品图片地址',
   `visitCount` INT DEFAULT '0' COMMENT '商品浏览量',
   `status` INT DEFAULT 1 COMMENT '商品状态',
   `time` DATETIME NOT NULL COMMENT '上架时间',

@@ -1,4 +1,4 @@
-var commodityName = $('#commodityType');
+var commodityName = $('#commodityName');
 var commodityDescription = $('#commodityDescription');
 var commodityTypes = $('#commodityTypes');
 var commodityPrice = $('#commodityPrice');
@@ -34,6 +34,10 @@ function getShopId(categoryId) {
     })
 }
 
+function savePicture() {
+
+}
+
 function addCommodity(category, shopId) {
     $.ajax({
         type: 'post',
@@ -44,10 +48,12 @@ function addCommodity(category, shopId) {
             'name': commodityName.val(),
             'storage': commodityStorage.val(),
             'price': commodityPrice.val(),
-            'details': commodityDescription.val()
+            'details': commodityDescription.val(),
+            'time': new Date().getTime()
         },
         headers: { 'token': Cookie.getToken() },
         success: function (id) {
+            console.log(id);
             addCommodityType(id)
         },
         error: function () {
@@ -70,12 +76,15 @@ function addCommodityType(commodityId) {
         },
         headers: { 'token': Cookie.getToken() },
         success: function (data) {
+            if (data.status === 'SUCCESS')
+                alert('保存成功')
         },
         error: function () {
             console.log('Cannot add commodity type')
         }
     })
 }
+
 
 function editType() {
     commodityTypes.find('#add').remove();

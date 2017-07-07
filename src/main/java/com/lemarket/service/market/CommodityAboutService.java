@@ -73,8 +73,8 @@ public class CommodityAboutService {
     }
 
     //添加商品类型
-    public int addCommodityType(int id, List<String> type){
-        return commoditytypeMapper.insertCommodityTypeList(id, type);
+    public int addCommodityType(int id, String type){
+        return commoditytypeMapper.insertCommodityType(id, type);
     }
 
     //编辑商品

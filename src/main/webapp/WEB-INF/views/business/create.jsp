@@ -25,8 +25,6 @@
     <!-- User style -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/custom.css">
 
-
-
     <!-- Modernizr JS -->
     <script src="${pageContext.request.contextPath}/static/js/modernizr-2.8.3.min.js"></script>
 
@@ -70,61 +68,14 @@
     <!-- Body main wrapper start -->
     <div class="wrapper">
         <!-- Start of header area -->
-        <header>
-            <div class="header-top gray-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-5 hidden-xs">
-                            <div class="header-top-left">
-                                <ul class="header-top-style text-capitalize mr-25">
-                                    <li><a href="${pageContext.request.contextPath}/static/userPage/index.html"><span class="mr-10">首页</span></a>
-                                    </li>
-                                </ul>
-                                 <ul class="header-top-style text-capitalize mr-25">
-                                    <li><a href="${pageContext.request.contextPath}/static/userPage/grzx.html"><span class="mr-10">个人中心</span><i class="fa fa-angle-down"></i></a>
-                                        <ul class="ul-style currency box-shadow white-bg">
-                                            <li><a href="${pageContext.request.contextPath}/static/userPage/login.html"><i class="fa fa-usd"></i><span>登录</span></a></li>
-                                            <li><a href="${pageContext.request.contextPath}/static/userPage/sign.html"><i class="fa fa-euro"></i><span>注册</span></a></li>
-                                            <li><a href="${pageContext.request.contextPath}/static/userPage/grzx.html"><i class="fa fa-gbp"></i><span>我的</span></a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <ul class="header-top-style pl-10">
-                                    <li>
-                                        <a href="${pageContext.request.contextPath}/static/userPage/grzx.html"><span class="mr-10">我的订单</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        </div>
-                        <div class="col-sm-4 col-xs-6 selector">
-                            <div class="col-md-3" style="margin-right:-30px;">
-                                <form action="" >
-                                    <label>
-                                        <select name="">
-                                            <option value="shop">搜店铺</option>
-                                            <option value="commodity">搜商品</option>
-                                        </select>
-                                    </label>
-                                </form>
-                            </div>
-                            <div class="col-md-7" >
-                                <span><input type="text" class="pl-10" placeholder="请输入店铺名、商品" style="border-left:0;color:#fff;"></span>
-                            </div>
-                            <div class="col-md-2">
-                                <span class="mr-20" ><a href="#"><img alt="" src="${pageContext.request.contextPath}/static/images/header/search-icon.png" style="width:20px;height:20px;margin-top:5px;margin-left:-15px;"></a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <header style="margin-top:-20px;">
+            <jsp:include page="/getToolBar"/>
             <div class="header-bottom">
                 <div class="container">
                     <div class="row header-middle-content">
-                        <div class="col-md-5 col-sm-4 hidden-xs">
+                        <div class="col-md-4 col-sm-4 hidden-xs">
                         </div>
-                        <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="col-md-3 col-sm-4 col-xs-12" style="margin-left:30px;">
                             <div class="header-logo text-center">
                                 <a href="${pageContext.request.contextPath}/static/userPage/index.html"><img alt="" src="${pageContext.request.contextPath}/static/images/logo.png"></a>
                             </div>
@@ -218,6 +169,8 @@
 
     <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/createshop.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
+    <!-- Load Shop Component -->
     <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 
 </body>

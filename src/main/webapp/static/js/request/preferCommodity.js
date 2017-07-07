@@ -5,6 +5,7 @@ function getPreferCommodity(callback) {
         url:'prefer',
         dataType:'json',
         success:function (data) {
+            console.log(data)
             callback(data)
         },
         error:function () {

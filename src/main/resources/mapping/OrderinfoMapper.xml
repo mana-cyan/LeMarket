@@ -49,12 +49,12 @@
       select *
       from Orderwithallcommoditydetail
       WHERE vuser = #{id} AND vstatus = #{status}
-      ORDER BY vid LIMIT #{beginRow}, #{pageSize};
+      ORDER BY vid DESC;
     </select>
   <select id="selectAllById" resultMap="OrderWithDetail">
     select *
     from Orderwithallcommoditydetail
-    WHERE vuser=#{id} ORDER BY vid LIMIT #{beginRow}, #{pageSize};
+    WHERE vuser=#{id} ORDER BY vid DESC;
   </select>
   <select id="selectLast" resultMap="BaseResultMap">
     SELECT LAST_INSERT_ID() FROM OrderInfo
@@ -66,6 +66,6 @@
       SELECT orderInfo FROM OrderDetails WHERE commodity IN (
         select id FROM Commodity WHERE shop = #{shopId}
       )
-    )ORDER BY vid DESC LIMIT #{beginRow}, #{pageSize};
+    )ORDER BY vid DESC;
   </select>
 </mapper>

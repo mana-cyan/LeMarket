@@ -26,9 +26,9 @@ public interface OrderinfoMapper {
     List<OrderWithDetail> selectAll();
 
     //获取用户订单
-    List<OrderWithDetail> selectByUserIdAndStatus(@Param("id") int id, @Param("status") String status, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
+    List<OrderWithDetail> selectByUserIdAndStatus(@Param("id") int id, @Param("status") String status);
 
-    List<OrderWithDetail> selectAllById(@Param("id") int id, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
+    List<OrderWithDetail> selectAllById(@Param("id") int id);
     int selectLast();
 
     int updateStatusById(@Param("status") String status, @Param("id") int id);
@@ -36,5 +36,5 @@ public interface OrderinfoMapper {
     int deleteOrderByOrderId(@Param("id") int id);
 
     //获取店铺订单状态
-    List<OrderWithDetail> selectOrderByShopIdAndStatus(@Param("shopId") int shopId, @Param("status") String status, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
+    List<OrderWithDetail> selectOrderByShopIdAndStatus(@Param("shopId") int shopId, @Param("status") String status);
 }

@@ -54,7 +54,10 @@ function checkUserInfo() {
            } else {
                loadUserInfo();
                loadUnpaidOrders(1);
-               loadAddress();
+               loadUnreceivedOrders(1);
+               loadUncommentedOrders(1);
+               loadAllOrders(1);
+               loadAddress()
            }
        },
        error: function () {
@@ -158,6 +161,142 @@ function loadUnpaidOrders(page) {
     })
 }
 
+function loadUnreceivedOrders(page) {
+    $.ajax({
+        type: 'get',
+        url: 'unreceived',
+        data: { 'page': page },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var unreceived = $('#dsh');
+            for (var i in data) {
+                $(unreceived[i]).append(
+                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                    '<div class="col-md-1" style="">' +
+                    '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].name + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].commodityType + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].phoneNumber +'</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].address + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:25px;padding:20px;">' +
+                    '<h4>￥' + data[i].price +  '</h4>' +
+                    '</div>' +
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">' +
+                    '<div class="btn-group" role="group" aria-label="...">' +
+                    '<button type="button" class="btn btn-default">确认收货</button>' +
+                    '<button type="button" class="btn btn-default">删除订单</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load unreceived orders')
+        }
+    })
+}
+
+function loadUncommentedOrders(page) {
+    $.ajax({
+        type: 'get',
+        url: 'uncomment',
+        data: { 'page': page },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var uncommented = $('#dpj');
+            for (var i in data) {
+                $(uncommented[i]).append(
+                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                    '<div class="col-md-1" style="">' +
+                    '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].name + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].commodityType + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].phoneNumber +'</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].address + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:25px;padding:20px;">' +
+                    '<h4>￥' + data[i].price +  '</h4>' +
+                    '</div>' +
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">' +
+                    '<div class="btn-group" role="group" aria-label="...">' +
+                    '<button type="button" class="btn btn-default">去评价</button>' +
+                    '<button type="button" class="btn btn-default">删除订单</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load uncommented order');
+        }
+    })
+}
+
+function loadAllOrders(page) {
+    $.ajax({
+        type: 'get',
+        url: 'finished',
+        data: { 'page': page },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var orderList = $('#qbdd');
+            for (var i in data) {
+                console.log(data[i])
+                $(orderList).append(
+                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                    '<div class="col-md-1" style="">' +
+                    '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].name + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].commodityType + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].phoneNumber +'</span>' +
+                    '</div>' +
+                    '<div class="col-md-2" style="margin-top:20px;padding:20px;">' +
+                    '<span>' + data[i].address + '</span>' +
+                    '</div>' +
+                    '<div class="col-md-1" style="margin-top:25px;padding:20px;">' +
+                    '<h4>￥' + data[i].price +  '</h4>' +
+                    '</div>' +
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">' +
+                    '<div class="btn-group" role="group" aria-label="...">' +
+                    '<button type="button" class="btn btn-default">去看看</button>' +
+                    '<button type="button" class="btn btn-default">删除订单</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                )
+            }
+        },
+        error: function () {
+            console.log('Cannot load unreceived orders')
+        }
+    })
+}
+
 function loadAddress() {
     $.ajax({
         type: 'get',
@@ -170,11 +309,11 @@ function loadAddress() {
                 var id = parseInt(i) + 1;
                 addressList.append(
                     '<tr style="width:100%;">' +
-                    '<td id="addressId" aid="' + data[i].id + '">' + id + '</td>' +
-                    '<td id="receiverName">' + data[i].name + '</td>' +
-                    '<td id="addressDetails">' + data[i].address + '</td>' +
-                    '<td id="receiverPhoneNumber">' + data[i].phonenumber + '</td>' +
-                    '<td><button type="button" class="btn btn-default" onclick="editAddress(' + id +')">修改</button></td>' +
+                    '<td class="addressId" aid="' + data[i].id + '">' + id + '</td>' +
+                    '<td class="receiverName">' + data[i].name + '</td>' +
+                    '<td class="addressDetails">' + data[i].address + '</td>' +
+                    '<td class="receiverPhoneNumber">' + data[i].phonenumber + '</td>' +
+                    '<td><button type="button" class="btn btn-default" onclick="deleteAddress(' + id +')">删除</button></td>' +
                     '</tr>'
                 )
             }
@@ -211,12 +350,12 @@ function addAddress() {
 }
 
 function editAddress(id) {
-    var addr = $($('#addressList')[id-1]);
+    var addressList = $($('#addressList').find('tr')[id-1]);
     var address = {
-        'id': addr.find('#addressId').attr('aid'),
-        'name': addr.find('#receiverName').html(),
-        'address': addr.find('#addressDetails').html(),
-        'phonenumber': addr.find('#receiverPhoneNumber').html()
+        'id': addressList.find('.addressId').attr('aid'),
+        'name': addressList.find('.receiverName').html(),
+        'address': addressList.find('.addressDetails').html(),
+        'phonenumber': addressList.find('.receiverPhoneNumber').html()
     };
     $.ajax({
         type: 'post',
@@ -229,6 +368,24 @@ function editAddress(id) {
         },
         error: function () {
             console.log('Cannot save Address')
+        }
+    })
+}
+
+function deleteAddress(id) {
+    var addressList = $($('#addressList').find('tr')[id-1]);
+    var aid = addressList.find('.addressId').attr('aid');
+    $.ajax({
+        type: 'post',
+        url: 'deleteAddress',
+        data: { 'id': aid },
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            if(data.status === 'SUCCESS')
+                addressList.remove();
+        },
+        error: function () {
+            console.log('Cannot delete Address')
         }
     })
 }

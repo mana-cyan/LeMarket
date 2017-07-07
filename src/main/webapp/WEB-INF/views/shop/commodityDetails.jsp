@@ -121,7 +121,7 @@
     <div class="container" style="margin-top:30px;">
         <div class="row">
             <div class="col-md-6">
-                <img id="commodityPicture" name="${commodity.image}" cid="${commodity.id}" src="" style="width:80%;height:80%;">
+                <img id="commodityPicture" name="${commodity.image}" cid="${commodity.id}" src="" style="width:80%;height:70%;">
             </div>
             <div class="col-md-6" style="margin-top:10px;">
                 <h4><strong>${commodity.name}</strong></h4>
@@ -162,7 +162,7 @@
     </div>
 
     <!-- 评论部分 -->
-    <div class="container" style="margin-top:20px;width:80%;">
+    <div class="container" style="margin-top:20px;width:87%;">
         <div class="row bg-pinglun">
             <!-- 列表部分 -->
             <div class="pinglun">

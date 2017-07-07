@@ -54,14 +54,14 @@ public class PersonalController {
     @ResponseBody
     public List<OrderWithDetail> getOrderOfUncomment(int page, HttpServletRequest request) {
         String token = request.getHeader("token");
-        return orderService.getOrderByStatus(token, "收货", (page - 1) * 10, 10);
+        return orderService.getOrderByStatus(token, "待评价", (page - 1) * 10, 10);
     }
 
-    @RequestMapping(value = "orderList", method = RequestMethod.GET)
+    @RequestMapping(value = "finished", method = RequestMethod.GET)
     @ResponseBody
-    public List<OrderWithDetail> getOrderOfAll(int page, HttpServletRequest request) {
+    public List<OrderWithDetail> getFinishedOrder(int page, HttpServletRequest request) {
         String token = request.getHeader("token");
-        return orderService.getAllOrderById(token, (page - 1) * 10, 10);
+        return orderService.getOrderByStatus(token, "已完成", (page - 1) * 10, 10);
     }
 
     @RequestMapping(value = "getUser", method = RequestMethod.GET)

@@ -112,7 +112,7 @@
                                 <img src="" alt="">
                             </a>
                             <div class="banner-text banner-text-1">
-                                <a href="shop/category.jsp" class="banner-heading text-uppercase text-right" ><!--时尚女装--></a>
+                                <a href="#" class="banner-heading text-uppercase text-right" ><!--时尚女装--></a>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                                         <img src="" alt="" style="width:550px;height:290px;">
                                     </a>
                                     <div id class="banner-text banner-text-2 text-center">
-                                        <a href="shop/category.jsp" class="banner-heading text-uppercase text-right"><!--潮流男装--></a>
+                                        <a href="#" class="banner-heading text-uppercase text-right"><!--潮流男装--></a>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                         <img src="" alt="">
                                     </a>
                                     <div class="banner-text banner-text-3">
-                                        <a href="shop/category.jsp" class="banner-heading text-uppercase text-right"><!--时尚女鞋--></a>
+                                        <a href="#" class="banner-heading text-uppercase text-right"><!--时尚女鞋--></a>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +146,7 @@
                                         <img src="" alt="">
                                     </a>
                                     <div class="banner-text banner-text-4 text-right">
-                                        <a href="shop/category.jsp" class="banner-heading text-uppercase text-right" style="margin-bottom:20px;"><!--潮流包包--></a>
+                                        <a href="#" class="banner-heading text-uppercase text-right" style="margin-bottom:20px;"><!--潮流包包--></a>
                                         <h3 class="banner-title text-uppercase text-right"></h3>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                         <img src="" alt="" style="width:550px;height:290px;">
                                     </a>
                                     <div class="banner-text banner-text-5 text-center">
-                                        <a href="shop/category.jsp" class="banner-heading text-uppercase text-right"><!--儿童世界--></a>
+                                        <a href="#" class="banner-heading text-uppercase text-right"><!--儿童世界--></a>
                                         <h3 class="banner-title text-uppercase text-right"></h3>
                                     </div>
                                 </div>

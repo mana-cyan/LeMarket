@@ -10,14 +10,12 @@ import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.account.AdminChecker;
 import com.lemarket.service.account.ManagerService;
 import com.lemarket.service.account.ValidateCodeChecker;
-import com.lemarket.service.market.CommodityUpdater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,16 +33,13 @@ public class ManagerController {
 
     private final CommodityMapper commodityMapper;
 
-    private final CommodityUpdater commodityUpdater;
-
     @Autowired
-    public ManagerController(ManagerService managerService, ValidateCodeChecker validateCodeChecker, AdminChecker adminChecker, UsersMapper usersMapper, CommodityMapper commodityMapper, CommodityUpdater commodityUpdater) {
+    public ManagerController(ManagerService managerService, ValidateCodeChecker validateCodeChecker, AdminChecker adminChecker, UsersMapper usersMapper, CommodityMapper commodityMapper) {
         this.managerService = managerService;
         this.validateCodeChecker = validateCodeChecker;
         this.adminChecker = adminChecker;
         this.usersMapper = usersMapper;
         this.commodityMapper = commodityMapper;
-        this.commodityUpdater = commodityUpdater;
     }
 
     //获取用户列表
@@ -68,9 +63,10 @@ public class ManagerController {
     //重置用户密码
     @RequestMapping(value = "resetPassword", method = RequestMethod.POST)
     @ResponseBody
-    public Status resetPassword(int id, String newPassword){
-        int st = managerService.resetPassword(newPassword.substring(0,32), id);
-        if(st > 0 )
+    public Status resetPassword(Integer id){
+        System.out.println("resetPasswordStart");
+        boolean isSuccess=managerService.resetPasswordById(id);
+        if(isSuccess)
             return new Status("SUCCESS");
         return new Status("ERROR");
     }
@@ -113,13 +109,7 @@ public class ManagerController {
             if(isTrue) {
                 request.getSession().setAttribute("login","SUCCESS");
                 int page=1;
-                int pageSize=20;
-                modelAndView.setViewName("admin/index");
-                List<Users> selectUsers=usersMapper.selectAll((page-1)*pageSize,pageSize);
-                modelAndView.addObject("data", userListToJSON(selectUsers));
-                modelAndView.addObject("totalPage",(usersMapper.getCount()-1)/pageSize+1);
-                modelAndView.addObject("nowPage",page);
-                return modelAndView;
+                return adminPage(page,request);
             }
             else {
                 modelAndView.setViewName("redirect:/admin/login");
@@ -197,10 +187,9 @@ public class ManagerController {
         if(page==null) page=1;
         ModelAndView modelAndView=new ModelAndView();
         modelAndView.setViewName("admin/goods");
-        modelAndView.addObject("data", commodityListToJSON(commodityMapper.selectAll((page-1)*pageSize,pageSize)));
+        modelAndView.addObject("data", commodityListToJSON(managerService.getAllCommodityWithAllStatus((page-1)*pageSize,pageSize)));
         modelAndView.addObject("totalPage",(commodityMapper.getCount()-1)/pageSize+1);
         modelAndView.addObject("nowPage",page);
-        System.out.println(commodityListToJSON(commodityMapper.selectAll((page-1)*pageSize,pageSize)));
         return modelAndView;
     }
 
@@ -218,13 +207,14 @@ public class ManagerController {
         return "admin/panelPage";
     }
 
-    @RequestMapping(value="admin/goods/status")
+    @RequestMapping(value="admin/goods/status",method = RequestMethod.POST)
     @ResponseBody
     public Status adminChangeGoodStatus(Integer id,HttpServletRequest request,HttpServletResponse response)
     {
         boolean isLogin= adminChecker.checkIsLogin(request);
         if(!isLogin) return new Status("LOGOUT");
-        boolean operationSuccess= commodityUpdater.ChangeCmmodityStatus(id);
+        boolean operationSuccess= managerService.changeCommodityStatus(id);
+        System.out.println("operatorSuccess");
         if(operationSuccess) return new Status("SUCCESS");
         else return new Status("ERROR");
     }

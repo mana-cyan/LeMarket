@@ -68,14 +68,14 @@
     <!-- Body main wrapper start -->
     <div class="wrapper">
         <!-- Start of header area -->
-        <header>
+        <header style="margin-top:-20px;">
             <jsp:include page="/getToolBar"/>
             <div class="header-bottom">
                 <div class="container">
                     <div class="row header-middle-content">
-                        <div class="col-md-5 col-sm-4 hidden-xs">
+                        <div class="col-md-4 col-sm-4 hidden-xs">
                         </div>
-                        <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="col-md-3 col-sm-4 col-xs-12" style="margin-left:30px;">
                             <div class="header-logo text-center">
                                 <a href="${pageContext.request.contextPath}/static/userPage/index.html"><img alt="" src="${pageContext.request.contextPath}/static/images/logo.png"></a>
                             </div>

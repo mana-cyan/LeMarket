@@ -24,17 +24,17 @@ public class OrderService {
     //根据token获取获取用户相应状态的订单记录
     public List<OrderWithDetail> getOrderByStatus(String tokenString, String status, int beginRow, int pageSize){
         Token token = tokenMapper.selectByToken(tokenString);
-        return orderinfoMapper.selectByUserIdAndStatus(token.getId(), status, beginRow, pageSize);
+        return orderinfoMapper.selectByUserIdAndStatus(token.getId(), status);
     }
 
     //根据Token获取用户的所有订单
     public List<OrderWithDetail> getAllOrderById(String tokenString, int beginRow, int pageSize){
         Token token = tokenMapper.selectByToken(tokenString);
-        return orderinfoMapper.selectAllById(token.getId(), beginRow, pageSize);
+        return orderinfoMapper.selectAllById(token.getId());
     }
 
     //根据店铺id获取相应状态的订单
     public List<OrderWithDetail> getOrderByShopIdAndStatus(int shopid, String status, int beginRow, int pageSize){
-        return orderinfoMapper.selectOrderByShopIdAndStatus(shopid,status,beginRow,pageSize);
+        return orderinfoMapper.selectOrderByShopIdAndStatus(shopid,status);
     }
 }

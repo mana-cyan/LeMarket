@@ -45,7 +45,9 @@ function addCommodity(category, shopId) {
         'name': commodityName.val(),
         'storage': commodityStorage.val(),
         'price': commodityPrice.val(),
-        'details': commodityDescription.val()
+        'details': commodityDescription.val(),
+        'image': 1,
+        'status': 1
     };
     console.log(commodity);
     $.ajax({

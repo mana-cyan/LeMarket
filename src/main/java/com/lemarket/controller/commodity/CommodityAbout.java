@@ -2,10 +2,13 @@ package com.lemarket.controller.commodity;
 
 import com.lemarket.data.model.CommentWithUser;
 import com.lemarket.data.model.Commodity;
+import com.lemarket.data.reponseObject.CategoryDetail;
+import com.lemarket.service.market.CategoryDetails;
 import com.lemarket.service.market.CommodityAboutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,9 +20,12 @@ import java.util.List;
 public class CommodityAbout {
     private final CommodityAboutService commodityAboutService;
 
+    private final CategoryDetails categoryDetails;
+
     @Autowired
-    public CommodityAbout(CommodityAboutService commodityAboutService) {
+    public CommodityAbout(CommodityAboutService commodityAboutService, CategoryDetails categoryDetails) {
         this.commodityAboutService = commodityAboutService;
+        this.categoryDetails = categoryDetails;
     }
 
     //分页获取商品评论
@@ -50,5 +56,11 @@ public class CommodityAbout {
     @ResponseBody
     public List<String> getCommodityType(int id){
         return commodityAboutService.getCommodityTypeById(id);
+    }
+
+    @RequestMapping(value = "getCategoryId", method = RequestMethod.GET)
+    @ResponseBody
+    public int getCategoryId(String name){
+        return categoryDetails.getCategoryId(name);
     }
 }

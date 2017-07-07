@@ -30,4 +30,7 @@
     select id, name, description, picture, parent
     from Category
   </select>
+    <select id="selectByName" resultType="com.lemarket.data.model.Category">
+        SELECT * FROM Category WHERE name = #{name};
+    </select>
 </mapper>

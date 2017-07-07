@@ -1,6 +1,7 @@
 package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Category;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,4 +24,5 @@ public interface CategoryMapper {
      * @mbg.generated
      */
     List<Category> selectAll();
+    Category selectByName(@Param("name") String name);
 }

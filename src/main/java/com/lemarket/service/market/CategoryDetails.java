@@ -37,4 +37,8 @@ public class CategoryDetails {
         return new CategoryJson(stringCateDetailMap);
     }
 
+    //根据分类名称获取分类id
+    public int getCategoryId(String name){
+        return categoryMapper.selectByName(name).getId();
+    }
 }

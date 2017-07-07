@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -37,10 +38,10 @@ public class CommodityAbout {
 
     //根据分类获取商品分页
     @RequestMapping(value = "getCommodityByCategoryId", method = RequestMethod.GET)
-    public String getCommodityByCategory(int categoryId, int page, Model model){
+    public String getCommodityByCategory(int categoryId, int page, Model model, HttpServletRequest request){
         model.addAttribute("type", 0);
         model.addAttribute("count", commodityAboutService.getCommodityCount(categoryId));
-        model.addAttribute("list", commodityAboutService.getCommodityByCategoryId(categoryId, (page-1)*8, 8));
+        request.getSession().setAttribute("list", commodityAboutService.getCommodityByCategoryId(categoryId, (page-1)*8, 8));
         return "shop/search";
     }
 

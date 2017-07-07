@@ -12,7 +12,7 @@ public interface UsersMapper {
 
     int insert(Users record);
     
-    List<Users> selectAll(int beginRow, int pageSize);
+    List<Users> selectAll(@Param("beginRow") int beginRow,@Param("pageSize") int pageSize);
 
     Users selectByUsername(String username);
     Users selectByEmail(String email);
@@ -29,4 +29,6 @@ public interface UsersMapper {
     int updateIdentityById(@Param("identity") String identity, @Param("id") int id);
 
     List<Users> selectUserByNameOrEmail(String key);
+
+    int getCount();
 }

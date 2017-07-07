@@ -105,4 +105,7 @@
       s.servicePhoneNumber as sservicePhoneNumber, s.description as sdescription
     from Commodity c,Shop s WHERE c.id=#{id} AND c.shop = s.id AND c.status=1;
   </select>
+    <select id="getCount" resultType="java.lang.Integer">
+      SELECT COUNT(*) FROM lemarket.Commodity;
+    </select>
 </mapper>

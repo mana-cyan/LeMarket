@@ -23,7 +23,7 @@ public interface CommodityMapper {
      *
      * @mbg.generated
      */
-    List<Commodity> selectAll(int beginRow, int pageSize);
+    List<Commodity> selectAll(@Param("beginRow") int beginRow,@Param("pageSize") int pageSize);
 
     List<Commodity> selectBySaledOrder();
 
@@ -47,4 +47,6 @@ public interface CommodityMapper {
 
     //删除商品
     int deleteCommodity(int commodityId);
+
+    int getCount();
 }

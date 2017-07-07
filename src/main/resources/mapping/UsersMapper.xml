@@ -85,4 +85,7 @@
   <select id="selectUserByNameOrEmail" resultMap="BaseResultMap">
     SELECT * FROM Users WHERE username LIKE #{key} OR email LIKE #{key};
   </select>
+  <select id="getCount" resultType="java.lang.Integer">
+    SELECT COUNT(*) FROM  lemarket.Users;
+  </select>
 </mapper>

@@ -4,12 +4,15 @@ import com.lemarket.data.model.Address;
 import com.lemarket.data.model.OrderWithDetail;
 import com.lemarket.data.model.Users;
 import com.lemarket.data.reponseObject.Status;
+import com.lemarket.service.account.CookieChecker;
 import com.lemarket.service.account.OrderService;
+import com.lemarket.service.account.TokenSetter;
 import com.lemarket.service.account.UserEditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -20,10 +23,16 @@ public class PersonalController {
 
     private final UserEditService userEditService;
 
+    private final TokenSetter tokenSetter;
+
+    private final CookieChecker cookieChecker;
+
     @Autowired
-    public PersonalController(OrderService orderService, UserEditService userEditService) {
+    public PersonalController(OrderService orderService, UserEditService userEditService, TokenSetter tokenSetter, CookieChecker cookieChecker) {
         this.orderService = orderService;
         this.userEditService = userEditService;
+        this.tokenSetter = tokenSetter;
+        this.cookieChecker = cookieChecker;
     }
 
     @RequestMapping(value = "unpaid", method = RequestMethod.GET)
@@ -69,8 +78,14 @@ public class PersonalController {
     }
 
     @RequestMapping(value = "userPage")
-    public String userPage() {
+    public String userPage(HttpServletRequest request) {
+        String token= cookieChecker.getToken(request.getCookies());
+        System.out.println(token);
+        boolean isValid= tokenSetter.checkTokenIsValid(token);
+        if(isValid)
         return "user/userPage";
+        else
+            return "redirect:/login";
     }
 
     //获取个人所有收货地址

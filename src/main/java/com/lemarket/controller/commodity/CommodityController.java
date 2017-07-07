@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
@@ -78,10 +79,10 @@ public class CommodityController {
     //添加商品
     @RequestMapping(value = "addCommodity", method = RequestMethod.POST)
     @ResponseBody
-    public Status addCommodity(Commodity commodity){
+    public Status addCommodity(Commodity commodity, HttpServletRequest request){
         commodity.setTime(new Date());
         System.out.println(commodity);
-        int status = commodityAboutService.addCommodity(commodity);
+        int status = commodityAboutService.addCommodity(commodity, (String) request.getSession().getAttribute("token"));
         if (status>0)
             return new Status("SUCCESS");
         return new Status("ERROR");

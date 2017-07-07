@@ -15,14 +15,16 @@ public class CommodityAboutService {
     private final CommoditytypeMapper commoditytypeMapper;
     private final PictureMapper pictureMapper;
     private final ShopMapper shopMapper;
+    private final TokenMapper tokenMapper;
 
     @Autowired
-    public CommodityAboutService(CommentMapper commentMapper, CommodityMapper commodityMapper, CommoditytypeMapper commoditytypeMapper, PictureMapper pictureMapper, ShopMapper shopMapper) {
+    public CommodityAboutService(CommentMapper commentMapper, CommodityMapper commodityMapper, CommoditytypeMapper commoditytypeMapper, PictureMapper pictureMapper, ShopMapper shopMapper, TokenMapper tokenMapper) {
         this.commentMapper = commentMapper;
         this.commodityMapper = commodityMapper;
         this.commoditytypeMapper = commoditytypeMapper;
         this.pictureMapper = pictureMapper;
         this.shopMapper = shopMapper;
+        this.tokenMapper = tokenMapper;
     }
 
     //根据商品id获取评论
@@ -62,10 +64,10 @@ public class CommodityAboutService {
     }
 
     //添加商品
-    public int addCommodity(Commodity commodity){
+    public int addCommodity(Commodity commodity, String tokenString){
         //commodity里无店主id， 获取并设置
-        ShopWithUser shop = shopMapper.selectById(commodity.getShop());
-        commodity.setOwner(shop.getOwner());
+        Token token = tokenMapper.selectByToken(tokenString);
+        commodity.setOwner(token.getId());
         return commodityMapper.insert(commodity);
     }
 

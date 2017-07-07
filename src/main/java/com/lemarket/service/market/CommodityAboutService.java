@@ -68,6 +68,7 @@ public class CommodityAboutService {
         //commodity里无店主id， 获取并设置
         Token token = tokenMapper.selectByToken(tokenString);
         commodity.setOwner(token.getId());
+        System.out.println(commodity);
         return commodityMapper.insert(commodity);
     }
 

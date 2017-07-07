@@ -81,8 +81,7 @@ public class CommodityController {
     @ResponseBody
     public Status addCommodity(Commodity commodity, HttpServletRequest request){
         commodity.setTime(new Date());
-        System.out.println(commodity);
-        int status = commodityAboutService.addCommodity(commodity, (String) request.getSession().getAttribute("token"));
+        int status = commodityAboutService.addCommodity(commodity, request.getHeader("token"));
         if (status>0)
             return new Status("SUCCESS");
         return new Status("ERROR");

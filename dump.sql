@@ -133,23 +133,23 @@ DROP TABLE IF EXISTS `Commodity`;
 CREATE TABLE `Commodity` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商品id',
   `owner` int(11) NOT NULL COMMENT '店主id',
-  `shop` int(11) NOT NULL UNIQUE COMMENT '店铺id',
+  `shop` int(11) NOT NULL COMMENT '店铺id',
   `name` varchar(100) NOT NULL COMMENT '商品名称',
   `details` text COMMENT '商品详情',
   `category` int(11) NOT NULL COMMENT '商品分类',
   `storage` int(11) NOT NULL COMMENT '商品库存',
   `saled` int(11) DEFAULT '0' COMMENT '商品销量',
   `price` float NOT NULL COMMENT '商品价格',
-  `image` int(11) NOT NULL COMMENT '商品图片地址',
+  `image` int(11) NOT NULL DEFAULT '1' COMMENT '商品图片地址',
   `visitCount` int(11) DEFAULT '0' COMMENT '商品浏览量',
   `status` int(11) DEFAULT '1' COMMENT '商品状态',
   `time` datetime NOT NULL COMMENT '上架时间',
   PRIMARY KEY (`id`),
-  KEY `owner` (`owner`),
-  KEY `category` (`category`),
-  KEY `shop` (`shop`),
-  KEY `image` (`image`),
   KEY `indexCommodityOrder` (`saled`),
+  KEY `Commodity_ibfk_1` (`owner`),
+  KEY `Commodity_ibfk_2` (`category`),
+  KEY `Commodity_ibfk_3` (`shop`),
+  KEY `Commodity_ibfk_4` (`image`),
   CONSTRAINT `Commodity_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `Users` (`id`),
   CONSTRAINT `Commodity_ibfk_2` FOREIGN KEY (`category`) REFERENCES `Category` (`id`),
   CONSTRAINT `Commodity_ibfk_3` FOREIGN KEY (`shop`) REFERENCES `Shop` (`id`),
@@ -375,7 +375,7 @@ CREATE TABLE `Shop` (
   KEY `icon` (`icon`),
   CONSTRAINT `Shop_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `Users` (`id`),
   CONSTRAINT `Shop_ibfk_2` FOREIGN KEY (`icon`) REFERENCES `Picture` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='店铺表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='店铺表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -383,7 +383,7 @@ CREATE TABLE `Shop` (
 --
 
 LOCK TABLES `Shop` WRITE;
-INSERT INTO `Shop` (`id`, `owner`, `name`, `icon`, `description`, `phoneNumber`, `customerService`, `servicePhoneNumber`) VALUES (1,7,'TestShop',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `Shop` (`id`, `owner`, `name`, `icon`, `description`, `phoneNumber`, `customerService`, `servicePhoneNumber`) VALUES (1,7,'TestShop',NULL,NULL,NULL,NULL,NULL),(5,6,'testShop',NULL,'test','13026133586',NULL,NULL),(9,10,'shop',NULL,'test','13026133586',NULL,NULL);
 UNLOCK TABLES;
 
 --
@@ -409,7 +409,7 @@ CREATE TABLE `Token` (
 --
 
 LOCK TABLES `Token` WRITE;
-INSERT INTO `Token` (`id`, `token`, `date_create`, `validity`) VALUES (1,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTg5NjQ3MzQsInN1YiI6InRlc3QiLCJleHAiOjE1MDAxNzQzMzR9.mFGT8vj7eXZslExMGHm2MXQq4fxGakfvOKu8V6hvgG4','2017-07-01 22:05:35',14),(3,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTg5OTE3MTcsInN1YiI6ImEiLCJleHAiOjE1MDAyMDEzMTd9.KYdfJdlBV5VD9gt2VFOrt_bfAn3ijtqTWu6zrm9bjyg','2017-07-02 05:35:17',14),(4,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkwNDU0NjgsInN1YiI6Inp5aCIsImV4cCI6MTUwMDI1NTA2OH0.kbrW7Llmv0Og8_8PXd3VaW08zHqOVLCbORHSxEEuu_g','2017-07-02 20:31:08',14),(6,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkyMzkyNzYsInN1YiI6Im1hbmEtY3lhbiIsImV4cCI6MTUwMDQ0ODg3Nn0.mUs5ZqaGBLmVtxd0CIgA5C3y_HPKCdOfr9DFesrF_fU','2017-07-05 07:21:17',14),(2,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkyNDA3MDIsInN1YiI6Imd4dyIsImV4cCI6MTUwMDQ1MDMwMn0.FURJp_tPTYILOwoT0ERFLKc7JxavXq8MZKAfKOF3GJc','2017-07-05 07:45:03',14),(8,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkzOTE2OTcsInN1YiI6InRlc3RVc2VyIiwiZXhwIjoxNTAwNjAxMjk3fQ.rGajKJ-QZeMekrxYNqDaZKC8L5KsgtFV_XD_Bh0bk_Y','2017-07-07 01:41:37',14),(9,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTk0MDkxMDcsInN1YiI6InF3ZXJ0eSIsImV4cCI6MTUwMDYxODcwN30.0j7Zn2FStaV7jYYEHdX1mDnYkEDwAZNBFMquhgywUPE','2017-07-07 06:31:48',14),(7,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTk0MDkxNjMsInN1YiI6Im1hbmEtY3lhbiIsImV4cCI6MTUwMDYxODc2M30.5Gx3O3pK3R9_xRD4fmAK-AKVC5Cd5YzH0zGztVm6kkE','2017-07-07 06:32:44',14);
+INSERT INTO `Token` (`id`, `token`, `date_create`, `validity`) VALUES (1,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTg5NjQ3MzQsInN1YiI6InRlc3QiLCJleHAiOjE1MDAxNzQzMzR9.mFGT8vj7eXZslExMGHm2MXQq4fxGakfvOKu8V6hvgG4','2017-07-01 22:05:35',14),(3,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTg5OTE3MTcsInN1YiI6ImEiLCJleHAiOjE1MDAyMDEzMTd9.KYdfJdlBV5VD9gt2VFOrt_bfAn3ijtqTWu6zrm9bjyg','2017-07-02 05:35:17',14),(4,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkwNDU0NjgsInN1YiI6Inp5aCIsImV4cCI6MTUwMDI1NTA2OH0.kbrW7Llmv0Og8_8PXd3VaW08zHqOVLCbORHSxEEuu_g','2017-07-02 20:31:08',14),(6,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkyMzkyNzYsInN1YiI6Im1hbmEtY3lhbiIsImV4cCI6MTUwMDQ0ODg3Nn0.mUs5ZqaGBLmVtxd0CIgA5C3y_HPKCdOfr9DFesrF_fU','2017-07-05 07:21:17',14),(2,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkyNDA3MDIsInN1YiI6Imd4dyIsImV4cCI6MTUwMDQ1MDMwMn0.FURJp_tPTYILOwoT0ERFLKc7JxavXq8MZKAfKOF3GJc','2017-07-05 07:45:03',14),(8,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkzOTE2OTcsInN1YiI6InRlc3RVc2VyIiwiZXhwIjoxNTAwNjAxMjk3fQ.rGajKJ-QZeMekrxYNqDaZKC8L5KsgtFV_XD_Bh0bk_Y','2017-07-07 01:41:37',14),(9,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTk0MDkxMDcsInN1YiI6InF3ZXJ0eSIsImV4cCI6MTUwMDYxODcwN30.0j7Zn2FStaV7jYYEHdX1mDnYkEDwAZNBFMquhgywUPE','2017-07-07 06:31:48',14),(7,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTk0MDkxNjMsInN1YiI6Im1hbmEtY3lhbiIsImV4cCI6MTUwMDYxODc2M30.5Gx3O3pK3R9_xRD4fmAK-AKVC5Cd5YzH0zGztVm6kkE','2017-07-07 06:32:44',14),(10,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTk0NDAzMDIsInN1YiI6Im5ld3VzZXIiLCJleHAiOjE1MDA2NDk5MDJ9.KfFNTEATquY3Xu82FNl0BDhtiwE_gN0cu7JWzCtsM-M','2017-07-07 15:11:43',14);
 UNLOCK TABLES;
 
 --
@@ -463,7 +463,7 @@ CREATE TABLE `Users` (
   UNIQUE KEY `email` (`email`),
   KEY `role` (`role`),
   CONSTRAINT `Users_ibfk_1` FOREIGN KEY (`role`) REFERENCES `UserType` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -471,7 +471,7 @@ CREATE TABLE `Users` (
 --
 
 LOCK TABLES `Users` WRITE;
-INSERT INTO `Users` (`id`, `username`, `password`, `email`, `salt`, `role`, `birthday`, `gender`, `description`, `viewCount`, `phoneNumber`, `identityNumber`, `address`, `status`, `name`) VALUES (1,'test','12345678901234567890123456789012','test@mail.com','test',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'mana-cya','$2a$10$tX4TNQrYnss9yQbV4.kgs.yu0','649752038@qq.com','$2a$10$tX4TNQrYnss9yQbV4.kgs.',1,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'张昶'),(3,'a','$2a$10$vPHTYHI982BSZ8Qjp1bx1eezt','1@qq.com','$2a$10$vPHTYHI982BSZ8Qjp1bx1e',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'zyh','$2a$10$UKRxQDjmkj0mfpPf/6wPd.Ic8','735479203@qq.com','$2a$10$UKRxQDjmkj0mfpPf/6wPd.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'mana','$2a$10$.83JHh7VoJm4jjMO4FV.V.EV3','test@126.com','$2a$10$.83JHh7VoJm4jjMO4FV.V.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'mana-cyan','$2a$10$gHtrVusqK0KrBrhPkSUz3.n8L','takamiyamana@126.com','$2a$10$gHtrVusqK0KrBrhPkSUz3.',2,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'张昶'),(8,'testUser','$2a$10$PTrySYksr2YzBeL6ynlPDuFoJ','testemail@mail.com','$2a$10$PTrySYksr2YzBeL6ynlPDu',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'qwerty','$2a$10$6O0TfNvfJWix/a5HbaGT3.ZWP','qwerty@mail.com','$2a$10$6O0TfNvfJWix/a5HbaGT3.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `Users` (`id`, `username`, `password`, `email`, `salt`, `role`, `birthday`, `gender`, `description`, `viewCount`, `phoneNumber`, `identityNumber`, `address`, `status`, `name`) VALUES (1,'test','12345678901234567890123456789012','test@mail.com','test',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'mana-cya','$2a$10$tX4TNQrYnss9yQbV4.kgs.yu0','649752038@qq.com','$2a$10$tX4TNQrYnss9yQbV4.kgs.',1,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'张昶'),(3,'a','$2a$10$vPHTYHI982BSZ8Qjp1bx1eezt','1@qq.com','$2a$10$vPHTYHI982BSZ8Qjp1bx1e',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'zyh','$2a$10$UKRxQDjmkj0mfpPf/6wPd.Ic8','735479203@qq.com','$2a$10$UKRxQDjmkj0mfpPf/6wPd.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'mana','$2a$10$.83JHh7VoJm4jjMO4FV.V.EV3','test@126.com','$2a$10$.83JHh7VoJm4jjMO4FV.V.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'mana-cyan','$2a$10$gHtrVusqK0KrBrhPkSUz3.n8L','takamiyamana@126.com','$2a$10$gHtrVusqK0KrBrhPkSUz3.',2,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'张昶'),(8,'testUser','$2a$10$PTrySYksr2YzBeL6ynlPDuFoJ','testemail@mail.com','$2a$10$PTrySYksr2YzBeL6ynlPDu',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'qwerty','$2a$10$6O0TfNvfJWix/a5HbaGT3.ZWP','qwerty@mail.com','$2a$10$6O0TfNvfJWix/a5HbaGT3.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'newuser','$2a$10$8jkbJP8hRo08q2UVP6trsefse','newuser@mail.com','$2a$10$8jkbJP8hRo08q2UVP6trse',2,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'newuser');
 UNLOCK TABLES;
 
 --
@@ -495,6 +495,24 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary table structure for view `shopwithuser`
+--
+
+DROP TABLE IF EXISTS `shopwithuser`;
+/*!50001 DROP VIEW IF EXISTS `shopwithuser`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `shopwithuser` AS SELECT 
+ 1 AS `tid`,
+ 1 AS `tname`,
+ 1 AS `tdescription`,
+ 1 AS `taddress`,
+ 1 AS `tphoneNumber`,
+ 1 AS `temail`,
+ 1 AS `towner`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Final view structure for view `orderwithallcommoditydetail`
 --
 
@@ -511,6 +529,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `shopwithuser`
+--
+
+/*!50001 DROP VIEW IF EXISTS `shopwithuser`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`op`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `shopwithuser` AS select `t1`.`id` AS `tid`,`t1`.`name` AS `tname`,`t1`.`description` AS `tdescription`,`t2`.`address` AS `taddress`,`t2`.`phoneNumber` AS `tphoneNumber`,`t2`.`email` AS `temail`,`t2`.`id` AS `towner` from (`shop` `t1` left join `users` `t2` on((`t1`.`owner` = `t2`.`id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -521,4 +557,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-07 16:46:37
+-- Dump completed on 2017-07-08  0:36:31

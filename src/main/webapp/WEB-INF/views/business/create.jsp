@@ -141,7 +141,7 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-3">
-                    <form action="createshop" method="post" >
+                    <form action="" method="post" >
                             <div class="form-group">
                                 <input type="text" name="name" placeholder="请输入店铺名" class="form-control"/>
                             </div>
@@ -215,6 +215,8 @@
     <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
     <!-- All js plugins included in this file. -->
     <script src="${pageContext.request.contextPath}/static/js/plugins.js"></script>
+
+    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/createshop.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 

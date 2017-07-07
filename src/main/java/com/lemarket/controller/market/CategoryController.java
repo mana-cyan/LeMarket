@@ -4,6 +4,7 @@ import com.lemarket.data.reponseObject.CategoryJson;
 import com.lemarket.service.market.CategoryDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,4 +28,10 @@ public class CategoryController {
     public CategoryJson category(){
         return categoryDetails.getCateDetail();
     }
+
+    @RequestMapping(value = "category")
+    public String category(Model model) {
+        return "shop/category";
+    }
+
 }

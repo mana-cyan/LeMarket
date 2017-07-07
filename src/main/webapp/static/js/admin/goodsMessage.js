@@ -9,12 +9,13 @@ function createNodeByGoods(goods) {
 
     var statusColumn=document.createElement('td');
     $(statusColumn).html(getStatus(goods.status));
-
+    $(statusColumn).attr('commodityId',goods.id);
 
     var button=document.createElement('button');
     $(button).attr('status',goods.status);
     $(button).html(getButtonOperationName(goods.status));
     $(button).attr('commodityId',goods.id);
+    $(button).on('click',operationDo);
     statusColumn.appendChild(button);
     node.appendChild(idColumn);
     node.appendChild(nameColumn);
@@ -43,29 +44,27 @@ function onPageReady() {
     Panel.show(createNodeByGoods);
 }
 
-function operationDo(div) {
-   var containStatusAttr= div.hasAttribute('status');
-   if(containStatusAttr)
-   {
-       $.ajax(
-           {
-               type: 'post',
-               url:'admin/goods/status',
-               data: {id:div.attr('commodityId')},
-               success: function (response) {
-                   if(response.status==='SUCCESS')
-                       setStatus(div,Math.abs(div.attr('status')-1));
-                   else if(response.status==='ERROR')
-                       console.log('用户名不存在');
-                   else if(response.st==='LOGOUT')
-                       window.location.href='admin/login';
-               }
-           }
-       )
-   }
+function operationDo() {
+        $.ajax(
+            {
+                type: 'post',
+                url:'goods/status',
+                data: {id:$(this).attr('commodityId')},
+                success: function (response) {
+                    if(response.status==='SUCCESS')
+                        window.location.reload();
+                    else if(response.status==='ERROR')
+                        console.log('用户名不存在');
+                    else if(response.st==='LOGOUT')
+                        window.location.href='admin/login';
+                },
+                error: function () {
+                    console.log('ERROR');
+                }
+            }
+        )
 }
 
 $(document).ready(onPageReady);
-$(document).click(operationDo);
 
 

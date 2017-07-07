@@ -40,7 +40,7 @@
       UPDATE Commodity SET image = #{imageId} WHERE id = #{commodityId};
     </update>
   <update id="updateCommodity" parameterType="com.lemarket.data.model.Commodity">
-      UPDATE Commodity SET name=#{name}, details=#{details}, category=#{category}, storage=#{storage}, price=#{price},image=#{image} WHERE id=#{id};
+      UPDATE Commodity SET name=#{name}, details=#{details}, category=#{category}, storage=#{storage}, price=#{price},image=#{image},status=#{status} WHERE id=#{id};
   </update>
   <update id="deleteCommodity">
     UPDATE Commodity SET status=0 WHERE id = #{commodityId};
@@ -108,4 +108,10 @@
     <select id="getCount" resultType="java.lang.Integer">
       SELECT COUNT(*) FROM lemarket.Commodity;
     </select>
+  <select id="selectAllWithAllStatus" resultMap="BaseResultMap">
+    select id, category, shop, name, storage, saled, price, image, visitCount, status,
+      time, owner, details
+    from Commodity
+    LIMIT #{beginRow}, #{pageSize};
+  </select>
 </mapper>

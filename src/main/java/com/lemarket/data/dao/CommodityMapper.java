@@ -25,6 +25,8 @@ public interface CommodityMapper {
      */
     List<Commodity> selectAll(@Param("beginRow") int beginRow,@Param("pageSize") int pageSize);
 
+    List<Commodity> selectAllWithAllStatus(@Param("beginRow") int beginRow,@Param("pageSize") int pageSize);
+
     List<Commodity> selectBySaledOrder();
 
     Commodity selectById(int id);

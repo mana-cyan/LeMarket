@@ -2,6 +2,7 @@ package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Shop;
 import com.lemarket.data.model.ShopWithUser;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
@@ -10,14 +11,14 @@ public interface ShopMapper {
     int insert(Shop record);
     List<ShopWithUser> selectAll();
 
-    List<Shop> selectByName(String word);
+    List<Shop> selectByName(@Param("word") String word);
 
-    ShopWithUser selectById(int id);
+    ShopWithUser selectById(@Param("id") int id);
 
-    Shop selectByOwner(int owner);
+    Shop selectByOwner(@Param("owner") int owner);
 
-    int updateName(String name, int id);
-    int updateDescription(String description, int id);
-    int updatePhone(String phone, int id);
-    int updateIcon(int icon, int id);
+    int updateName(@Param("name") String name, @Param("id") int id);
+    int updateDescription(@Param("description") String description, @Param("id") int id);
+    int updatePhone(@Param("phone") String phone,@Param("id") int id);
+    int updateIcon(@Param("icon") int icon,@Param("id") int id);
 }

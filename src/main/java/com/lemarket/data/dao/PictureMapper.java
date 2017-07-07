@@ -1,6 +1,7 @@
 package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Picture;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,9 +24,9 @@ public interface PictureMapper {
      */
     List<Picture> selectAll();
 
-    Picture selectById(int id);
-    Picture selectByPath(String path);
+    Picture selectById(@Param("id") int id);
+    Picture selectByPath(@Param("path") String path);
 
-    int deleteById(int id);
-    Picture updateImageById(String path, int id);
+    int deleteById(@Param("id") int id);
+    Picture updateImageById(@Param("path") String path, @Param("id") int id);
 }

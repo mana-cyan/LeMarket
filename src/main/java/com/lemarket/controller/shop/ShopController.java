@@ -72,7 +72,7 @@ public class ShopController {
     //根据Token获取个人店铺信息
     @RequestMapping(value = "getShop", method = RequestMethod.GET)
     @ResponseBody
-    public Shop getShopByToken(HttpServletRequest request){
+    public ShopWithUser getShopByToken(HttpServletRequest request){
         return shopService.getShopByToken(request.getHeader("token"));
     }
 

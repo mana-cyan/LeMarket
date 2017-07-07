@@ -29,15 +29,15 @@ public interface CommodityMapper {
 
     List<Commodity> selectBySaledOrder();
 
-    Commodity selectById(int id);
+    Commodity selectById(@Param("id") int id);
 
     List<Commodity> selectPageByKindAndSaled(@Param("category") int category, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
 
-    List<Commodity> selectByShopId(int shopId, int beginRow, int pageSize);
+    List<Commodity> selectByShopId(@Param("shopId") int shopId,@Param("beginRow") int beginRow,@Param("pageSize") int pageSize);
 
-    List<Commodity> selectByName(String word);
+    List<Commodity> selectByName(@Param("word") String word);
 
-    int selectCountById(int category);
+    int selectCountById(@Param("category") int category);
 
     CommodityWithShop selectCommodityWithShopByCommodityId(int id);
 

@@ -69,9 +69,9 @@ public class ShopService {
     }
 
     //根据用户token获取店铺
-    public Shop getShopByToken(String tokenString){
+    public ShopWithUser getShopByToken(String tokenString){
         Token token = tokenMapper.selectByToken(tokenString);
-        return shopMapper.selectByOwner(token.getId());
+        return shopMapper.selectById(token.getId());
     }
 
     //更新店铺信息

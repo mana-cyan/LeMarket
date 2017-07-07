@@ -1,6 +1,7 @@
 package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Admin;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,5 +24,5 @@ public interface AdminMapper {
      */
     List<Admin> selectAll();
 
-    Admin selectByUsername(String username);
+    Admin selectByUsername(@Param("username") String username);
 }

@@ -1,6 +1,7 @@
 package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Orderdetails;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public interface OrderdetailsMapper {
      */
     List<Orderdetails> selectAll();
 
-    List<Orderdetails> selectShopOrderByShopId(int id, int beginRow, int pageSize);
+    List<Orderdetails> selectShopOrderByShopId(@Param("id") int id, @Param("beginRow") int beginRow, @Param("pageSize") int pageSize);
 
-    int deleteOrderByOrderId(int id);
+    int deleteOrderByOrderId(@Param("id") int id);
 }

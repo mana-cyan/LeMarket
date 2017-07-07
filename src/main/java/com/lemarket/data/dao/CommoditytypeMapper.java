@@ -1,6 +1,7 @@
 package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Commoditytype;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public interface CommoditytypeMapper {
      */
     List<Commoditytype> selectAll();
 
-    List<String> selectCommodityTypeById(int id);
+    List<String> selectCommodityTypeById(@Param("id") int id);
 
     int insertCommodityTypeList(int commodityId, List<String> list);
 }

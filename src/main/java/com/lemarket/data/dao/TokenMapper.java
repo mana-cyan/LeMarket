@@ -1,6 +1,7 @@
 package com.lemarket.data.dao;
 
 import com.lemarket.data.model.Token;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,11 +24,11 @@ public interface TokenMapper {
      */
     List<Token> selectAll();
 
-    Token selectById(int id);
+    Token selectById(@Param("id") int id);
 
-    int deleteById(int id);
+    int deleteById(@Param("id") int id);
 
-    Token selectByToken(String token);
-    int selectUserById(int id);
+    Token selectByToken(@Param("token") String token);
+    int selectUserById(@Param("id") int id);
 
 }

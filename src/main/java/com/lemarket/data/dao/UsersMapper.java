@@ -14,9 +14,9 @@ public interface UsersMapper {
     
     List<Users> selectAll(@Param("beginRow") int beginRow,@Param("pageSize") int pageSize);
 
-    Users selectByUsername(String username);
-    Users selectByEmail(String email);
-    Users selectById(int id);
+    Users selectByUsername(@Param("username") String username);
+    Users selectByEmail(@Param("email") String email);
+    Users selectById(@Param("id") int id);
 
     int updateNameById(@Param("name") String name,@Param("id") int id);
     int updateGenderById(@Param("gender") String gender, @Param("id") int id);
@@ -27,7 +27,7 @@ public interface UsersMapper {
     int updatePasswordById(@Param("newPassword") String newPassword, @Param("id") int id);
     int updateIdentityById(@Param("identity") String identity, @Param("id") int id);
 
-    List<Users> selectUserByNameOrEmail(String key);
+    List<Users> selectUserByNameOrEmail(@Param("key") String key);
 
     int getCount();
 }

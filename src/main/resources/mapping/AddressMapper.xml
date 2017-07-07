@@ -37,11 +37,12 @@
     -->
     select id, user, name, phoneNumber, address, status
     from address
+    WHERE status = 1;
   </select>
     <select id="selectAllByUserId" resultMap="BaseResultMap">
-      SELECT * FROM Address WHERE user = #{userId};
+      SELECT * FROM Address WHERE user = #{userId} AND status = 1;
     </select>
   <select id="selectByUserIdAndId" resultMap="BaseResultMap">
-    SELECT * FROM Address WHERE user = #{userId} AND id = #{id};
+    SELECT * FROM Address WHERE user = #{userId} AND id = #{id} AND status = 1;
   </select>
 </mapper>

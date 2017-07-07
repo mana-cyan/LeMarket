@@ -26,5 +26,5 @@ public interface CommoditytypeMapper {
 
     List<String> selectCommodityTypeById(@Param("id") int id);
 
-    int insertCommodityType(int commodityId, String type);
+    int insertCommodityType(@Param("commodityId") int commodityId,@Param("type") String type);
 }

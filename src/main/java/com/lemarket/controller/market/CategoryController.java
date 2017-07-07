@@ -29,9 +29,4 @@ public class CategoryController {
         return categoryDetails.getCateDetail();
     }
 
-    @RequestMapping(value = "category")
-    public String category(Model model) {
-        return "shop/category";
-    }
-
 }

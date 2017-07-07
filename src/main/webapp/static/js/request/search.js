@@ -16,3 +16,10 @@ function search() {
 }
 
 $("#search_href").on("click", search);
+
+function loadResult() {
+    var data = $('#searchList').attr('value');
+    console.log(data[0])
+}
+
+$(document).ready(loadResult);

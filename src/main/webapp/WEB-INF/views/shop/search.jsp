@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home</title>
+    <title>搜索结果</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -82,7 +82,7 @@
         <jsp:include page="/getToolBar"/>
     </header>
 
-    <div class="container">
+    <div id="searchList" value="${list}" class="container">
         <div class="new-arrival-area" style="margin-top:30px;">
             <div class="container">
                 <div class="row rp-style-2">
@@ -93,6 +93,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="product-inner col-md-3">
                         <a href="../commodity/commodityDetails.jsp">
@@ -304,6 +305,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- 分页 -->
             <nav aria-label="Page navigation" class="text-center">
                 <ul class="pagination" style="">

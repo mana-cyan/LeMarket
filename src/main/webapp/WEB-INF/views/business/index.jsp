@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>leMarket</title>
+    <title>店铺管理</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet">
@@ -56,11 +56,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">美特斯邦威</a>
+                <a class="navbar-brand" href="index">首页</a>
             </div>
             <!-- /.navbar-header -->
-
+            <!--
             <ul class="nav navbar-top-links navbar-right">
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -97,11 +98,8 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-messages -->
                 </li>
-                <!-- /.dropdown -->
 
-                <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -150,9 +148,8 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-alerts -->
                 </li>
-                <!-- /.dropdown -->
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -166,12 +163,9 @@
                         <li><a href="../../userPage/index.html"><i class="fa fa-sign-out fa-fw"></i> 退出我的店铺</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
                 </li>
-                <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
-
+            -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -187,7 +181,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i>店铺管理</a>
+                            <a href="shopManage"><i class="fa fa-dashboard fa-fw"></i>店铺管理</a>
                         </li>
                         <li>
                             <a ><i class="fa fa-bar-chart-o fa-fw"></i> 订单管理<span class="fa arrow"></span></a>
@@ -205,10 +199,10 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> 商品管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="watchGoods.jsp">查看商品</a>
+                                    <a href="watchCommodity">查看商品</a>
                                 </li>
                                 <li>
-                                    <a href="publishGoods.jsp">发布商品</a>
+                                    <a href="publishCommodity">发布商品</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -236,30 +230,23 @@
                         <table style="" class="shdz">
                             <tr style="width:100%;">
                                 <td>店铺名：</td>
-                                <td><input type="text" class="form-control" placeholder="店铺名"></td>
+                                <td><input id="shopName" type="text" class="form-control" placeholder="店铺名"></td>
                             </tr>
                             <tr style="width:100%;">
                                 <td>店铺描述：</td>
-                                <td colspan="4"><input type="text" class="form-control" placeholder="店铺描述"></td>
+                                <td colspan="4"><input id="shopDescription" type="text" class="form-control" placeholder="店铺描述"></td>
                             </tr>
                             <tr style="width:100%;">
                                 <td>地址：</td>
-                                <td><input type="text" class="form-control" placeholder="省/直辖市"></td>
-                                <td><input type="text" class="form-control" placeholder="市"></td>
-                                <td><input type="text" class="form-control" placeholder="区/县"></td>
-                                <td><input type="text" class="form-control" placeholder="乡村/街道"></td>
-                            </tr>
-                            <tr style="width:100%;">
-                                <td></td>
-                                <td colspan="2"><input type="text" class="form-control" placeholder="详细地址"></td>
+                                <td colspan="4"><input id="shopAddress" type="text" class="form-control" placeholder="店铺地址"></td>
                             </tr>
                             <tr style="width:100%;">
                                 <td>店主电话号码：</td>
-                                <td colspan="2"><input type="text" class="form-control" placeholder="手机号"></td>
+                                <td colspan="2"><input id="ownerPhoneNumber" type="text" class="form-control" placeholder="手机号"></td>
                             </tr>
                             <tr style="width:100%;">
                                 <td>店主邮箱：</td>
-                                <td colspan="2"><input type="text" class="form-control" placeholder="电子邮箱"></td>
+                                <td colspan="2"><input id="ownerEmail" type="text" class="form-control" placeholder="电子邮箱"></td>
                             </tr>
                         </table>
                     </div>

@@ -62,6 +62,16 @@ public class CommodityController {
         return new Status("ERROR");
     }
 
+    @RequestMapping(value = "watchCommodity")
+    public String watchCommodity() {
+        return "business/watchCommodity";
+    }
+
+    @RequestMapping(value = "publishCommodity")
+    public String addCommodity() {
+        return "business/publishCommodity";
+    }
+
     //添加商品
     @RequestMapping(value = "addCommodity", method = RequestMethod.POST)
     @ResponseBody

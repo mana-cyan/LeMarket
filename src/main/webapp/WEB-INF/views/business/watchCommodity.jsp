@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,7 @@
     <link href="${pageContext.request.contextPath}/static/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/static/css/sb-admin-2.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="${pageContext.request.contextPath}/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -45,121 +45,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">美特斯邦威</a>
+                <a class="navbar-brand" href="index">首页</a>
             </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> 店铺</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="../../userPage/index.html"><i class="fa fa-sign-out fa-fw"></i> 退出我的店铺</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -194,10 +81,10 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> 商品管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="watchGoods.jsp">查看商品</a>
+                                    <a href="watchCommodity.jsp">查看商品</a>
                                 </li>
                                 <li>
-                                    <a href="publishGoods.jsp">发布商品</a>
+                                    <a href="publishCommodity.jsp">发布商品</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -218,7 +105,7 @@
                             <h5>女装连衣裙净黑色</h5>
                             <p>S M L 黑 白 灰</p>
                             <p >
-                                <a href="publishGoods.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
+                                <a href="publishCommodity.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
                                 <a href="comments.jsp" class="btn btn-default" role="button">评论</a>
                                 <a href="#" class="btn btn-default" role="button">下架</a>
                             </p>
@@ -232,7 +119,7 @@
                             <h4>女装连衣裙净黑色</h4>
                             <p>S M L 黑 白 灰</p>
                             <p >
-                                <a href="publishGoods.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
+                                <a href="publishCommodity.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
                                 <a href="comments.jsp" class="btn btn-default" role="button">评论</a>
                                 <a href="#" class="btn btn-default" role="button">下架</a>
                             </p>
@@ -246,7 +133,7 @@
                             <h4>女装连衣裙净黑色</h4>
                             <p>S M L 黑 白 灰</p>
                             <p >
-                                <a href="publishGoods.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
+                                <a href="publishCommodity.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
                                 <a href="comments.jsp" class="btn btn-default" role="button">评论</a>
                                 <a href="#" class="btn btn-default" role="button">下架</a>
                             </p>
@@ -260,7 +147,7 @@
                             <h4>女装连衣裙净黑色</h4>
                             <p>S M L 黑 白 灰</p>
                             <p >
-                                <a href="publishGoods.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
+                                <a href="publishCommodity.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
                                 <a href="comments.jsp" class="btn btn-default" role="button">评论</a>
                                 <a href="#" class="btn btn-default" role="button">下架</a>
                             </p>
@@ -274,7 +161,7 @@
                             <h4>女装连衣裙净黑色</h4>
                             <p>S M L 黑 白 灰</p>
                             <p >
-                                <a href="publishGoods.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
+                                <a href="publishCommodity.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
                                 <a href="comments.jsp" class="btn btn-default" role="button">评论</a>
                                 <a href="#" class="btn btn-default" role="button">下架</a>
                             </p>
@@ -288,7 +175,7 @@
                             <h4>女装连衣裙净黑色</h4>
                             <p>S M L 黑 白 灰</p>
                             <p >
-                                <a href="publishGoods.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
+                                <a href="publishCommodity.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
                                 <a href="comments.jsp" class="btn btn-default" role="button">评论</a>
                                 <a href="#" class="btn btn-default" role="button">下架</a>
                             </p>
@@ -302,7 +189,7 @@
                             <h4>女装连衣裙净黑色</h4>
                             <p>S M L 黑 白 灰</p>
                             <p >
-                                <a href="publishGoods.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
+                                <a href="publishCommodity.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
                                 <a href="comments.jsp" class="btn btn-default" role="button">评论</a>
                                 <a href="#" class="btn btn-default" role="button">下架</a>
                             </p>
@@ -316,7 +203,7 @@
                             <h4>女装连衣裙净黑色</h4>
                             <p>S M L 黑 白 灰</p>
                             <p >
-                                <a href="publishGoods.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
+                                <a href="publishCommodity.jsp" class="btn" role="button" style="background-color:#F10180;color:#fff;">修改</a>
                                 <a href="comments.jsp" class="btn btn-default" role="button">评论</a>
                                 <a href="#" class="btn btn-default" role="button">下架</a>
                             </p>

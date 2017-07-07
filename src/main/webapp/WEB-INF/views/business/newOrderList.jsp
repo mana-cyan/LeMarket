@@ -209,10 +209,10 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> 商品管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="watchGoods.jsp">查看商品</a>
+                                <a href="watchCommodity.jsp">查看商品</a>
                             </li>
                             <li>
-                                <a href="publishGoods.jsp">发布商品</a>
+                                <a href="publishCommodity.jsp">发布商品</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

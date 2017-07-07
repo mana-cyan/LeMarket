@@ -6,6 +6,7 @@ import com.lemarket.service.market.ShopService;
 import com.lemarket.service.utils.ImageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,14 +43,21 @@ public class ShopController {
     //添加店铺
     @RequestMapping(value = "/addShop", method = RequestMethod.POST)
     @ResponseBody
-    public String addShop(String name, String description, String phoneNumber, HttpServletRequest request){
-        System.out.println("addshop");
+    public Status addShop(String name, String description, String phoneNumber, HttpServletRequest request){
         int answer = shopService.addShop(name, description, phoneNumber, request.getHeader("token"));
-        System.out.println("addshop");
-        if(answer == 1)
-            return "user/userPage";
+        if(answer > 1)
+            return new Status("SUCCESS");
         else
-            return "business/create";
+            return new Status("ERROR");
+    }
+
+    //检查是否拥有店铺
+    @RequestMapping(value = "checkRole", method = RequestMethod.GET)
+    @ResponseBody
+    public Status checkRole(@RequestHeader("token") String token){
+        if(shopService.checkRole(token) > 0)
+            return new Status("SUCCESS");
+        return new Status("ERROR");
     }
 
     //根据店铺id获取店铺信息

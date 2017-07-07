@@ -44,6 +44,15 @@ public class ShopService {
         return commodityMapper.selectByShopId(id, beginRow, pageSize);
     }
 
+    //检查权限
+    public int checkRole(String tokenString){
+        Token token = tokenMapper.selectByToken(tokenString);
+        Users users = usersMapper.selectById(token.getId());
+        if(users.getRole() == 2)
+            return 1;
+        return 0;
+    }
+
     //添加店铺
     public int addShop(String name, String description, String phone, String tokenString){
         Token token = tokenMapper.selectByToken(tokenString);
@@ -52,6 +61,9 @@ public class ShopService {
         shop.setDescription(description);
         shop.setOwner(token.getId());
         shop.setPhonenumber(phone);
+        Users users = usersMapper.selectById(token.getId());
+        if(users.getRole() == 2)
+            return 0;
         usersMapper.updateRoleById("卖家", token.getId());
         return shopMapper.insert(shop);
     }

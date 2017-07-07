@@ -16,7 +16,6 @@ public interface UsersMapper {
 
     Users selectByUsername(String username);
     Users selectByEmail(String email);
-
     Users selectById(int id);
 
     int updateNameById(@Param("name") String name,@Param("id") int id);

@@ -50,4 +50,5 @@ public class CommodityAbout {
     public List<String> getCommodityType(int id){
         return commodityAboutService.getCommodityTypeById(id);
     }
+
 }

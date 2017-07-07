@@ -28,20 +28,22 @@ public class ShopController {
     }
 
     //跳转新建店铺页面
-    @RequestMapping(value = "addShop")
+    @RequestMapping(value = "createShop")
     public String addShop() {
         return "business/create";
     }
 
     //添加店铺
-    @RequestMapping(value = "addShop", method = RequestMethod.POST)
+    @RequestMapping(value = "/addShop", method = RequestMethod.POST)
     @ResponseBody
-    public Status addShop(String name, String description, String phoneNumber, HttpServletRequest request){
+    public String addShop(String name, String description, String phoneNumber, HttpServletRequest request){
+        System.out.println("addshop");
         int answer = shopService.addShop(name, description, phoneNumber, request.getHeader("token"));
+        System.out.println("addshop");
         if(answer == 1)
-            return new Status("SUCCESS");
+            return "user/userPage";
         else
-            return new Status("ERROR");
+            return "business/create";
     }
 
     //根据店铺id获取店铺信息

@@ -141,21 +141,21 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-3">
-                    <form action="" >
+                    <form action="createshop" method="post" >
                             <div class="form-group">
-                                <input type="text" name="username" placeholder="请输入店铺名" class="form-control"/>
+                                <input type="text" name="name" placeholder="请输入店铺名" class="form-control"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="username" placeholder="请输入店铺描述" class="form-control"/>
+                                <input type="text" name="description" placeholder="请输入店铺描述" class="form-control"/>
                              </div>
                             <div class="form-group">
-                                <input type="text" name="stuemail" placeholder="请输入手机号" class="form-control" />
+                                <input type="text" name="phoneNumber" placeholder="请输入手机号" class="form-control" />
                             </div>
                             <div class="form-group">
-                                <span>上传店铺图片</span><input type="file" name="stuemail" placeholder="上传店铺图片" class="form-control" style="padding:4px;"/>
+                                <span>上传店铺图片</span><input type="file" name="shoppicture" placeholder="上传店铺图片" class="form-control" style="padding:4px;"/>
                             </div>
                             
-                            <button type="submit" class="btn btn-default form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;"><a href="index.jsp">注册新店铺</a></button>
+                            <button type="submit" class="btn btn-default form-control" style="width:100%;height:60px;background-color:#383838;color:#fff;font-weight:bold;font-size:20px;">注册新店铺</button>
                     </form>
                 </div>
                 <div class="col-md-5">

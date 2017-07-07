@@ -489,7 +489,7 @@
                             进入我的店铺
                         </button>
                     </a>
-                    <a href="addShop">
+                    <a href="createShop">
                         <button style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;margin-left:10px;border-radius:5px;">
                             注册新店铺
                         </button>

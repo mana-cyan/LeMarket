@@ -118,32 +118,37 @@
                         <table style="" class="shdz">
                             <tr style="width:100%;">
                                 <td>商品名：</td>
-                                <td><input type="text" class="form-control" placeholder="选择商品名"></td>
+                                <td><input id="commodityName" type="text" class="form-control" placeholder="选择商品名"></td>
+                            </tr>
+                            <tr style="width:100%;">
+                                <td>商品类型：</td>
+                                <td><input id="commodityCategory" type="text" class="form-control" placeholder="商品类型"></td>
                             </tr>
                             <tr style="width:100%;">
                                 <td>商品描述：</td>
-                                <td colspan="4"><input type="text" class="form-control" placeholder="商品描述"></td>
+                                <td colspan="2"><input id="commodityDescription" type="text" class="form-control" placeholder="商品描述"></td>
                             </tr>
-                            <tr style="width:100%;">
-                                <td>商品标签：</td>
-                                <td><input type="text" class="form-control" placeholder="大小"></td>
-                                <td><input type="text" class="form-control" placeholder="款式"></td>
-                                <td><input type="text" class="form-control" placeholder="颜色"></td>
-                                <td><input type="text" class="form-control" placeholder="其他"></td>
+                            <tr id="commodityTypes" style="width:100%;">
+                                <td>商品型号：</td>
+                                <td><input type="text" class="form-control" placeholder="型号"></td>
+                                <td id="add"><button class="btn btn-primary" onclick="editType()">添加</button></td>
                             </tr>
                             <tr style="width:100%;">
                                 <td>商品价格：</td>
-                                <td colspan="2"><input type="text" class="form-control" placeholder="商品价格"></td>
+                                <td colspan="2"><input id="commodityPrice" type="text" class="form-control" placeholder="商品价格"></td>
+                            </tr>
+                            <tr style="width:100%;">
+                                <td>商品库存：</td>
+                                <td colspan="2"><input id="commodityStorage" type="text" class="form-control" placeholder="商品库存"></td>
                             </tr>
                             <tr style="width:100%;">
                                 <td>选择商品图片：</td>
-                                <td><input type="file"  placeholder="选择图片"></td>
+                                <td><input id="commodityPicture" type="file"  placeholder="选择图片"></td>
                             </tr>
                         </table>
                     </div>
-                    <button type="button" class="btn btn-default" style="width:20%;height:60%;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;">发布商品</button>
+                    <button type="button" class="btn btn-default" onclick="getCategory()" style="width:20%;height:60%;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;">发布商品</button>
                 </div>
-
 
             </div>
             <!-- /.row -->
@@ -163,7 +168,11 @@
     <script src="${pageContext.request.contextPath}/static/js/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="${pageContext.request.contextPath}/static/js/sb-admin-2.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/sb-admin-2.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
+
+    <script src="${pageContext.request.contextPath}/static/js/request/publishCommodity.js"></script>
 
 </body>
 

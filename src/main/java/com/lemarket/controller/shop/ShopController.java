@@ -27,6 +27,12 @@ public class ShopController {
         this.imageFactory = imageFactory;
     }
 
+    //跳转店铺页面
+    @RequestMapping(value = "shop")
+    public String shop() {
+        return "business/index";
+    }
+
     //跳转新建店铺页面
     @RequestMapping(value = "addShop")
     public String addShop() {

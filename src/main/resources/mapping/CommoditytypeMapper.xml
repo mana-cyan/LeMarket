@@ -21,7 +21,7 @@
       )
   </insert>
     <insert id="insertCommodityType">
-      INSERT INTO Commoditytype(commodity, name) VALUES (#{commodityId}, #{itemName});
+      INSERT INTO Commoditytype(commodity, name) VALUES (#{commodityId}, #{type});
     </insert>
     <select id="selectAll" resultMap="BaseResultMap">
     <!--

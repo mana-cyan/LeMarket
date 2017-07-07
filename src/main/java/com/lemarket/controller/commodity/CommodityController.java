@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -76,7 +78,8 @@ public class CommodityController {
     //添加商品
     @RequestMapping(value = "addCommodity", method = RequestMethod.POST)
     @ResponseBody
-    public Status addCommodity( Commodity commodity){
+    public Status addCommodity(Commodity commodity){
+        commodity.setTime(new Date());
         System.out.println(commodity);
         int status = commodityAboutService.addCommodity(commodity);
         if (status>0)

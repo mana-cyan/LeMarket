@@ -274,6 +274,10 @@
     <!-- Custom Theme JavaScript -->
     <script src="${pageContext.request.contextPath}/static/js/sb-admin-2.min.js"></script>
 
+    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
+
+    <script src="${pageContext.request.contextPath}/static/js/request/shop.js"></script>
+
 </body>
 
 </html>

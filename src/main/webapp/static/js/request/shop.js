@@ -2,7 +2,7 @@ var shopName = $('#shopName');
 var shopDescription = $('#shopDescription');
 var shopAddress = $('#shopAddress');
 var ownerPhoneNumber = $('#ownerPhoneNumber');
-var ownerEmail = $('#owenEmail');
+var ownerEmail = $('#ownerEmail');
 
 function loadShop() {
     $.ajax({

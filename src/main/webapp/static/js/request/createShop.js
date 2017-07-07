@@ -14,7 +14,9 @@ function createShop() {
             },
             headers: { 'token': Cookie.getToken() },
             success: function (data) {
-                console.log(data)
+                if (data.status === 'SUCCESS') {
+                    window.location.href = 'shopManage'
+                }
             },
             error: function () {
                 console.log('Cannot create shop!');

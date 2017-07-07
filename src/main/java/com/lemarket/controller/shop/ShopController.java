@@ -76,7 +76,6 @@ public class ShopController {
         return shopService.getShopWithUserByToken(request.getHeader("token"));
     }
 
-
     /**
      * 获取店铺商品分页
      * @param id 店铺id

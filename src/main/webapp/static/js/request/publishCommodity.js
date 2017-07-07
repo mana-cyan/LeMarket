@@ -39,18 +39,19 @@ function savePicture() {
 }
 
 function addCommodity(category, shopId) {
+    var commodity = {
+        'category': category,
+        'shop': shopId,
+        'name': commodityName.val(),
+        'storage': commodityStorage.val(),
+        'price': commodityPrice.val(),
+        'details': commodityDescription.val()
+    };
+    console.log(commodity);
     $.ajax({
         type: 'post',
         url: 'addCommodity',
-        data: {
-            'category': category,
-            'shop': shopId,
-            'name': commodityName.val(),
-            'storage': commodityStorage.val(),
-            'price': commodityPrice.val(),
-            'details': commodityDescription.val(),
-            'time': new Date().getTime()
-        },
+        data: commodity,
         headers: { 'token': Cookie.getToken() },
         success: function (id) {
             console.log(id);

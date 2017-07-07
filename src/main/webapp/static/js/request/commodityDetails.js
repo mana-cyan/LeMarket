@@ -84,7 +84,6 @@ function loadComponents() {
     var products = $('.product-inner');
     loadSameCategory(commodityPicture.attr('cid'), function (data) {
         for (var p in data) {
-            console.log(p);
             loadPicture(data[p].image, p, function (id, path) {
                 $(products[id]).find('img').attr('src', path)
             });

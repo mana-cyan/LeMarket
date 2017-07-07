@@ -52,6 +52,7 @@ function checkUserInfo() {
                $('.nav-tabs a[href="#settings"]').tab('show');
                lockNav();
            } else {
+               checkRole();
                loadUserInfo();
                loadUnpaidOrders(1);
                loadUnreceivedOrders(1);
@@ -388,4 +389,33 @@ function deleteAddress(id) {
             console.log('Cannot delete Address')
         }
     })
+}
+
+function checkRole() {
+    $.ajax({
+        type: 'get',
+        url: 'checkRole',
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            var shopManage = $('#shopManage');
+            var createShop = $('#createShop');
+            if (data.status === 'SUCCESS') {
+                shopManage.find('button').attr('onclick', '');
+                createShop.find('button').attr('onclick', 'alertRole(true)');
+                createShop.attr('href', '#');
+            } else {
+                createShop.find('button').attr('onclick', '');
+                shopManage.find('button').attr('onclick', 'alertRole(false)');
+                shopManage.attr('href', '#')
+            }
+        },
+        error: function () {
+            console.log('Cannot check user role')
+        }
+    })
+}
+
+function alertRole(role) {
+    if (role) alert('已有店铺，请直接进入');
+    else alert('请先注册店铺')
 }

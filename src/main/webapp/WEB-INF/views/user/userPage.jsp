@@ -220,13 +220,13 @@
             <!--我要开店的登录注册-->
             <div role="tabpanel" class="tab-pane" id="messages" style="margin-top:20px;padding:20px;">
                 <div style="margin-top:20px;">
-                    <a href="addShop">
-                        <button style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;border-radius:5px;">
+                    <a id="shopManage" href="shopManage">
+                        <button  style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;border-radius:5px;" onclick="">
                             进入我的店铺
                         </button>
                     </a>
-                    <a href="createShop">
-                        <button style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;margin-left:10px;border-radius:5px;">
+                    <a id="createShop" href="createShop">
+                        <button style="color:#fff;background-color:#F10180;font-size:20px;padding:10px;margin-left:10px;border-radius:5px;" onclick="">
                             注册新店铺
                         </button>
                     </a>

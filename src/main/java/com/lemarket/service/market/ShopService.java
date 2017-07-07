@@ -64,7 +64,7 @@ public class ShopService {
         Users users = usersMapper.selectById(token.getId());
         if(users.getRole() == 2)
             return 0;
-        usersMapper.updateRoleById("卖家", token.getId());
+        usersMapper.updateRoleById(2, token.getId());
         return shopMapper.insert(shop);
     }
 

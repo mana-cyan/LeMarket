@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,7 @@
     <link href="${pageContext.request.contextPath}/static/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/static/css/sb-admin-2.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="${pageContext.request.contextPath}/static/css/morris.css" rel="stylesheet">

@@ -29,7 +29,7 @@ public class ShopController {
     }
 
     //跳转店铺页面
-    @RequestMapping(value = "shop")
+    @RequestMapping(value = "shopManage")
     public String shop() {
         return "business/index";
     }
@@ -41,13 +41,15 @@ public class ShopController {
     }
 
     //添加店铺
-    @RequestMapping(value = "/addShop", method = RequestMethod.POST)
+    @RequestMapping(value = "addShop", method = RequestMethod.POST)
     @ResponseBody
     public Status addShop(String name, String description, String phoneNumber, HttpServletRequest request){
         int answer = shopService.addShop(name, description, phoneNumber, request.getHeader("token"));
         if(answer > 1)
+            //return "business/index";
             return new Status("SUCCESS");
         else
+            //return "business/create";
             return new Status("ERROR");
     }
 

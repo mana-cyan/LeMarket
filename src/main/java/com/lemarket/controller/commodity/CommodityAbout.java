@@ -41,6 +41,7 @@ public class CommodityAbout {
     public String getCommodityByCategory(int categoryId, int page, Model model, HttpServletRequest request){
         model.addAttribute("type", 0);
         model.addAttribute("count", commodityAboutService.getCommodityCount(categoryId));
+        //model.addAttribute("list", commodityAboutService.getCommodityByCategoryId(categoryId, (page-1)*8, 8));
         request.getSession().setAttribute("list", commodityAboutService.getCommodityByCategoryId(categoryId, (page-1)*8, 8));
         return "shop/search";
     }
@@ -50,5 +51,4 @@ public class CommodityAbout {
     public List<String> getCommodityType(int id){
         return commodityAboutService.getCommodityTypeById(id);
     }
-
 }

@@ -56,7 +56,7 @@ CREATE TABLE `Admin` (
   `password` varchar(32) NOT NULL COMMENT '密码(md5+salt)',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='管理员表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='管理员表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +64,7 @@ CREATE TABLE `Admin` (
 --
 
 LOCK TABLES `Admin` WRITE;
+INSERT INTO `Admin` (`id`, `username`, `password`) VALUES (1,'admin','123456');
 UNLOCK TABLES;
 
 --
@@ -132,7 +133,7 @@ DROP TABLE IF EXISTS `Commodity`;
 CREATE TABLE `Commodity` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商品id',
   `owner` int(11) NOT NULL COMMENT '店主id',
-  `shop` int(11) NOT NULL COMMENT '店铺id',
+  `shop` int(11) NOT NULL UNIQUE COMMENT '店铺id',
   `name` varchar(100) NOT NULL COMMENT '商品名称',
   `details` text COMMENT '商品详情',
   `category` int(11) NOT NULL COMMENT '商品分类',
@@ -266,7 +267,7 @@ CREATE TABLE `OrderDetails` (
   KEY `commodity` (`commodity`),
   CONSTRAINT `OrderDetails_ibfk_1` FOREIGN KEY (`orderInfo`) REFERENCES `OrderInfo` (`id`),
   CONSTRAINT `OrderDetails_ibfk_2` FOREIGN KEY (`commodity`) REFERENCES `Commodity` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='订单详情表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='订单详情表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -274,7 +275,7 @@ CREATE TABLE `OrderDetails` (
 --
 
 LOCK TABLES `OrderDetails` WRITE;
-INSERT INTO `OrderDetails` (`id`, `orderInfo`, `commodity`, `receive`, `commodityType`, `count`, `time`) VALUES (1,1,3,7,3,1,'2017-07-06 08:45:48'),(2,2,3,7,2,1,'2017-07-07 11:27:47');
+INSERT INTO `OrderDetails` (`id`, `orderInfo`, `commodity`, `receive`, `commodityType`, `count`, `time`) VALUES (1,1,3,7,3,1,'2017-07-06 08:45:48'),(2,2,3,7,2,1,'2017-07-07 11:27:47'),(3,3,3,7,1,1,'2017-07-07 12:04:13'),(4,4,3,7,2,1,'2017-07-07 14:34:43');
 UNLOCK TABLES;
 
 --
@@ -293,7 +294,7 @@ CREATE TABLE `OrderInfo` (
   PRIMARY KEY (`id`),
   KEY `user` (`user`),
   CONSTRAINT `OrderInfo_ibfk_1` FOREIGN KEY (`user`) REFERENCES `Users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='订单信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='订单信息表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -301,7 +302,7 @@ CREATE TABLE `OrderInfo` (
 --
 
 LOCK TABLES `OrderInfo` WRITE;
-INSERT INTO `OrderInfo` (`id`, `user`, `price`, `time`, `status`) VALUES (1,7,30,'2017-07-05 21:12:21','待付款'),(2,7,30,'2017-07-07 11:24:59','待收货');
+INSERT INTO `OrderInfo` (`id`, `user`, `price`, `time`, `status`) VALUES (1,7,30,'2017-07-05 21:12:21','待付款'),(2,7,30,'2017-07-07 11:24:59','待收货'),(3,7,30,'2017-07-07 12:03:45','待评价'),(4,7,30,'2017-07-07 14:34:18','已完成');
 UNLOCK TABLES;
 
 --
@@ -374,7 +375,7 @@ CREATE TABLE `Shop` (
   KEY `icon` (`icon`),
   CONSTRAINT `Shop_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `Users` (`id`),
   CONSTRAINT `Shop_ibfk_2` FOREIGN KEY (`icon`) REFERENCES `Picture` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='店铺表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='店铺表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +409,7 @@ CREATE TABLE `Token` (
 --
 
 LOCK TABLES `Token` WRITE;
-INSERT INTO `Token` (`id`, `token`, `date_create`, `validity`) VALUES (1,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTg5NjQ3MzQsInN1YiI6InRlc3QiLCJleHAiOjE1MDAxNzQzMzR9.mFGT8vj7eXZslExMGHm2MXQq4fxGakfvOKu8V6hvgG4','2017-07-01 22:05:35',14),(3,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTg5OTE3MTcsInN1YiI6ImEiLCJleHAiOjE1MDAyMDEzMTd9.KYdfJdlBV5VD9gt2VFOrt_bfAn3ijtqTWu6zrm9bjyg','2017-07-02 05:35:17',14),(4,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkwNDU0NjgsInN1YiI6Inp5aCIsImV4cCI6MTUwMDI1NTA2OH0.kbrW7Llmv0Og8_8PXd3VaW08zHqOVLCbORHSxEEuu_g','2017-07-02 20:31:08',14),(6,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkyMzkyNzYsInN1YiI6Im1hbmEtY3lhbiIsImV4cCI6MTUwMDQ0ODg3Nn0.mUs5ZqaGBLmVtxd0CIgA5C3y_HPKCdOfr9DFesrF_fU','2017-07-05 07:21:17',14),(2,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkyNDA3MDIsInN1YiI6Imd4dyIsImV4cCI6MTUwMDQ1MDMwMn0.FURJp_tPTYILOwoT0ERFLKc7JxavXq8MZKAfKOF3GJc','2017-07-05 07:45:03',14),(8,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkzOTE2OTcsInN1YiI6InRlc3RVc2VyIiwiZXhwIjoxNTAwNjAxMjk3fQ.rGajKJ-QZeMekrxYNqDaZKC8L5KsgtFV_XD_Bh0bk_Y','2017-07-07 01:41:37',14),(7,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkzOTIxNzIsInN1YiI6Im1hbmEtY3lhbiIsImV4cCI6MTUwMDYwMTc3Mn0.mm-SlIwdximRiibn-T4T8ZMNYm8qiZMStuLspZqn_D4','2017-07-07 01:49:32',14);
+INSERT INTO `Token` (`id`, `token`, `date_create`, `validity`) VALUES (1,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTg5NjQ3MzQsInN1YiI6InRlc3QiLCJleHAiOjE1MDAxNzQzMzR9.mFGT8vj7eXZslExMGHm2MXQq4fxGakfvOKu8V6hvgG4','2017-07-01 22:05:35',14),(3,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTg5OTE3MTcsInN1YiI6ImEiLCJleHAiOjE1MDAyMDEzMTd9.KYdfJdlBV5VD9gt2VFOrt_bfAn3ijtqTWu6zrm9bjyg','2017-07-02 05:35:17',14),(4,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkwNDU0NjgsInN1YiI6Inp5aCIsImV4cCI6MTUwMDI1NTA2OH0.kbrW7Llmv0Og8_8PXd3VaW08zHqOVLCbORHSxEEuu_g','2017-07-02 20:31:08',14),(6,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkyMzkyNzYsInN1YiI6Im1hbmEtY3lhbiIsImV4cCI6MTUwMDQ0ODg3Nn0.mUs5ZqaGBLmVtxd0CIgA5C3y_HPKCdOfr9DFesrF_fU','2017-07-05 07:21:17',14),(2,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkyNDA3MDIsInN1YiI6Imd4dyIsImV4cCI6MTUwMDQ1MDMwMn0.FURJp_tPTYILOwoT0ERFLKc7JxavXq8MZKAfKOF3GJc','2017-07-05 07:45:03',14),(8,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTkzOTE2OTcsInN1YiI6InRlc3RVc2VyIiwiZXhwIjoxNTAwNjAxMjk3fQ.rGajKJ-QZeMekrxYNqDaZKC8L5KsgtFV_XD_Bh0bk_Y','2017-07-07 01:41:37',14),(9,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTk0MDkxMDcsInN1YiI6InF3ZXJ0eSIsImV4cCI6MTUwMDYxODcwN30.0j7Zn2FStaV7jYYEHdX1mDnYkEDwAZNBFMquhgywUPE','2017-07-07 06:31:48',14),(7,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTk0MDkxNjMsInN1YiI6Im1hbmEtY3lhbiIsImV4cCI6MTUwMDYxODc2M30.5Gx3O3pK3R9_xRD4fmAK-AKVC5Cd5YzH0zGztVm6kkE','2017-07-07 06:32:44',14);
 UNLOCK TABLES;
 
 --
@@ -462,7 +463,7 @@ CREATE TABLE `Users` (
   UNIQUE KEY `email` (`email`),
   KEY `role` (`role`),
   CONSTRAINT `Users_ibfk_1` FOREIGN KEY (`role`) REFERENCES `UserType` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -470,7 +471,7 @@ CREATE TABLE `Users` (
 --
 
 LOCK TABLES `Users` WRITE;
-INSERT INTO `Users` (`id`, `username`, `password`, `email`, `salt`, `role`, `birthday`, `gender`, `description`, `viewCount`, `phoneNumber`, `identityNumber`, `address`, `status`, `name`) VALUES (1,'test','12345678901234567890123456789012','test@mail.com','test',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'mana-cya','$2a$10$tX4TNQrYnss9yQbV4.kgs.yu0','649752038@qq.com','$2a$10$tX4TNQrYnss9yQbV4.kgs.',1,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'张昶'),(3,'a','$2a$10$vPHTYHI982BSZ8Qjp1bx1eezt','1@qq.com','$2a$10$vPHTYHI982BSZ8Qjp1bx1e',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'zyh','$2a$10$UKRxQDjmkj0mfpPf/6wPd.Ic8','735479203@qq.com','$2a$10$UKRxQDjmkj0mfpPf/6wPd.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'mana','$2a$10$.83JHh7VoJm4jjMO4FV.V.EV3','test@126.com','$2a$10$.83JHh7VoJm4jjMO4FV.V.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'mana-cyan','$2a$10$gHtrVusqK0KrBrhPkSUz3.n8L','takamiyamana@126.com','$2a$10$gHtrVusqK0KrBrhPkSUz3.',1,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'张昶'),(8,'testUser','$2a$10$PTrySYksr2YzBeL6ynlPDuFoJ','testemail@mail.com','$2a$10$PTrySYksr2YzBeL6ynlPDu',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `Users` (`id`, `username`, `password`, `email`, `salt`, `role`, `birthday`, `gender`, `description`, `viewCount`, `phoneNumber`, `identityNumber`, `address`, `status`, `name`) VALUES (1,'test','12345678901234567890123456789012','test@mail.com','test',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'mana-cya','$2a$10$tX4TNQrYnss9yQbV4.kgs.yu0','649752038@qq.com','$2a$10$tX4TNQrYnss9yQbV4.kgs.',1,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'张昶'),(3,'a','$2a$10$vPHTYHI982BSZ8Qjp1bx1eezt','1@qq.com','$2a$10$vPHTYHI982BSZ8Qjp1bx1e',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'zyh','$2a$10$UKRxQDjmkj0mfpPf/6wPd.Ic8','735479203@qq.com','$2a$10$UKRxQDjmkj0mfpPf/6wPd.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'mana','$2a$10$.83JHh7VoJm4jjMO4FV.V.EV3','test@126.com','$2a$10$.83JHh7VoJm4jjMO4FV.V.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'mana-cyan','$2a$10$gHtrVusqK0KrBrhPkSUz3.n8L','takamiyamana@126.com','$2a$10$gHtrVusqK0KrBrhPkSUz3.',2,'1996-10-14','男',NULL,NULL,'13026133586','420984199609140000','湖北省武汉市华中师范大学',NULL,'张昶'),(8,'testUser','$2a$10$PTrySYksr2YzBeL6ynlPDuFoJ','testemail@mail.com','$2a$10$PTrySYksr2YzBeL6ynlPDu',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'qwerty','$2a$10$6O0TfNvfJWix/a5HbaGT3.ZWP','qwerty@mail.com','$2a$10$6O0TfNvfJWix/a5HbaGT3.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 UNLOCK TABLES;
 
 --
@@ -520,4 +521,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-07 11:59:58
+-- Dump completed on 2017-07-07 16:46:37

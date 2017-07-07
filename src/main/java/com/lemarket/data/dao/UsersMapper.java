@@ -23,7 +23,7 @@ public interface UsersMapper {
     int updateBirthdayById(@Param("date") Date date, @Param("id") int id);
     int updateAddressById(@Param("address") String address,@Param("id") int id);
     int updatePhoneById(@Param("phone") String phone, @Param("id") int id);
-    int updateRoleById(@Param("role") String role, @Param("id") int id);
+    int updateRoleById(@Param("role") int role, @Param("id") int id);
     int updatePasswordById(@Param("newPassword") String newPassword, @Param("id") int id);
     int updateIdentityById(@Param("identity") String identity, @Param("id") int id);
 

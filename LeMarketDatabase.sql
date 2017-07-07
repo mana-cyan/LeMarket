@@ -44,7 +44,7 @@ CREATE TABLE `Users` (
 DROP TABLE IF EXISTS `Shop`;
 CREATE TABLE `Shop` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '店铺id',
-  `owner` INT NOT NULL COMMENT '店主id',
+  `owner` INT NOT NULL UNIQUE COMMENT '店主id',
   `name` VARCHAR(20) NOT NULL COMMENT '店铺名',
   `icon` INT COMMENT '店铺图标id',
   `description` TEXT COMMENT '店铺描述',

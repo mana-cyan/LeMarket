@@ -32,7 +32,7 @@ CREATE TABLE `Address` (
   PRIMARY KEY (`id`),
   KEY `user` (`user`),
   CONSTRAINT `address_ibfk_1` FOREIGN KEY (`user`) REFERENCES `Users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='收货地址表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='收货地址表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `Address` (
 --
 
 LOCK TABLES `Address` WRITE;
-INSERT INTO `Address` (`id`, `user`, `name`, `phoneNumber`, `address`, `status`) VALUES (1,7,'张昶','13026133586','湖北省武汉市华中师范大学',1),(2,6,'test','13026133586','湖北省武汉市华中师范大学',1),(3,7,'test','123456','test',1),(4,7,'test','123456','address',1),(5,7,'test','123456','123456',0);
+INSERT INTO `Address` (`id`, `user`, `name`, `phoneNumber`, `address`, `status`) VALUES (1,7,'张昶','13026133586','湖北省武汉市华中师范大学',1),(2,6,'test','13026133586','湖北省武汉市华中师范大学',1),(3,7,'test','123456','test',1),(4,7,'test','123456','address',1),(5,7,'test','123456','123456',0),(6,10,'张昶','13026133586','华中师范大学',0),(7,10,'张昶','123456','test',1);
 UNLOCK TABLES;
 
 --
@@ -154,7 +154,7 @@ CREATE TABLE `Commodity` (
   CONSTRAINT `Commodity_ibfk_2` FOREIGN KEY (`category`) REFERENCES `Category` (`id`),
   CONSTRAINT `Commodity_ibfk_3` FOREIGN KEY (`shop`) REFERENCES `Shop` (`id`),
   CONSTRAINT `Commodity_ibfk_4` FOREIGN KEY (`image`) REFERENCES `Picture` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='商品表';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='商品表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `Commodity` (
 --
 
 LOCK TABLES `Commodity` WRITE;
-INSERT INTO `Commodity` (`id`, `owner`, `shop`, `name`, `details`, `category`, `storage`, `saled`, `price`, `image`, `visitCount`, `status`, `time`) VALUES (2,1,1,'TestCommodity1','Test',1,200,0,30,6,0,1,'2017-07-04 16:09:03'),(3,1,1,'TestCommodity','Test',1,100,0,20,7,0,1,'2017-07-02 11:13:55');
+INSERT INTO `Commodity` (`id`, `owner`, `shop`, `name`, `details`, `category`, `storage`, `saled`, `price`, `image`, `visitCount`, `status`, `time`) VALUES (2,1,1,'TestCommodity1','Test',1,200,0,30,6,0,1,'2017-07-04 16:09:03'),(3,1,1,'TestCommodity','Test',1,100,0,20,7,0,1,'2017-07-02 11:13:55'),(8,10,9,'test','test',2,100,NULL,100,1,NULL,1,'2017-07-07 17:11:09'),(9,10,9,'test','test',2,100,NULL,100,1,NULL,1,'2017-07-07 17:12:56'),(10,10,9,'test','test',2,100,NULL,100,1,NULL,1,'2017-07-07 17:13:49'),(11,10,9,'123','123',2,100,NULL,100,1,NULL,1,'2017-07-07 17:15:14'),(12,10,9,'123','124',2,100,NULL,100,1,NULL,1,'2017-07-07 17:20:00'),(13,10,9,'test','123',2,100,NULL,100,1,NULL,1,'2017-07-07 17:22:06'),(14,10,9,'test','test',2,100,NULL,100,1,NULL,1,'2017-07-07 17:23:57'),(15,10,9,'test','123456',2,100,NULL,100,1,NULL,1,'2017-07-07 17:27:24'),(16,10,9,'test','test',2,100,NULL,100,1,NULL,1,'2017-07-07 17:29:08'),(17,10,9,'test','test',2,100,NULL,100,1,NULL,1,'2017-07-07 17:34:48'),(18,10,9,'test','test',2,100,NULL,100,1,NULL,1,'2017-07-07 17:48:21'),(19,10,9,'test','test',2,100,NULL,100,1,NULL,1,'2017-07-07 17:57:46');
 UNLOCK TABLES;
 
 --
@@ -180,7 +180,7 @@ CREATE TABLE `CommodityType` (
   PRIMARY KEY (`id`),
   KEY `commodity` (`commodity`),
   CONSTRAINT `CommodityType_ibfk_1` FOREIGN KEY (`commodity`) REFERENCES `Commodity` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='商品型号表';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='商品型号表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +188,7 @@ CREATE TABLE `CommodityType` (
 --
 
 LOCK TABLES `CommodityType` WRITE;
-INSERT INTO `CommodityType` (`id`, `commodity`, `name`, `storage`) VALUES (1,3,'S',5),(2,3,'M',5),(3,3,'L',5),(4,3,'XL',5);
+INSERT INTO `CommodityType` (`id`, `commodity`, `name`, `storage`) VALUES (1,3,'S',5),(2,3,'M',5),(3,3,'L',5),(4,3,'XL',5),(5,10,'S',0),(6,19,'S',0),(7,19,'M',0),(8,19,'L',0);
 UNLOCK TABLES;
 
 --
@@ -557,4 +557,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-08  0:36:31
+-- Dump completed on 2017-07-08  9:19:47

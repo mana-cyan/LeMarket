@@ -30,7 +30,7 @@ function createNodeWithCommodity(commodity) {
         "<div class='clear'></div>" +
         "<h6 class='product-name'>" +
         "<a href='commodityDetails?id='" + commodity.id + " title='Eletria ostma'>" + commodity.name + "</a>" +
-        "</h6>+ </div> </div>");
+        "</h6> </div> </div>");
     loadPicture(commodity.image, null, function (id, path) {
         nodeTemplate.find("img").attr("src", path);
     });

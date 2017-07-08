@@ -104,8 +104,8 @@
                     <table border="1" class="shdz">
                         <tr style="width:100%;">
                             <td><input id="receiverName" type="text" class="form-control" placeholder="姓名"></td>
-                            <td><input id="address" type="text" class="form-control" placeholder="地址"></td>
-                            <td><input id="phoneNUmber" type="text" class="form-control" placeholder="手机号"></td>
+                            <td><input id="receiverAddress" type="text" class="form-control" placeholder="地址"></td>
+                            <td><input id="receiverPhoneNumber" type="text" class="form-control" placeholder="手机号"></td>
                         </tr>
                     </table>
                 </div>
@@ -120,11 +120,17 @@
                     <div class="col-md-4" >
                         <a id="commodityDetails" value="${commodity.id}" href="#"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                     </div>
-                    <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                        <span id="commodityName">${commodity.name}</span>
+                    <div class="col-md-4" style="margin-top:20px;padding:20px;">
+                        <h4 id="commodityName">商品名:${commodity.name}</h4>
                     </div>
-                    <div class="col-md-3" style="margin-top:25px;padding:20px;">
-                        <h4 id="commodityPrice">￥${commodity.price}</h4>
+                    <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                        <h4 id="commodityType" value="${type.id}">型号:${type.name}</h4>
+                    </div>
+                    <div class="col-md-2" style="margin-top:25px;padding:20px;">
+                        <h4 id="commodityPrice">价格:￥${commodity.price}</h4>
+                    </div>
+                    <div class="col-md-1" style="margin-top:25px;padding:20px;">
+                        <h4 id="commodityCount" value="${count}">数量:${count}</h4>
                     </div>
                 </div>
             </div>
@@ -146,7 +152,7 @@
                 </div>
 
             <!-- 付款二维码 -->
-            <button type="button" class="btn btn-default" style="width:10%;height:30px;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;font-size:15px;" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-default" style="width:10%;height:30px;margin:0 auto;margin-top:30px;background-color:#F10180;color:#fff;border-radius:5px;font-size:15px;" data-toggle="modal" data-target="#myModal" onclick="pay()">
                 结算
             </button>
             <!-- Modal -->

@@ -1,6 +1,6 @@
-var receiverName = $('#receiverNname');
-var address = $('#address');
-var phoneNumber = $('#phoneNumber');
+var receiverName = $('#receiverName');
+var receiverAddress = $('#receiverAddress');
+var receiverPhoneNumber = $('#receiverPhoneNumber');
 
 // function loadReceiveInfo() {
 //     $.ajax({
@@ -26,10 +26,25 @@ var phoneNumber = $('#phoneNumber');
 function pay() {
     var payData = {
         'id': $('#commodityDetails').attr('value'),
-        'type': type,
-        'count': count,
-        'name': receiverName,
-        'address': address,
-        'phoneNumber': phoneNumber
-    }
+        'type': $('#commodityType').attr('value'),
+        'count': $('#commodityCount').attr('value'),
+        'name': receiverName.val(),
+        'address': receiverAddress.val(),
+        'phoneNumber': receiverPhoneNumber.val()
+    };
+    console.log(payData)
+    $.ajax({
+        type: 'post',
+        url: 'pay',
+        date: JSON.stringify(payData),
+        headers: { 'token': Cookie.getToken() },
+        success: function (data) {
+            console.log(data);
+            if (data.status === 'SUCCESS')
+                console.log('paid')
+        },
+        error: function () {
+            console.log('Cannot pay')
+        }
+    })
 }

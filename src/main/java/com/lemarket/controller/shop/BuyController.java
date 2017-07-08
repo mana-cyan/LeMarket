@@ -60,7 +60,7 @@ public class BuyController {
         Orderinfo info = new Orderinfo();
         Receiveinfo receive = new Receiveinfo();
         Commodity commodity = commoditySearch.commoditySearchById(id);
-        int userId = tokenMapper.selectUserById(token.getId());
+        int userId = token.getId();
         Date time = new Date();
 
         info.setUser(userId);

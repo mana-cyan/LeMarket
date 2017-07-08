@@ -27,7 +27,7 @@ public class BuyController {
     private final OrderdetailsMapper orderdetailsMapper;
 
     private final ReceiveinfoMapper receiveinfoMapper;
-    private final CommoditytypeMapper commoditytypeMapper
+    private final CommoditytypeMapper commoditytypeMapper;
 
     @Autowired
     public BuyController(UsersMapper usersMapper, CommoditySearch commoditySearch,

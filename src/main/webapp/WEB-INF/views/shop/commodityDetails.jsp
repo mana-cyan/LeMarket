@@ -133,10 +133,10 @@
                     <div style="margin-top:5px;"><span>店铺：</span><span><a href="shop.jsp">${commodity.shop.name} (点击进入店铺)</a></span></div>
                 </div>
                 <div style="margin-top:20px;">
-                    <span >运费：</span><span style="color:#fff;background-color:#F3B241;">免运费</span><span >（订单满288免运费）</span>
+                    <span >运费：</span><span style="color:#fff;background-color:#F3B241;">免运费</span><span ></span>
                 </div>
                 <div style="margin-top:20px;">
-                    <div id="type" class="row">
+                    <div id="type" value="" class="row">
                         <div class="col-md-2" style="width: 10%;">
                             <span>型号</span>
                         </div>

@@ -7,6 +7,7 @@ import com.lemarket.service.utils.CommoditySearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -49,9 +50,10 @@ public class BuyController {
     }
 
     @RequestMapping(value = "pay", method = RequestMethod.POST)
-    public Status saveOrder(Token token, String name, String address,
+    public Status saveOrder(@RequestHeader("token") String tokenString, String name, String address,
                             String phoneNumber, String postCode,
                             int id, int type, int count) {
+        Token token = tokenMapper.selectByToken(tokenString);
         Orderdetails details = new Orderdetails();
         Orderinfo info = new Orderinfo();
         Receiveinfo receive = new Receiveinfo();

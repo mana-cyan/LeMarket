@@ -45,16 +45,16 @@ function addCommodity(category, shopId) {
         'name': commodityName.val(),
         'storage': commodityStorage.val(),
         'price': commodityPrice.val(),
-        'details': commodityDescription.val()
+        'details': commodityDescription.val(),
+        'image': 1,
+        'status': 1
     };
-    console.log(commodity);
     $.ajax({
         type: 'post',
         url: 'addCommodity',
         data: commodity,
         headers: { 'token': Cookie.getToken() },
         success: function (id) {
-            console.log(id);
             addCommodityType(id)
         },
         error: function () {
@@ -65,25 +65,26 @@ function addCommodity(category, shopId) {
 
 function addCommodityType(commodityId) {
     var types = commodityTypes.find('input');
-    var typeList = [];
-    for (var i in types)
-        typeList.push($(types[i]).val())
-    $.ajax({
-        type: 'post',
-        url: 'addCommodityType',
-        data: {
-            'id': commodityId,
-            'type': typeList
-        },
-        headers: { 'token': Cookie.getToken() },
-        success: function (data) {
-            if (data.status === 'SUCCESS')
-                alert('保存成功')
-        },
-        error: function () {
-            console.log('Cannot add commodity type')
-        }
-    })
+    var status = true;
+    for (var i = 0; i < types.length; i++) {
+        $.ajax({
+            type: 'post',
+            url: 'addCommodityType',
+            data: {
+                'id': commodityId,
+                'type': $(types[i]).val()
+            },
+            headers: { 'token': Cookie.getToken() },
+            success: function (data) {
+                console.log('保存成功')
+            },
+            error: function () {
+                status = false;
+                console.log('Cannot add commodity type')
+            }
+        });
+    }
+    if (status) alert('保存成功')
 }
 
 

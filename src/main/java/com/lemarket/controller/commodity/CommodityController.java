@@ -79,18 +79,16 @@ public class CommodityController {
     //添加商品
     @RequestMapping(value = "addCommodity", method = RequestMethod.POST)
     @ResponseBody
-    public Status addCommodity(Commodity commodity, HttpServletRequest request){
+    public int addCommodity(Commodity commodity, HttpServletRequest request){
         commodity.setTime(new Date());
-        int status = commodityAboutService.addCommodity(commodity, request.getHeader("token"));
-        if (status>0)
-            return new Status("SUCCESS");
-        return new Status("ERROR");
+        return commodityAboutService.addCommodity(commodity, request.getHeader("token"));
     }
 
     //添加商品类型
-    @RequestMapping(value = "addCommodityType", method = RequestMethod.GET)
+    @RequestMapping(value = "addCommodityType", method = RequestMethod.POST)
     @ResponseBody
-    public Status addCommodityType(int id, List<String> type) {
+    public Status addCommodityType(int id,String type) {
+        System.out.println(type);
         int insertNumber = commodityAboutService.addCommodityType(id, type);
         if (insertNumber > 0)
             return new Status("SUCCESS");

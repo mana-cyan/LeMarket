@@ -55,7 +55,7 @@ function loadComponents() {
     //Load Commodity Type
     loadType(commodityId, function (data) {
         data.forEach(function (e) {
-            $('#type').append('<div class="col-md-2"><button type="button" class="btn btn-default" data-toggle="tooltip">'+e+'</button></div>')
+            $('#type').append('<div class="col-md-2"><button type="button" class="btn btn-default" data-toggle="tooltip" onclick="setTypeId('+ e.id +')">'+e.name+'</button></div>')
         })
     });
 
@@ -97,4 +97,31 @@ function loadComponents() {
 
 }
 
+function setTypeId(id) {
+    $('#type').attr('value', id)
+}
+
 $(document).ready(loadComponents());
+
+function payForm(id, type, count) {
+    var form = $("<form action='pay' method='get'></form>");
+    var input_id = $("<input type='text' name='id'>");
+    input_id.attr("value", id);
+    form.append(input_id);
+    var input_type = $("<input type='text' name='type'>");
+    input_type.attr("value", type);
+    form.append(input_type);
+    var input_count = $("<input type='text' name='count'>");
+    input_count.attr("value", count);
+    form.append(input_count);
+    form.css("display", "none");
+    form.appendTo("body");
+    form.submit();
+}
+
+function pay() {
+    var type = $('#type').attr('value');
+    var count = $('#count').html();
+    console.log(commodityId+","+type+","+count);
+    payForm(commodityId, type, count);
+}

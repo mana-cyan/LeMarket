@@ -130,13 +130,13 @@
                 <div style="border-top:1px solid #FAF5F8;border-bottom:1px solid #FAF5F8;margin-top:20px;padding-top:5px;">
                     <div style="margin-top:5px;"><span>商品描述：</span><span>${commodity.details}</span></div>
                     <!--<div style="margin-top:5px;"><span>洗涤规则：</span><span>手洗，不可漂白，悬挂晾干，低温熨烫，常规干洗</span></div>-->
-                    <div style="margin-top:5px;"><span>店铺：</span><span><a href="shop.jsp">${commodity.shop.name} (点击进入店铺)</a></span></div>
+                    <div style="margin-top:5px;"><span>店铺：</span><span><a href="#">${commodity.shop.name} (点击进入店铺)</a></span></div>
                 </div>
                 <div style="margin-top:20px;">
-                    <span >运费：</span><span style="color:#fff;background-color:#F3B241;">免运费</span><span >（订单满288免运费）</span>
+                    <span >运费：</span><span style="color:#fff;background-color:#F3B241;">免运费</span><span ></span>
                 </div>
                 <div style="margin-top:20px;">
-                    <div id="type" class="row">
+                    <div id="type" value="" class="row">
                         <div class="col-md-2" style="width: 10%;">
                             <span>型号</span>
                         </div>
@@ -146,14 +146,14 @@
                     <span >数量：</span>
                     <span style="">
                             <button id="numSub" style="width:5%;padding:5px;background-color: #fff;border:1px solid #ccc;">-</button>
-                            <span id="" style="width:30px;padding:10px;">1</span>
+                            <span id="count" style="width:30px;padding:10px;">1</span>
                             <button id="numAdd" style="width:5%;padding:5px;background-color: #fff;border:1px solid #ccc;">+</button>
                         </span>
 
                 </div>
                 <div style="margin-top:20px;">
-                    <button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;border-radius:5px;"><a href="../user/pay.jsp">立即购买</a></button>
-                    <button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;margin-left:10px;border-radius:5px;" class="buyBtn">加入购物车</button>
+                    <a href="#"><button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;border-radius:5px;" onclick="pay()">立即购买</button></a>
+                    <a href="want"><button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;margin-left:10px;border-radius:5px;" class="buyBtn">加入购物车</button></a>
                     <img id="thumbs" src="${pageContext.request.contextPath}/static/images/product/arrival/3.jpg"  class="buyGoodsOri" style="margin-left:-100px;z-index:-1;position:absolute;width:30px;height:40px;margin-top:-50px;">
                 </div>
             </div>

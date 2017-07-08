@@ -24,7 +24,9 @@ public interface CommoditytypeMapper {
      */
     List<Commoditytype> selectAll();
 
-    List<String> selectCommodityTypeById(@Param("id") int id);
+    List<Commoditytype> selectCommodityTypeById(@Param("id") int id);
 
-    int insertCommodityTypeList(int commodityId, List<String> list);
+    int insertCommodityType(@Param("commodityId") int commodityId,@Param("type") String type);
+
+    Commoditytype selectById(@Param("id") int id);
 }

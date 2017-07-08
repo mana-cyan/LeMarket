@@ -51,7 +51,7 @@ public class CommodityAboutService {
     }
 
     //通过商品id获取商品型号
-    public List<String> getCommodityTypeById(Integer id){
+    public List<Commoditytype> getCommodityTypeById(Integer id){
         return commoditytypeMapper.selectCommodityTypeById(id);
     }
 
@@ -68,13 +68,13 @@ public class CommodityAboutService {
         //commodity里无店主id， 获取并设置
         Token token = tokenMapper.selectByToken(tokenString);
         commodity.setOwner(token.getId());
-        System.out.println(commodity);
-        return commodityMapper.insert(commodity);
+        commodityMapper.insert(commodity);
+        return commodity.getId();
     }
 
     //添加商品类型
-    public int addCommodityType(int id, List<String> type){
-        return commoditytypeMapper.insertCommodityTypeList(id, type);
+    public int addCommodityType(int id, String type){
+        return commoditytypeMapper.insertCommodityType(id, type);
     }
 
     //编辑商品

@@ -36,7 +36,6 @@ public class CommodityWant {
         this.tokenMapper = tokenMapper;
         this.orderinfoMapper = orderinfoMapper;
         this.orderdetailsMapper = orderdetailsMapper;
-
     }
 
     @RequestMapping(value = "want", method = RequestMethod.GET)

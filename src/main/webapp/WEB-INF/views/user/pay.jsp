@@ -1,4 +1,5 @@
 <!doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -75,54 +76,7 @@
     <div class="wrapper">
         <!-- Start of header area -->
         <header>
-            <div class="header-top gray-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-5 hidden-xs">
-                            <div class="header-top-left">
-                                <ul class="header-top-style text-capitalize mr-25">
-                                    <li><a href="../index.jsp"><span class="mr-10">首页</span></a>
-                                    </li>
-                                </ul>
-                                 <ul class="header-top-style text-capitalize mr-25">
-                                    <li><a href="userPage.jsp"><span class="mr-10">个人中心</span><i class="fa fa-angle-down"></i></a>
-                                        <ul class="ul-style currency box-shadow white-bg">
-                                            <li><a href="login.html"><i class="fa fa-usd"></i><span>登录</span></a></li>
-                                            <li><a href="register.jsp"><i class="fa fa-euro"></i><span>注册</span></a></li>
-                                            <li><a href="userPage.jsp"><i class="fa fa-gbp"></i><span>我的</span></a></li>
-                                        </ul>
-                                    </li>
-                                </ul> 
-                                <ul class="header-top-style pl-10">
-                                    <li>
-                                        <a href="userPage.jsp"><span class="mr-10">我的订单</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        </div>
-                        <div class="col-sm-4 col-xs-6 selector">
-                            <div class="col-md-3" style="margin-right:-30px;">
-                                <form action="" >
-                                    <label>
-                                        <select name="">
-                                            <option value="shop">搜店铺</option>
-                                            <option value="commodity">搜商品</option>
-                                        </select>
-                                    </label>
-                                </form>
-                            </div>
-                            <div class="col-md-7" >
-                                <span><input type="text" class="pl-10" placeholder="请输入店铺名、商品" style="border-left:0;color:#fff;"></span>
-                            </div>
-                            <div class="col-md-2">
-                                <span class="mr-20" ><a href="#"><img alt="" src="${pageContext.request.contextPath}/static/images/header/search-icon.png" style="width:20px;height:20px;margin-top:5px;margin-left:-15px;"></a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <jsp:include page="/getToolBar"/>
             <div class="header-bottom">
                 <div class="container">
                     <div class="row header-middle-content">
@@ -146,32 +100,31 @@
                 <div class="" style="border:1px solid #E2E2E2;background-color:#F9F9F9;border-left:2px solid #F3168A;padding:5px;">
                     <h4 style="padding-top:5px;">收货信息</h4>
                 </div>
-                <div calss="row" style="padding:10px;margin-top:20px;">
+                <div class="row" style="padding:10px;margin-top:20px;">
                     <table border="1" class="shdz">
                         <tr style="width:100%;">
-                            <td>颜池</td>
-                            <td>湖北省 武汉市 洪山区 珞南街道 152华中师范大学</td>
-                            <td>13437256907</td>
-                            <td><button type="button" class="btn btn-default"><a href="userPage.jsp">修改</a></button></td>
+                            <td><input id="receiverName" type="text" class="form-control" placeholder="姓名"></td>
+                            <td><input id="address" type="text" class="form-control" placeholder="地址"></td>
+                            <td><input id="phoneNUmber" type="text" class="form-control" placeholder="手机号"></td>
                         </tr>
                     </table>
                 </div>
             </div>
 
-            <!-- 商品清单 -->
+            <!-- 商品信息 -->
             <div style="margin-top:1%;">
                 <div class="" style="border:1px solid #E2E2E2;background-color:#F9F9F9;border-left:2px solid #F3168A;padding:5px;">
-                    <h4 style="padding-top:5px;">商品清单</h4>
+                    <h4 style="padding-top:5px;">商品信息</h4>
                 </div>
-                <div calss="row" style="padding:10px;margin-top:20px;">
+                <div class="row" style="padding:10px;margin-top:20px;">
                     <div class="col-md-4" >
-                        <a href="../commodity/commodityDetails.jsp"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                        <a id="commodityDetails" value="${commodity.id}" href="#"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                     </div>
                     <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                        <span>女装连衣裙净黑色</span>
+                        <span id="commodityName">${commodity.name}</span>
                     </div>
                     <div class="col-md-3" style="margin-top:25px;padding:20px;">
-                        <h4>￥49</h4>
+                        <h4 id="commodityPrice">￥${commodity.price}</h4>
                     </div>
                 </div>
             </div>
@@ -181,16 +134,15 @@
                 <div class="" style="border:1px solid #E2E2E2;background-color:#F9F9F9;border-left:2px solid #F3168A;padding:5px;">
                     <h4 style="padding-top:5px;">付款方式</h4>
                 </div>
-                <div calss="" style="padding:10px;margin-top:20px;">
+                <div class="" style="padding:10px;margin-top:20px;">
                     <div class="list-group">
                           <a  class="list-group-item">在线支付</a>
-                          <a  class="list-group-item">货到付款</a>
                     </div>  
                 </div>
             </div>
 
             <div class="" style="border:1px solid #E2E2E2;background-color:#F9F9F9;border-left:2px solid #F3168A;padding:5px;">
-                <span>合计</span><h4 style="padding-top:5px;"><span>￥</span>49</h4>
+                <span>合计</span><h4 style="padding-top:5px;">￥49</h4>
                 </div>
 
             <!-- 付款二维码 -->
@@ -267,7 +219,14 @@
     <script src="${pageContext.request.contextPath}/static/js/plugins.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
-
+    <!-- Load Cookies -->
+    <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
+    <!-- Load Search -->
+    <script src="${pageContext.request.contextPath}/static/js/request/search.js"></script>
+    <!-- Load Toolbar -->
+    <script src="${pageContext.request.contextPath}/static/js/request/toolBar.js"></script>
+    <!--Load Pay-->
+    <script src="${pageContext.request.contextPath}/static/js/request/pay.js"></script>
 </body>
 
 </html>

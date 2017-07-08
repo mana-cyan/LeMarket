@@ -7,6 +7,7 @@ import com.lemarket.service.utils.CommoditySearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -26,31 +27,35 @@ public class BuyController {
     private final OrderdetailsMapper orderdetailsMapper;
 
     private final ReceiveinfoMapper receiveinfoMapper;
+    private final CommoditytypeMapper commoditytypeMapper;
 
     @Autowired
     public BuyController(UsersMapper usersMapper, CommoditySearch commoditySearch,
                          TokenMapper tokenMapper, OrderinfoMapper orderinfoMapper,
-                         OrderdetailsMapper orderdetailsMapper, ReceiveinfoMapper receiveinfoMapper) {
+                         OrderdetailsMapper orderdetailsMapper, ReceiveinfoMapper receiveinfoMapper, CommoditytypeMapper commoditytypeMapper) {
         this.usersMapper = usersMapper;
         this.commoditySearch = commoditySearch;
         this.tokenMapper = tokenMapper;
         this.orderinfoMapper = orderinfoMapper;
         this.orderdetailsMapper = orderdetailsMapper;
         this.receiveinfoMapper = receiveinfoMapper;
+        this.commoditytypeMapper = commoditytypeMapper;
     }
 
     @RequestMapping(value = "pay")
-    public String pay(int id, String type, int count, Model model) {
+    public String pay(int id, int type, int count, Model model) {
         CommodityWithShop commodityWithShop = commoditySearch.commodityWithShopById(id);
         model.addAttribute("commodity", commodityWithShop);
-        model.addAttribute("type",type);
+        model.addAttribute("type",commoditytypeMapper.selectById(type));
         model.addAttribute("count",count);
         return "user/pay";
     }
 
     @RequestMapping(value = "pay", method = RequestMethod.POST)
-    public Status saveOrder(Token token, String name, String address,
-                            String phoneNumber, int id, int type, int count) {
+    public Status saveOrder(@RequestHeader("token") String tokenString, String name, String address,
+                            String phoneNumber,
+                            int id, int type, int count) {
+        Token token = tokenMapper.selectByToken(tokenString);
         Orderdetails details = new Orderdetails();
         Orderinfo info = new Orderinfo();
         Receiveinfo receive = new Receiveinfo();

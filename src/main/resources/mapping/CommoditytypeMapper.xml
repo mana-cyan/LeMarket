@@ -34,4 +34,7 @@
     <select id="selectCommodityTypeById" resultMap="BaseResultMap">
       SELECT * FROM CommodityType WHERE commodity=#{id};
     </select>
+  <select id="selectById" resultType="com.lemarket.data.model.Commoditytype">
+    SELECT * FROM Commoditytype WHERE id = #{id};
+  </select>
 </mapper>

@@ -51,7 +51,7 @@ public class CommodityAboutService {
     }
 
     //通过商品id获取商品型号
-    public List<String> getCommodityTypeById(Integer id){
+    public List<Commoditytype> getCommodityTypeById(Integer id){
         return commoditytypeMapper.selectCommodityTypeById(id);
     }
 

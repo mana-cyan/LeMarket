@@ -2,6 +2,7 @@ package com.lemarket.controller.commodity;
 
 import com.lemarket.data.model.CommentWithUser;
 import com.lemarket.data.model.Commodity;
+import com.lemarket.data.model.Commoditytype;
 import com.lemarket.data.reponseObject.CategoryDetail;
 import com.lemarket.service.market.CategoryDetails;
 import com.lemarket.service.market.CommodityAboutService;
@@ -54,7 +55,7 @@ public class CommodityAbout {
 
     @RequestMapping(value = "getCommodityType", method = RequestMethod.GET)
     @ResponseBody
-    public List<String> getCommodityType(int id){
+    public List<Commoditytype> getCommodityType(int id){
         return commodityAboutService.getCommodityTypeById(id);
     }
 

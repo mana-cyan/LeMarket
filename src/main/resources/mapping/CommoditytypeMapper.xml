@@ -31,7 +31,7 @@
     select id, commodity, name
     from CommodityType
   </select>
-    <select id="selectCommodityTypeById" resultType="java.lang.String">
-      SELECT name FROM CommodityType WHERE commodity=#{id};
+    <select id="selectCommodityTypeById" resultMap="BaseResultMap">
+      SELECT * FROM CommodityType WHERE commodity=#{id};
     </select>
 </mapper>

@@ -55,6 +55,7 @@ function loadComponents() {
     //Load Commodity Type
     loadType(commodityId, function (data) {
         data.forEach(function (e) {
+            console.log(e.id)
             $('#type').append('<div class="col-md-2"><button type="button" class="btn btn-default" data-toggle="tooltip">'+e+'</button></div>')
         })
     });

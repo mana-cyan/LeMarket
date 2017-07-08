@@ -131,29 +131,30 @@ function loadUnpaidOrders(page) {
         success: function (data) {
             var unpaid = $('#dfk');
             for (var i in data) {
-                $(unpaid[i]).append
-                (
-                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">'+
-                        '<div class="col-md-2" >'+
-                            '<a href="commodityDetails"><img src="/static/images/product/arrival/1.jpg" style="width:40%;height:50%;margin-top:20px;"></a>'+
-                        '</div>'+
-                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
-                            '<span>' + data[i].name + '</span>'+
-                        '</div>'+
-                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
-                            '<span>' + data[i].commodityType + '</span>'+
-                        '</div>'+
-                        '<div class="col-md-1" style="margin-top:25px;padding:20px;">'+
-                            '<h4>￥' + data[i].price + '</h4>'+
-                        '</div>'+
-                        '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
-                            '<div class="btn-group" role="group" aria-label="...">'+
-                                '<button type="button" class="btn btn-default" onclick="">去付款</button>'+
-                                '<button type="button" class="btn btn-default" onclick="">删除订单</button>'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'
-                )
+                var node=$('<div class="row" style="border-top:1px solid #ccc;padding:10px;">'+
+                    '<div class="col-md-2" >'+
+                    '<a href="commodityDetails"><img src="" style="width:40%;height:50%;margin-top:20px;"></a>'+
+                    '</div>'+
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
+                    '<span>' + data[i].name + '</span>'+
+                    '</div>'+
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
+                    '<span>' + data[i].commodityType + '</span>'+
+                    '</div>'+
+                    '<div class="col-md-1" style="margin-top:25px;padding:20px;">'+
+                    '<h4>￥' + data[i].price + '</h4>'+
+                    '</div>'+
+                    '<div class="col-md-3" style="margin-top:20px;padding:20px;">'+
+                    '<div class="btn-group" role="group" aria-label="...">'+
+                    '<button type="button" class="btn btn-default" onclick="">去付款</button>'+
+                    '<button type="button" class="btn btn-default" onclick="">删除订单</button>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>');
+                $(unpaid[i]).append(node);
+                loadPictureByCommodityId(data[i].commodityId,function (path) {
+                    node.find("img").attr("src", path);
+                });
             }
         },
         error: function () {
@@ -171,8 +172,7 @@ function loadUnreceivedOrders(page) {
         success: function (data) {
             var unreceived = $('#dsh');
             for (var i in data) {
-                $(unreceived[i]).append(
-                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                var node=$( '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
                     '<div class="col-md-1" style="">' +
                     '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
                     '</div>' +
@@ -197,8 +197,11 @@ function loadUnreceivedOrders(page) {
                     '<button type="button" class="btn btn-default">删除订单</button>' +
                     '</div>' +
                     '</div>' +
-                    '</div>'
-                )
+                    '</div>');
+                loadPictureByCommodityId(data[i].commodityId,function (path) {
+                    node.find("img").attr("src", path);
+                });
+                $(unreceived[i]).append(node);
             }
         },
         error: function () {
@@ -216,8 +219,7 @@ function loadUncommentedOrders(page) {
         success: function (data) {
             var uncommented = $('#dpj');
             for (var i in data) {
-                $(uncommented[i]).append(
-                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                var node=$( '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
                     '<div class="col-md-1" style="">' +
                     '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
                     '</div>' +
@@ -242,8 +244,11 @@ function loadUncommentedOrders(page) {
                     '<button type="button" class="btn btn-default">删除订单</button>' +
                     '</div>' +
                     '</div>' +
-                    '</div>'
-                )
+                    '</div>');
+                $(uncommented[i]).append(node);
+                loadPictureByCommodityId(data[i].commodityId,function (path) {
+                    node.find("img").attr("src", path);
+                });
             }
         },
         error: function () {
@@ -261,9 +266,7 @@ function loadAllOrders(page) {
         success: function (data) {
             var orderList = $('#qbdd');
             for (var i in data) {
-                console.log(data[i])
-                $(orderList).append(
-                    '<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
+                var node=$('<div class="row" style="border-top:1px solid #ccc;padding:10px;">' +
                     '<div class="col-md-1" style="">' +
                     '<a href="commodityDetails"><img src="" style="width:100%;height:100%;margin-top:20px;"></a>' +
                     '</div>' +
@@ -288,8 +291,11 @@ function loadAllOrders(page) {
                     '<button type="button" class="btn btn-default">删除订单</button>' +
                     '</div>' +
                     '</div>' +
-                    '</div>'
-                )
+                    '</div>');
+                $(orderList).append(node);
+                loadPictureByCommodityId(data[i].commodityId,function (path) {
+                    node.find("img").attr("src", path);
+                });
             }
         },
         error: function () {

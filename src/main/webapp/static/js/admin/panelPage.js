@@ -60,6 +60,7 @@ Panel.setTable=function (div) {
 };
 
 Panel.getUrl=function (paramsName,paramsValue) {
-    return url+"?"+paramsName+"="+ paramsValue;
+    if(url.indexOf('?')>0) return url+'&'+paramsName+'='+paramsValue;
+    else return url+"?"+paramsName+"="+ paramsValue;
 };
 

@@ -1,9 +1,15 @@
 package com.lemarket.controller.shop;
 
+import com.lemarket.data.dao.ShopMapper;
+import com.lemarket.data.dao.UsersMapper;
 import com.lemarket.data.model.*;
 import com.lemarket.data.reponseObject.Status;
+import com.lemarket.service.account.CookieChecker;
+import com.lemarket.service.account.TokenSetter;
 import com.lemarket.service.market.ShopService;
 import com.lemarket.service.utils.ImageFactory;
+import com.lemarket.service.utils.JsonConverter;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -11,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
@@ -21,11 +29,27 @@ import java.util.List;
 public class ShopController {
     private final ShopService shopService;
     private final ImageFactory imageFactory;
+    private final JsonConverter jsonConverter;
+    private final CookieChecker cookieChecker;
+    private final TokenSetter tokenSetter;
+
+    private final ShopMapper shopMapper;
 
     @Autowired
-    public ShopController(ShopService shopService, ImageFactory imageFactory) {
+    public ShopController(ShopService shopService, ImageFactory imageFactory, JsonConverter jsonConverter, CookieChecker cookieChecker, TokenSetter tokenSetter, ShopMapper shopMapper) {
         this.shopService = shopService;
         this.imageFactory = imageFactory;
+        this.jsonConverter = jsonConverter;
+        this.cookieChecker = cookieChecker;
+        this.tokenSetter = tokenSetter;
+        this.shopMapper = shopMapper;
+    }
+
+    @RequestMapping(value = "shop/navigation")
+    public String getNavigation(HttpServletResponse response)
+    {
+        response.setContentType("text/html;charset=utf-8");
+        return "business/shopNavigation";
     }
 
     //跳转店铺页面
@@ -97,6 +121,38 @@ public class ShopController {
         shop.setPhonenumber(phone);
         String resp = shopService.updateShopInformation(shop, request.getHeader("token"));
         return new Status(resp);
+    }
+
+    @RequestMapping(value="shop/newOrder")
+    public ModelAndView getNewOrder(Integer page,HttpServletRequest request)
+    {
+        String token= cookieChecker.getToken(request.getCookies());
+        int userId= tokenSetter.getToken(token).getId();
+        int shopId=shopMapper.selectByOwner(userId).getId();
+        if(page==null)page=1;
+        int pageSize=5;
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("business/newOrderList");
+        List<OrderWithDetail> orderDetails =shopService.getShopNewOrder(shopId,page*pageSize,pageSize);
+        modelAndView.addObject("shopId",shopId);
+        modelAndView.addObject("data",jsonConverter.OrdeDetailToJSON(orderDetails));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "shop/historyOrder")
+    public ModelAndView getHistoryOrder(Integer page,HttpServletRequest request)
+    {
+        String token= cookieChecker.getToken(request.getCookies());
+        int userId= tokenSetter.getToken(token).getId();
+        int shopId=shopMapper.selectByOwner(userId).getId();
+        if(page==null)page=1;
+        int pageSize=5;
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("business/historyOrderList");
+        List<OrderWithDetail> orderDetails =shopService.getShopSendedOrder(shopId,page*pageSize,pageSize);
+        modelAndView.addObject("shopId",shopId);
+        modelAndView.addObject("data",jsonConverter.OrdeDetailToJSON(orderDetails));
+        return modelAndView;
     }
 
     //设置店铺图标

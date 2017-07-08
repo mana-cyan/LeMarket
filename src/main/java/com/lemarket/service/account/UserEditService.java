@@ -70,6 +70,7 @@ public class UserEditService {
         newAddress.setAddress(address);
         newAddress.setPhonenumber(phone);
         newAddress.setName(name);
+        newAddress.setStatus(1);
         return addressMapper.insert(newAddress);
     }
 

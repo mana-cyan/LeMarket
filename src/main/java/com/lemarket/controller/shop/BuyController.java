@@ -6,6 +6,7 @@ import com.lemarket.data.reponseObject.Status;
 import com.lemarket.service.utils.CommoditySearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,7 +37,12 @@ public class BuyController {
         this.orderinfoMapper = orderinfoMapper;
         this.orderdetailsMapper = orderdetailsMapper;
         this.receiveinfoMapper = receiveinfoMapper;
+    }
 
+    @RequestMapping(value = "pay")
+    public String pay(int id, String type, int count, Model model) {
+
+        return "user/pay";
     }
 
     @RequestMapping(value = "pay", method = RequestMethod.POST)

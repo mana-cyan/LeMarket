@@ -65,27 +65,26 @@ function addCommodity(category, shopId) {
 
 function addCommodityType(commodityId) {
     var types = commodityTypes.find('input');
-    var typeList = [];
-    var str = "{'id': commodityId,";
+    var status = true;
     for (var i = 0; i < types.length; i++) {
-        typeList[i] = $(types[i]).val();
-        str +="'type':" + $(types[i]).val()
+        $.ajax({
+            type: 'post',
+            url: 'addCommodityType',
+            data: {
+                'id': commodityId,
+                'type': $(types[i]).val()
+            },
+            headers: { 'token': Cookie.getToken() },
+            success: function (data) {
+                console.log('保存成功')
+            },
+            error: function () {
+                status = false;
+                console.log('Cannot add commodity type')
+            }
+        });
     }
-    str += "}";
-    console.log(typeList)
-    $.ajax({
-        type: 'post',
-        url: 'addCommodityType',
-        data: str,
-        headers: { 'token': Cookie.getToken() },
-        success: function (data) {
-            if (data.status === 'SUCCESS')
-                alert('保存成功')
-        },
-        error: function () {
-            console.log('Cannot add commodity type')
-        }
-    })
+    if (status) alert('保存成功')
 }
 
 

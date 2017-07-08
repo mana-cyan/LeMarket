@@ -152,8 +152,8 @@
 
                 </div>
                 <div style="margin-top:20px;">
-                    <button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;border-radius:5px;"><a href="../user/pay.jsp">立即购买</a></button>
-                    <button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;margin-left:10px;border-radius:5px;" class="buyBtn">加入购物车</button>
+                    <a href="pay"><button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;border-radius:5px;">立即购买</button></a>
+                    <a href="want"><button style="color:#fff;background-color:#F10180;font-size:25px;padding:10px;margin-left:10px;border-radius:5px;" class="buyBtn">加入购物车</button></a>
                     <img id="thumbs" src="${pageContext.request.contextPath}/static/images/product/arrival/3.jpg"  class="buyGoodsOri" style="margin-left:-100px;z-index:-1;position:absolute;width:30px;height:40px;margin-top:-50px;">
                 </div>
             </div>

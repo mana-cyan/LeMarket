@@ -41,7 +41,10 @@ public class BuyController {
 
     @RequestMapping(value = "pay")
     public String pay(int id, String type, int count, Model model) {
-
+        CommodityWithShop commodityWithShop = commoditySearch.commodityWithShopById(id);
+        model.addAttribute("commodity", commodityWithShop);
+        model.addAttribute("type",type);
+        model.addAttribute("count",count);
         return "user/pay";
     }
 

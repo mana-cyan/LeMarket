@@ -98,3 +98,19 @@ function loadComponents() {
 }
 
 $(document).ready(loadComponents());
+
+function payForm(id, type, count) {
+    var form = $("<form action='pay' method='get'></form>")
+    var input_id = $("<input type='text' name='id'>");
+    input_id.attr("value", id);
+    form.append(input_id);
+    var input_type = $("<input type='text' name='type'>");
+    input_type.attr("value", type);
+    form.append(input_type);
+    var input_count = $("<input type='text' name='count'>");
+    input_count.attr("value", count);
+    form.append(input_count);
+    form.css("display", "none");
+    form.appendTo("body");
+    form.submit();
+}

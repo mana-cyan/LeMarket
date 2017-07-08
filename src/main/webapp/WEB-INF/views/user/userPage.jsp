@@ -412,6 +412,8 @@
 <!-- Load Toolbar -->
 <script src="${pageContext.request.contextPath}/static/js/request/toolBar.js"></script>
 
+<script src="${pageContext.request.contextPath}/static/js/request/picture.js"></script>
+
 <script src="${pageContext.request.contextPath}/static/js/request/userPage.js"></script>
 
 </body>

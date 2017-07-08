@@ -82,7 +82,7 @@
         <jsp:include page="/getToolBar"/>
     </header>
 
-    <div id="searchList" value="${list}" class="container">
+    <div id="searchList" class="container">
         <div class="new-arrival-area" style="margin-top:30px;">
             <div class="container">
                 <div class="row rp-style-2">
@@ -94,241 +94,13 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="product-inner col-md-3">
-                        <a href="../commodity/commodityDetails.jsp">
-                            <div class="product-img b-img">
-                                <img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" alt="">
-                            </div>
-                        </a>
-                        <span class="product-tag text-uppercase orang-bg" style="margin-left:14px;">-20%</span>
-
-                        <div class="product-text">
-                            <ul class="pull-left list-inline ratings">
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                            </ul>
-                            <ul class="pricing list-inline pull-right">
-                                <li class="text-right c-price">$170</li>
-                                <li class="text-right p-price">$190</li>
-                            </ul>
-                            <div class="clear"></div>
-                            <h6 class="product-name">
-                                <a href="../commodity/commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="product-inner col-md-3">
-                        <a href="../commodity/commodityDetails.jsp">
-                            <div class="product-img b-img">
-                                <img src="${pageContext.request.contextPath}/static/images/product/arrival/2.jpg" alt="">
-                            </div>
-                        </a>
-                        <span class="product-tag text-uppercase orang-bg" style="margin-left:14px;">-20%</span>
-
-                        <div class="product-text">
-                            <ul class="pull-left list-inline ratings">
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                            </ul>
-                            <ul class="pricing list-inline pull-right">
-                                <li class="text-right c-price">$170</li>
-                                <li class="text-right p-price">$190</li>
-                            </ul>
-                            <div class="clear"></div>
-                            <h6 class="product-name">
-                                <a href="../commodity/commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="product-inner col-md-3">
-                        <a href="../commodity/commodityDetails.jsp">
-                            <div class="product-img b-img">
-                                <img src="${pageContext.request.contextPath}/static/images/product/arrival/3.jpg" alt="">
-                            </div>
-                        </a>
-                        <span class="product-tag text-uppercase orang-bg" style="margin-left:14px;">-20%</span>
-
-                        <div class="product-text">
-                            <ul class="pull-left list-inline ratings">
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                            </ul>
-                            <ul class="pricing list-inline pull-right">
-                                <li class="text-right c-price">$170</li>
-                                <li class="text-right p-price">$190</li>
-                            </ul>
-                            <div class="clear"></div>
-                            <h6 class="product-name">
-                                <a href="../commodity/commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="product-inner col-md-3">
-                        <a href="../commodity/commodityDetails.jsp">
-                            <div class="product-img b-img">
-                                <img src="${pageContext.request.contextPath}/static/images/product/arrival/4.jpg" alt="">
-                            </div>
-                        </a>
-                        <span class="product-tag text-uppercase orang-bg" style="margin-left:14px;">-20%</span>
-
-                        <div class="product-text">
-                            <ul class="pull-left list-inline ratings">
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                            </ul>
-                            <ul class="pricing list-inline pull-right">
-                                <li class="text-right c-price">$170</li>
-                                <li class="text-right p-price">$190</li>
-                            </ul>
-                            <div class="clear"></div>
-                            <h6 class="product-name">
-                                <a href="../commodity/commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="product-inner col-md-3">
-                        <a href="../commodity/commodityDetails.jsp">
-                            <div class="product-img b-img">
-                                <img src="${pageContext.request.contextPath}/static/images/product/arrival/5.jpg" alt="">
-                            </div>
-                        </a>
-                        <span class="product-tag text-uppercase orang-bg" style="margin-left:14px;">-20%</span>
-
-                        <div class="product-text">
-                            <ul class="pull-left list-inline ratings">
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                            </ul>
-                            <ul class="pricing list-inline pull-right">
-                                <li class="text-right c-price">$170</li>
-                                <li class="text-right p-price">$190</li>
-                            </ul>
-                            <div class="clear"></div>
-                            <h6 class="product-name">
-                                <a href="../commodity/commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="product-inner col-md-3">
-                        <a href="../commodity/commodityDetails.jsp">
-                            <div class="product-img b-img">
-                                <img src="${pageContext.request.contextPath}/static/images/product/arrival/6.jpg" alt="">
-                            </div>
-                        </a>
-                        <span class="product-tag text-uppercase orang-bg" style="margin-left:14px;">-20%</span>
-
-                        <div class="product-text">
-                            <ul class="pull-left list-inline ratings">
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                            </ul>
-                            <ul class="pricing list-inline pull-right">
-                                <li class="text-right c-price">$170</li>
-                                <li class="text-right p-price">$190</li>
-                            </ul>
-                            <div class="clear"></div>
-                            <h6 class="product-name">
-                                <a href="../commodity/commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="product-inner col-md-3">
-                        <a href="../commodity/commodityDetails.jsp">
-                            <div class="product-img b-img">
-                                <img src="${pageContext.request.contextPath}/static/images/product/arrival/7.jpg" alt="">
-                            </div>
-                        </a>
-                        <span class="product-tag text-uppercase orang-bg" style="margin-left:14px;">-20%</span>
-
-                        <div class="product-text">
-                            <ul class="pull-left list-inline ratings">
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                            </ul>
-                            <ul class="pricing list-inline pull-right">
-                                <li class="text-right c-price">$170</li>
-                                <li class="text-right p-price">$190</li>
-                            </ul>
-                            <div class="clear"></div>
-                            <h6 class="product-name">
-                                <a href="../commodity/commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="product-inner col-md-3">
-                        <a href="../commodity/commodityDetails.jsp">
-                            <div class="product-img b-img">
-                                <img src="${pageContext.request.contextPath}/static/images/product/arrival/8.jpg" alt="">
-                            </div>
-                        </a>
-                        <span class="product-tag text-uppercase orang-bg" style="margin-left:14px;">-20%</span>
-
-                        <div class="product-text">
-                            <ul class="pull-left list-inline ratings">
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                                <li><i class="rated fa fa-star"></i></li>
-                            </ul>
-                            <ul class="pricing list-inline pull-right">
-                                <li class="text-right c-price">$170</li>
-                                <li class="text-right p-price">$190</li>
-                            </ul>
-                            <div class="clear"></div>
-                            <h6 class="product-name">
-                                <a href="../commodity/commodityDetails.jsp" title="Eletria ostma">Teletria ostma</a>
-                            </h6>
-                        </div>
-                    </div>
+                <div class="row" id="table">
+                    <input type="hidden" id="type" value=${type}>
+                    <input type="hidden" id="categoryId" value=${categoryId}>
                 </div>
             </div>
 
-            <!-- 分页 -->
-            <nav aria-label="Page navigation" class="text-center">
-                <ul class="pagination" style="">
-                    <li style="width:30px;">
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;上一页</span>
-                        </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">...</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">下一页&raquo;</span>
-                        </a>
-                    </li>
-                    <span style="margin-top:10px;margin-left:20px;">共<span>100</span>页,</span>
-                    <span style="margin-top:10px;">跳转到<input style="width:40px;height:30px;margin:0 5px;" value="1">页<input type="button" value="确定" style="width:40px;height:30px;margin:0 5px;padding:3px;background-color:#eee;"></span>
-                </ul>
-            </nav>
-            <!-- 分页结束************************************* -->
+            <jsp:include page="/admin/panel"/>
         </div>
 
     </div>
@@ -391,6 +163,12 @@
 <script src="${pageContext.request.contextPath}/static/js/loginAndRegister/cookie.js"></script>
 
 <script src="${pageContext.request.contextPath}/static/js/request/toolBar.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/admin/panelPage.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/request/picture.js"></script>
+
+<script src="${pageContext.request.contextPath}/static/js/request/dataShow.js"></script>
 
 </body>
 

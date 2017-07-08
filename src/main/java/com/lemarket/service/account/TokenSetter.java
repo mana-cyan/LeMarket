@@ -52,6 +52,11 @@ public class TokenSetter {
         return addTokenToTable(username);
     }
 
+    public Token getToken(String token)
+    {
+        return tokenMapper.selectByToken(token);
+    }
+
     //根据邮箱获取token,若存在，直接返回，不存在或过期，创建新Token
     public TokenString newOrGetTokenByEmail(String email){
         Users users = userDataFactory.getUserByEmail(email);

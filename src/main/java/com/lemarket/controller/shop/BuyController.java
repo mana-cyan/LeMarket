@@ -27,24 +27,26 @@ public class BuyController {
     private final OrderdetailsMapper orderdetailsMapper;
 
     private final ReceiveinfoMapper receiveinfoMapper;
+    private final CommoditytypeMapper commoditytypeMapper
 
     @Autowired
     public BuyController(UsersMapper usersMapper, CommoditySearch commoditySearch,
                          TokenMapper tokenMapper, OrderinfoMapper orderinfoMapper,
-                         OrderdetailsMapper orderdetailsMapper, ReceiveinfoMapper receiveinfoMapper) {
+                         OrderdetailsMapper orderdetailsMapper, ReceiveinfoMapper receiveinfoMapper, CommoditytypeMapper commoditytypeMapper) {
         this.usersMapper = usersMapper;
         this.commoditySearch = commoditySearch;
         this.tokenMapper = tokenMapper;
         this.orderinfoMapper = orderinfoMapper;
         this.orderdetailsMapper = orderdetailsMapper;
         this.receiveinfoMapper = receiveinfoMapper;
+        this.commoditytypeMapper = commoditytypeMapper;
     }
 
     @RequestMapping(value = "pay")
-    public String pay(int id, String type, int count, Model model) {
+    public String pay(int id, int type, int count, Model model) {
         CommodityWithShop commodityWithShop = commoditySearch.commodityWithShopById(id);
         model.addAttribute("commodity", commodityWithShop);
-        model.addAttribute("type",type);
+        model.addAttribute("type",commoditytypeMapper.selectById(type));
         model.addAttribute("count",count);
         return "user/pay";
     }

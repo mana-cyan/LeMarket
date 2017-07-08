@@ -103,7 +103,7 @@
                 <div class="row" style="padding:10px;margin-top:20px;">
                     <table border="1" class="shdz">
                         <tr style="width:100%;">
-                            <td><input id="name" type="text" class="form-control" placeholder="姓名"></td>
+                            <td><input id="receiverName" type="text" class="form-control" placeholder="姓名"></td>
                             <td><input id="address" type="text" class="form-control" placeholder="地址"></td>
                             <td><input id="phoneNUmber" type="text" class="form-control" placeholder="手机号"></td>
                         </tr>
@@ -118,13 +118,13 @@
                 </div>
                 <div class="row" style="padding:10px;margin-top:20px;">
                     <div class="col-md-4" >
-                        <a id="commodityDetails" href="commodityDetails"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
+                        <a id="commodityDetails" value="${commodity.id}" href="#"><img src="${pageContext.request.contextPath}/static/images/product/arrival/1.jpg" style="width:30%;height:40%;"></a>
                     </div>
                     <div class="col-md-5" style="margin-top:20px;padding:20px;">
-                        <span id="commodityName">${commodityName}</span>
+                        <span id="commodityName">${commodity.name}</span>
                     </div>
                     <div class="col-md-3" style="margin-top:25px;padding:20px;">
-                        <h4 id="commodityPrice">￥${commodityPrice}</h4>
+                        <h4 id="commodityPrice">￥${commodity.price}</h4>
                     </div>
                 </div>
             </div>

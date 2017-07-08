@@ -50,8 +50,7 @@ public class BuyController {
 
     @RequestMapping(value = "pay", method = RequestMethod.POST)
     public Status saveOrder(Token token, String name, String address,
-                            String phoneNumber, String postCode,
-                            int id, int type, int count) {
+                            String phoneNumber, int id, int type, int count) {
         Orderdetails details = new Orderdetails();
         Orderinfo info = new Orderinfo();
         Receiveinfo receive = new Receiveinfo();
@@ -70,7 +69,7 @@ public class BuyController {
         receive.setName(name);
         receive.setAddress(address);
         receive.setPhonenumber(phoneNumber);
-        receive.setPostcode(postCode);
+        receive.setPostcode("000000");
         int insertReceive = receiveinfoMapper.insert(receive);
         receive.setId(receiveinfoMapper.selectLatest());
 

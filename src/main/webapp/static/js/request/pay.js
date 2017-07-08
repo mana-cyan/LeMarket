@@ -1,4 +1,4 @@
-var name = $('#name');
+var receiverName = $('#receiverNname');
 var address = $('#address');
 var phoneNumber = $('#phoneNumber');
 
@@ -23,3 +23,13 @@ var phoneNumber = $('#phoneNumber');
 
 // $(document).ready(loadReceiveInfo);
 
+function pay() {
+    var payData = {
+        'id': $('#commodityDetails').attr('value'),
+        'type': type,
+        'count': count,
+        'name': receiverName,
+        'address': address,
+        'phoneNumber': phoneNumber
+    }
+}
